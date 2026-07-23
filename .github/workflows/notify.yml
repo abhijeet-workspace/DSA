@@ -1,0 +1,266 @@
+name: Notify
+
+# Dynamic email notifications:
+#   - PR merged     → success template (green)
+#   - PR cancelled  → closed-without-merge template (amber)
+#   - CI failed     → failure template + log excerpt (red)
+#
+# Secrets: SMTP_SERVER, MAIL_USERNAME, MAIL_PASSWORD, MAIL_FROM
+# Optional: MAIL_BCC
+on:
+  pull_request:
+    types: [closed]
+  workflow_run:
+    workflows: ["CI"]
+    types: [completed]
+
+concurrency:
+  group: notify-${{ github.event_name }}-${{ github.event.pull_request.number || github.event.workflow_run.id }}
+  cancel-in-progress: false
+
+jobs:
+  email:
+    name: Send notification email
+    if: >
+      (github.event_name == 'pull_request') ||
+      (github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'failure')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: read
+      actions: read
+    steps:
+      - name: Checkout notifier scripts
+        uses: actions/checkout@v7
+        with:
+          # Always use default branch so scripts exist even if the feature branch is gone.
+          ref: ${{ github.event.repository.default_branch }}
+
+      - name: Resolve recipient and event context
+        id: ctx
+        env:
+          GH_TOKEN: ${{ github.token }}
+          EVENT_NAME: ${{ github.event_name }}
+          PR_MERGED: ${{ github.event.pull_request.merged }}
+          PR_LOGIN: ${{ github.event.pull_request.user.login }}
+          PR_NUMBER_IN: ${{ github.event.pull_request.number }}
+          PR_TITLE_IN: ${{ github.event.pull_request.title }}
+          PR_URL_IN: ${{ github.event.pull_request.html_url }}
+          PR_BASE: ${{ github.event.pull_request.base.ref }}
+          PR_HEAD: ${{ github.event.pull_request.head.ref }}
+          PR_MERGED_BY: ${{ github.event.pull_request.merged_by.login }}
+          PR_MERGE_SHA: ${{ github.event.pull_request.merge_commit_sha }}
+          PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          ACTOR: ${{ github.actor }}
+          WR_ID: ${{ github.event.workflow_run.id }}
+          WR_URL: ${{ github.event.workflow_run.html_url }}
+          WR_SHA: ${{ github.event.workflow_run.head_sha }}
+          WR_BRANCH: ${{ github.event.workflow_run.head_branch }}
+          WR_EVENT: ${{ github.event.workflow_run.event }}
+          WR_ACTOR: ${{ github.event.workflow_run.actor.login }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+
+          resolve_email() {
+            local login="$1" pr="${2:-}" sha="${3:-}"
+            local email=""
+
+            if [[ -n "$pr" ]]; then
+              email="$(gh api "repos/${REPO}/pulls/${pr}/commits" --jq '
+                map(.commit.author.email // empty)
+                | map(select(. != "" and (endswith("@users.noreply.github.com") | not)))
+                | .[0] // empty
+              ' || true)"
+              if [[ -z "$email" ]]; then
+                email="$(gh api "repos/${REPO}/pulls/${pr}/commits" --jq '
+                  map(.commit.author.email // empty)
+                  | map(select(. != "" and (endswith("@users.noreply.github.com") | not)))
+                  | .[-1] // empty
+                ' || true)"
+              fi
+            fi
+
+            if [[ -z "$email" && -n "$sha" ]]; then
+              email="$(gh api "repos/${REPO}/commits/${sha}" --jq '
+                .commit.author.email // empty
+              ' || true)"
+              if [[ "$email" == *@users.noreply.github.com ]]; then
+                email=""
+              fi
+            fi
+
+            if [[ -z "$email" ]]; then
+              email="$(gh api "users/${login}" --jq '.email // empty' || true)"
+            fi
+
+            printf '%s' "$email"
+          }
+
+          : > /tmp/failure.log
+
+          if [[ "$EVENT_NAME" == "pull_request" ]]; then
+            if [[ "$PR_MERGED" == "true" ]]; then
+              KIND="merged"
+              CLOSED_BY="${PR_MERGED_BY}"
+            else
+              KIND="cancelled"
+              CLOSED_BY="${ACTOR}"
+            fi
+
+            LOGIN="${PR_LOGIN}"
+            PR="${PR_NUMBER_IN}"
+            EMAIL="$(resolve_email "$LOGIN" "$PR" "${PR_HEAD_SHA}")"
+
+            {
+              echo "kind=${KIND}"
+              echo "login=${LOGIN}"
+              echo "email=${EMAIL}"
+              echo "pr_number=${PR}"
+              echo "pr_title<<EOF"
+              printf '%s\n' "${PR_TITLE_IN}"
+              echo "EOF"
+              echo "pr_url=${PR_URL_IN}"
+              echo "base_ref=${PR_BASE}"
+              echo "head_ref=${PR_HEAD}"
+              echo "author=${PR_LOGIN}"
+              echo "merged_by=${PR_MERGED_BY}"
+              echo "closed_by=${CLOSED_BY}"
+              echo "merge_sha=${PR_MERGE_SHA}"
+              echo "sha=${PR_HEAD_SHA}"
+              echo "branch=${PR_HEAD}"
+              echo "ci_event=pull_request"
+              echo "run_url="
+              echo "run_id="
+              echo "job_name="
+            } >> "$GITHUB_OUTPUT"
+
+          else
+            KIND="ci_failed"
+            RUN_ID="${WR_ID}"
+            RUN_URL="${WR_URL}"
+            SHA="${WR_SHA}"
+            BRANCH="${WR_BRANCH}"
+            CI_EVENT="${WR_EVENT}"
+            LOGIN="${WR_ACTOR}"
+
+            PR=""
+            PR_TITLE=""
+            PR_URL=""
+            PR_JSON="$(gh api "repos/${REPO}/commits/${SHA}/pulls" \
+              -H "Accept: application/vnd.github.groot-preview+json" \
+              --jq '.[0] // empty' || true)"
+            if [[ -n "$PR_JSON" && "$PR_JSON" != "null" ]]; then
+              PR="$(jq -r '.number // empty' <<<"$PR_JSON")"
+              PR_TITLE="$(jq -r '.title // empty' <<<"$PR_JSON")"
+              PR_URL="$(jq -r '.html_url // empty' <<<"$PR_JSON")"
+              LOGIN="$(jq -r '.user.login // empty' <<<"$PR_JSON")"
+            fi
+            [[ -z "${LOGIN}" ]] && LOGIN="${WR_ACTOR}"
+
+            EMAIL="$(resolve_email "$LOGIN" "${PR}" "$SHA")"
+
+            if gh run view "$RUN_ID" --repo "$REPO" --log-failed > /tmp/failure.log 2>/dev/null; then
+              # keep file
+              true
+            else
+              FAILED_NAMES="$(gh api "repos/${REPO}/actions/runs/${RUN_ID}/jobs" --jq '
+                [.jobs[] | select(.conclusion=="failure") | .name] | join(", ")
+              ' 2>/dev/null || echo "unknown")"
+              cat > /tmp/failure.log <<FAIL
+          Failed job(s): ${FAILED_NAMES}
+
+          Could not download the full log via CLI.
+          Open the workflow run for details:
+          ${RUN_URL}
+          FAIL
+              sed -i 's/^          //' /tmp/failure.log
+            fi
+
+            FAILED_JOB="$(gh api "repos/${REPO}/actions/runs/${RUN_ID}/jobs" --jq '
+              [.jobs[] | select(.conclusion=="failure") | .name] | .[0] // "CI"
+            ' 2>/dev/null || echo "CI")"
+
+            {
+              echo "kind=${KIND}"
+              echo "login=${LOGIN}"
+              echo "email=${EMAIL}"
+              echo "pr_number=${PR}"
+              echo "pr_title<<EOF"
+              printf '%s\n' "${PR_TITLE}"
+              echo "EOF"
+              echo "pr_url=${PR_URL}"
+              echo "base_ref="
+              echo "head_ref=${BRANCH}"
+              echo "author=${LOGIN}"
+              echo "merged_by="
+              echo "closed_by="
+              echo "merge_sha="
+              echo "sha=${SHA}"
+              echo "branch=${BRANCH}"
+              echo "ci_event=${CI_EVENT}"
+              echo "run_url=${RUN_URL}"
+              echo "run_id=${RUN_ID}"
+              echo "job_name=${FAILED_JOB}"
+            } >> "$GITHUB_OUTPUT"
+          fi
+
+          if [[ -z "${EMAIL}" ]]; then
+            echo "::error::Could not resolve a deliverable email for @${LOGIN}."
+            echo "Use a real git email in commits (not *@users.noreply.github.com)."
+            exit 1
+          fi
+
+          echo "kind=${KIND} recipient=${EMAIL} (@${LOGIN})"
+
+      - name: Build email bodies
+        id: mail
+        env:
+          KIND: ${{ steps.ctx.outputs.kind }}
+          LOGIN: ${{ steps.ctx.outputs.login }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ steps.ctx.outputs.pr_number }}
+          PR_TITLE: ${{ steps.ctx.outputs.pr_title }}
+          PR_URL: ${{ steps.ctx.outputs.pr_url }}
+          BASE_REF: ${{ steps.ctx.outputs.base_ref }}
+          HEAD_REF: ${{ steps.ctx.outputs.head_ref }}
+          AUTHOR: ${{ steps.ctx.outputs.author }}
+          MERGED_BY: ${{ steps.ctx.outputs.merged_by }}
+          CLOSED_BY: ${{ steps.ctx.outputs.closed_by }}
+          MERGE_SHA: ${{ steps.ctx.outputs.merge_sha }}
+          SHA: ${{ steps.ctx.outputs.sha }}
+          BRANCH: ${{ steps.ctx.outputs.branch }}
+          EVENT_NAME: ${{ steps.ctx.outputs.ci_event }}
+          RUN_URL: ${{ steps.ctx.outputs.run_url }}
+          RUN_ID: ${{ steps.ctx.outputs.run_id }}
+          JOB_NAME: ${{ steps.ctx.outputs.job_name }}
+        run: |
+          set -euo pipefail
+          if [[ -f /tmp/failure.log ]]; then
+            export FAILURE_LOG="$(cat /tmp/failure.log)"
+          else
+            export FAILURE_LOG=""
+          fi
+          chmod +x scripts/build-notify-email.sh
+          bash scripts/build-notify-email.sh
+          {
+            echo "subject<<SUBJECT_EOF"
+            cat /tmp/notify-subject.txt
+            echo "SUBJECT_EOF"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Send email
+        uses: dawidd6/action-send-mail@v4
+        with:
+          server_address: ${{ secrets.SMTP_SERVER }}
+          server_port: 465
+          secure: true
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
+          subject: ${{ steps.mail.outputs.subject }}
+          to: ${{ steps.ctx.outputs.email }}
+          bcc: ${{ secrets.MAIL_BCC }}
+          from: ${{ secrets.MAIL_FROM }}
+          priority: ${{ steps.ctx.outputs.kind == 'ci_failed' && 'high' || 'normal' }}
+          body: file:///tmp/notify-email.txt
+          html_body: file:///tmp/notify-email.html

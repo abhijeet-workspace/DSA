@@ -1,0 +1,25 @@
+# Compiled binaries and object files
+*.out
+*.o
+*.d
+*.exe
+*.bin
+a.out
+
+# IDE and System files
+.DS_Store
+.vscode/
+
+# Build and CMake directories
+build/
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+
+# Local archive (docs, legacy tools, REPO_TREE, interview packs)
+archive/
+
+# Python bytecode
+__pycache__/
+*.pyc

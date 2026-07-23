@@ -1,0 +1,9 @@
+build/
+.cache/
+.DS_Store
+*.o
+*.a
+*.dylib
+*.so
+.idea/
+.vscode/
