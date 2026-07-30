@@ -9,7 +9,7 @@ double myPow(double x, long long n) {
     }
     double ans = 1.0;
     while (n) {
-        if (n & 1) ans *= x; // multiply bit contribution
+        if (n & 1) ans *= x; // multiply bit contribution (LSB least significant bit)
         x *= x; // square base
         n >>= 1; // next bit
     }

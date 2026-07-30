@@ -3,6 +3,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <unordered_map>
 
 std::vector<int> twoSumBrute(const std::vector<int>& a, int target) {
     int n = static_cast<int>(a.size());
@@ -27,11 +28,27 @@ std::vector<int> twoSumSorted(const std::vector<int>& a, int target) {
     return {};
 }
 
+
+// Unsorted input; O(N) average — preserves original indices (LC 1).
+std::vector<int> twoSum(const std::vector<int>& nums, int target) {
+    std::unordered_map<int, int> seen; // value -> index
+    for (int i = 0; i < static_cast<int>(nums.size()); ++i) {
+        const int need = target - nums[static_cast<size_t>(i)];
+        auto it = seen.find(need);
+        if (it != seen.end()) return {it->second, i};
+        seen[nums[static_cast<size_t>(i)]] = i;
+    }
+    return {};
+}
+
 int main() {
     std::vector<int> list = {1, 5, 4, 6, 7, 2, 3};
     int target = 6;
     auto brute = twoSumBrute(list, target);
     std::cout << "brute [" << brute[0] << "," << brute[1] << "]\n";
+
+    auto hash = twoSum(list, target);
+    std::cout << "hash map [" << hash[0] << "," << hash[1] << "]\n";
 
     std::vector<int> sorted = list;
     std::sort(sorted.begin(), sorted.end());
