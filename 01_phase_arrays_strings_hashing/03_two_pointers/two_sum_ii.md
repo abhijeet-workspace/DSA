@@ -1,6 +1,6 @@
 # Two Sum II (Sorted)
-
 ## 1. Problem Statement
+[LeetCode 167](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/description/)
 Find two indices in a **sorted** ascending array whose values sum to `target`. Return any valid pair of indices (0-based here).
 
 - **Input:** sorted `nums`, integer `target`

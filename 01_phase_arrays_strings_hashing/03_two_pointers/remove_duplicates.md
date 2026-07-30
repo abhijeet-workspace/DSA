@@ -1,6 +1,8 @@
 # Remove Duplicates from Sorted Array
 
 ## 1. Problem Statement
+[LeetCode 26](https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/)
+
 In-place compact a sorted array so the first `k` slots are unique values in order; return `k`.
 
 - **Input:** sorted non-decreasing `nums`
