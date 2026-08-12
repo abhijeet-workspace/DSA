@@ -3,7 +3,7 @@
 ## Problem Statement
 [LeetCode 4](https://leetcode.com/problems/median-of-two-sorted-arrays/) — two sorted arrays; return median in O(log(min(m,n))) time.
 
-- **Inputs:** `vector<int> a`, `vector<int> b`.
+- **Inputs:** `vector<int> nums1`, `vector<int> nums2`.
 - **Output:** `double` median.
 - **Valid answer:** middle value (odd total) or average of two middles (even).
 - **Edges:** one array empty; highly uneven lengths; negatives.
@@ -16,16 +16,18 @@ Binary-partition the shorter array so left parts have `half = (m+n+1)/2` element
 - **Optimal:** partition BS on shorter — O(log(min(m,n))).
 
 ## Data Structure / Approach Justification
-**Chosen:** ensure `a` is shorter; search cut `i` with `j = half - i`; sentinels `INT_MIN`/`INT_MAX`.
+**File keeps both:**
+- **Brute** `findMedianSortedArraysBrute`: merge + `sort` + median formula.
+- **Optimal** `findMedianSortedArrays`: ensure `nums1` is shorter; search cut `partition1` with `partition2 = half - partition1`; sentinels `INT_MIN`/`INT_MAX`.
 
 - **vs merge:** simpler but fails the log-time constraint.
 - **vs k-th element recursion:** related; partition is standard LC answer.
 
 ## Logic Walkthrough
-If `aL <= bR && bL <= aR`, partitions correct → odd: `max(aL,bL)`; even: average with `min(aR,bR)`. If `aL > bR`, shrink `i`; else grow `i`.
+If `maxLeft1 <= minRight2 && maxLeft2 <= minRight1`, partitions correct → odd: `max(maxLeft1, maxLeft2)`; even: average with `min(minRight1, minRight2)`. If `maxLeft1 > minRight2`, shrink `partition1`; else grow `partition1`.
 
 ## Dry Run
-`a=[1,3]`, `b=[2]`:
+`nums1=[1,3]`, `nums2=[2]`:
 - half=2; valid cut yields median `2`
 
 ## Time & Space Complexity
