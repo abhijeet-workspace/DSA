@@ -27,6 +27,8 @@ While both sides live, place the larger at `k--`. Drain remaining `nums2` into f
 ## Dry Run
 `nums1=[1,2,3,0,0,0]`, `m=3`, `nums2=[2,5,6]`, `n=3` → `[1,2,2,3,5,6]`.
 
+Also: `m=0` → copy all of `nums2`; `n=0` → `nums1` unchanged.
+
 ## Time & Space Complexity
 Time **O(m+n)**. Space **O(1)** extra. Why: each element written once (section 4).
 
