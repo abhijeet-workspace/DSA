@@ -10,7 +10,8 @@ int singleNumber(const std::vector<int>& nums) {
 }
 
 int main() {
-    const std::vector<int> a = {4, 1, 2, 1, 2};
-    std::cout << singleNumber(a) << " (expected 4)\n";
+    std::cout << singleNumber({2, 2, 1}) << " (expected 1)\n"
+              << singleNumber({4, 1, 2, 1, 2}) << " (expected 4)\n"
+              << singleNumber({1}) << " (expected 1)\n";
     return 0;
 }
