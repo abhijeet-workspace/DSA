@@ -1,12 +1,12 @@
 # Activity Selection
 
 ## Problem Statement
-Classic interval scheduling: maximum number of non-overlapping activities. Related to [Non-overlapping Intervals](https://leetcode.com/problems/non-overlapping-intervals/).
+Classic interval scheduling (max keep) / [Non-overlapping Intervals](https://leetcode.com/problems/non-overlapping-intervals/) (min removals = `n − keep`).
 
-- **Inputs:** intervals `[start, end)`.
-- **Output:** max count of mutually non-overlapping intervals.
-- **Valid answer:** any max-size feasible subset’s size.
-- **Edges:** all overlap; touching endpoints; empty list.
+- **Inputs:** intervals `intervals[i] = [start, end]` (`vector<vector<int>>`).
+- **Output (LC 435):** minimum intervals to remove so the rest are non-overlapping.
+- **Note:** touching endpoints (`end == next.start`) are non-overlapping.
+- **Edges:** all overlap; identical intervals; already non-overlapping.
 
 ## Intuition
 Always take the interval that finishes earliest among remaining — it leaves the most room for future choices (exchange argument).
@@ -22,10 +22,10 @@ Always take the interval that finishes earliest among remaining — it leaves th
 - **vs sort by start:** not always optimal.
 
 ## Logic Walkthrough
-Sort by end ascending. Take first; for each next, take if `start >= lastEnd`, update `lastEnd`.
+Sort by `end` ascending. Greedily keep if `start >= lastEnd`; answer = `n − keep`.
 
 ## Dry Run
-`[1,3],[2,4],[3,5],[0,6]` → take `[1,3]` then `[3,5]` → count 2.
+`[[1,2],[2,3],[3,4],[1,3]]` → keep `[1,2],[2,3],[3,4]` → remove `1`.
 
 ## Time & Space Complexity
 Time **O(N log N)** sort. Space **O(1)** extra (aside from sort). Why: greedy after ordering by finish (section 4).
