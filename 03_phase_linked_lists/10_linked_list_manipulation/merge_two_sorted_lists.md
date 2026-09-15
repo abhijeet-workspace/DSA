@@ -1,6 +1,6 @@
 # Merge Two Sorted Lists
 
-## Problem Statement
+## 1. Problem Statement
 [LeetCode 21](https://leetcode.com/problems/merge-two-sorted-lists/) — merge two sorted singly linked lists into one sorted list by reusing existing nodes.
 
 - **Inputs:** `list1`, `list2` (sorted non-decreasing).
@@ -8,36 +8,41 @@
 - **Valid answer:** all nodes from both lists in sorted order.
 - **Edges:** one/both empty; one exhausted early; duplicates.
 
-## Intuition
+## 2. Intuition
 Same as mergesort merge: always take the smaller current head; splice the leftover chain at the end.
 
-## Brute Force → Optimal
+## 3. Brute Force → Optimal
 - **Brute:** collect values, sort, rebuild — O((N+M) log(N+M)).
 - **Optimal:** dummy + two-pointer splice — O(N+M), O(1) extra.
 
-## Data Structure / Approach Justification
+## 4. Data Structure / Approach Justification
 **Chosen:** iterative dummy head / `tail` pointer.
 
-- **vs recursion:** elegant but O(N+M) stack.
-- **vs rebuild values:** wastes time and allocations.
+| Alternative | Why we skip it here |
+|-------------|---------------------|
+| Recursion | Elegant but O(N+M) stack |
+| Rebuild values | Wastes time and allocations |
 
-## Logic Walkthrough
-While both non-null, attach the smaller node to `tail` and advance that list. After loop, `tail->next` gets whichever list remains. Return `dummy.next`.
+## 5. Logic Walkthrough
+1. While both non-null, attach the smaller node to `tail` and advance that list.
+2. After loop, `tail->next` gets whichever list remains.
+3. Return `dummy.next`.
 
-## Dry Run
+## 6. Dry Run
 `1→3→5` and `2→4→6`: pick 1,2,3,4,5 then attach 6 → `1→2→3→4→5→6`.
 
-## Time & Space Complexity
-Time **O(N+M)**. Space **O(1)** extra. Why: each node visited once; only pointers move (section 4).
+## 7. Time & Space Complexity
+- **Time:** O(N+M)
+- **Space:** O(1) extra
 
-## Trade-offs & Alternatives
+## 8. Trade-offs & Alternatives
 Recursive is shorter to write; iterative is safer for long lists.
 
-## Common Mistakes / Edge Cases
+## 9. Common Mistakes / Edge Cases
 Forgetting to link the remaining list; losing a node by advancing before linking; null inputs.
 
-## Interview Follow-ups / Variations
+## 10. Interview Follow-ups / Variations
 Merge K lists (LC 23); sort a list via mergesort; merge in reverse order.
 
-## Tags
-`linked-list`, `two-pointers`, `merge`, `dummy-node`, `difficulty:easy`
+## 11. Tags
+`linked-list`, `two-pointers`, `merge`, `dummy-node`, `leetcode-21`, `difficulty:easy`

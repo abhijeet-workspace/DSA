@@ -1,6 +1,6 @@
 # Design Search Autocomplete System
 
-## Problem Statement
+## 1. Problem Statement
 [LeetCode 642](https://leetcode.com/problems/design-search-autocomplete-system/) — autocomplete from historical sentences; each `input(c)` returns top-3 hottest matches for current prefix; `#` stores sentence and resets.
 
 - **Inputs:** initial sentences + times; stream of chars.
@@ -8,35 +8,35 @@
 - **Valid answer:** ASCII including spaces; `#` ends entry.
 - **Edges:** no matches; ties; new sentence.
 
-## Intuition
+## 2. Intuition
 Trie where each node stores hot map of sentences through it; query top-3 at current node.
 
-## Brute Force → Optimal
+## 3. Brute Force → Optimal
 - **Brute:** scan all sentences each keystroke — O(N·L).
 - **Optimal:** trie with hot maps — O(L + K log K) per key for K candidates at node.
 
-## Data Structure / Approach Justification
+## 4. Data Structure / Approach Justification
 **Chosen:** trie + per-node sentence frequency map.
 
 - **vs store only terminals + DFS collect:** more work per query.
 
-## Logic Walkthrough
+## 5. Logic Walkthrough
 `input`: append char, walk child; return top3 hot; on `#` increment sentence and reset.
 
-## Dry Run
+## 6. Dry Run
 Type `i` → hottest among sentences starting with i.
 
-## Time & Space Complexity
+## 7. Time & Space Complexity
 Build **O(Σ L)**. Query **O(L + K log K)**. Space **O(Σ L²)** worst with maps along path.
 
-## Trade-offs & Alternatives
+## 8. Trade-offs & Alternatives
 Keep only top-3 at each node to save memory (harder updates).
 
-## Common Mistakes / Edge Cases
+## 9. Common Mistakes / Edge Cases
 Not resetting on `#`; wrong tie-break; dead node after mismatch still accepting.
 
-## Interview Follow-ups / Variations
+## 10. Interview Follow-ups / Variations
 Prefix search; search suggestions system (1268).
 
-## Tags
+## 11. Tags
 `trie`, `design`, `heap`, `leetcode-642`, `difficulty:hard`
