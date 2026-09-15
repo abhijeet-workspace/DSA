@@ -1,5 +1,6 @@
-// Most Stones Removed with Same Row or Column — https://leetcode.com/problems/most-stones-removed-with-same-row-or-column/
-// Union row/col nodes per stone; removable = n - connected components.
+// Most Stones Removed with Same Row or Column —
+// https://leetcode.com/problems/most-stones-removed-with-same-row-or-column/ Union row/col nodes
+// per stone; removable = n - connected components.
 #include <iostream>
 #include <unordered_map>
 #include <vector>

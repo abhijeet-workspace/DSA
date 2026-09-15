@@ -10,7 +10,7 @@
 class WordDistance {
     std::unordered_map<std::string, std::vector<int>> pos_;
 
-public:
+  public:
     explicit WordDistance(const std::vector<std::string>& wordsDict) {
         for (int i = 0; i < static_cast<int>(wordsDict.size()); ++i) {
             pos_[wordsDict[static_cast<size_t>(i)]].push_back(i);
@@ -23,8 +23,10 @@ public:
         int i = 0, j = 0, best = INT_MAX / 4;
         while (i < static_cast<int>(a.size()) && j < static_cast<int>(b.size())) {
             best = std::min(best, std::abs(a[static_cast<size_t>(i)] - b[static_cast<size_t>(j)]));
-            if (a[static_cast<size_t>(i)] < b[static_cast<size_t>(j)]) ++i;
-            else ++j;
+            if (a[static_cast<size_t>(i)] < b[static_cast<size_t>(j)])
+                ++i;
+            else
+                ++j;
         }
         return best;
     }

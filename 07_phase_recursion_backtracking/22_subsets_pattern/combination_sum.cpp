@@ -3,8 +3,8 @@
 #include <iostream>
 #include <vector>
 
-void backtrack(const std::vector<int>& candidates, int remain, int index,
-               std::vector<int>& cur, std::vector<std::vector<int>>& result) {
+void backtrack(const std::vector<int>& candidates, int remain, int index, std::vector<int>& cur,
+               std::vector<std::vector<int>>& result) {
     if (remain == 0) {
         result.push_back(cur); // found a valid combo
         return;
@@ -19,8 +19,7 @@ void backtrack(const std::vector<int>& candidates, int remain, int index,
     backtrack(candidates, remain, index + 1, cur, result); // skip to next
 }
 
-std::vector<std::vector<int>> combinationSum(const std::vector<int>& candidates,
-                                             int target) {
+std::vector<std::vector<int>> combinationSum(const std::vector<int>& candidates, int target) {
     std::vector<std::vector<int>> result;
     std::vector<int> cur;
     backtrack(candidates, target, 0, cur, result);

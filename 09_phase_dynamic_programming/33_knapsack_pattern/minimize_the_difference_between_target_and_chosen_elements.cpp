@@ -1,4 +1,5 @@
-// Minimize the Difference Between Target and Chosen Elements — https://leetcode.com/problems/minimize-the-difference-between-target-and-chosen-elements/
+// Minimize the Difference Between Target and Chosen Elements —
+// https://leetcode.com/problems/minimize-the-difference-between-target-and-chosen-elements/
 #include <algorithm>
 #include <cmath>
 #include <iostream>
@@ -13,13 +14,15 @@ int minimizeTheDifference(std::vector<std::vector<int>>& mat, int target) {
         for (int s : reach) {
             for (int v : row) {
                 const int ns = s + v;
-                if (ns <= target + mx) next.insert(ns);
+                if (ns <= target + mx)
+                    next.insert(ns);
             }
         }
         reach.swap(next);
     }
     int best = 1e9;
-    for (int s : reach) best = std::min(best, std::abs(s - target));
+    for (int s : reach)
+        best = std::min(best, std::abs(s - target));
     return best;
 }
 

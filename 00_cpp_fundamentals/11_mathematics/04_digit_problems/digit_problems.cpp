@@ -1,7 +1,7 @@
 // Digit Problems — C++ fundamentals
 // Count/sum digits, reverse, palindrome, Armstrong.
-#include <iostream>
 #include <climits>
+#include <iostream>
 
 int countDigits(long long n) {
     if (n < 0) {
@@ -80,9 +80,7 @@ int main() {
     std::cout << "reverse(123) = " << reverseInt(123) << " (expected 321)\n";
     std::cout << "palindrome(121)? " << (isPalindromeNumber(121) ? "yes" : "no")
               << " (expected yes)\n";
-    std::cout << "armstrong(371)? " << (isArmstrong(371) ? "yes" : "no")
-              << " (expected yes)\n";
-    std::cout << "armstrong(123)? " << (isArmstrong(123) ? "yes" : "no")
-              << " (expected no)\n";
+    std::cout << "armstrong(371)? " << (isArmstrong(371) ? "yes" : "no") << " (expected yes)\n";
+    std::cout << "armstrong(123)? " << (isArmstrong(123) ? "yes" : "no") << " (expected no)\n";
     return 0;
 }

@@ -8,7 +8,8 @@ int totalHammingDistance(const std::vector<int>& nums) {
     int ans = 0;
     for (int b = 0; b < 32; ++b) {
         int c = 0;
-        for (int x : nums) c += (x >> b) & 1;
+        for (int x : nums)
+            c += (x >> b) & 1;
         ans += c * (n - c);
     }
     return ans;

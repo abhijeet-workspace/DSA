@@ -1,8 +1,8 @@
 // Sliding Window Maximum — https://leetcode.com/problems/sliding-window-maximum/
 // Return max of each contiguous window of size k.
+#include <deque>
 #include <iostream>
 #include <vector>
-#include <deque>
 
 std::vector<int> maxSlidingWindow(const std::vector<int>& nums, int k) {
     std::deque<int> dq; // indices, nums decreasing front→back

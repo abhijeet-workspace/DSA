@@ -39,7 +39,8 @@ bool bfs() {
 }
 
 bool dfs(int u) {
-    if (u == NIL) return true;
+    if (u == NIL)
+        return true;
     for (int v : g[static_cast<size_t>(u)]) {
         int u2 = pairV[static_cast<size_t>(v)];
         if (dist[static_cast<size_t>(u2)] == dist[static_cast<size_t>(u)] + 1 && dfs(u2)) {
@@ -59,7 +60,8 @@ int hopcroftKarp() {
     int matching = 0;
     while (bfs()) {
         for (int u = 1; u <= nL; ++u)
-            if (pairU[static_cast<size_t>(u)] == NIL && dfs(u)) ++matching;
+            if (pairU[static_cast<size_t>(u)] == NIL && dfs(u))
+                ++matching;
     }
     return matching;
 }

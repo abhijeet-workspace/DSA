@@ -49,11 +49,9 @@ int main() {
     n2->random = n1;
     n3->random = n2;
     Node* copyHead = copyRandomList(n1);
-    std::cout << "copy: " << copyHead->val << ", "
-              << copyHead->next->val << " random="
-              << copyHead->next->random->val << ", "
-              << copyHead->next->next->val << " random="
-              << copyHead->next->next->random->val
+    std::cout << "copy: " << copyHead->val << ", " << copyHead->next->val
+              << " random=" << copyHead->next->random->val << ", " << copyHead->next->next->val
+              << " random=" << copyHead->next->next->random->val
               << " (expected 7, 13 random=7, 11 random=13)\n";
     while (n1) {
         Node* t = n1;

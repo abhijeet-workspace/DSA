@@ -27,7 +27,8 @@ std::vector<int> mergeKSortedArrays(const std::vector<std::vector<int>>& arrays)
 
 int main() {
     auto r = mergeKSortedArrays({{1, 4, 7}, {2, 5, 8}, {3, 6, 9}});
-    for (int x : r) std::cout << x << " ";
+    for (int x : r)
+        std::cout << x << " ";
     std::cout << "(expected 1 2 3 4 5 6 7 8 9)\n";
     return 0;
 }

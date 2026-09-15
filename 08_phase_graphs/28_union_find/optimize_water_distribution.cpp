@@ -1,5 +1,6 @@
-// Optimize Water Distribution in a Village — https://leetcode.com/problems/optimize-water-distribution-in-a-village/
-// Min cost to supply water: dig wells and/or lay pipes. MST with virtual node 0 for wells.
+// Optimize Water Distribution in a Village —
+// https://leetcode.com/problems/optimize-water-distribution-in-a-village/ Min cost to supply water:
+// dig wells and/or lay pipes. MST with virtual node 0 for wells.
 #include <algorithm>
 #include <iostream>
 #include <numeric>
@@ -8,13 +9,14 @@
 class DSU {
     std::vector<int> p_, r_;
 
-public:
+  public:
     explicit DSU(int n) : p_(static_cast<size_t>(n)), r_(static_cast<size_t>(n), 0) {
         std::iota(p_.begin(), p_.end(), 0);
     }
     int find(int x) {
-        return p_[static_cast<size_t>(x)] == x ? x
-                                               : p_[static_cast<size_t>(x)] = find(p_[static_cast<size_t>(x)]);
+        return p_[static_cast<size_t>(x)] == x
+                   ? x
+                   : p_[static_cast<size_t>(x)] = find(p_[static_cast<size_t>(x)]);
     }
     bool unite(int a, int b) {
         a = find(a);

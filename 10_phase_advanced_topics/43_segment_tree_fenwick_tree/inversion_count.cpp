@@ -9,11 +9,13 @@ struct Fenwick {
     std::vector<int> bit;
     explicit Fenwick(int n) : n(n), bit(n + 1, 0) {}
     void add(int i, int v) {
-        for (; i <= n; i += i & -i) bit[i] += v;
+        for (; i <= n; i += i & -i)
+            bit[i] += v;
     }
     int sum(int i) const {
         int s = 0;
-        for (; i > 0; i -= i & -i) s += bit[i];
+        for (; i > 0; i -= i & -i)
+            s += bit[i];
         return s;
     }
 };

@@ -16,8 +16,7 @@ bool isValid(const std::string& s) {
         }
         const char top = st.top();
         st.pop();
-        if ((c == ')' && top != '(') || (c == '}' && top != '{') ||
-            (c == ']' && top != '[')) {
+        if ((c == ')' && top != '(') || (c == '}' && top != '{') || (c == ']' && top != '[')) {
             return false;
         }
     }
@@ -25,8 +24,7 @@ bool isValid(const std::string& s) {
 }
 
 int main() {
-    std::cout << std::boolalpha
-              << isValid("()[]{}") << " (expected true)\n"
+    std::cout << std::boolalpha << isValid("()[]{}") << " (expected true)\n"
               << isValid("(]") << " (expected false)\n"
               << isValid("({[]})") << " (expected true)\n";
     return 0;

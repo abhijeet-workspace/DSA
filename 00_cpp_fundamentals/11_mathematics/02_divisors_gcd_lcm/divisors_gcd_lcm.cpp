@@ -1,8 +1,8 @@
 // Divisors, GCD & LCM — C++ fundamentals
 // O(sqrt(n)) divisors, Euclidean gcd, lcm via gcd.
+#include <algorithm>
 #include <iostream>
 #include <vector>
-#include <algorithm>
 
 std::vector<long long> divisors(long long n) {
     std::vector<long long> d;

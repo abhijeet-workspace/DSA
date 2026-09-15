@@ -5,7 +5,8 @@
 #include <queue>
 #include <vector>
 
-int minimumTime(int n, const std::vector<std::vector<int>>& relations, const std::vector<int>& time) {
+int minimumTime(int n, const std::vector<std::vector<int>>& relations,
+                const std::vector<int>& time) {
     std::vector<std::vector<int>> adj(static_cast<size_t>(n + 1));
     std::vector<int> indeg(static_cast<size_t>(n + 1), 0);
     for (const auto& r : relations) {

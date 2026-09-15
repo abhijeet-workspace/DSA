@@ -1,5 +1,6 @@
-// Flatten Binary Tree to Linked List — https://leetcode.com/problems/flatten-binary-tree-to-linked-list/
-// In-place flatten to right-skewed list in preorder; left always null.
+// Flatten Binary Tree to Linked List —
+// https://leetcode.com/problems/flatten-binary-tree-to-linked-list/ In-place flatten to
+// right-skewed list in preorder; left always null.
 #include <iostream>
 #include <vector>
 
@@ -50,7 +51,8 @@ int main() {
     flatten(root);
     const auto vals = rightSpine(root);
     for (size_t i = 0; i < vals.size(); ++i) {
-        if (i) std::cout << ' ';
+        if (i)
+            std::cout << ' ';
         std::cout << vals[i];
     }
     std::cout << " (expected 1 2 3 4 5 6)\n";

@@ -8,14 +8,16 @@
 
 int openLock(const std::vector<std::string>& deadends, const std::string& target) {
     std::unordered_set<std::string> dead(deadends.begin(), deadends.end());
-    if (dead.count("0000")) return -1;
+    if (dead.count("0000"))
+        return -1;
     std::unordered_set<std::string> vis{{"0000"}};
     std::queue<std::pair<std::string, int>> q;
     q.push({"0000", 0});
     while (!q.empty()) {
         auto [cur, dist] = q.front();
         q.pop();
-        if (cur == target) return dist;
+        if (cur == target)
+            return dist;
         for (int i = 0; i < 4; ++i) {
             for (int d : {-1, 1}) {
                 std::string next = cur;

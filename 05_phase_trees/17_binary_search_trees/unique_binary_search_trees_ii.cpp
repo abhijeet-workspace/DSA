@@ -10,7 +10,8 @@ struct TreeNode {
 };
 
 std::vector<TreeNode*> build(int lo, int hi) {
-    if (lo > hi) return {nullptr};
+    if (lo > hi)
+        return {nullptr};
     std::vector<TreeNode*> ans;
     for (int mid = lo; mid <= hi; ++mid) {
         auto L = build(lo, mid - 1);
@@ -28,7 +29,8 @@ std::vector<TreeNode*> build(int lo, int hi) {
 }
 
 std::vector<TreeNode*> generateTrees(int n) {
-    if (n == 0) return {};
+    if (n == 0)
+        return {};
     return build(1, n);
 }
 

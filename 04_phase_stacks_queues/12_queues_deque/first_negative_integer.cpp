@@ -1,8 +1,8 @@
 // First Negative Integer in Every Window of Size K
 // For each window of size k, return the first negative (0 if none).
+#include <deque>
 #include <iostream>
 #include <vector>
-#include <deque>
 
 std::vector<int> firstNegative(const std::vector<int>& arr, int k) {
     std::deque<int> dq; // indices of negatives in window order

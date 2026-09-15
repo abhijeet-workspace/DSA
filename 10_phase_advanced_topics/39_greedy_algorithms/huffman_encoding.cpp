@@ -1,11 +1,11 @@
 // Huffman Encoding — optimal prefix-free codes via min-heap merges
 // Classic greedy compression (no LeetCode id).
 #include <iostream>
-#include <vector>
 #include <queue>
 #include <string>
 #include <unordered_map>
 #include <utility>
+#include <vector>
 
 struct HuffNode {
     char ch;
@@ -18,7 +18,8 @@ struct HuffNode {
 
 void collect(HuffNode* root, const std::string& code,
              std::vector<std::pair<char, std::string>>& out) {
-    if (!root) return;
+    if (!root)
+        return;
     if (!root->left && !root->right) {
         out.push_back({root->ch, code.empty() ? "0" : code}); // single-symbol edge
         return;
@@ -29,13 +30,17 @@ void collect(HuffNode* root, const std::string& code,
 
 std::vector<std::pair<char, std::string>> huffmanCodes(const std::string& text) {
     std::unordered_map<char, int> freq;
-    for (char c : text) ++freq[c];
+    for (char c : text)
+        ++freq[c];
     auto cmp = [](HuffNode* a, HuffNode* b) { return a->freq > b->freq; };
     std::priority_queue<HuffNode*, std::vector<HuffNode*>, decltype(cmp)> pq(cmp);
-    for (const auto& [ch, f] : freq) pq.push(new HuffNode(ch, f));
+    for (const auto& [ch, f] : freq)
+        pq.push(new HuffNode(ch, f));
     while (pq.size() > 1) {
-        HuffNode* L = pq.top(); pq.pop();
-        HuffNode* R = pq.top(); pq.pop();
+        HuffNode* L = pq.top();
+        pq.pop();
+        HuffNode* R = pq.top();
+        pq.pop();
         pq.push(new HuffNode(L->freq + R->freq, L, R)); // merge two lightest
     }
     std::vector<std::pair<char, std::string>> out;

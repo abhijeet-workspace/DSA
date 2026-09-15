@@ -43,8 +43,8 @@ long long contribution(const std::vector<int>& nums, bool want_max) {
 
     long long sum = 0;
     for (int i = 0; i < n; ++i) {
-        sum += static_cast<long long>(nums[static_cast<size_t>(i)]) *
-               left[static_cast<size_t>(i)] * right[static_cast<size_t>(i)];
+        sum += static_cast<long long>(nums[static_cast<size_t>(i)]) * left[static_cast<size_t>(i)] *
+               right[static_cast<size_t>(i)];
     }
     return sum;
 }

@@ -1,7 +1,7 @@
 // Cctype Demo — <cctype>
 // Validate password strength and sanitize/normalize free-form text input.
-#include <iostream>
 #include <cctype>
+#include <iostream>
 #include <string>
 
 bool validatePassword(const std::string& password) {
@@ -11,10 +11,14 @@ bool validatePassword(const std::string& password) {
     bool hasSpecial = false;
 
     for (char c : password) {
-        if (std::isupper(static_cast<unsigned char>(c))) hasUpper = true;
-        else if (std::islower(static_cast<unsigned char>(c))) hasLower = true;
-        else if (std::isdigit(static_cast<unsigned char>(c))) hasDigit = true;
-        else if (std::ispunct(static_cast<unsigned char>(c))) hasSpecial = true; // special symbols
+        if (std::isupper(static_cast<unsigned char>(c)))
+            hasUpper = true;
+        else if (std::islower(static_cast<unsigned char>(c)))
+            hasLower = true;
+        else if (std::isdigit(static_cast<unsigned char>(c)))
+            hasDigit = true;
+        else if (std::ispunct(static_cast<unsigned char>(c)))
+            hasSpecial = true; // special symbols
     }
 
     std::cout << "   Password Metrics for \"" << password << "\":\n";

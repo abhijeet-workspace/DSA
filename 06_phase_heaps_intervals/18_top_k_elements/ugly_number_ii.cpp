@@ -30,7 +30,6 @@ int nthUglyNumber(int n) {
 }
 
 int main() {
-    std::cout << nthUglyNumber(10) << " (expected 12)\n"
-              << nthUglyNumber(1) << " (expected 1)\n";
+    std::cout << nthUglyNumber(10) << " (expected 12)\n" << nthUglyNumber(1) << " (expected 1)\n";
     return 0;
 }

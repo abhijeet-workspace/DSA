@@ -9,7 +9,8 @@ int longestValidParentheses(std::string s) {
     std::vector<int> dp(n, 0);
     int ans = 0;
     for (int i = 1; i < n; ++i) {
-        if (s[static_cast<size_t>(i)] != ')') continue;
+        if (s[static_cast<size_t>(i)] != ')')
+            continue;
         if (s[static_cast<size_t>(i - 1)] == '(') {
             dp[static_cast<size_t>(i)] = (i >= 2 ? dp[static_cast<size_t>(i - 2)] : 0) + 2;
         } else {

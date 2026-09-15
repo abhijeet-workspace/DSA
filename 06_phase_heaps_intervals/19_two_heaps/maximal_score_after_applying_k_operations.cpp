@@ -1,5 +1,6 @@
-// Maximal Score After Applying K Operations — https://leetcode.com/problems/maximal-score-after-applying-k-operations/
-// Max-heap: score += x, replace with ceil(x/3), k times.
+// Maximal Score After Applying K Operations —
+// https://leetcode.com/problems/maximal-score-after-applying-k-operations/ Max-heap: score += x,
+// replace with ceil(x/3), k times.
 #include <cmath>
 #include <iostream>
 #include <queue>

@@ -19,7 +19,8 @@ std::vector<std::string> decode(const std::string& s) {
     size_t i = 0;
     while (i < s.size()) {
         size_t j = i;
-        while (j < s.size() && s[j] != '#') ++j;
+        while (j < s.size() && s[j] != '#')
+            ++j;
         int len = std::stoi(s.substr(i, j - i));
         out.push_back(s.substr(j + 1, len));
         i = j + 1 + len;
@@ -30,7 +31,8 @@ std::vector<std::string> decode(const std::string& s) {
 int main() {
     auto enc = encode({"Hello", "World", "", "a#b"});
     auto dec = decode(enc);
-    for (auto& x : dec) std::cout << "[" << x << "] ";
+    for (auto& x : dec)
+        std::cout << "[" << x << "] ";
     std::cout << "(expected [Hello] [World] [] [a#b])\n";
     return 0;
 }

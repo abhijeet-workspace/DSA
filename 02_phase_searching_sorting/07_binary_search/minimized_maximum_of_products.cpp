@@ -1,6 +1,7 @@
 // Minimized Maximum of Products Distributed to Any Store
 // https://leetcode.com/problems/minimized-maximum-of-products-distributed-to-any-store/
-// n stores; quantities[i] of product type i must go to distinct stores. Minimize max load of any store.
+// n stores; quantities[i] of product type i must go to distinct stores. Minimize max load of any
+// store.
 #include <algorithm>
 #include <iostream>
 #include <vector>

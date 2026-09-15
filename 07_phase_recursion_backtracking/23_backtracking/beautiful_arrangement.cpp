@@ -9,7 +9,8 @@ void dfs(int pos, int n, std::vector<bool>& used, int& count) {
         return;
     }
     for (int x = 1; x <= n; ++x) {
-        if (used[static_cast<size_t>(x)]) continue;
+        if (used[static_cast<size_t>(x)])
+            continue;
         if (x % pos == 0 || pos % x == 0) {
             used[static_cast<size_t>(x)] = true;
             dfs(pos + 1, n, used, count);

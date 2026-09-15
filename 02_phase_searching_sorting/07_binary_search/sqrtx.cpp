@@ -26,7 +26,6 @@ int mySqrt(int x) {
 }
 
 int main() {
-    std::cout << mySqrt(4) << " (expected 2)\n"
-              << mySqrt(8) << " (expected 2)\n";
+    std::cout << mySqrt(4) << " (expected 2)\n" << mySqrt(8) << " (expected 2)\n";
     return 0;
 }

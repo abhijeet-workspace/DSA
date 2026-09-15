@@ -1,5 +1,6 @@
-// Successful Pairs of Spells and Potions — https://leetcode.com/problems/successful-pairs-of-spells-and-potions/
-// Count potions with spell*potion >= success; sort potions and lower-bound per spell.
+// Successful Pairs of Spells and Potions —
+// https://leetcode.com/problems/successful-pairs-of-spells-and-potions/ Count potions with
+// spell*potion >= success; sort potions and lower-bound per spell.
 #include <algorithm>
 #include <iostream>
 #include <vector>

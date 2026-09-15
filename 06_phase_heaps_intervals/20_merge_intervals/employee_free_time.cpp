@@ -17,9 +17,8 @@ std::vector<Interval> employeeFreeTime(std::vector<std::vector<Interval>> schedu
             all.push_back(iv);
         }
     }
-    std::sort(all.begin(), all.end(), [](const Interval& a, const Interval& b) {
-        return a.start < b.start;
-    });
+    std::sort(all.begin(), all.end(),
+              [](const Interval& a, const Interval& b) { return a.start < b.start; });
     std::vector<Interval> free;
     int end = all[0].end;
     for (size_t i = 1; i < all.size(); ++i) {
@@ -35,9 +34,7 @@ std::vector<Interval> employeeFreeTime(std::vector<std::vector<Interval>> schedu
 
 int main() {
     std::vector<std::vector<Interval>> schedule = {
-        {Interval(1, 2), Interval(5, 6)},
-        {Interval(1, 3)},
-        {Interval(4, 10)}};
+        {Interval(1, 2), Interval(5, 6)}, {Interval(1, 3)}, {Interval(4, 10)}};
     const auto free = employeeFreeTime(schedule);
     for (const auto& iv : free) {
         std::cout << "[" << iv.start << "," << iv.end << "] ";

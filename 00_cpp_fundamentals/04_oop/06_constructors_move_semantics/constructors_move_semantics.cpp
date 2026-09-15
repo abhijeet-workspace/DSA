@@ -5,11 +5,11 @@
 #include <utility>
 
 class ResourceManager {
-private:
+  private:
     int* data;
     int size;
 
-public:
+  public:
     ResourceManager(int sz) : size(sz) {
         data = new int[size];
         for (int i = 0; i < size; i++) {
@@ -86,16 +86,16 @@ public:
 };
 
 class Base {
-public:
+  public:
     Base() { std::cout << "Base constructor." << std::endl; }
     virtual ~Base() { std::cout << "Base destructor." << std::endl; }
 };
 
 class Derived : public Base {
-private:
+  private:
     int* derivedData;
 
-public:
+  public:
     Derived() {
         derivedData = new int[100];
         std::cout << "Derived constructor: Allocated resource." << std::endl;

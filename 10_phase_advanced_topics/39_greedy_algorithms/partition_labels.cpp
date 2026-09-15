@@ -1,9 +1,9 @@
 // Partition Labels — https://leetcode.com/problems/partition-labels/
 // Extend each window to the farthest last-occurrence of chars inside it.
-#include <iostream>
-#include <vector>
-#include <string>
 #include <algorithm>
+#include <iostream>
+#include <string>
+#include <vector>
 
 std::vector<int> partitionLabels(const std::string& s) {
     int last[26]{};

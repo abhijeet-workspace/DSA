@@ -10,7 +10,8 @@ struct TreeNode {
 };
 
 int deepestLeavesSum(TreeNode* root) {
-    if (!root) return 0;
+    if (!root)
+        return 0;
     std::queue<TreeNode*> q;
     q.push(root);
     int sum = 0;
@@ -18,10 +19,13 @@ int deepestLeavesSum(TreeNode* root) {
         const int sz = static_cast<int>(q.size());
         sum = 0;
         for (int i = 0; i < sz; ++i) {
-            TreeNode* u = q.front(); q.pop();
+            TreeNode* u = q.front();
+            q.pop();
             sum += u->val;
-            if (u->left) q.push(u->left);
-            if (u->right) q.push(u->right);
+            if (u->left)
+                q.push(u->left);
+            if (u->right)
+                q.push(u->right);
         }
     }
     return sum;

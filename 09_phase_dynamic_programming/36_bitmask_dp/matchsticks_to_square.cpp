@@ -7,19 +7,25 @@
 
 bool makesquare(std::vector<int>& matchsticks) {
     const int total = std::accumulate(matchsticks.begin(), matchsticks.end(), 0);
-    if (total % 4) return false;
+    if (total % 4)
+        return false;
     const int side = total / 4;
     std::sort(matchsticks.begin(), matchsticks.end(), std::greater<int>());
-    if (matchsticks[0] > side) return false;
+    if (matchsticks[0] > side)
+        return false;
     std::vector<int> sides(4, 0);
     std::function<bool(int)> dfs = [&](int i) -> bool {
-        if (i == static_cast<int>(matchsticks.size())) return true;
+        if (i == static_cast<int>(matchsticks.size()))
+            return true;
         for (int s = 0; s < 4; ++s) {
-            if (sides[static_cast<size_t>(s)] + matchsticks[static_cast<size_t>(i)] > side) continue;
+            if (sides[static_cast<size_t>(s)] + matchsticks[static_cast<size_t>(i)] > side)
+                continue;
             sides[static_cast<size_t>(s)] += matchsticks[static_cast<size_t>(i)];
-            if (dfs(i + 1)) return true;
+            if (dfs(i + 1))
+                return true;
             sides[static_cast<size_t>(s)] -= matchsticks[static_cast<size_t>(i)];
-            if (sides[static_cast<size_t>(s)] == 0) break;
+            if (sides[static_cast<size_t>(s)] == 0)
+                break;
         }
         return false;
     };

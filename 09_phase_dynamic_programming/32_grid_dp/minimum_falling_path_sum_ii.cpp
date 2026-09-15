@@ -11,7 +11,9 @@ int minFallingPathSum(std::vector<std::vector<int>>& grid) {
         int m1 = std::numeric_limits<int>::max(), m2 = m1, i1 = -1;
         for (int c = 0; c < n; ++c) {
             if (dp[static_cast<size_t>(c)] < m1) {
-                m2 = m1; m1 = dp[static_cast<size_t>(c)]; i1 = c;
+                m2 = m1;
+                m1 = dp[static_cast<size_t>(c)];
+                i1 = c;
             } else if (dp[static_cast<size_t>(c)] < m2) {
                 m2 = dp[static_cast<size_t>(c)];
             }

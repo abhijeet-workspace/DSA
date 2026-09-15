@@ -4,7 +4,8 @@
 #include <vector>
 
 int atMost(const std::vector<int>& nums, int goal) {
-    if (goal < 0) return 0;
+    if (goal < 0)
+        return 0;
     int left = 0;
     int sum = 0;
     int count = 0;

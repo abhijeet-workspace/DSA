@@ -5,8 +5,7 @@
 #include <queue>
 #include <vector>
 
-std::vector<int> shortestPath(int V, const std::vector<std::vector<int>>& adj, int src,
-                              int dest) {
+std::vector<int> shortestPath(int V, const std::vector<std::vector<int>>& adj, int src, int dest) {
     std::vector<int> dist(V, -1);
     std::vector<int> parent(V, -1);
     std::queue<int> q;

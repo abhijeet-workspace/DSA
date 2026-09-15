@@ -4,7 +4,8 @@
 #include <vector>
 
 int numSubarrayProductLessThanK(const std::vector<int>& nums, int k) {
-    if (k <= 1) return 0;
+    if (k <= 1)
+        return 0;
     long long product = 1;
     int left = 0;
     int count = 0;
@@ -20,9 +21,7 @@ int numSubarrayProductLessThanK(const std::vector<int>& nums, int k) {
 }
 
 int main() {
-    std::cout << numSubarrayProductLessThanK({10, 5, 2, 6}, 100)
-              << " (expected 8)\n"
-              << numSubarrayProductLessThanK({1, 2, 3}, 0)
-              << " (expected 0)\n";
+    std::cout << numSubarrayProductLessThanK({10, 5, 2, 6}, 100) << " (expected 8)\n"
+              << numSubarrayProductLessThanK({1, 2, 3}, 0) << " (expected 0)\n";
     return 0;
 }

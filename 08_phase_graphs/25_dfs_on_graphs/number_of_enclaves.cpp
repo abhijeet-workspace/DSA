@@ -6,7 +6,8 @@
 void dfs(std::vector<std::vector<int>>& grid, int r, int c) {
     const int R = static_cast<int>(grid.size());
     const int C = static_cast<int>(grid[0].size());
-    if (r < 0 || c < 0 || r >= R || c >= C || grid[static_cast<size_t>(r)][static_cast<size_t>(c)] != 1)
+    if (r < 0 || c < 0 || r >= R || c >= C ||
+        grid[static_cast<size_t>(r)][static_cast<size_t>(c)] != 1)
         return;
     grid[static_cast<size_t>(r)][static_cast<size_t>(c)] = 0;
     dfs(grid, r + 1, c);
@@ -28,7 +29,8 @@ int numEnclaves(std::vector<std::vector<int>> grid) {
     }
     int count = 0;
     for (const auto& row : grid)
-        for (int x : row) count += x;
+        for (int x : row)
+            count += x;
     return count;
 }
 

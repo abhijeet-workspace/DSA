@@ -25,8 +25,7 @@ int main() {
     root->left = new TreeNode(4);
     root->right = new TreeNode(8);
     root->left->left = new TreeNode(11);
-    std::cout << std::boolalpha
-              << hasPathSum(root, 20) << " (expected true)\n"
+    std::cout << std::boolalpha << hasPathSum(root, 20) << " (expected true)\n"
               << hasPathSum(root, 10) << " (expected false)\n";
     delete root->left->left;
     delete root->left;

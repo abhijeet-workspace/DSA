@@ -8,8 +8,10 @@ std::string mergeAlternately(const std::string& word1, const std::string& word2)
     ans.reserve(word1.size() + word2.size());
     size_t i = 0, j = 0;
     while (i < word1.size() || j < word2.size()) {
-        if (i < word1.size()) ans.push_back(word1[i++]);
-        if (j < word2.size()) ans.push_back(word2[j++]);
+        if (i < word1.size())
+            ans.push_back(word1[i++]);
+        if (j < word2.size())
+            ans.push_back(word2[j++]);
     }
     return ans;
 }

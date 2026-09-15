@@ -1,22 +1,20 @@
 // Smart Pointers — unique_ptr, shared_ptr, weak_ptr
 // Exclusive vs shared ownership; break cycles with weak_ptr.
 #include <iostream>
+#include <memory>
 #include <string>
 #include <utility>
-#include <memory>
 
 class Node {
-public:
+  public:
     std::string name;
-    std::shared_ptr<Node> nextNode; // owning link (can form cycles)
+    std::shared_ptr<Node> nextNode;   // owning link (can form cycles)
     std::weak_ptr<Node> weakNextNode; // non-owning observer
 
     Node(std::string val) : name(std::move(val)) {
         std::cout << "Node \"" << name << "\" constructed.\n";
     }
-    ~Node() {
-        std::cout << "Node \"" << name << "\" destructed.\n";
-    }
+    ~Node() { std::cout << "Node \"" << name << "\" destructed.\n"; }
 };
 
 void demoUniquePtr() {
@@ -41,8 +39,7 @@ void demoSharedPtr() {
         std::shared_ptr<Node> node1 = std::make_shared<Node>("SharedNode1");
         std::cout << "Reference Count: " << node1.use_count() << "\n";
         sharedRef1 = node1; // bump ref count
-        std::cout << "Reference Count after copying to sharedRef1: "
-                  << node1.use_count() << "\n";
+        std::cout << "Reference Count after copying to sharedRef1: " << node1.use_count() << "\n";
     } // node1 drops; object lives via sharedRef1
     std::cout << "Reference Count outside scope: " << sharedRef1.use_count() << "\n";
 } // SharedNode1 destroyed here

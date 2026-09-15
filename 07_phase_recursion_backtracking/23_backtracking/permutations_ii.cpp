@@ -4,8 +4,8 @@
 #include <iostream>
 #include <vector>
 
-void backtrack(std::vector<int>& nums, std::vector<bool>& used,
-               std::vector<int>& path, std::vector<std::vector<int>>& result) {
+void backtrack(std::vector<int>& nums, std::vector<bool>& used, std::vector<int>& path,
+               std::vector<std::vector<int>>& result) {
     if (path.size() == nums.size()) {
         result.push_back(path);
         return;
@@ -15,8 +15,8 @@ void backtrack(std::vector<int>& nums, std::vector<bool>& used,
             continue;
         }
         // skip duplicate at same depth: only take first unused equal value
-        if (i > 0 && nums[static_cast<size_t>(i)] == nums[static_cast<size_t>(i - 1)]
-            && !used[static_cast<size_t>(i - 1)]) {
+        if (i > 0 && nums[static_cast<size_t>(i)] == nums[static_cast<size_t>(i - 1)] &&
+            !used[static_cast<size_t>(i - 1)]) {
             continue;
         }
         used[static_cast<size_t>(i)] = true;

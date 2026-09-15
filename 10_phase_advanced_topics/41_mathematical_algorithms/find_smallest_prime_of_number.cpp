@@ -21,7 +21,7 @@ int smallestNDigitPrime(int n) {
     for (int i = 0; i < n; ++i) {
         upper *= 10;
     }
-    --upper; // 10^n - 1
+    --upper;                                     // 10^n - 1
     int lower = (n == 1) ? 2 : (upper + 1) / 10; // 10^(n-1); skip 1 for n=1
     for (int num = lower; num <= upper; ++num) {
         if (isPrime(num)) {

@@ -21,7 +21,8 @@ int twoCitySchedCost(std::vector<std::vector<int>> costs) {
 
 int main() {
     std::cout << twoCitySchedCost({{10, 20}, {30, 200}, {400, 50}, {30, 20}}) << " (expected 110)\n"
-              << twoCitySchedCost({{259, 770}, {448, 54}, {926, 667}, {184, 139}, {840, 118}, {577, 469}})
+              << twoCitySchedCost(
+                     {{259, 770}, {448, 54}, {926, 667}, {184, 139}, {840, 118}, {577, 469}})
               << " (expected 1859)\n";
     return 0;
 }

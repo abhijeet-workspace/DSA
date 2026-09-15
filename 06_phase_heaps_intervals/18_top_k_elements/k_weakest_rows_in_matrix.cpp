@@ -34,11 +34,7 @@ std::vector<int> kWeakestRows(const std::vector<std::vector<int>>& mat, int k) {
 
 int main() {
     const std::vector<std::vector<int>> mat = {
-        {1, 1, 0, 0, 0},
-        {1, 1, 1, 1, 0},
-        {1, 0, 0, 0, 0},
-        {1, 1, 0, 0, 0},
-        {1, 1, 1, 1, 1},
+        {1, 1, 0, 0, 0}, {1, 1, 1, 1, 0}, {1, 0, 0, 0, 0}, {1, 1, 0, 0, 0}, {1, 1, 1, 1, 1},
     };
     const auto ans = kWeakestRows(mat, 3);
     for (size_t i = 0; i < ans.size(); ++i) {

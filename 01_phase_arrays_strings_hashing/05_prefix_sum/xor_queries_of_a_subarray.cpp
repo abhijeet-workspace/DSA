@@ -3,11 +3,13 @@
 #include <iostream>
 #include <vector>
 
-std::vector<int> xorQueries(const std::vector<int>& arr, const std::vector<std::vector<int>>& queries) {
+std::vector<int> xorQueries(const std::vector<int>& arr,
+                            const std::vector<std::vector<int>>& queries) {
     const int n = static_cast<int>(arr.size());
     std::vector<int> pref(static_cast<size_t>(n + 1), 0);
     for (int i = 0; i < n; ++i)
-        pref[static_cast<size_t>(i + 1)] = pref[static_cast<size_t>(i)] ^ arr[static_cast<size_t>(i)];
+        pref[static_cast<size_t>(i + 1)] =
+            pref[static_cast<size_t>(i)] ^ arr[static_cast<size_t>(i)];
 
     std::vector<int> ans;
     ans.reserve(queries.size());

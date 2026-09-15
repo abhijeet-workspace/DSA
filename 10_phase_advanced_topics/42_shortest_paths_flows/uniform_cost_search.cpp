@@ -18,7 +18,8 @@ std::vector<int> uniformCostSearch(int V, const std::vector<std::vector<std::pai
     while (!pq.empty()) {
         auto [cost, u] = pq.top();
         pq.pop();
-        if (cost > dist[u]) continue;
+        if (cost > dist[u])
+            continue;
         for (const auto& [v, w] : adj[u]) {
             if (dist[u] + w < dist[v]) {
                 dist[v] = dist[u] + w;

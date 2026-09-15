@@ -6,7 +6,8 @@
 
 std::string customSortString(const std::string& order, const std::string& s) {
     std::vector<int> freq(26, 0);
-    for (char c : s) ++freq[static_cast<size_t>(c - 'a')];
+    for (char c : s)
+        ++freq[static_cast<size_t>(c - 'a')];
     std::string out;
     out.reserve(s.size());
     for (char c : order) {

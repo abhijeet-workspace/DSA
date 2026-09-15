@@ -43,7 +43,7 @@ double maxProbability(int n, const std::vector<std::vector<int>>& edges,
 int main() {
     const std::vector<std::vector<int>> edges = {{0, 1}, {1, 2}, {0, 2}};
     const std::vector<double> prob = {0.5, 0.5, 0.2};
-    std::cout << std::fixed << std::setprecision(5)
-              << maxProbability(3, edges, prob, 0, 2) << " (expected 0.25000)\n";
+    std::cout << std::fixed << std::setprecision(5) << maxProbability(3, edges, prob, 0, 2)
+              << " (expected 0.25000)\n";
     return 0;
 }

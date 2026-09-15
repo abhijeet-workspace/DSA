@@ -1,8 +1,8 @@
 // Binary Tree Maximum Path Sum — https://leetcode.com/problems/binary-tree-maximum-path-sum/
 // Max sum of any non-empty node-to-node path (edges downward).
-#include <iostream>
 #include <algorithm>
 #include <climits>
+#include <iostream>
 
 struct TreeNode {
     int val;
@@ -18,7 +18,7 @@ int dfs(TreeNode* root, int& best) {
     const int leftGain = std::max(0, dfs(root->left, best)); // clamp negative
     const int rightGain = std::max(0, dfs(root->right, best));
     best = std::max(best, root->val + leftGain + rightGain); // path through root
-    return root->val + std::max(leftGain, rightGain); // one child upward
+    return root->val + std::max(leftGain, rightGain);        // one child upward
 }
 
 int maxPathSum(TreeNode* root) {

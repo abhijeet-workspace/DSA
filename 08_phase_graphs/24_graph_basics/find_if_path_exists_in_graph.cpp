@@ -5,7 +5,8 @@
 #include <vector>
 
 bool validPath(int n, const std::vector<std::vector<int>>& edges, int source, int destination) {
-    if (source == destination) return true;
+    if (source == destination)
+        return true;
     std::vector<std::vector<int>> adj(static_cast<size_t>(n));
     for (const auto& e : edges) {
         adj[static_cast<size_t>(e[0])].push_back(e[1]);
@@ -19,8 +20,10 @@ bool validPath(int n, const std::vector<std::vector<int>>& edges, int source, in
         int u = q.front();
         q.pop();
         for (int v : adj[static_cast<size_t>(u)]) {
-            if (vis[static_cast<size_t>(v)]) continue;
-            if (v == destination) return true;
+            if (vis[static_cast<size_t>(v)])
+                continue;
+            if (v == destination)
+                return true;
             vis[static_cast<size_t>(v)] = 1;
             q.push(v);
         }
@@ -29,8 +32,8 @@ bool validPath(int n, const std::vector<std::vector<int>>& edges, int source, in
 }
 
 int main() {
-    std::cout << std::boolalpha
-              << validPath(3, {{0, 1}, {1, 2}, {2, 0}}, 0, 2) << " (expected true)\n";
+    std::cout << std::boolalpha << validPath(3, {{0, 1}, {1, 2}, {2, 0}}, 0, 2)
+              << " (expected true)\n";
     std::cout << validPath(6, {{0, 1}, {0, 2}, {3, 5}, {5, 4}, {4, 3}}, 0, 5)
               << " (expected false)\n";
     return 0;

@@ -1,5 +1,6 @@
-// Find First and Last Position — https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/
-// Sorted nums; return [first, last] index of target, or [-1, -1].
+// Find First and Last Position —
+// https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/ Sorted
+// nums; return [first, last] index of target, or [-1, -1].
 #include <iostream>
 #include <vector>
 

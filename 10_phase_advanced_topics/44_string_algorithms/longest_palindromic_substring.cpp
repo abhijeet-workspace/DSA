@@ -7,9 +7,16 @@ std::string longestPalindrome(const std::string& s) {
     int n = static_cast<int>(s.size());
     int bestL = 0, bestR = 0;
     auto expand = [&](int l, int r) {
-        while (l >= 0 && r < n && s[l] == s[r]) { --l; ++r; }
-        ++l; --r;
-        if (r - l > bestR - bestL) { bestL = l; bestR = r; }
+        while (l >= 0 && r < n && s[l] == s[r]) {
+            --l;
+            ++r;
+        }
+        ++l;
+        --r;
+        if (r - l > bestR - bestL) {
+            bestL = l;
+            bestR = r;
+        }
     };
     for (int i = 0; i < n; ++i) {
         expand(i, i);

@@ -1,5 +1,6 @@
-// Range Sum of Sorted Subarray Sums — https://leetcode.com/problems/range-sum-of-sorted-subarray-sums/
-// Generate all subarray sums, sort, sum nums[left..right] (1-indexed) mod 1e9+7.
+// Range Sum of Sorted Subarray Sums —
+// https://leetcode.com/problems/range-sum-of-sorted-subarray-sums/ Generate all subarray sums,
+// sort, sum nums[left..right] (1-indexed) mod 1e9+7.
 #include <algorithm>
 #include <iostream>
 #include <vector>

@@ -12,7 +12,8 @@ std::vector<int> countBits(int n) {
 }
 
 int main() {
-    for (int x : countBits(5)) std::cout << x << " ";
+    for (int x : countBits(5))
+        std::cout << x << " ";
     std::cout << "(expected 0 1 1 2 1 2)\n";
     return 0;
 }

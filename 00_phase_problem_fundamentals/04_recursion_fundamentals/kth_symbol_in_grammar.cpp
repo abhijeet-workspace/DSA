@@ -2,11 +2,13 @@
 #include <iostream>
 
 int kthGrammar(int n, int k) {
-    if (n == 1) return 0;
+    if (n == 1)
+        return 0;
     int parent = kthGrammar(n - 1, (k + 1) / 2);
     // parent 0 → children 0,1 ; parent 1 → children 1,0
     bool leftChild = (k % 2 == 1);
-    if (parent == 0) return leftChild ? 0 : 1;
+    if (parent == 0)
+        return leftChild ? 0 : 1;
     return leftChild ? 1 : 0;
 }
 

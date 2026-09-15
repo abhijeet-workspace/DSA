@@ -1,5 +1,6 @@
-// Letter Combinations of a Phone Number — https://leetcode.com/problems/letter-combinations-of-a-phone-number/
-// Map digits 2–9 to letters; return all length-|digits| strings.
+// Letter Combinations of a Phone Number —
+// https://leetcode.com/problems/letter-combinations-of-a-phone-number/ Map digits 2–9 to letters;
+// return all length-|digits| strings.
 #include <iostream>
 #include <string>
 #include <vector>
@@ -16,7 +17,8 @@ void backtrack(const std::string& digits, int index, std::string& current,
         result.push_back(current); // one full mapping
         return;
     }
-    const std::string& letters = kKeypad[static_cast<size_t>(digits[static_cast<size_t>(index)] - '0')];
+    const std::string& letters =
+        kKeypad[static_cast<size_t>(digits[static_cast<size_t>(index)] - '0')];
     for (char c : letters) {
         current.push_back(c);
         backtrack(digits, index + 1, current, result);

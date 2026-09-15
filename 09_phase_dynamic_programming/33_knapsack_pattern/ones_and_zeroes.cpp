@@ -8,7 +8,8 @@ int findMaxForm(std::vector<std::string>& strs, int m, int n) {
     std::vector<std::vector<int>> dp(m + 1, std::vector<int>(n + 1, 0));
     for (const auto& s : strs) {
         int zeros = 0, ones = 0;
-        for (char c : s) (c == '0' ? zeros : ones)++;
+        for (char c : s)
+            (c == '0' ? zeros : ones)++;
         for (int i = m; i >= zeros; --i) {
             for (int j = n; j >= ones; --j) {
                 dp[static_cast<size_t>(i)][static_cast<size_t>(j)] =

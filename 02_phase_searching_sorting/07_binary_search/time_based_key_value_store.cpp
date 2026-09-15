@@ -1,15 +1,15 @@
 // Time Based Key-Value Store — https://leetcode.com/problems/time-based-key-value-store/
 // set appends (timestamp, value); get binary-searches latest timestamp <= query.
 #include <iostream>
-#include <unordered_map>
-#include <vector>
 #include <string>
+#include <unordered_map>
 #include <utility>
+#include <vector>
 
 class TimeMap {
     std::unordered_map<std::string, std::vector<std::pair<int, std::string>>> store;
 
-public:
+  public:
     void set(const std::string& key, const std::string& value, int timestamp) {
         store[key].push_back({timestamp, value});
     }
@@ -39,8 +39,7 @@ public:
 int main() {
     TimeMap tm;
     tm.set("foo", "bar", 1);
-    std::cout << tm.get("foo", 1) << " (expected bar)\n"
-              << tm.get("foo", 3) << " (expected bar)\n";
+    std::cout << tm.get("foo", 1) << " (expected bar)\n" << tm.get("foo", 3) << " (expected bar)\n";
     tm.set("foo", "bar2", 4);
     std::cout << tm.get("foo", 4) << " (expected bar2)\n";
     return 0;

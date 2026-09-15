@@ -22,7 +22,8 @@ std::vector<int> productExceptSelf(const std::vector<int>& nums) {
 int main() {
     auto ans = productExceptSelf({1, 2, 3, 4});
     std::cout << "productExceptSelf:";
-    for (int x : ans) std::cout << " " << x;
+    for (int x : ans)
+        std::cout << " " << x;
     std::cout << " (expected 24 12 8 6)\n";
     return 0;
 }

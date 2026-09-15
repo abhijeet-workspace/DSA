@@ -4,8 +4,8 @@
 #include <vector>
 
 void dfs(std::vector<std::vector<char>>& grid, int r, int c) {
-    if (r < 0 || c < 0 || r >= static_cast<int>(grid.size())
-        || c >= static_cast<int>(grid[0].size()) || grid[r][c] == '0') {
+    if (r < 0 || c < 0 || r >= static_cast<int>(grid.size()) ||
+        c >= static_cast<int>(grid[0].size()) || grid[r][c] == '0') {
         return;
     }
     grid[r][c] = '0'; // sink visited land

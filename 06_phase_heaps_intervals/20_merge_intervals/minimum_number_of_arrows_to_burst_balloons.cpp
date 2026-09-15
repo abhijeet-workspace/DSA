@@ -1,11 +1,13 @@
-// Minimum Number of Arrows to Burst Balloons — https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/
-// Sort by end; shoot at end; skip balloons covering that point.
+// Minimum Number of Arrows to Burst Balloons —
+// https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/ Sort by end; shoot at
+// end; skip balloons covering that point.
 #include <algorithm>
 #include <iostream>
 #include <vector>
 
 int findMinArrowShots(std::vector<std::vector<int>>& points) {
-    if (points.empty()) return 0;
+    if (points.empty())
+        return 0;
     std::sort(points.begin(), points.end(),
               [](const auto& a, const auto& b) { return a[1] < b[1]; });
     int arrows = 1;

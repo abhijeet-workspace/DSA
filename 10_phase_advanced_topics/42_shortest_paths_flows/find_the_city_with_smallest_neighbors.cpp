@@ -1,5 +1,6 @@
 // Find the City With the Smallest Number of Neighbors at a Threshold Distance — LeetCode 1334
-// Floyd-Warshall all-pairs; pick city with fewest reachable within distanceThreshold (ties → largest id).
+// Floyd-Warshall all-pairs; pick city with fewest reachable within distanceThreshold (ties →
+// largest id).
 #include <algorithm>
 #include <iostream>
 #include <vector>
@@ -19,11 +20,11 @@ int findTheCity(int n, const std::vector<std::vector<int>>& edges, int distanceT
         for (int i = 0; i < n; ++i) {
             for (int j = 0; j < n; ++j) {
                 if (dist[static_cast<size_t>(i)][static_cast<size_t>(k)] +
-                        dist[static_cast<size_t>(k)][static_cast<size_t>(j)]
-                    < dist[static_cast<size_t>(i)][static_cast<size_t>(j)]) {
+                        dist[static_cast<size_t>(k)][static_cast<size_t>(j)] <
+                    dist[static_cast<size_t>(i)][static_cast<size_t>(j)]) {
                     dist[static_cast<size_t>(i)][static_cast<size_t>(j)] =
-                        dist[static_cast<size_t>(i)][static_cast<size_t>(k)]
-                        + dist[static_cast<size_t>(k)][static_cast<size_t>(j)];
+                        dist[static_cast<size_t>(i)][static_cast<size_t>(k)] +
+                        dist[static_cast<size_t>(k)][static_cast<size_t>(j)];
                 }
             }
         }
@@ -33,7 +34,8 @@ int findTheCity(int n, const std::vector<std::vector<int>>& edges, int distanceT
     for (int i = 0; i < n; ++i) {
         int cnt = 0;
         for (int j = 0; j < n; ++j) {
-            if (i != j && dist[static_cast<size_t>(i)][static_cast<size_t>(j)] <= distanceThreshold) {
+            if (i != j &&
+                dist[static_cast<size_t>(i)][static_cast<size_t>(j)] <= distanceThreshold) {
                 ++cnt;
             }
         }

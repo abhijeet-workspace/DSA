@@ -1,7 +1,8 @@
-// Average of Levels in Binary Tree — https://leetcode.com/problems/average-of-levels-in-binary-tree/
+// Average of Levels in Binary Tree —
+// https://leetcode.com/problems/average-of-levels-in-binary-tree/
 #include <iostream>
-#include <vector>
 #include <queue>
+#include <vector>
 
 struct TreeNode {
     int val;
@@ -24,8 +25,10 @@ std::vector<double> averageOfLevels(TreeNode* root) {
             TreeNode* u = q.front();
             q.pop();
             sum += u->val;
-            if (u->left) q.push(u->left);
-            if (u->right) q.push(u->right);
+            if (u->left)
+                q.push(u->left);
+            if (u->right)
+                q.push(u->right);
         }
         ans.push_back(static_cast<double>(sum) / sz);
     }

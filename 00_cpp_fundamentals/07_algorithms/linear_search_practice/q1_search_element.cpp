@@ -3,7 +3,7 @@
 #include <iostream>
 
 int main() {
-    int arr[] = {10, 20, 30, 40, 50}; // demo data
+    int arr[] = {10, 20, 30, 40, 50};     // demo data
     int n = sizeof(arr) / sizeof(arr[0]); // length
     int searchKey = 0;
     int onIndex = -1; // sentinel: not found
@@ -12,7 +12,7 @@ int main() {
     for (int i = 0; i < n; ++i) { // scan
         if (arr[i] == searchKey) {
             onIndex = i; // record hit
-            break; // first match only
+            break;       // first match only
         }
     }
     if (onIndex != -1) {

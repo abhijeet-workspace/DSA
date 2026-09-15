@@ -6,12 +6,14 @@
 #include <vector>
 
 int trapRainWater(std::vector<std::vector<int>>& heightMap) {
-    if (heightMap.empty() || heightMap[0].empty()) return 0;
+    if (heightMap.empty() || heightMap[0].empty())
+        return 0;
     const int m = static_cast<int>(heightMap.size());
     const int n = static_cast<int>(heightMap[0].size());
     using T = std::tuple<int, int, int>; // height, r, c
     std::priority_queue<T, std::vector<T>, std::greater<T>> pq;
-    std::vector<std::vector<char>> vis(static_cast<size_t>(m), std::vector<char>(static_cast<size_t>(n), 0));
+    std::vector<std::vector<char>> vis(static_cast<size_t>(m),
+                                       std::vector<char>(static_cast<size_t>(n), 0));
     for (int i = 0; i < m; ++i) {
         for (int j = 0; j < n; ++j) {
             if (i == 0 || i == m - 1 || j == 0 || j == n - 1) {
@@ -28,7 +30,9 @@ int trapRainWater(std::vector<std::vector<int>>& heightMap) {
         pq.pop();
         for (int k = 0; k < 4; ++k) {
             int nr = r + dr[k], nc = c + dc[k];
-            if (nr < 0 || nr >= m || nc < 0 || nc >= n || vis[static_cast<size_t>(nr)][static_cast<size_t>(nc)]) continue;
+            if (nr < 0 || nr >= m || nc < 0 || nc >= n ||
+                vis[static_cast<size_t>(nr)][static_cast<size_t>(nc)])
+                continue;
             vis[static_cast<size_t>(nr)][static_cast<size_t>(nc)] = 1;
             int nh = heightMap[static_cast<size_t>(nr)][static_cast<size_t>(nc)];
             water += std::max(0, h - nh);

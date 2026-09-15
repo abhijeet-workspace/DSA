@@ -3,9 +3,11 @@
 #include <iostream>
 
 int bulbSwitch(int n) {
-    if (n < 2) return n;
+    if (n < 2)
+        return n;
     long r = n;
-    while (r > n / r) r = (r + n / r) / 2;
+    while (r > n / r)
+        r = (r + n / r) / 2;
     return static_cast<int>(r);
 }
 

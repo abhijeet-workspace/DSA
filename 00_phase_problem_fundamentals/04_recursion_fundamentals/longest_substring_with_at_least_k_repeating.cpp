@@ -1,15 +1,17 @@
 // Longest Substring with At Least K Repeating Characters — LC 395
 // Divide-and-conquer recursion.
+#include <algorithm>
+#include <functional>
 #include <iostream>
 #include <string>
-#include <functional>
-#include <algorithm>
 
 int longestSubstring(const std::string& s, int k) {
     std::function<int(int, int)> solve = [&](int L, int R) -> int {
-        if (R - L < k) return 0;
+        if (R - L < k)
+            return 0;
         int freq[26] = {};
-        for (int i = L; i < R; ++i) ++freq[s[static_cast<size_t>(i)] - 'a'];
+        for (int i = L; i < R; ++i)
+            ++freq[s[static_cast<size_t>(i)] - 'a'];
         for (int mid = L; mid < R; ++mid) {
             if (freq[s[static_cast<size_t>(mid)] - 'a'] < k) {
                 int best = 0;

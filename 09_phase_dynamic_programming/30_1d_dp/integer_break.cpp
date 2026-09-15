@@ -19,7 +19,6 @@ int integerBreak(int n) {
 }
 
 int main() {
-    std::cout << integerBreak(2) << " (expected 1)\n"
-              << integerBreak(10) << " (expected 36)\n";
+    std::cout << integerBreak(2) << " (expected 1)\n" << integerBreak(10) << " (expected 36)\n";
     return 0;
 }

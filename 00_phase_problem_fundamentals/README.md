@@ -2,7 +2,7 @@
 
 **This phase is part of the study-plan solving sequence.** Unlike `00_cpp_fundamentals/` and `00_daa_foundations/` (language/theory prerequisites, not solving practice), these folders are interview-style problem sets that build single-pass index fluency *before* named patterns (hash maps, two pointers, sliding window, etc.).
 
-Primary learning path: [`docs/study_plan.md`](../docs/study_plan.md) (created after the curriculum fill is underway).
+Primary learning path: [`docs/study_plan.md`](../docs/study_plan.md).
 
 | Topic | Folder | Focus |
 |---|---|---|

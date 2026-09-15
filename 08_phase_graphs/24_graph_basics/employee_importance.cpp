@@ -13,13 +13,15 @@ struct Employee {
 int dfs(int id, const std::unordered_map<int, Employee*>& mp) {
     const Employee* e = mp.at(id);
     int sum = e->importance;
-    for (int s : e->subordinates) sum += dfs(s, mp);
+    for (int s : e->subordinates)
+        sum += dfs(s, mp);
     return sum;
 }
 
 int getImportance(const std::vector<Employee*>& employees, int id) {
     std::unordered_map<int, Employee*> mp;
-    for (Employee* e : employees) mp[e->id] = e;
+    for (Employee* e : employees)
+        mp[e->id] = e;
     return dfs(id, mp);
 }
 

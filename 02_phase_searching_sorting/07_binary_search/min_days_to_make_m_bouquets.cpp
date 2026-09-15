@@ -1,5 +1,6 @@
-// Minimum Number of Days to Make m Bouquets — https://leetcode.com/problems/minimum-number-of-days-to-make-m-bouquets/
-// Adjacent flowers; bloomDay[i] is the day flower i blooms. Min day to make m bouquets of k adjacent.
+// Minimum Number of Days to Make m Bouquets —
+// https://leetcode.com/problems/minimum-number-of-days-to-make-m-bouquets/ Adjacent flowers;
+// bloomDay[i] is the day flower i blooms. Min day to make m bouquets of k adjacent.
 #include <algorithm>
 #include <iostream>
 #include <vector>

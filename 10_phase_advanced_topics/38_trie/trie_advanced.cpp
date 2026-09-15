@@ -1,25 +1,26 @@
 // Advanced Tries — XOR max-pair (LC 421) + Aho-Corasick skeleton
 // Binary trie for max XOR; failure-link automaton for multi-pattern match.
-#include <iostream>
-#include <vector>
-#include <string>
-#include <queue>
 #include <algorithm>
+#include <iostream>
+#include <queue>
+#include <string>
+#include <vector>
 
 class XORTrieNode {
-public:
+  public:
     XORTrieNode* children[2]{};
 };
 
 class XORTrie {
     XORTrieNode* root = new XORTrieNode();
 
-public:
+  public:
     void insert(int num) {
         XORTrieNode* curr = root;
         for (int i = 31; i >= 0; --i) { // MSB -> LSB
             const int bit = (num >> i) & 1;
-            if (!curr->children[bit]) curr->children[bit] = new XORTrieNode();
+            if (!curr->children[bit])
+                curr->children[bit] = new XORTrieNode();
             curr = curr->children[bit];
         }
     }
@@ -45,9 +46,11 @@ public:
 
 int findMaximumXOR(const std::vector<int>& nums) {
     XORTrie trie;
-    for (int num : nums) trie.insert(num);
+    for (int num : nums)
+        trie.insert(num);
     int maxXOR = 0;
-    for (int num : nums) maxXOR = std::max(maxXOR, trie.getMaxXOR(num));
+    for (int num : nums)
+        maxXOR = std::max(maxXOR, trie.getMaxXOR(num));
     return maxXOR;
 }
 
@@ -60,7 +63,7 @@ class AhoCorasick {
     };
     std::vector<Node> trie;
 
-public:
+  public:
     AhoCorasick() { trie.push_back(Node()); } // root = 0
 
     void insert(const std::string& pattern, int id) {
@@ -90,14 +93,15 @@ public:
             q.pop();
             for (int i = 0; i < ALPHABET; ++i) {
                 const int v = trie[static_cast<size_t>(u)].children[i];
-                if (v == 0) continue;
+                if (v == 0)
+                    continue;
                 int f = trie[static_cast<size_t>(u)].failLink;
                 while (f > 0 && trie[static_cast<size_t>(f)].children[i] == 0) {
                     f = trie[static_cast<size_t>(f)].failLink;
                 }
                 trie[static_cast<size_t>(v)].failLink = trie[static_cast<size_t>(f)].children[i];
-                auto& failMatches =
-                    trie[static_cast<size_t>(trie[static_cast<size_t>(v)].failLink)].patternsMatched;
+                auto& failMatches = trie[static_cast<size_t>(trie[static_cast<size_t>(v)].failLink)]
+                                        .patternsMatched;
                 auto& cur = trie[static_cast<size_t>(v)].patternsMatched;
                 cur.insert(cur.end(), failMatches.begin(), failMatches.end());
                 q.push(v);
@@ -119,6 +123,7 @@ int main() {
     ac.insert("his", 2);
     ac.insert("hers", 3);
     ac.buildFailureLinks();
-    std::cout << "Patterns inserted: \"he\", \"she\", \"his\", \"hers\". Failure links processed.\n";
+    std::cout
+        << "Patterns inserted: \"he\", \"she\", \"his\", \"hers\". Failure links processed.\n";
     return 0;
 }

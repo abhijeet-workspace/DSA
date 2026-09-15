@@ -17,7 +17,6 @@ int climbStairs(int n) {
 }
 
 int main() {
-    std::cout << climbStairs(2) << " (expected 2)\n"
-              << climbStairs(5) << " (expected 8)\n";
+    std::cout << climbStairs(2) << " (expected 2)\n" << climbStairs(5) << " (expected 8)\n";
     return 0;
 }

@@ -7,9 +7,11 @@
 
 std::string destCity(const std::vector<std::vector<std::string>>& paths) {
     std::unordered_set<std::string> outs;
-    for (const auto& p : paths) outs.insert(p[0]);
+    for (const auto& p : paths)
+        outs.insert(p[0]);
     for (const auto& p : paths) {
-        if (!outs.count(p[1])) return p[1];
+        if (!outs.count(p[1]))
+            return p[1];
     }
     return "";
 }

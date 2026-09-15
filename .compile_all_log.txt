@@ -1,0 +1,1 @@
+Compiling 1174 files with g++ -std=c++17 -Wall -Wextra -Werror -Wno-unused-variable -Wno-unused-parameter -Wno-sign-compare -Wno-missing-braces -Wno-reorder-ctor -Wno-unqualified-std-cast-call -Wno-vla-cxx-extension -O0

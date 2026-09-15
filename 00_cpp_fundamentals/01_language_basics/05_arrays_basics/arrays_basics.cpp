@@ -12,8 +12,7 @@ int main() {
     (void)zero_arr;
 
     int n = static_cast<int>(sizeof(arr) / sizeof(arr[0])); // length
-    std::cout << "Size of 1D array: " << n << " elements (" << sizeof(arr)
-              << " bytes)\n";
+    std::cout << "Size of 1D array: " << n << " elements (" << sizeof(arr) << " bytes)\n";
 
     arr[2] = 99; // mutate index 2
 
@@ -43,22 +42,20 @@ int main() {
     std::cout << matrix[1][1] << std::endl; // row1 col1 -> 4
 
     std::cout << "total_size_in_bytes " << total_size_in_bytes << std::endl;
-    std::cout << "single_element_size_in_bytes " << single_element_size_in_bytes
-              << std::endl;
+    std::cout << "single_element_size_in_bytes " << single_element_size_in_bytes << std::endl;
     std::cout << "total_element_count " << total_element_count << std::endl;
     std::cout << "single_row_size_in_bytes " << single_row_size_in_bytes << std::endl;
     std::cout << "rows " << rows << std::endl;
     std::cout << "columns " << columns << std::endl;
-    std::cout << "2D Array Dimensions: " << rows << "x" << columns << " ("
-              << total_size_in_bytes << " bytes)\n";
+    std::cout << "2D Array Dimensions: " << rows << "x" << columns << " (" << total_size_in_bytes
+              << " bytes)\n";
 
     matrix[1][1] = 60; // mutate row1 col1
 
     std::cout << "Matrix layout traversal:\n";
     for (int r = 0; r < rows; r++) {
         for (int c = 0; c < columns; c++) {
-            std::cout << "matrix[" << r << "][" << c << "] = " << matrix[r][c]
-                      << "\t";
+            std::cout << "matrix[" << r << "][" << c << "] = " << matrix[r][c] << "\t";
         }
         std::cout << "\n";
     }

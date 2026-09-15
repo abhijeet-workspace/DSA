@@ -15,8 +15,8 @@ int minCost(int maxTime, const std::vector<std::vector<int>>& edges,
         g[static_cast<size_t>(e[1])].push_back({e[0], e[2]});
     }
     // dist[u][t] = min fee to reach u with exactly time t
-    std::vector<std::vector<int>> dist(
-        static_cast<size_t>(n), std::vector<int>(static_cast<size_t>(maxTime + 1), INF));
+    std::vector<std::vector<int>> dist(static_cast<size_t>(n),
+                                       std::vector<int>(static_cast<size_t>(maxTime + 1), INF));
     dist[0][0] = passingFee[0];
     using State = std::tuple<int, int, int>; // fee, time, node
     std::priority_queue<State, std::vector<State>, std::greater<State>> pq;
@@ -46,9 +46,8 @@ int minCost(int maxTime, const std::vector<std::vector<int>>& edges,
 }
 
 int main() {
-    const std::vector<std::vector<int>> edges = {
-        {0, 1, 10}, {1, 2, 10}, {2, 5, 10}, {0, 3, 1},
-        {3, 4, 10}, {4, 5, 15}};
+    const std::vector<std::vector<int>> edges = {{0, 1, 10}, {1, 2, 10}, {2, 5, 10},
+                                                 {0, 3, 1},  {3, 4, 10}, {4, 5, 15}};
     const std::vector<int> fee = {5, 1, 2, 20, 20, 3};
     std::cout << minCost(30, edges, fee) << " (expected 11)\n";
     std::cout << minCost(29, edges, fee) << " (expected 48)\n";

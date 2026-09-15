@@ -8,7 +8,7 @@ class MovingAverage {
     long long sum_ = 0;
     std::queue<int> q_;
 
-public:
+  public:
     explicit MovingAverage(int size) : size_(size) {}
 
     double next(int val) {

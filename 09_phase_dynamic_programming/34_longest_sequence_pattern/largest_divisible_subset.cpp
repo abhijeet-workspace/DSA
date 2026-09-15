@@ -24,7 +24,8 @@ std::vector<int> largestDivisibleSubset(std::vector<int>& nums) {
     std::vector<int> ans;
     for (int i = end; i >= 0; i = prev[static_cast<size_t>(i)]) {
         ans.push_back(nums[static_cast<size_t>(i)]);
-        if (prev[static_cast<size_t>(i)] == -1) break;
+        if (prev[static_cast<size_t>(i)] == -1)
+            break;
     }
     std::reverse(ans.begin(), ans.end());
     return ans;
@@ -32,7 +33,8 @@ std::vector<int> largestDivisibleSubset(std::vector<int>& nums) {
 
 int main() {
     std::vector<int> nums{1, 2, 3};
-    for (int x : largestDivisibleSubset(nums)) std::cout << x << ' ';
+    for (int x : largestDivisibleSubset(nums))
+        std::cout << x << ' ';
     std::cout << "(expected 1 2 or 1 3)\n";
     return 0;
 }

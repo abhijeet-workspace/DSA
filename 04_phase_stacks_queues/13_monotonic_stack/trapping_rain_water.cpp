@@ -18,8 +18,9 @@ int trap(const std::vector<int>& height) {
             }
             const int left = st.top();
             const int w = i - left - 1;
-            const int h = std::min(height[static_cast<size_t>(left)], height[static_cast<size_t>(i)]) -
-                          height[static_cast<size_t>(bottom)];
+            const int h =
+                std::min(height[static_cast<size_t>(left)], height[static_cast<size_t>(i)]) -
+                height[static_cast<size_t>(bottom)];
             water += w * h;
         }
         st.push(i);

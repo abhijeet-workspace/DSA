@@ -7,8 +7,10 @@ std::string defangIPaddr(const std::string& address) {
     std::string ans;
     ans.reserve(address.size() + 6);
     for (char c : address) {
-        if (c == '.') ans += "[.]";
-        else ans.push_back(c);
+        if (c == '.')
+            ans += "[.]";
+        else
+            ans.push_back(c);
     }
     return ans;
 }

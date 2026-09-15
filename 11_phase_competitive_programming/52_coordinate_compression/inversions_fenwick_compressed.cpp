@@ -5,7 +5,7 @@
 #include <vector>
 
 class Fenwick {
-public:
+  public:
     explicit Fenwick(int n) : bit(static_cast<size_t>(n) + 1, 0) {}
 
     void add(int i, int delta) {
@@ -22,7 +22,7 @@ public:
         return s;
     }
 
-private:
+  private:
     std::vector<int> bit;
 };
 

@@ -26,8 +26,7 @@ bool canVisitAllRooms(const std::vector<std::vector<int>>& rooms) {
 }
 
 int main() {
-    std::cout << std::boolalpha
-              << canVisitAllRooms({{1}, {2}, {3}, {}}) << " (expected true)\n";
+    std::cout << std::boolalpha << canVisitAllRooms({{1}, {2}, {3}, {}}) << " (expected true)\n";
     std::cout << canVisitAllRooms({{1, 3}, {3, 0, 1}, {2}, {0}}) << " (expected false)\n";
     return 0;
 }

@@ -17,7 +17,7 @@ int main() {
         std::cout << "pop " << st.top() << '\n';
         st.pop();
     }
-    std::cout << "after pops: size=" << st.size()
-              << " empty=" << (st.empty() ? "yes" : "no") << '\n';
+    std::cout << "after pops: size=" << st.size() << " empty=" << (st.empty() ? "yes" : "no")
+              << '\n';
     return 0;
 }

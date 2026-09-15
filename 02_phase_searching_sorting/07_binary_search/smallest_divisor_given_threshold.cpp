@@ -1,5 +1,6 @@
-// Find the Smallest Divisor Given a Threshold — https://leetcode.com/problems/find-the-smallest-divisor-given-a-threshold/
-// Minimize divisor d such that sum(ceil(nums[i]/d)) <= threshold.
+// Find the Smallest Divisor Given a Threshold —
+// https://leetcode.com/problems/find-the-smallest-divisor-given-a-threshold/ Minimize divisor d
+// such that sum(ceil(nums[i]/d)) <= threshold.
 #include <algorithm>
 #include <iostream>
 #include <vector>

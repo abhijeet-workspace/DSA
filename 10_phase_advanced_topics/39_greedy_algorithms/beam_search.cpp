@@ -12,8 +12,10 @@ struct Candidate {
 
 // Toy score: prefer 'a' early, 'b' late (illustrative heuristic).
 int stepScore(char ch, int pos, int len) {
-    if (ch == 'a') return len - pos;
-    if (ch == 'b') return pos + 1;
+    if (ch == 'a')
+        return len - pos;
+    if (ch == 'b')
+        return pos + 1;
     return 1;
 }
 

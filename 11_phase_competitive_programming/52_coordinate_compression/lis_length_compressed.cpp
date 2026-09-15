@@ -5,7 +5,7 @@
 #include <vector>
 
 class FenwickMax {
-public:
+  public:
     explicit FenwickMax(int n) : bit(static_cast<size_t>(n) + 1, 0) {}
 
     void update(int i, int val) {
@@ -22,7 +22,7 @@ public:
         return res;
     }
 
-private:
+  private:
     std::vector<int> bit;
 };
 

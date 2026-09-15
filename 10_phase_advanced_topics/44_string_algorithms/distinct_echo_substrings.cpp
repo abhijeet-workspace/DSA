@@ -14,7 +14,7 @@ int distinctEchoSubstrings(const std::string& text) {
         pw[i + 1] = pw[i] * BASE % MOD;
         pref[i + 1] = (pref[i] * BASE + (text[i] - 'a' + 1)) % MOD;
     }
-    auto get = [&](int l, int r) {  // [l,r)
+    auto get = [&](int l, int r) { // [l,r)
         return (pref[r] - pref[l] * pw[r - l] % MOD + MOD) % MOD;
     };
     std::unordered_set<long long> seen;

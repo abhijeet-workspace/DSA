@@ -1,8 +1,8 @@
 // House Robber — https://leetcode.com/problems/house-robber/
 // Max loot on a line; cannot rob two adjacent houses.
+#include <algorithm>
 #include <iostream>
 #include <vector>
-#include <algorithm>
 
 int rob(const std::vector<int>& nums) {
     int prev2 = 0; // best ending before previous

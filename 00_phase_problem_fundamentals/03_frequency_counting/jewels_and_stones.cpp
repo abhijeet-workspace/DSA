@@ -4,9 +4,12 @@
 
 int numJewelsInStones(const std::string& jewels, const std::string& stones) {
     bool isJewel[128] = {};
-    for (char c : jewels) isJewel[static_cast<unsigned char>(c)] = true;
+    for (char c : jewels)
+        isJewel[static_cast<unsigned char>(c)] = true;
     int ans = 0;
-    for (char c : stones) if (isJewel[static_cast<unsigned char>(c)]) ++ans;
+    for (char c : stones)
+        if (isJewel[static_cast<unsigned char>(c)])
+            ++ans;
     return ans;
 }
 

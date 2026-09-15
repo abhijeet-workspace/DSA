@@ -28,7 +28,6 @@ int maxEnvelopes(std::vector<std::vector<int>>& envelopes) {
 int main() {
     std::vector<std::vector<int>> a = {{5, 4}, {6, 4}, {6, 7}, {2, 3}};
     std::vector<std::vector<int>> b = {{1, 1}, {1, 1}, {1, 1}};
-    std::cout << maxEnvelopes(a) << " (expected 3)\n"
-              << maxEnvelopes(b) << " (expected 1)\n";
+    std::cout << maxEnvelopes(a) << " (expected 3)\n" << maxEnvelopes(b) << " (expected 1)\n";
     return 0;
 }

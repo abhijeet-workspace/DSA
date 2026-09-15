@@ -48,7 +48,8 @@ struct LCA {
         for (int k = 1; k < K; ++k) {
             for (int i = 0; i + (1 << k) <= m; ++i) {
                 const int left = st[static_cast<size_t>(k - 1)][static_cast<size_t>(i)];
-                const int right = st[static_cast<size_t>(k - 1)][static_cast<size_t>(i + (1 << (k - 1)))];
+                const int right =
+                    st[static_cast<size_t>(k - 1)][static_cast<size_t>(i + (1 << (k - 1)))];
                 st[static_cast<size_t>(k)][static_cast<size_t>(i)] =
                     (depthNode[static_cast<size_t>(left)] <= depthNode[static_cast<size_t>(right)])
                         ? left
@@ -63,8 +64,8 @@ struct LCA {
         const int left = st[static_cast<size_t>(k)][static_cast<size_t>(l)];
         const int right = st[static_cast<size_t>(k)][static_cast<size_t>(r - (1 << k) + 1)];
         return (depthNode[static_cast<size_t>(left)] <= depthNode[static_cast<size_t>(right)])
-            ? left
-            : right;
+                   ? left
+                   : right;
     }
 
     int query(int u, int v) const {

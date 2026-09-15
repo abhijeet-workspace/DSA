@@ -1,0 +1,14 @@
+# Match existing teaching-solution style (4-space indent, readable column width).
+BasedOnStyle: LLVM
+IndentWidth: 4
+TabWidth: 4
+UseTab: Never
+ColumnLimit: 100
+AllowShortFunctionsOnASingleLine: Inline
+AllowShortIfStatementsOnASingleLine: Never
+AllowShortLoopsOnASingleLine: false
+BreakBeforeBraces: Attach
+PointerAlignment: Left
+SpaceAfterCStyleCast: false
+SortIncludes: true
+IncludeBlocks: Preserve

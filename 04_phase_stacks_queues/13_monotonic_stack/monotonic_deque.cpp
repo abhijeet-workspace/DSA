@@ -8,7 +8,7 @@ class MaxQueue {
     std::queue<int> q;
     std::deque<int> max_dq; // decreasing values; front = current max
 
-public:
+  public:
     void push(int val) {
         q.push(val);
         while (!max_dq.empty() && max_dq.back() < val) {

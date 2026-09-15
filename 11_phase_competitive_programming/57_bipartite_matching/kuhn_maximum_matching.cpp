@@ -9,7 +9,8 @@ std::vector<int> mt, vis;
 int timer = 1;
 
 bool tryKuhn(int v) {
-    if (vis[static_cast<size_t>(v)] == timer) return false;
+    if (vis[static_cast<size_t>(v)] == timer)
+        return false;
     vis[static_cast<size_t>(v)] = timer;
     for (int to : g[static_cast<size_t>(v)]) {
         if (mt[static_cast<size_t>(to)] == -1 || tryKuhn(mt[static_cast<size_t>(to)])) {
@@ -26,7 +27,8 @@ int maxMatching() {
     int match = 0;
     for (int v = 1; v <= nL; ++v) {
         ++timer; // fresh visit stamp per left attempt
-        if (tryKuhn(v)) ++match;
+        if (tryKuhn(v))
+            ++match;
     }
     return match;
 }

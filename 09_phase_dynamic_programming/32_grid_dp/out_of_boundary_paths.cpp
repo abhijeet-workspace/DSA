@@ -12,7 +12,8 @@ int findPaths(int m, int n, int maxMove, int startRow, int startColumn) {
         std::vector<std::vector<int>> ndp(m, std::vector<int>(n, 0));
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
-                if (dp[static_cast<size_t>(i)][static_cast<size_t>(j)] == 0) continue;
+                if (dp[static_cast<size_t>(i)][static_cast<size_t>(j)] == 0)
+                    continue;
                 for (auto& d : dirs) {
                     const int ni = i + d[0], nj = j + d[1];
                     if (ni < 0 || nj < 0 || ni >= m || nj >= n) {
@@ -20,7 +21,8 @@ int findPaths(int m, int n, int maxMove, int startRow, int startColumn) {
                     } else {
                         ndp[static_cast<size_t>(ni)][static_cast<size_t>(nj)] =
                             (ndp[static_cast<size_t>(ni)][static_cast<size_t>(nj)] +
-                             dp[static_cast<size_t>(i)][static_cast<size_t>(j)]) % MOD;
+                             dp[static_cast<size_t>(i)][static_cast<size_t>(j)]) %
+                            MOD;
                     }
                 }
             }

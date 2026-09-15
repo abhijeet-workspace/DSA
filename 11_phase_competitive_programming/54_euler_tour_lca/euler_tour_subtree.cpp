@@ -3,8 +3,8 @@
 #include <iostream>
 #include <vector>
 
-void dfs(int u, int p, const std::vector<std::vector<int>>& adj,
-         std::vector<int>& inT, std::vector<int>& outT, int& timer) {
+void dfs(int u, int p, const std::vector<std::vector<int>>& adj, std::vector<int>& inT,
+         std::vector<int>& outT, int& timer) {
     inT[static_cast<size_t>(u)] = timer++;
     for (int v : adj[static_cast<size_t>(u)]) {
         if (v == p) {
@@ -16,8 +16,8 @@ void dfs(int u, int p, const std::vector<std::vector<int>>& adj,
 }
 
 bool inSubtree(int u, int v, const std::vector<int>& inT, const std::vector<int>& outT) {
-    return inT[static_cast<size_t>(v)] <= inT[static_cast<size_t>(u)]
-        && outT[static_cast<size_t>(u)] <= outT[static_cast<size_t>(v)];
+    return inT[static_cast<size_t>(v)] <= inT[static_cast<size_t>(u)] &&
+           outT[static_cast<size_t>(u)] <= outT[static_cast<size_t>(v)];
 }
 
 int main() {

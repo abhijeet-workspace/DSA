@@ -22,14 +22,15 @@ int largestRectangleArea(const std::vector<int>& heights) {
 }
 
 int maximalRectangle(std::vector<std::vector<char>>& matrix) {
-    if (matrix.empty()) return 0;
+    if (matrix.empty())
+        return 0;
     const int n = static_cast<int>(matrix[0].size());
     std::vector<int> heights(n, 0);
     int best = 0;
     for (auto& row : matrix) {
         for (int j = 0; j < n; ++j) {
-            heights[static_cast<size_t>(j)] = row[static_cast<size_t>(j)] == '1'
-                                                 ? heights[static_cast<size_t>(j)] + 1 : 0;
+            heights[static_cast<size_t>(j)] =
+                row[static_cast<size_t>(j)] == '1' ? heights[static_cast<size_t>(j)] + 1 : 0;
         }
         best = std::max(best, largestRectangleArea(heights));
     }

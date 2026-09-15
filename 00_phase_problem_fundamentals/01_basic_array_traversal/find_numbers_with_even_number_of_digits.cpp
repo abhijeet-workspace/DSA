@@ -15,7 +15,8 @@ static int digitCount(int x) {
 int findNumbers(const std::vector<int>& nums) {
     int ans = 0;
     for (int x : nums) {
-        if (digitCount(x) % 2 == 0) ++ans;
+        if (digitCount(x) % 2 == 0)
+            ++ans;
     }
     return ans;
 }

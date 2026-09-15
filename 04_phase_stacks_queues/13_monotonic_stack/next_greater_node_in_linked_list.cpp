@@ -1,5 +1,6 @@
-// Next Greater Node In Linked List — https://leetcode.com/problems/next-greater-node-in-linked-list/
-// For each node, value of the next strictly greater node to the right (0 if none).
+// Next Greater Node In Linked List —
+// https://leetcode.com/problems/next-greater-node-in-linked-list/ For each node, value of the next
+// strictly greater node to the right (0 if none).
 #include <iostream>
 #include <stack>
 #include <vector>
@@ -19,8 +20,7 @@ std::vector<int> nextLargerNodes(ListNode* head) {
     std::vector<int> res(static_cast<size_t>(n), 0);
     std::stack<int> st; // indices, decreasing values
     for (int i = 0; i < n; ++i) {
-        while (!st.empty() &&
-               vals[static_cast<size_t>(st.top())] < vals[static_cast<size_t>(i)]) {
+        while (!st.empty() && vals[static_cast<size_t>(st.top())] < vals[static_cast<size_t>(i)]) {
             res[static_cast<size_t>(st.top())] = vals[static_cast<size_t>(i)];
             st.pop();
         }

@@ -18,8 +18,10 @@ bool isInterleave(std::string s1, std::string s2, std::string s3) {
     for (int i = 1; i <= m; ++i) {
         dp[0] = dp[0] && s1[static_cast<size_t>(i - 1)] == s3[static_cast<size_t>(i - 1)];
         for (int j = 1; j <= n; ++j) {
-            const bool from_s1 = dp[j] && s1[static_cast<size_t>(i - 1)] == s3[static_cast<size_t>(i + j - 1)];
-            const bool from_s2 = dp[j - 1] && s2[static_cast<size_t>(j - 1)] == s3[static_cast<size_t>(i + j - 1)];
+            const bool from_s1 =
+                dp[j] && s1[static_cast<size_t>(i - 1)] == s3[static_cast<size_t>(i + j - 1)];
+            const bool from_s2 =
+                dp[j - 1] && s2[static_cast<size_t>(j - 1)] == s3[static_cast<size_t>(i + j - 1)];
             dp[j] = from_s1 || from_s2;
         }
     }
@@ -27,7 +29,6 @@ bool isInterleave(std::string s1, std::string s2, std::string s3) {
 }
 
 int main() {
-    std::cout << std::boolalpha
-              << isInterleave("aab", "axy", "aaxaby") << " (expected true)\n";
+    std::cout << std::boolalpha << isInterleave("aab", "axy", "aaxaby") << " (expected true)\n";
     return 0;
 }

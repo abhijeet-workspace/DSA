@@ -4,49 +4,49 @@
 #include <string>
 
 class Animal {
-protected:
+  protected:
     std::string name; // visible to derived
-public:
+  public:
     Animal(std::string n) : name(n) {}
     void eat() { std::cout << name << " is eating." << std::endl; }
 };
 
 class Dog : public Animal {
-public:
+  public:
     Dog(std::string n) : Animal(n) {}
     void bark() { std::cout << name << " is barking: Woof! Woof!" << std::endl; }
 };
 
 class GermanShepherd : public Dog {
-public:
+  public:
     GermanShepherd(std::string n) : Dog(n) {}
     void guard() { std::cout << name << " is guarding the house." << std::endl; }
 };
 
 class Cat : public Animal {
-public:
+  public:
     Cat(std::string n) : Animal(n) {}
     void meow() { std::cout << name << " is meowing: Meow!" << std::endl; }
 };
 
 class LivingThing {
-public:
+  public:
     LivingThing() { std::cout << "LivingThing constructor called." << std::endl; }
     void breathe() { std::cout << "Breathing..." << std::endl; }
 };
 
 class ParentA : virtual public LivingThing { // virtual base
-public:
+  public:
     ParentA() { std::cout << "ParentA constructor called." << std::endl; }
 };
 
 class ParentB : virtual public LivingThing {
-public:
+  public:
     ParentB() { std::cout << "ParentB constructor called." << std::endl; }
 };
 
 class Child : public ParentA, public ParentB {
-public:
+  public:
     Child() { std::cout << "Child constructor called." << std::endl; }
 };
 

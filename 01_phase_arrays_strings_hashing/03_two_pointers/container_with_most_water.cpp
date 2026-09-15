@@ -1,8 +1,8 @@
 // Container With Most Water — LC 11
 // Area = min(h[L],h[R])*(R-L); move the shorter wall inward.
+#include <algorithm>
 #include <iostream>
 #include <vector>
-#include <algorithm>
 
 int maxArea(const std::vector<int>& height) {
     int L = 0;
@@ -11,8 +11,10 @@ int maxArea(const std::vector<int>& height) {
     while (L < R) {
         int h = std::min(height[static_cast<size_t>(L)], height[static_cast<size_t>(R)]);
         best = std::max(best, h * (R - L));
-        if (height[static_cast<size_t>(L)] < height[static_cast<size_t>(R)]) ++L;
-        else --R;
+        if (height[static_cast<size_t>(L)] < height[static_cast<size_t>(R)])
+            ++L;
+        else
+            --R;
     }
     return best;
 }

@@ -23,6 +23,9 @@ SAM is a minimal DFA of all substrings. Each state represents an endpos-equivale
 | SA + LCP | `N(N+1)/2 - sum LCP` |
 | Trie of all suffixes | O(N²) space |
 
+**Pedagogy:** minimal DFA of substrings; preferred for online distinct-substring / occurrence
+queries.
+
 ## 5. Logic Walkthrough
 1. Start with state 0.
 2. `extend(c)`: create `cur`, walk failure links adding `c`, then set link or clone `q` when lengths mismatch.

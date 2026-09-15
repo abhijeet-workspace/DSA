@@ -1,5 +1,6 @@
-// Single Element in a Sorted Array — https://leetcode.com/problems/single-element-in-a-sorted-array/
-// Every element appears twice except one; pairs occupy even/odd indices until the single.
+// Single Element in a Sorted Array —
+// https://leetcode.com/problems/single-element-in-a-sorted-array/ Every element appears twice
+// except one; pairs occupy even/odd indices until the single.
 #include <iostream>
 #include <vector>
 

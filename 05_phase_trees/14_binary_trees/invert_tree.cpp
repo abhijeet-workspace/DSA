@@ -15,7 +15,7 @@ TreeNode* invertTree(TreeNode* root) {
     }
     TreeNode* left = invertTree(root->left);   // invert left
     TreeNode* right = invertTree(root->right); // invert right
-    root->left = right;  // swap
+    root->left = right;                        // swap
     root->right = left;
     return root;
 }

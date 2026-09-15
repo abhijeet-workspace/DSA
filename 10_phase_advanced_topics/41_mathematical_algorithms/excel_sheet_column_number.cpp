@@ -5,7 +5,8 @@
 
 int titleToNumber(const std::string& columnTitle) {
     int ans = 0;
-    for (char c : columnTitle) ans = ans * 26 + (c - 'A' + 1);
+    for (char c : columnTitle)
+        ans = ans * 26 + (c - 'A' + 1);
     return ans;
 }
 

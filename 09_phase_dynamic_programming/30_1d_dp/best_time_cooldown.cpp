@@ -1,9 +1,10 @@
-// Best Time with Cooldown — https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/
-// Max profit; one share; cooldown day after each sell.
-#include <iostream>
-#include <vector>
+// Best Time with Cooldown —
+// https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/ Max profit; one
+// share; cooldown day after each sell.
 #include <algorithm>
 #include <climits>
+#include <iostream>
+#include <vector>
 
 int maxProfit(const std::vector<int>& prices) {
     int hold = INT_MIN / 2; // holding a share
@@ -11,9 +12,9 @@ int maxProfit(const std::vector<int>& prices) {
     int rest = 0;           // free to buy (cooldown done)
     for (int p : prices) {
         const int prev_sold = sold;
-        sold = hold + p;                      // sell today
-        hold = std::max(hold, rest - p);      // buy or keep
-        rest = std::max(rest, prev_sold);     // idle or enter cooldown
+        sold = hold + p;                  // sell today
+        hold = std::max(hold, rest - p);  // buy or keep
+        rest = std::max(rest, prev_sold); // idle or enter cooldown
     }
     return std::max(sold, rest);
 }

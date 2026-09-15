@@ -10,14 +10,17 @@ std::vector<int> kthSmallestPrimeFraction(std::vector<int>& arr, int k) {
     std::priority_queue<T, std::vector<T>, std::greater<T>> pq;
     const int n = static_cast<int>(arr.size());
     for (int i = 0; i < n - 1; ++i) {
-        pq.push({static_cast<double>(arr[static_cast<size_t>(i)]) / arr[static_cast<size_t>(n - 1)], i, n - 1});
+        pq.push({static_cast<double>(arr[static_cast<size_t>(i)]) / arr[static_cast<size_t>(n - 1)],
+                 i, n - 1});
     }
     while (--k > 0) {
         auto [val, i, j] = pq.top();
         pq.pop();
         (void)val;
         if (j - 1 > i) {
-            pq.push({static_cast<double>(arr[static_cast<size_t>(i)]) / arr[static_cast<size_t>(j - 1)], i, j - 1});
+            pq.push(
+                {static_cast<double>(arr[static_cast<size_t>(i)]) / arr[static_cast<size_t>(j - 1)],
+                 i, j - 1});
         }
     }
     auto [val, i, j] = pq.top();

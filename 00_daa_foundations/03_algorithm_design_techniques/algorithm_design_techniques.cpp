@@ -70,12 +70,10 @@ int activitySelection(std::vector<Activity>& activities) {
               [](const Activity& a, const Activity& b) { return a.end < b.end; });
     int count = 1;
     int lastEnd = activities[0].end;
-    std::cout << "  Selected: [" << activities[0].start << "," << activities[0].end
-              << "] ";
+    std::cout << "  Selected: [" << activities[0].start << "," << activities[0].end << "] ";
     for (int i = 1; i < static_cast<int>(activities.size()); ++i) {
         if (activities[i].start >= lastEnd) { // no overlap
-            std::cout << "[" << activities[i].start << "," << activities[i].end
-                      << "] ";
+            std::cout << "[" << activities[i].start << "," << activities[i].end << "] ";
             lastEnd = activities[i].end;
             ++count;
         }
@@ -173,11 +171,10 @@ int main() {
     std::cout << "2. Divide & Conquer (Inversion Count)\n";
     std::vector<int> inv = {5, 4, 3, 2, 1};
     std::cout << "  [5,4,3,2,1] inversions: "
-              << mergeAndCount(inv, 0, static_cast<int>(inv.size()) - 1)
-              << " (expected 10)\n\n";
+              << mergeAndCount(inv, 0, static_cast<int>(inv.size()) - 1) << " (expected 10)\n\n";
 
     std::cout << "3. Greedy (Activity Selection)\n";
-    std::vector<Activity> acts = {{1, 3}, {2, 5}, {4, 6}, {6, 7}, {5, 8},
+    std::vector<Activity> acts = {{1, 3}, {2, 5},  {4, 6},  {6, 7},  {5, 8},
                                   {8, 9}, {8, 11}, {2, 13}, {12, 14}};
     std::cout << "  Max activities: " << activitySelection(acts) << "\n\n";
 
@@ -185,8 +182,7 @@ int main() {
     std::vector<int> weights = {2, 3, 4, 5};
     std::vector<int> values = {3, 4, 5, 6};
     int capacity = 8;
-    std::cout << "  Max value: " << knapsack(weights, values, capacity)
-              << " (expected 10)\n\n";
+    std::cout << "  Max value: " << knapsack(weights, values, capacity) << " (expected 10)\n\n";
 
     std::cout << "5. Backtracking (N-Queens)\n";
     for (int n = 1; n <= 8; ++n) {

@@ -5,7 +5,7 @@
 #include <utility>
 
 class StockSpanner {
-public:
+  public:
     int next(int price) {
         int span = 1;
         while (!st_.empty() && st_.top().first <= price) {
@@ -16,7 +16,7 @@ public:
         return span;
     }
 
-private:
+  private:
     std::stack<std::pair<int, int>> st_; // {price, span}, decreasing prices
 };
 
@@ -29,8 +29,7 @@ int main() {
         const int got = sp.next(prices[i]);
         std::cout << ' ' << got;
         if (got != expected[i]) {
-            std::cout << "\nMismatch at day " << i << " expected " << expected[i]
-                      << '\n';
+            std::cout << "\nMismatch at day " << i << " expected " << expected[i] << '\n';
             return 1;
         }
     }

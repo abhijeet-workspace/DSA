@@ -5,7 +5,8 @@
 #include <iostream>
 
 int divide(int dividend, int divisor) {
-    if (dividend == INT_MIN && divisor == -1) return INT_MAX;
+    if (dividend == INT_MIN && divisor == -1)
+        return INT_MAX;
 
     const bool negative = (dividend > 0) ^ (divisor > 0);
     long long a = std::llabs(static_cast<long long>(dividend));

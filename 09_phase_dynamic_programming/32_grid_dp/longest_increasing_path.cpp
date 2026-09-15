@@ -1,11 +1,11 @@
-// Longest Increasing Path in a Matrix — https://leetcode.com/problems/longest-increasing-path-in-a-matrix/
-// DFS + memo: longest strictly increasing path from each cell.
+// Longest Increasing Path in a Matrix —
+// https://leetcode.com/problems/longest-increasing-path-in-a-matrix/ DFS + memo: longest strictly
+// increasing path from each cell.
 #include <algorithm>
 #include <iostream>
 #include <vector>
 
-int dfs(const std::vector<std::vector<int>>& g, std::vector<std::vector<int>>& memo,
-        int i, int j) {
+int dfs(const std::vector<std::vector<int>>& g, std::vector<std::vector<int>>& memo, int i, int j) {
     if (memo[static_cast<size_t>(i)][static_cast<size_t>(j)]) {
         return memo[static_cast<size_t>(i)][static_cast<size_t>(j)];
     }

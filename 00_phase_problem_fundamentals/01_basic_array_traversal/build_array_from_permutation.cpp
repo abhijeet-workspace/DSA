@@ -13,7 +13,8 @@ std::vector<int> buildArray(const std::vector<int>& nums) {
 }
 
 int main() {
-    for (int x : buildArray({0, 2, 1, 5, 3, 4})) std::cout << x << " ";
+    for (int x : buildArray({0, 2, 1, 5, 3, 4}))
+        std::cout << x << " ";
     std::cout << "(expected 0 1 2 4 5 3)\n";
     return 0;
 }

@@ -14,17 +14,19 @@ int minNumberOfSemesters(int n, const std::vector<std::vector<int>>& relations, 
     std::vector<int> dp(static_cast<size_t>(full), n + 1);
     dp[0] = 0;
     for (int mask = 0; mask < full; ++mask) {
-        if (dp[static_cast<size_t>(mask)] > n) continue;
+        if (dp[static_cast<size_t>(mask)] > n)
+            continue;
         int available = 0;
         for (int i = 0; i < n; ++i) {
-            if ((mask & (1 << i)) == 0 && (prereq[static_cast<size_t>(i)] & mask) == prereq[static_cast<size_t>(i)])
+            if ((mask & (1 << i)) == 0 &&
+                (prereq[static_cast<size_t>(i)] & mask) == prereq[static_cast<size_t>(i)])
                 available |= (1 << i);
         }
         // enumerate submasks of available with popcount <= k
         for (int sub = available; sub > 0; sub = (sub - 1) & available) {
             if (__builtin_popcount(static_cast<unsigned>(sub)) <= k) {
-                dp[static_cast<size_t>(mask | sub)] =
-                    std::min(dp[static_cast<size_t>(mask | sub)], dp[static_cast<size_t>(mask)] + 1);
+                dp[static_cast<size_t>(mask | sub)] = std::min(dp[static_cast<size_t>(mask | sub)],
+                                                               dp[static_cast<size_t>(mask)] + 1);
             }
         }
     }

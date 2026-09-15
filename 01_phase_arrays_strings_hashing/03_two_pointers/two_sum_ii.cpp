@@ -7,9 +7,12 @@ std::vector<int> twoSumSorted(const std::vector<int>& nums, int target) {
     int L = 0, R = static_cast<int>(nums.size()) - 1;
     while (L < R) {
         int sum = nums[static_cast<size_t>(L)] + nums[static_cast<size_t>(R)];
-        if (sum == target) return {L, R};
-        if (sum < target) ++L;
-        else --R;
+        if (sum == target)
+            return {L, R};
+        if (sum < target)
+            ++L;
+        else
+            --R;
     }
     return {};
 }
@@ -20,8 +23,8 @@ int main() {
     auto res = twoSumSorted(nums, target);
     if (!res.empty()) {
         std::cout << "Indices: [" << res[0] << ", " << res[1] << "] values ["
-                  << nums[static_cast<size_t>(res[0])] << ", "
-                  << nums[static_cast<size_t>(res[1])] << "]\n";
+                  << nums[static_cast<size_t>(res[0])] << ", " << nums[static_cast<size_t>(res[1])]
+                  << "]\n";
     } else {
         std::cout << "No pair found.\n";
     }

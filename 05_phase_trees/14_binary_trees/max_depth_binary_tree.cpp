@@ -1,7 +1,7 @@
 // Maximum Depth of Binary Tree — https://leetcode.com/problems/maximum-depth-of-binary-tree/
 // Depth = nodes on longest root-to-leaf path; empty tree depth 0.
-#include <iostream>
 #include <algorithm>
+#include <iostream>
 
 struct TreeNode {
     int val;

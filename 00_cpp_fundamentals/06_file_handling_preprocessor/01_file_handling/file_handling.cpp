@@ -5,9 +5,9 @@
 #include <string>
 
 int main() {
-    std::ofstream out("data.txt"); // open for write
+    std::ofstream out("data.txt");    // open for write
     out << "Hello File" << std::endl; // write one line
-    out.close(); // flush and release
+    out.close();                      // flush and release
 
     std::ifstream in("data.txt"); // open for read
     std::string line;

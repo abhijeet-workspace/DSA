@@ -34,7 +34,6 @@ int search(const std::vector<int>& nums, int target) {
 
 int main() {
     const std::vector<int> nums = {4, 5, 6, 7, 0, 1, 2};
-    std::cout << search(nums, 0) << " (expected 4)\n"
-              << search(nums, 3) << " (expected -1)\n";
+    std::cout << search(nums, 0) << " (expected 4)\n" << search(nums, 3) << " (expected -1)\n";
     return 0;
 }

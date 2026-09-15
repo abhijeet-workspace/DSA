@@ -37,8 +37,7 @@ struct PersistSeg {
         if (l != r) {
             const int m = (l + r) / 2;
             if (idx <= m) {
-                t[static_cast<size_t>(v)].L =
-                    upd(t[static_cast<size_t>(prev)].L, l, m, idx, add);
+                t[static_cast<size_t>(v)].L = upd(t[static_cast<size_t>(prev)].L, l, m, idx, add);
             } else {
                 t[static_cast<size_t>(v)].R =
                     upd(t[static_cast<size_t>(prev)].R, m + 1, r, idx, add);

@@ -18,7 +18,7 @@ class SlidingWindowMedian {
         }
     }
 
-public:
+  public:
     void add(int num) {
         if (low.empty() || num <= *low.rbegin()) {
             low.insert(num);

@@ -18,9 +18,12 @@ static bool matches(const std::string& w, const std::string& p) {
     return true;
 }
 
-std::vector<std::string> findAndReplacePattern(const std::vector<std::string>& words, const std::string& pattern) {
+std::vector<std::string> findAndReplacePattern(const std::vector<std::string>& words,
+                                               const std::string& pattern) {
     std::vector<std::string> ans;
-    for (const auto& w : words) if (matches(w, pattern)) ans.push_back(w);
+    for (const auto& w : words)
+        if (matches(w, pattern))
+            ans.push_back(w);
     return ans;
 }
 

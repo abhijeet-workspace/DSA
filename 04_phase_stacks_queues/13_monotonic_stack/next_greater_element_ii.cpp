@@ -10,8 +10,7 @@ std::vector<int> nextGreaterElements(const std::vector<int>& nums) {
     std::stack<int> st; // indices, decreasing values
     for (int k = 0; k < 2 * n; ++k) {
         const int i = k % n;
-        while (!st.empty() &&
-               nums[static_cast<size_t>(st.top())] < nums[static_cast<size_t>(i)]) {
+        while (!st.empty() && nums[static_cast<size_t>(st.top())] < nums[static_cast<size_t>(i)]) {
             res[static_cast<size_t>(st.top())] = nums[static_cast<size_t>(i)];
             st.pop();
         }

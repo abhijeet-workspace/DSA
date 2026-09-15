@@ -12,15 +12,7 @@ struct HLD {
     std::vector<long long> bit;
 
     explicit HLD(int n_)
-        : n(n_),
-          g(n_),
-          parent(n_),
-          depth(n_),
-          heavy(n_, -1),
-          head(n_),
-          pos(n_),
-          sz(n_),
-          val(n_),
+        : n(n_), g(n_), parent(n_), depth(n_), heavy(n_, -1), head(n_), pos(n_), sz(n_), val(n_),
           bit(n_ + 1, 0) {}
 
     void addEdge(int u, int v) {
@@ -74,9 +66,7 @@ struct HLD {
         return s;
     }
 
-    long long bitRange(int l, int r) {
-        return bitSum(r) - (l ? bitSum(l - 1) : 0);
-    }
+    long long bitRange(int l, int r) { return bitSum(r) - (l ? bitSum(l - 1) : 0); }
 
     void init(const std::vector<int>& values, int root = 0) {
         val = values;

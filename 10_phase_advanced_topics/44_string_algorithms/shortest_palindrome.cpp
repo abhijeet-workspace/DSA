@@ -11,10 +11,13 @@ std::string shortestPalindrome(std::string s) {
     std::string t = s + "#" + rev;
     int m = static_cast<int>(t.size());
     std::vector<int> lps(m, 0);
-    for (int i = 1, len = 0; i < m; ) {
-        if (t[i] == t[len]) lps[i++] = ++len;
-        else if (len) len = lps[len - 1];
-        else lps[i++] = 0;
+    for (int i = 1, len = 0; i < m;) {
+        if (t[i] == t[len])
+            lps[i++] = ++len;
+        else if (len)
+            len = lps[len - 1];
+        else
+            lps[i++] = 0;
     }
     int pref = lps.back();
     return rev.substr(0, s.size() - pref) + s;

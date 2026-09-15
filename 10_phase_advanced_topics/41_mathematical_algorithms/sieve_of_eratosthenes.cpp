@@ -36,8 +36,7 @@ std::vector<int> segmentedSieve(int lo, int hi) {
         if (!smallPrimes[p]) {
             continue;
         }
-        long long start = std::max(static_cast<long long>(p) * p,
-                                   ((lo + p - 1LL) / p) * p);
+        long long start = std::max(static_cast<long long>(p) * p, ((lo + p - 1LL) / p) * p);
         for (long long i = start; i <= hi; i += p) {
             isPrime[static_cast<int>(i - lo)] = false;
         }

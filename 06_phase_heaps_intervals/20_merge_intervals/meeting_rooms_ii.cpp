@@ -9,7 +9,7 @@ int minMeetingRooms(std::vector<std::vector<int>>& intervals) {
     if (intervals.empty()) {
         return 0;
     }
-    std::sort(intervals.begin(), intervals.end()); // by start
+    std::sort(intervals.begin(), intervals.end());                      // by start
     std::priority_queue<int, std::vector<int>, std::greater<int>> ends; // min-heap of ends
     ends.push(intervals[0][1]);
     for (size_t i = 1; i < intervals.size(); ++i) {
@@ -24,7 +24,6 @@ int minMeetingRooms(std::vector<std::vector<int>>& intervals) {
 int main() {
     std::vector<std::vector<int>> a = {{0, 30}, {5, 10}, {15, 20}};
     std::vector<std::vector<int>> b = {{7, 10}, {2, 4}};
-    std::cout << minMeetingRooms(a) << " (expected 2)\n"
-              << minMeetingRooms(b) << " (expected 1)\n";
+    std::cout << minMeetingRooms(a) << " (expected 2)\n" << minMeetingRooms(b) << " (expected 1)\n";
     return 0;
 }

@@ -16,14 +16,16 @@ std::string longestWord(const std::vector<std::string>& words) {
         Node* cur = root;
         for (char c : w) {
             int i = c - 'a';
-            if (!cur->ch[i]) cur->ch[i] = new Node();
+            if (!cur->ch[i])
+                cur->ch[i] = new Node();
             cur = cur->ch[i];
         }
         cur->end = true;
     }
     std::string best, path;
     std::function<void(Node*)> dfs = [&](Node* node) {
-        if (path.size() > best.size() || (path.size() == best.size() && path < best)) best = path;
+        if (path.size() > best.size() || (path.size() == best.size() && path < best))
+            best = path;
         for (int i = 0; i < 26; ++i) {
             if (node->ch[i] && node->ch[i]->end) {
                 path.push_back(static_cast<char>('a' + i));
@@ -38,6 +40,7 @@ std::string longestWord(const std::vector<std::string>& words) {
 
 int main() {
     std::cout << longestWord({"w", "wo", "wor", "worl", "world"}) << " (expected world)\n"
-              << longestWord({"a", "banana", "app", "appl", "ap", "apply", "apple"}) << " (expected apple)\n";
+              << longestWord({"a", "banana", "app", "appl", "ap", "apply", "apple"})
+              << " (expected apple)\n";
     return 0;
 }

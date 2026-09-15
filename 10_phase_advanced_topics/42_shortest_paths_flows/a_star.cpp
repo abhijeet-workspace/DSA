@@ -21,7 +21,8 @@ int aStar(const std::vector<std::vector<int>>& grid, std::pair<int, int> start,
     const int n = static_cast<int>(grid[0].size());
     const int sr = start.first, sc = start.second;
     const int gr = goal.first, gc = goal.second;
-    if (grid[sr][sc] || grid[gr][gc]) return -1;
+    if (grid[sr][sc] || grid[gr][gc])
+        return -1;
 
     const int INF = 1e9;
     std::vector<std::vector<int>> gScore(m, std::vector<int>(n, INF));
@@ -36,13 +37,16 @@ int aStar(const std::vector<std::vector<int>>& grid, std::pair<int, int> start,
     while (!pq.empty()) {
         Node cur = pq.top();
         pq.pop();
-        if (cur.r == gr && cur.c == gc) return cur.g;
-        if (cur.g > gScore[cur.r][cur.c]) continue; // stale
+        if (cur.r == gr && cur.c == gc)
+            return cur.g;
+        if (cur.g > gScore[cur.r][cur.c])
+            continue; // stale
 
         for (int k = 0; k < 4; ++k) {
             int nr = cur.r + dr[k];
             int nc = cur.c + dc[k];
-            if (nr < 0 || nr >= m || nc < 0 || nc >= n || grid[nr][nc]) continue;
+            if (nr < 0 || nr >= m || nc < 0 || nc >= n || grid[nr][nc])
+                continue;
             int ng = cur.g + 1;
             if (ng < gScore[nr][nc]) {
                 gScore[nr][nc] = ng;

@@ -4,8 +4,8 @@
 #include <vector>
 
 void dfs(std::vector<std::vector<char>>& board, int r, int c) {
-    if (r < 0 || r >= static_cast<int>(board.size()) || c < 0
-        || c >= static_cast<int>(board[0].size()) || board[r][c] != 'O') {
+    if (r < 0 || r >= static_cast<int>(board.size()) || c < 0 ||
+        c >= static_cast<int>(board[0].size()) || board[r][c] != 'O') {
         return;
     }
     board[r][c] = 'E'; // escaped — touches border

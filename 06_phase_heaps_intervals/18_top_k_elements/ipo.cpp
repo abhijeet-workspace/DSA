@@ -12,11 +12,10 @@ int findMaximizedCapital(int k, int w, const std::vector<int>& profits,
     std::vector<std::pair<int, int>> projects; // capital, profit
     projects.reserve(static_cast<size_t>(n));
     for (int i = 0; i < n; ++i) {
-        projects.push_back({capital[static_cast<size_t>(i)],
-                            profits[static_cast<size_t>(i)]});
+        projects.push_back({capital[static_cast<size_t>(i)], profits[static_cast<size_t>(i)]});
     }
     std::sort(projects.begin(), projects.end()); // unlock order by capital
-    std::priority_queue<int> max_profit; // affordable profits
+    std::priority_queue<int> max_profit;         // affordable profits
     int i = 0;
     for (int done = 0; done < k; ++done) {
         while (i < n && projects[static_cast<size_t>(i)].first <= w) {
@@ -33,9 +32,7 @@ int findMaximizedCapital(int k, int w, const std::vector<int>& profits,
 }
 
 int main() {
-    std::cout << findMaximizedCapital(2, 0, {1, 2, 3}, {0, 1, 1})
-              << " (expected 4)\n";
-    std::cout << findMaximizedCapital(3, 0, {1, 2, 3}, {0, 1, 2})
-              << " (expected 6)\n";
+    std::cout << findMaximizedCapital(2, 0, {1, 2, 3}, {0, 1, 1}) << " (expected 4)\n";
+    std::cout << findMaximizedCapital(3, 0, {1, 2, 3}, {0, 1, 2}) << " (expected 6)\n";
     return 0;
 }

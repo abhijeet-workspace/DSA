@@ -1,7 +1,7 @@
 // House Robber III — https://leetcode.com/problems/house-robber-iii/
 // Max money without robbing two adjacent tree nodes.
-#include <iostream>
 #include <algorithm>
+#include <iostream>
 #include <utility>
 
 struct TreeNode {

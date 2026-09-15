@@ -1,8 +1,8 @@
-#include <iostream>
 #include "core/Exchange.h"
 #include "spdlog/spdlog.h"
-#include <thread>
 #include <chrono>
+#include <iostream>
+#include <thread>
 
 using namespace trading;
 
@@ -16,10 +16,10 @@ int main() {
     exchange.submitOrder(Order(1, "BTC/USD", OrderType::LIMIT, Side::BUY, 50000.0, 10));
     exchange.submitOrder(Order(2, "BTC/USD", OrderType::LIMIT, Side::SELL, 50100.0, 5));
     exchange.submitOrder(Order(3, "BTC/USD", OrderType::LIMIT, Side::BUY, 49900.0, 15));
-    
+
     // Add another pair
     exchange.submitOrder(Order(10, "ETH/USD", OrderType::LIMIT, Side::SELL, 3000.0, 50));
-    
+
     exchange.printAllBooks();
 
     spdlog::info("Adding aggressive sell order on BTC/USD...");

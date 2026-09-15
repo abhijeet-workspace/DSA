@@ -21,9 +21,7 @@ std::vector<int> findClosestElements(const std::vector<int>& arr, int k, int x) 
 int main() {
     const auto a = findClosestElements({1, 2, 3, 4, 5}, 4, 3);
     const auto b = findClosestElements({1, 1, 2, 3, 4, 5}, 4, -1);
-    std::cout << a[0] << " " << a[1] << " " << a[2] << " " << a[3]
-              << " (expected 1 2 3 4)\n";
-    std::cout << b[0] << " " << b[1] << " " << b[2] << " " << b[3]
-              << " (expected 1 1 2 3)\n";
+    std::cout << a[0] << " " << a[1] << " " << a[2] << " " << a[3] << " (expected 1 2 3 4)\n";
+    std::cout << b[0] << " " << b[1] << " " << b[2] << " " << b[3] << " (expected 1 1 2 3)\n";
     return 0;
 }

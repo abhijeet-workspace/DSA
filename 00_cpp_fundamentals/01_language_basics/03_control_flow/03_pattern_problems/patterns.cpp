@@ -1,7 +1,7 @@
 // Pattern Problems — C++ basics
 // Nested-loop catalogue: 19 patterns printed in a non-interactive demo.
-#include <iostream>
 #include <algorithm>
+#include <iostream>
 
 void printSolidRectangle(int n, int m);
 void printHollowRectangle(int n, int m);
@@ -69,7 +69,7 @@ int main() {
 }
 
 void printSolidRectangle(int n, int m) {
-    for (int i = 0; i < n; i++) { // rows
+    for (int i = 0; i < n; i++) {     // rows
         for (int j = 0; j < m; j++) { // cols
             std::cout << "*";
         }
@@ -151,7 +151,7 @@ void printInvertedCenteredFullPyramid(int n) {
 }
 
 void printDiamond(int n) {
-    printCenteredFullPyramid(n); // top half
+    printCenteredFullPyramid(n);         // top half
     printInvertedCenteredFullPyramid(n); // bottom half
 }
 
@@ -197,39 +197,54 @@ void printAlphabetTriangle2(int n) {
 
 void printHollowDiamond(int n) {
     for (int i = 0; i < n; i++) { // top half
-        for (int j = 0; j < n - i; j++) std::cout << "*";
-        for (int j = 0; j < 2 * i; j++) std::cout << " ";
-        for (int j = 0; j < n - i; j++) std::cout << "*";
+        for (int j = 0; j < n - i; j++)
+            std::cout << "*";
+        for (int j = 0; j < 2 * i; j++)
+            std::cout << " ";
+        for (int j = 0; j < n - i; j++)
+            std::cout << "*";
         std::cout << "\n";
     }
     for (int i = 0; i < n; i++) { // bottom half
-        for (int j = 0; j <= i; j++) std::cout << "*";
-        for (int j = 0; j < 2 * (n - i - 1); j++) std::cout << " ";
-        for (int j = 0; j <= i; j++) std::cout << "*";
+        for (int j = 0; j <= i; j++)
+            std::cout << "*";
+        for (int j = 0; j < 2 * (n - i - 1); j++)
+            std::cout << " ";
+        for (int j = 0; j <= i; j++)
+            std::cout << "*";
         std::cout << "\n";
     }
 }
 
 void printButterfly(int n) {
     for (int i = 1; i <= n; i++) { // top wings
-        for (int j = 1; j <= i; j++) std::cout << "*";
-        for (int j = 1; j <= 2 * (n - i); j++) std::cout << " ";
-        for (int j = 1; j <= i; j++) std::cout << "*";
+        for (int j = 1; j <= i; j++)
+            std::cout << "*";
+        for (int j = 1; j <= 2 * (n - i); j++)
+            std::cout << " ";
+        for (int j = 1; j <= i; j++)
+            std::cout << "*";
         std::cout << "\n";
     }
     for (int i = n; i >= 1; i--) { // bottom wings
-        for (int j = 1; j <= i; j++) std::cout << "*";
-        for (int j = 1; j <= 2 * (n - i); j++) std::cout << " ";
-        for (int j = 1; j <= i; j++) std::cout << "*";
+        for (int j = 1; j <= i; j++)
+            std::cout << "*";
+        for (int j = 1; j <= 2 * (n - i); j++)
+            std::cout << " ";
+        for (int j = 1; j <= i; j++)
+            std::cout << "*";
         std::cout << "\n";
     }
 }
 
 void printNumberCrown(int n) {
     for (int i = 1; i <= n; i++) {
-        for (int j = 1; j <= i; j++) std::cout << j; // left ascent
-        for (int j = 1; j <= 2 * (n - i); j++) std::cout << " "; // bridge gap
-        for (int j = i; j >= 1; j--) std::cout << j; // right descent
+        for (int j = 1; j <= i; j++)
+            std::cout << j; // left ascent
+        for (int j = 1; j <= 2 * (n - i); j++)
+            std::cout << " "; // bridge gap
+        for (int j = i; j >= 1; j--)
+            std::cout << j; // right descent
         std::cout << "\n";
     }
 }
@@ -247,8 +262,9 @@ void printFloydsTriangle(int n) {
 
 void printPascalsTriangle(int n) {
     for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n - i - 1; j++) std::cout << " "; // center
-        int val = 1; // C(i,0)
+        for (int j = 0; j < n - i - 1; j++)
+            std::cout << " "; // center
+        int val = 1;          // C(i,0)
         for (int j = 0; j <= i; j++) {
             std::cout << val << " ";
             val = val * (i - j) / (j + 1); // next binomial

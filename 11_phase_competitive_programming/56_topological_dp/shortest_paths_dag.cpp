@@ -10,32 +10,36 @@ struct Edge {
     long long w;
 };
 
-std::vector<long long> shortestPathsDAG(
-    int n, const std::vector<std::vector<Edge>>& g, int src) {
+std::vector<long long> shortestPathsDAG(int n, const std::vector<std::vector<Edge>>& g, int src) {
     const long long INF = std::numeric_limits<long long>::max() / 4;
     std::vector<int> indeg(static_cast<size_t>(n) + 1, 0);
     for (int u = 1; u <= n; ++u)
-        for (const Edge& e : g[static_cast<size_t>(u)]) ++indeg[static_cast<size_t>(e.to)];
+        for (const Edge& e : g[static_cast<size_t>(u)])
+            ++indeg[static_cast<size_t>(e.to)];
 
     std::queue<int> q;
     for (int i = 1; i <= n; ++i)
-        if (indeg[static_cast<size_t>(i)] == 0) q.push(i);
+        if (indeg[static_cast<size_t>(i)] == 0)
+            q.push(i);
     std::vector<int> order;
     while (!q.empty()) {
         int u = q.front();
         q.pop();
         order.push_back(u);
         for (const Edge& e : g[static_cast<size_t>(u)])
-            if (--indeg[static_cast<size_t>(e.to)] == 0) q.push(e.to);
+            if (--indeg[static_cast<size_t>(e.to)] == 0)
+                q.push(e.to);
     }
 
     std::vector<long long> dist(static_cast<size_t>(n) + 1, INF);
     dist[static_cast<size_t>(src)] = 0;
     for (int u : order) {
-        if (dist[static_cast<size_t>(u)] >= INF / 2) continue;
+        if (dist[static_cast<size_t>(u)] >= INF / 2)
+            continue;
         for (const Edge& e : g[static_cast<size_t>(u)]) {
             long long nd = dist[static_cast<size_t>(u)] + e.w;
-            if (nd < dist[static_cast<size_t>(e.to)]) dist[static_cast<size_t>(e.to)] = nd;
+            if (nd < dist[static_cast<size_t>(e.to)])
+                dist[static_cast<size_t>(e.to)] = nd;
         }
     }
     return dist;

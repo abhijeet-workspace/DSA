@@ -14,8 +14,8 @@ int lengthOfLIS(const std::vector<int>& nums) {
     for (int i = 1; i < n; ++i) {
         for (int j = 0; j < i; ++j) {
             if (nums[static_cast<size_t>(i)] > nums[static_cast<size_t>(j)]) {
-                dp[static_cast<size_t>(i)] = std::max(dp[static_cast<size_t>(i)],
-                                                      dp[static_cast<size_t>(j)] + 1);
+                dp[static_cast<size_t>(i)] =
+                    std::max(dp[static_cast<size_t>(i)], dp[static_cast<size_t>(j)] + 1);
             }
         }
         best = std::max(best, dp[static_cast<size_t>(i)]);

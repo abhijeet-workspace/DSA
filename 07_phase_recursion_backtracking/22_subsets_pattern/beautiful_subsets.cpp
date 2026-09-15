@@ -23,7 +23,8 @@ void dfs(const std::vector<int>& nums, int i, int k, std::vector<int>& freq, int
 int beautifulSubsets(std::vector<int> nums, int k) {
     std::sort(nums.begin(), nums.end());
     int mx = 0;
-    for (int x : nums) mx = std::max(mx, x);
+    for (int x : nums)
+        mx = std::max(mx, x);
     std::vector<int> freq(static_cast<size_t>(mx + 1), 0);
     int count = 0;
     dfs(nums, 0, k, freq, count);

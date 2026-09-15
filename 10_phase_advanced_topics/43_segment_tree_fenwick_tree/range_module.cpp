@@ -4,9 +4,9 @@
 #include <map>
 
 class RangeModule {
-    std::map<int, int> mp;  // start -> end
+    std::map<int, int> mp; // start -> end
 
-public:
+  public:
     void addRange(int left, int right) {
         auto it = mp.upper_bound(left);
         if (it != mp.begin()) {
@@ -26,7 +26,8 @@ public:
 
     bool queryRange(int left, int right) {
         auto it = mp.upper_bound(left);
-        if (it == mp.begin()) return false;
+        if (it == mp.begin())
+            return false;
         --it;
         return it->second >= right;
     }
@@ -38,12 +39,14 @@ public:
             if (pit->second > left) {
                 int oldR = pit->second;
                 pit->second = left;
-                if (oldR > right) mp[right] = oldR;
+                if (oldR > right)
+                    mp[right] = oldR;
             }
         }
         it = mp.lower_bound(left);
         while (it != mp.end() && it->first < right) {
-            if (it->second <= right) it = mp.erase(it);
+            if (it->second <= right)
+                it = mp.erase(it);
             else {
                 int r = it->second;
                 mp.erase(it);

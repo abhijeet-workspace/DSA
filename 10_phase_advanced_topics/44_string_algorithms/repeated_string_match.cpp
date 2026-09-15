@@ -7,24 +7,34 @@
 std::vector<int> lpsOf(const std::string& p) {
     int m = static_cast<int>(p.size());
     std::vector<int> lps(m, 0);
-    for (int i = 1, len = 0; i < m; ) {
-        if (p[i] == p[len]) lps[i++] = ++len;
-        else if (len) len = lps[len - 1];
-        else lps[i++] = 0;
+    for (int i = 1, len = 0; i < m;) {
+        if (p[i] == p[len])
+            lps[i++] = ++len;
+        else if (len)
+            len = lps[len - 1];
+        else
+            lps[i++] = 0;
     }
     return lps;
 }
 
 bool containsKMP(const std::string& text, const std::string& pat) {
-    if (pat.empty()) return true;
+    if (pat.empty())
+        return true;
     auto lps = lpsOf(pat);
     int n = static_cast<int>(text.size()), m = static_cast<int>(pat.size());
-    for (int i = 0, j = 0; i < n; ) {
-        if (text[i] == pat[j]) { ++i; ++j; }
-        if (j == m) return true;
+    for (int i = 0, j = 0; i < n;) {
+        if (text[i] == pat[j]) {
+            ++i;
+            ++j;
+        }
+        if (j == m)
+            return true;
         if (i < n && text[i] != pat[j]) {
-            if (j) j = lps[j - 1];
-            else ++i;
+            if (j)
+                j = lps[j - 1];
+            else
+                ++i;
         }
     }
     return false;
@@ -33,10 +43,16 @@ bool containsKMP(const std::string& text, const std::string& pat) {
 int repeatedStringMatch(const std::string& a, const std::string& b) {
     std::string s = a;
     int k = 1;
-    while (static_cast<int>(s.size()) < static_cast<int>(b.size())) { s += a; ++k; }
-    if (containsKMP(s, b)) return k;
-    s += a; ++k;
-    if (containsKMP(s, b)) return k;
+    while (static_cast<int>(s.size()) < static_cast<int>(b.size())) {
+        s += a;
+        ++k;
+    }
+    if (containsKMP(s, b))
+        return k;
+    s += a;
+    ++k;
+    if (containsKMP(s, b))
+        return k;
     return -1;
 }
 

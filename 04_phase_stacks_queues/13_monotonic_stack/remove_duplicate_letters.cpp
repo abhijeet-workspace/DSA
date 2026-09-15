@@ -17,8 +17,7 @@ std::string removeDuplicateLetters(const std::string& s) {
         if (in_stack[static_cast<size_t>(ci)]) {
             continue;
         }
-        while (!st.empty() && st.back() > c &&
-               last[static_cast<size_t>(st.back() - 'a')] > i) {
+        while (!st.empty() && st.back() > c && last[static_cast<size_t>(st.back() - 'a')] > i) {
             in_stack[static_cast<size_t>(st.back() - 'a')] = false;
             st.pop_back();
         }

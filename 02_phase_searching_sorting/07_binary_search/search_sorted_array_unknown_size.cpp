@@ -1,5 +1,6 @@
-// Search in a Sorted Array of Unknown Size — https://leetcode.com/problems/search-in-a-sorted-array-of-unknown-size/
-// ArrayReader.get(i) is 2^31-1 out of range. Exponential search then binary search.
+// Search in a Sorted Array of Unknown Size —
+// https://leetcode.com/problems/search-in-a-sorted-array-of-unknown-size/ ArrayReader.get(i) is
+// 2^31-1 out of range. Exponential search then binary search.
 #include <iostream>
 #include <limits>
 #include <vector>
@@ -7,7 +8,7 @@
 class ArrayReader {
     std::vector<int> data;
 
-public:
+  public:
     explicit ArrayReader(std::vector<int> d) : data(std::move(d)) {}
 
     int get(int index) const {
@@ -41,7 +42,6 @@ int search(const ArrayReader& reader, int target) {
 
 int main() {
     const ArrayReader reader({-1, 0, 3, 5, 9, 12});
-    std::cout << search(reader, 9) << " (expected 4)\n"
-              << search(reader, 2) << " (expected -1)\n";
+    std::cout << search(reader, 9) << " (expected 4)\n" << search(reader, 2) << " (expected -1)\n";
     return 0;
 }

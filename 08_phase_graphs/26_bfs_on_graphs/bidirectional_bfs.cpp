@@ -6,7 +6,8 @@
 #include <vector>
 
 int bidirectionalBfs(const std::vector<std::vector<int>>& adj, int src, int dst) {
-    if (src == dst) return 0;
+    if (src == dst)
+        return 0;
 
     std::queue<int> qSrc, qDst;
     std::unordered_map<int, int> distSrc, distDst;
@@ -22,7 +23,8 @@ int bidirectionalBfs(const std::vector<std::vector<int>>& adj, int src, int dst)
             int u = q.front();
             q.pop();
             for (int v : adj[u]) {
-                if (distMine.count(v)) continue;
+                if (distMine.count(v))
+                    continue;
                 distMine[v] = distMine[u] + 1;
                 if (distOther.count(v)) {
                     return distMine[v] + distOther.at(v);
@@ -37,7 +39,8 @@ int bidirectionalBfs(const std::vector<std::vector<int>>& adj, int src, int dst)
         // Expand the smaller frontier first (optional heuristic).
         int hit = (qSrc.size() <= qDst.size()) ? expand(qSrc, distSrc, distDst)
                                                : expand(qDst, distDst, distSrc);
-        if (hit != -1) return hit;
+        if (hit != -1)
+            return hit;
     }
     return -1; // unreachable
 }

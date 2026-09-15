@@ -1,9 +1,9 @@
 // Target Sum — https://leetcode.com/problems/target-sum/
 // Assign +/- to each num; count ways to reach target (subset-sum DP).
-#include <iostream>
-#include <vector>
-#include <numeric>
 #include <cstdlib>
+#include <iostream>
+#include <numeric>
+#include <vector>
 
 int findTargetSumWays(const std::vector<int>& nums, int target) {
     const int sum = std::accumulate(nums.begin(), nums.end(), 0);

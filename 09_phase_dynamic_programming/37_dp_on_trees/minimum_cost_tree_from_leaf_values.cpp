@@ -1,4 +1,5 @@
-// Minimum Cost Tree From Leaf Values — https://leetcode.com/problems/minimum-cost-tree-from-leaf-values/
+// Minimum Cost Tree From Leaf Values —
+// https://leetcode.com/problems/minimum-cost-tree-from-leaf-values/
 #include <algorithm>
 #include <iostream>
 #include <vector>
@@ -10,19 +11,20 @@ int mctFromLeafValues(std::vector<int>& arr) {
         mx[static_cast<size_t>(i)][static_cast<size_t>(i)] = arr[static_cast<size_t>(i)];
         for (int j = i + 1; j < n; ++j)
             mx[static_cast<size_t>(i)][static_cast<size_t>(j)] =
-                std::max(mx[static_cast<size_t>(i)][static_cast<size_t>(j - 1)], arr[static_cast<size_t>(j)]);
+                std::max(mx[static_cast<size_t>(i)][static_cast<size_t>(j - 1)],
+                         arr[static_cast<size_t>(j)]);
     }
     for (int len = 2; len <= n; ++len) {
         for (int i = 0; i + len - 1 < n; ++i) {
             const int j = i + len - 1;
             dp[static_cast<size_t>(i)][static_cast<size_t>(j)] = 1e9;
             for (int k = i; k < j; ++k) {
-                dp[static_cast<size_t>(i)][static_cast<size_t>(j)] = std::min(
-                    dp[static_cast<size_t>(i)][static_cast<size_t>(j)],
-                    dp[static_cast<size_t>(i)][static_cast<size_t>(k)] +
-                        dp[static_cast<size_t>(k + 1)][static_cast<size_t>(j)] +
-                        mx[static_cast<size_t>(i)][static_cast<size_t>(k)] *
-                            mx[static_cast<size_t>(k + 1)][static_cast<size_t>(j)]);
+                dp[static_cast<size_t>(i)][static_cast<size_t>(j)] =
+                    std::min(dp[static_cast<size_t>(i)][static_cast<size_t>(j)],
+                             dp[static_cast<size_t>(i)][static_cast<size_t>(k)] +
+                                 dp[static_cast<size_t>(k + 1)][static_cast<size_t>(j)] +
+                                 mx[static_cast<size_t>(i)][static_cast<size_t>(k)] *
+                                     mx[static_cast<size_t>(k + 1)][static_cast<size_t>(j)]);
             }
         }
     }

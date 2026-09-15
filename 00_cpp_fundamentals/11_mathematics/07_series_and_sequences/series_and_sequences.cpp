@@ -72,8 +72,7 @@ int main() {
     std::cout << "sumAP(2,3,4) = " << sumAP(2, 3, 4) << " (expected 26)\n";
     std::cout << "sumGP(2,3,4) = " << sumGP(2, 3, 4) << " (expected 80)\n";
     std::cout << "5! = " << factorial(5) << " (expected 120)\n";
-    std::cout << "sum sq formula 5 = " << sumSquaresFormula(5)
-              << " (expected 55)\n";
+    std::cout << "sum sq formula 5 = " << sumSquaresFormula(5) << " (expected 55)\n";
     std::cout << "sum sq loop 5 = " << sumSquaresLoop(5) << " (expected 55)\n";
     return 0;
 }

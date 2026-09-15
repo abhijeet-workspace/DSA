@@ -13,7 +13,8 @@ struct TreeNode {
 #include <utility>
 
 std::pair<int, int> dfs(TreeNode* node) {
-    if (!node) return {0, 0};
+    if (!node)
+        return {0, 0};
     auto L = dfs(node->left), R = dfs(node->right);
     const int rob = node->val + L.second + R.second;
     const int skip = std::max(L.first, L.second) + std::max(R.first, R.second);
@@ -27,7 +28,10 @@ int rob(TreeNode* root) {
 
 int main() {
     TreeNode a(3), b(2), c(3), d(3), e(1);
-    a.left = &b; a.right = &c; b.right = &d; c.right = &e;
+    a.left = &b;
+    a.right = &c;
+    b.right = &d;
+    c.right = &e;
     std::cout << rob(&a) << " (expected 7)\n";
     return 0;
 }

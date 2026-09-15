@@ -1,8 +1,8 @@
 // Aggressive Cows — maximize minimum distance between k cows in stalls.
 // Binary search on answer over [1, maxStall - minStall] after sorting.
+#include <algorithm>
 #include <iostream>
 #include <vector>
-#include <algorithm>
 
 bool isPossible(const std::vector<int>& stalls, int k, int minDist) {
     int cowsPlaced = 1;
@@ -38,7 +38,6 @@ int solveAggressiveCows(std::vector<int> stalls, int k) {
 
 int main() {
     std::vector<int> stalls = {1, 2, 8, 4, 9};
-    std::cout << "Max Min Distance: " << solveAggressiveCows(stalls, 3)
-              << " (expected 3)\n";
+    std::cout << "Max Min Distance: " << solveAggressiveCows(stalls, 3) << " (expected 3)\n";
     return 0;
 }

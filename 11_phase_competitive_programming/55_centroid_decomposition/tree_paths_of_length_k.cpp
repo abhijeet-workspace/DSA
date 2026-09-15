@@ -10,8 +10,7 @@ struct PathCountK {
     std::vector<int> sz, dead;
     long long answer = 0;
 
-    PathCountK(int n_, int K_)
-        : n(n_), K(K_), g(n_ + 1), sz(n_ + 1, 0), dead(n_ + 1, 0) {}
+    PathCountK(int n_, int K_) : n(n_), K(K_), g(n_ + 1), sz(n_ + 1, 0), dead(n_ + 1, 0) {}
 
     void addEdge(int u, int v) {
         g[static_cast<size_t>(u)].push_back(v);
@@ -21,7 +20,8 @@ struct PathCountK {
     int dfsSize(int v, int p) {
         sz[static_cast<size_t>(v)] = 1;
         for (int to : g[static_cast<size_t>(v)]) {
-            if (to == p || dead[static_cast<size_t>(to)]) continue;
+            if (to == p || dead[static_cast<size_t>(to)])
+                continue;
             sz[static_cast<size_t>(v)] += dfsSize(to, v);
         }
         return sz[static_cast<size_t>(v)];
@@ -29,7 +29,8 @@ struct PathCountK {
 
     int findCentroid(int v, int p, int comp) {
         for (int to : g[static_cast<size_t>(v)]) {
-            if (to == p || dead[static_cast<size_t>(to)]) continue;
+            if (to == p || dead[static_cast<size_t>(to)])
+                continue;
             if (sz[static_cast<size_t>(to)] > comp / 2)
                 return findCentroid(to, v, comp);
         }
@@ -37,10 +38,12 @@ struct PathCountK {
     }
 
     void collect(int v, int p, int depth, std::vector<int>& depths) {
-        if (depth > K) return;
+        if (depth > K)
+            return;
         depths.push_back(depth);
         for (int to : g[static_cast<size_t>(v)]) {
-            if (to == p || dead[static_cast<size_t>(to)]) continue;
+            if (to == p || dead[static_cast<size_t>(to)])
+                continue;
             collect(to, v, depth + 1, depths);
         }
     }
@@ -49,14 +52,17 @@ struct PathCountK {
         std::vector<int> freq(static_cast<size_t>(K) + 1, 0);
         freq[0] = 1; // centroid at depth 0
         for (int to : g[static_cast<size_t>(c)]) {
-            if (dead[static_cast<size_t>(to)]) continue;
+            if (dead[static_cast<size_t>(to)])
+                continue;
             std::vector<int> depths;
             collect(to, c, 1, depths);
             for (int d : depths) { // pairs across different subtrees
-                if (K - d >= 0 && K - d <= K) answer += freq[static_cast<size_t>(K - d)];
+                if (K - d >= 0 && K - d <= K)
+                    answer += freq[static_cast<size_t>(K - d)];
             }
             for (int d : depths) {
-                if (d <= K) ++freq[static_cast<size_t>(d)];
+                if (d <= K)
+                    ++freq[static_cast<size_t>(d)];
             }
         }
     }
@@ -67,7 +73,8 @@ struct PathCountK {
         countThrough(c);
         dead[static_cast<size_t>(c)] = 1;
         for (int to : g[static_cast<size_t>(c)]) {
-            if (!dead[static_cast<size_t>(to)]) decompose(to);
+            if (!dead[static_cast<size_t>(to)])
+                decompose(to);
         }
     }
 

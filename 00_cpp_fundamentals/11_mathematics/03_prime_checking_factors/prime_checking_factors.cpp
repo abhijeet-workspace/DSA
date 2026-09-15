@@ -57,10 +57,8 @@ int countDistinctPrimeFactors(long long n) {
 }
 
 int main() {
-    std::cout << "isPrime(17) = " << (isPrime(17) ? "true" : "false")
-              << " (expected true)\n";
-    std::cout << "isPrime(15) = " << (isPrime(15) ? "true" : "false")
-              << " (expected false)\n";
+    std::cout << "isPrime(17) = " << (isPrime(17) ? "true" : "false") << " (expected true)\n";
+    std::cout << "isPrime(15) = " << (isPrime(15) ? "true" : "false") << " (expected false)\n";
 
     auto f = primeFactors(60);
     std::cout << "factors of 60:";
@@ -69,7 +67,7 @@ int main() {
     }
     std::cout << " (expected 2 2 3 5)\n";
 
-    std::cout << "distinct prime factors of 60 = "
-              << countDistinctPrimeFactors(60) << " (expected 3)\n";
+    std::cout << "distinct prime factors of 60 = " << countDistinctPrimeFactors(60)
+              << " (expected 3)\n";
     return 0;
 }

@@ -19,7 +19,8 @@ class SegmentTreeLazy {
     }
 
     void push(int node, int start, int end) {
-        if (lazy[node] == 0) return;
+        if (lazy[node] == 0)
+            return;
         tree[node] += (end - start + 1) * lazy[node];
         if (start != end) {
             lazy[2 * node + 1] += lazy[node];
@@ -30,7 +31,8 @@ class SegmentTreeLazy {
 
     void updateRangeLazy(int node, int start, int end, int l, int r, int val) {
         push(node, start, end);
-        if (start > end || start > r || end < l) return;
+        if (start > end || start > r || end < l)
+            return;
         if (start >= l && end <= r) {
             lazy[node] += val;
             push(node, start, end);
@@ -43,28 +45,33 @@ class SegmentTreeLazy {
     }
 
     int queryRangeLazy(int node, int start, int end, int l, int r) {
-        if (start > end || start > r || end < l) return 0;
+        if (start > end || start > r || end < l)
+            return 0;
         push(node, start, end);
-        if (start >= l && end <= r) return tree[node];
+        if (start >= l && end <= r)
+            return tree[node];
         int mid = start + (end - start) / 2;
         return queryRangeLazy(2 * node + 1, start, mid, l, r) +
                queryRangeLazy(2 * node + 2, mid + 1, end, l, r);
     }
 
-public:
+  public:
     SegmentTreeLazy(const std::vector<int>& arr) {
         n = static_cast<int>(arr.size());
         tree.assign(4 * n, 0);
         lazy.assign(4 * n, 0);
-        if (n > 0) build(arr, 0, 0, n - 1);
+        if (n > 0)
+            build(arr, 0, 0, n - 1);
     }
 
     void updateRange(int l, int r, int val) {
-        if (n > 0) updateRangeLazy(0, 0, n - 1, l, r, val);
+        if (n > 0)
+            updateRangeLazy(0, 0, n - 1, l, r, val);
     }
 
     int queryRange(int l, int r) {
-        if (n == 0) return 0;
+        if (n == 0)
+            return 0;
         return queryRangeLazy(0, 0, n - 1, l, r);
     }
 };

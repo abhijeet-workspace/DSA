@@ -1,8 +1,8 @@
 // Reverse String — LC 344
 // Swap characters from both ends until pointers meet.
 #include <iostream>
-#include <vector>
 #include <string>
+#include <vector>
 
 void reverseString(std::vector<char>& s) {
     int L = 0;

@@ -26,13 +26,15 @@ int maxValue(std::vector<std::vector<int>>& events, int k) {
         }
         return lo;
     };
-    std::vector<std::vector<int>> dp(static_cast<size_t>(n + 1), std::vector<int>(static_cast<size_t>(k + 1), 0));
+    std::vector<std::vector<int>> dp(static_cast<size_t>(n + 1),
+                                     std::vector<int>(static_cast<size_t>(k + 1), 0));
     for (int i = n - 1; i >= 0; --i) {
         const int nxt = next_idx(i);
         for (int t = 1; t <= k; ++t) {
-            dp[static_cast<size_t>(i)][static_cast<size_t>(t)] = std::max(
-                dp[static_cast<size_t>(i + 1)][static_cast<size_t>(t)],
-                events[static_cast<size_t>(i)][2] + dp[static_cast<size_t>(nxt)][static_cast<size_t>(t - 1)]);
+            dp[static_cast<size_t>(i)][static_cast<size_t>(t)] =
+                std::max(dp[static_cast<size_t>(i + 1)][static_cast<size_t>(t)],
+                         events[static_cast<size_t>(i)][2] +
+                             dp[static_cast<size_t>(nxt)][static_cast<size_t>(t - 1)]);
         }
     }
     return dp[0][static_cast<size_t>(k)];
@@ -41,7 +43,6 @@ int maxValue(std::vector<std::vector<int>>& events, int k) {
 int main() {
     std::vector<std::vector<int>> a = {{1, 2, 4}, {3, 4, 3}, {2, 3, 1}};
     std::vector<std::vector<int>> b = {{1, 2, 4}, {3, 4, 3}, {2, 3, 10}};
-    std::cout << maxValue(a, 2) << " (expected 7)\n"
-              << maxValue(b, 2) << " (expected 10)\n";
+    std::cout << maxValue(a, 2) << " (expected 7)\n" << maxValue(b, 2) << " (expected 10)\n";
     return 0;
 }

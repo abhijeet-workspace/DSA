@@ -1,9 +1,9 @@
 // Maximum Product Subarray — https://leetcode.com/problems/maximum-product-subarray/
 // Contiguous subarray with largest product; return that product.
-#include <iostream>
-#include <vector>
 #include <algorithm>
+#include <iostream>
 #include <utility>
+#include <vector>
 
 int maxProduct(const std::vector<int>& nums) {
     int best = nums[0];
@@ -11,7 +11,8 @@ int maxProduct(const std::vector<int>& nums) {
     int curMin = nums[0]; // worst product ending here (for negatives)
     for (size_t i = 1; i < nums.size(); ++i) {
         const int x = nums[i];
-        if (x < 0) std::swap(curMax, curMin); // negative flips extremes
+        if (x < 0)
+            std::swap(curMax, curMin);    // negative flips extremes
         curMax = std::max(x, curMax * x); // restart or extend
         curMin = std::min(x, curMin * x);
         best = std::max(best, curMax);

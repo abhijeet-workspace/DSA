@@ -1,9 +1,9 @@
 // Rotate Image — https://leetcode.com/problems/rotate-image/
 // Rotate n x n matrix 90° clockwise in-place.
-#include <iostream>
-#include <vector>
 #include <algorithm>
+#include <iostream>
 #include <utility>
+#include <vector>
 
 void rotate(std::vector<std::vector<int>>& a) {
     const int n = static_cast<int>(a.size());
@@ -22,7 +22,8 @@ int main() {
     std::vector<std::vector<int>> a = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
     rotate(a);
     for (const auto& r : a) {
-        for (int x : r) std::cout << x << " ";
+        for (int x : r)
+            std::cout << x << " ";
         std::cout << "\n";
     }
     // expected: 7 4 1 / 8 5 2 / 9 6 3

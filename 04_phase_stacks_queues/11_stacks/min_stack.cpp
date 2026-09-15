@@ -7,7 +7,7 @@ class MinStack {
     std::stack<long long> st_;
     long long mn_ = 0;
 
-public:
+  public:
     void push(int val) {
         if (st_.empty()) {
             st_.push(0);

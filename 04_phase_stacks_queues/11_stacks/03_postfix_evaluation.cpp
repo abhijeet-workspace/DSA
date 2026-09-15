@@ -37,19 +37,12 @@ int evaluatePostfix(const std::string& expr) {
 
 int main() {
     const std::vector<std::pair<std::string, int>> tests = {
-        {"23+", 5},
-        {"234*+", 14},
-        {"234*+5-", 9},
-        {"123+*", 5},
-        {"12+34+*", 21},
-        {"5678*+*", 310},
-        {"321*-", 1},
-        {"432/-", 3},
+        {"23+", 5},      {"234*+", 14},    {"234*+5-", 9}, {"123+*", 5},
+        {"12+34+*", 21}, {"5678*+*", 310}, {"321*-", 1},   {"432/-", 3},
     };
     for (const auto& [expr, expected] : tests) {
         const int got = evaluatePostfix(expr);
-        std::cout << '"' << expr << "\" -> " << got
-                  << " (expected " << expected << ") "
+        std::cout << '"' << expr << "\" -> " << got << " (expected " << expected << ") "
                   << (got == expected ? "OK" : "FAIL") << '\n';
     }
     return 0;

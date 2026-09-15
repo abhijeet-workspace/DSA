@@ -10,10 +10,10 @@ std::vector<int> sortedSquares(const std::vector<int>& nums) {
     int R = n - 1;
     int write = n - 1;
     while (L <= R) {
-        long leftSq = static_cast<long>(nums[static_cast<size_t>(L)]) *
-                      nums[static_cast<size_t>(L)];
-        long rightSq = static_cast<long>(nums[static_cast<size_t>(R)]) *
-                       nums[static_cast<size_t>(R)];
+        long leftSq =
+            static_cast<long>(nums[static_cast<size_t>(L)]) * nums[static_cast<size_t>(L)];
+        long rightSq =
+            static_cast<long>(nums[static_cast<size_t>(R)]) * nums[static_cast<size_t>(R)];
         if (leftSq > rightSq) {
             result[static_cast<size_t>(write--)] = static_cast<int>(leftSq);
             ++L;

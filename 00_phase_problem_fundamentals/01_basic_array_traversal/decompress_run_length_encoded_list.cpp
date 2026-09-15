@@ -8,13 +8,15 @@ std::vector<int> decompressRLElist(const std::vector<int>& nums) {
     for (size_t i = 0; i + 1 < nums.size(); i += 2) {
         const int freq = nums[i];
         const int val = nums[i + 1];
-        for (int k = 0; k < freq; ++k) ans.push_back(val);
+        for (int k = 0; k < freq; ++k)
+            ans.push_back(val);
     }
     return ans;
 }
 
 int main() {
-    for (int x : decompressRLElist({1, 2, 3, 4})) std::cout << x << " ";
+    for (int x : decompressRLElist({1, 2, 3, 4}))
+        std::cout << x << " ";
     std::cout << "(expected 2 4 4 4)\n";
     return 0;
 }

@@ -9,9 +9,10 @@ class RandomizedSet {
     std::vector<int> vals_;
     std::unordered_map<int, int> idx_; // value -> index in vals_
 
-public:
+  public:
     bool insert(int val) {
-        if (idx_.count(val)) return false;
+        if (idx_.count(val))
+            return false;
         idx_[val] = static_cast<int>(vals_.size());
         vals_.push_back(val);
         return true;
@@ -19,7 +20,8 @@ public:
 
     bool remove(int val) {
         auto it = idx_.find(val);
-        if (it == idx_.end()) return false;
+        if (it == idx_.end())
+            return false;
         const int i = it->second;
         const int last = vals_.back();
         vals_[static_cast<size_t>(i)] = last;

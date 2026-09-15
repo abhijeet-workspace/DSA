@@ -1,5 +1,6 @@
-// Capacity To Ship Packages Within D Days — https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/
-// Minimize max daily capacity so weights ship in <= days, preserving order.
+// Capacity To Ship Packages Within D Days —
+// https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/ Minimize max daily
+// capacity so weights ship in <= days, preserving order.
 #include <algorithm>
 #include <iostream>
 #include <numeric>

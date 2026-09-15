@@ -17,7 +17,8 @@ std::string shortestCommonSupersequence(std::string str1, std::string str2) {
     while (i > 0 && j > 0) {
         if (str1[static_cast<size_t>(i - 1)] == str2[static_cast<size_t>(j - 1)]) {
             ans.push_back(str1[static_cast<size_t>(i - 1)]);
-            --i; --j;
+            --i;
+            --j;
         } else if (dp[i - 1][j] >= dp[i][j - 1]) {
             ans.push_back(str1[static_cast<size_t>(i - 1)]);
             --i;
@@ -26,8 +27,10 @@ std::string shortestCommonSupersequence(std::string str1, std::string str2) {
             --j;
         }
     }
-    while (i > 0) ans.push_back(str1[static_cast<size_t>(--i)]);
-    while (j > 0) ans.push_back(str2[static_cast<size_t>(--j)]);
+    while (i > 0)
+        ans.push_back(str1[static_cast<size_t>(--i)]);
+    while (j > 0)
+        ans.push_back(str2[static_cast<size_t>(--j)]);
     std::reverse(ans.begin(), ans.end());
     return ans;
 }

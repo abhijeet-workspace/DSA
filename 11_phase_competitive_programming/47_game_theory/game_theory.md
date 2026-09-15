@@ -1,48 +1,52 @@
 # Game Theory
 
-## Problem Statement
-Impartial combinatorial games: decide Nim winner from pile sizes, and compute Grundy (nimber) values for a subtraction game via MEX.
+## 1. Problem Statement
 
-- **Inputs:** pile sizes; max pile + allowed subtractions.
-- **Output:** whether first player wins Nim; Grundy numbers G(0..n).
-- **Valid answer:** XOR≠0 ⇒ first wins standard Nim; G=0 ⇒ P-position.
-- **Edges:** empty piles; n=0 terminal; moves larger than n ignored.
+Impartial games toolkit: Nim XOR winner and Grundy/MEX for subtraction games.
 
-## Intuition
-Nim piles combine by XOR (Sprague-Grundy). For a custom impartial game, each position’s Grundy is the MEX of Grundy values of positions reachable in one move. Sum of games is XOR of nimbers.
+- **Inputs:** piles; max n + move set.
+- **Output:** first-win bool; Grundy table.
+- **Edges:** empty; G(0)=0.
 
-## Brute Force → Optimal
-- **Brute:** recurse full game tree with alpha-beta / win-lose DP without theory — exponential in multi-pile sums.
-- **Optimal:** Nim XOR O(piles); memoized Grundy O(n·|moves|); multi-pile via XOR of G values.
+## 2. Intuition
 
-## Data Structure / Approach Justification
-**Chosen:** integer XOR for Nim; `unordered_set` + MEX for move sets; memo vector for Grundy.
+Sprague–Grundy: independent piles XOR; G(x)=mex of moves.
 
-- **vs win/lose boolean only:** loses compositionality across independent components.
-- **vs bitset MEX:** faster when move counts are huge.
+## 3. Brute Force → Optimal
 
-## Logic Walkthrough
-Nim: fold XOR; nonzero → first wins. Grundy(n): collect G(n−m) for legal m; return smallest missing nonnegative. Memoize. Multi-pile subtraction game: XOR all pile Grundies.
+- **Brute:** game tree.
+- **Optimal:** XOR / O(n|S|) Grundy.
 
-## Dry Run
-Piles `{1,2,3}`: `1^2^3=0` → second wins.
-Subtraction moves `{1,3,4}`:
-- G(0)=0
-- G(1)=mex{G(0)}=mex{0}=1
-- G(2)=mex{G(1)}=mex{1}=0
-- G(3)=mex{G(2),G(0)}=mex{0,0}=1 … continues
+## 4. Data Structure / Approach Justification
 
-## Time & Space Complexity
-Nim **O(P)**. Grundy **O(n · |moves|)** time, **O(n)** memo (+ set per state). Why: each state computed once (section 4).
+**Chosen:** XOR fold; memo Grundy with mex set.
 
-## Trade-offs & Alternatives
-Partisan games need other tools (e.g. surreal numbers). For huge n with periodic Grundy, detect period instead of filling all n.
+**Pedagogy:** Teaching lab overview; later files are LC drills and focused demos.
 
-## Common Mistakes / Edge Cases
-Confusing misère Nim (small piles differ); treating G≠0 as second-win; forgetting memo; MEX starting at 0 not 1.
+## 5. Logic Walkthrough
 
-## Interview Follow-ups / Variations
-Misère Nim; Kayles; graph games; multi-pile XOR of custom Grundy; “can first force win in k moves?”
+See implementation comments and dry run.
 
-## Tags
-`game-theory`, `nim`, `sprague-grundy`, `mex`, `impartial`, `difficulty:medium`
+## 6. Dry Run
+
+Piles {1,2,3} XOR=0 → second wins.
+
+## 7. Time & Space Complexity
+
+Nim O(P); Grundy O(n|S|).
+
+## 8. Trade-offs & Alternatives
+
+Prefer the simplest correct theory (XOR / DP / closed form) that matches constraints.
+
+## 9. Common Mistakes / Edge Cases
+
+Off-by-one terminals; confusing first/second win; missing memoization; misère edge cases.
+
+## 10. Interview Follow-ups / Variations
+
+Related stone/Nim/Grundy variants; multi-pile composition via XOR.
+
+## 11. Tags
+
+`game-theory`, `nim`, `grundy`, `difficulty:medium`

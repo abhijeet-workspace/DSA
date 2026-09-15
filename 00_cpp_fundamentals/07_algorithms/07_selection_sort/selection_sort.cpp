@@ -18,7 +18,8 @@ void selectionSort(std::vector<int>& arr) {
 }
 
 void printSortedArray(const std::vector<int>& arr) {
-    for (int x : arr) std::cout << x << ' ';
+    for (int x : arr)
+        std::cout << x << ' ';
 }
 
 int main() {

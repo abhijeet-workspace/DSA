@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Compile every teaching .cpp under foundations + phases 01-11.
+# Compile every teaching .cpp under foundations + problem fundamentals + phases 01-11.
 # Usage: bash test/compile_all.sh
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
@@ -12,6 +12,7 @@ CXXFLAGS="-std=c++17 -Wall -Wextra -Werror -Wno-unused-variable -Wno-unused-para
 DIRS="
 00_cpp_fundamentals
 00_daa_foundations
+00_phase_problem_fundamentals
 01_phase_arrays_strings_hashing
 02_phase_searching_sorting
 03_phase_linked_lists

@@ -55,7 +55,6 @@ int main() {
             ++fp;
         }
     }
-    std::cout << "exact_hits=" << exact << " bloom_pos=" << bloomPos
-              << " false_pos=" << fp << "\n";
+    std::cout << "exact_hits=" << exact << " bloom_pos=" << bloomPos << " false_pos=" << fp << "\n";
     return 0;
 }

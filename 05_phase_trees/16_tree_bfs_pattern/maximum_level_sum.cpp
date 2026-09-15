@@ -1,7 +1,8 @@
-// Maximum Level Sum of a Binary Tree — https://leetcode.com/problems/maximum-level-sum-of-a-binary-tree/
+// Maximum Level Sum of a Binary Tree —
+// https://leetcode.com/problems/maximum-level-sum-of-a-binary-tree/
+#include <climits>
 #include <iostream>
 #include <queue>
-#include <climits>
 
 struct TreeNode {
     int val;
@@ -18,10 +19,13 @@ int maxLevelSum(TreeNode* root) {
         const int sz = static_cast<int>(q.size());
         int sum = 0;
         for (int i = 0; i < sz; ++i) {
-            TreeNode* u = q.front(); q.pop();
+            TreeNode* u = q.front();
+            q.pop();
             sum += u->val;
-            if (u->left) q.push(u->left);
-            if (u->right) q.push(u->right);
+            if (u->left)
+                q.push(u->left);
+            if (u->right)
+                q.push(u->right);
         }
         if (sum > bestSum) {
             bestSum = sum;

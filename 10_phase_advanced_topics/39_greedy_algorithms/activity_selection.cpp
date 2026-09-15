@@ -1,11 +1,12 @@
 // Non-overlapping Intervals — min removals = n − max kept (greedy by earliest end)
 // https://leetcode.com/problems/non-overlapping-intervals/
+#include <algorithm>
 #include <iostream>
 #include <vector>
-#include <algorithm>
 
 int eraseOverlapIntervals(std::vector<std::vector<int>> intervals) {
-    if (intervals.empty()) return 0;
+    if (intervals.empty())
+        return 0;
     std::sort(intervals.begin(), intervals.end(),
               [](const auto& a, const auto& b) { return a[1] < b[1]; });
     int keep = 1;
@@ -20,11 +21,8 @@ int eraseOverlapIntervals(std::vector<std::vector<int>> intervals) {
 }
 
 int main() {
-    std::cout << eraseOverlapIntervals({{1, 2}, {2, 3}, {3, 4}, {1, 3}})
-              << " (expected 1)\n";
-    std::cout << eraseOverlapIntervals({{1, 2}, {1, 2}, {1, 2}})
-              << " (expected 2)\n";
-    std::cout << eraseOverlapIntervals({{1, 2}, {2, 3}})
-              << " (expected 0)\n";
+    std::cout << eraseOverlapIntervals({{1, 2}, {2, 3}, {3, 4}, {1, 3}}) << " (expected 1)\n";
+    std::cout << eraseOverlapIntervals({{1, 2}, {1, 2}, {1, 2}}) << " (expected 2)\n";
+    std::cout << eraseOverlapIntervals({{1, 2}, {2, 3}}) << " (expected 0)\n";
     return 0;
 }

@@ -5,8 +5,7 @@
 #include <utility>
 #include <vector>
 
-std::vector<int> dijkstra(int V, const std::vector<std::vector<std::pair<int, int>>>& adj,
-                          int S) {
+std::vector<int> dijkstra(int V, const std::vector<std::vector<std::pair<int, int>>>& adj, int S) {
     std::vector<int> dist(V, INT_MAX);
     std::priority_queue<std::pair<int, int>, std::vector<std::pair<int, int>>,
                         std::greater<std::pair<int, int>>>

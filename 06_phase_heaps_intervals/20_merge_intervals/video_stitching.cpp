@@ -12,7 +12,8 @@ int videoStitching(std::vector<std::vector<int>>& clips, int time) {
             farthest = std::max(farthest, clips[static_cast<size_t>(i)][1]);
             ++i;
         }
-        if (farthest == end) return -1; // cannot extend
+        if (farthest == end)
+            return -1; // cannot extend
         end = farthest;
         ++ans;
     }

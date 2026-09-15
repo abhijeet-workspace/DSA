@@ -8,9 +8,11 @@ int maxTurbulenceSize(std::vector<int>& arr) {
     int ans = 1, up = 1, down = 1;
     for (int i = 1; i < n; ++i) {
         if (arr[static_cast<size_t>(i)] > arr[static_cast<size_t>(i - 1)]) {
-            up = down + 1; down = 1;
+            up = down + 1;
+            down = 1;
         } else if (arr[static_cast<size_t>(i)] < arr[static_cast<size_t>(i - 1)]) {
-            down = up + 1; up = 1;
+            down = up + 1;
+            up = 1;
         } else {
             up = down = 1;
         }

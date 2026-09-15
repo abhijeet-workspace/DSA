@@ -1,5 +1,6 @@
-// Kth Smallest Element in a Sorted Matrix — https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/
-// Min-heap frontier starting at each row's first column (k-way merge).
+// Kth Smallest Element in a Sorted Matrix —
+// https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/ Min-heap frontier starting
+// at each row's first column (k-way merge).
 #include <iostream>
 #include <queue>
 #include <tuple>
@@ -17,7 +18,8 @@ int kthSmallest(std::vector<std::vector<int>>& matrix, int k) {
         auto [val, r, c] = pq.top();
         pq.pop();
         ans = val;
-        if (c + 1 < n) pq.push({matrix[static_cast<size_t>(r)][static_cast<size_t>(c + 1)], r, c + 1});
+        if (c + 1 < n)
+            pq.push({matrix[static_cast<size_t>(r)][static_cast<size_t>(c + 1)], r, c + 1});
     }
     return ans;
 }

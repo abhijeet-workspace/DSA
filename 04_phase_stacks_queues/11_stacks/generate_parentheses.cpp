@@ -4,8 +4,7 @@
 #include <string>
 #include <vector>
 
-static void dfs(int open, int close, int n, std::string& cur,
-                std::vector<std::string>& out) {
+static void dfs(int open, int close, int n, std::string& cur, std::vector<std::string>& out) {
     if (static_cast<int>(cur.size()) == 2 * n) {
         out.push_back(cur);
         return;

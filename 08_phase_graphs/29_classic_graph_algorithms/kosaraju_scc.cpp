@@ -4,18 +4,22 @@
 #include <iostream>
 #include <vector>
 
-void dfs1(int u, const std::vector<std::vector<int>>& g, std::vector<char>& vis, std::vector<int>& order) {
+void dfs1(int u, const std::vector<std::vector<int>>& g, std::vector<char>& vis,
+          std::vector<int>& order) {
     vis[static_cast<size_t>(u)] = 1;
     for (int v : g[static_cast<size_t>(u)])
-        if (!vis[static_cast<size_t>(v)]) dfs1(v, g, vis, order);
+        if (!vis[static_cast<size_t>(v)])
+            dfs1(v, g, vis, order);
     order.push_back(u);
 }
 
-void dfs2(int u, const std::vector<std::vector<int>>& gr, std::vector<char>& vis, std::vector<int>& comp) {
+void dfs2(int u, const std::vector<std::vector<int>>& gr, std::vector<char>& vis,
+          std::vector<int>& comp) {
     vis[static_cast<size_t>(u)] = 1;
     comp.push_back(u);
     for (int v : gr[static_cast<size_t>(u)])
-        if (!vis[static_cast<size_t>(v)]) dfs2(v, gr, vis, comp);
+        if (!vis[static_cast<size_t>(v)])
+            dfs2(v, gr, vis, comp);
 }
 
 std::vector<std::vector<int>> kosaraju(int n, const std::vector<std::vector<int>>& edges) {
@@ -27,7 +31,8 @@ std::vector<std::vector<int>> kosaraju(int n, const std::vector<std::vector<int>
     std::vector<char> vis(static_cast<size_t>(n), 0);
     std::vector<int> order;
     for (int i = 0; i < n; ++i)
-        if (!vis[static_cast<size_t>(i)]) dfs1(i, g, vis, order);
+        if (!vis[static_cast<size_t>(i)])
+            dfs1(i, g, vis, order);
     std::fill(vis.begin(), vis.end(), 0);
     std::vector<std::vector<int>> sccs;
     for (int i = n - 1; i >= 0; --i) {

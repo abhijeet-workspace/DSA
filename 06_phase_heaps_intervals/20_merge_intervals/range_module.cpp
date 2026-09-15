@@ -7,12 +7,13 @@
 class RangeModule {
     std::map<int, int> intervals; // start -> end
 
-public:
+  public:
     void addRange(int left, int right) {
         auto it = intervals.lower_bound(left);
         if (it != intervals.begin()) {
             auto prev = std::prev(it);
-            if (prev->second >= left) it = prev;
+            if (prev->second >= left)
+                it = prev;
         }
         while (it != intervals.end() && it->first <= right) {
             left = std::min(left, it->first);
@@ -24,7 +25,8 @@ public:
 
     bool queryRange(int left, int right) {
         auto it = intervals.upper_bound(left);
-        if (it == intervals.begin()) return false;
+        if (it == intervals.begin())
+            return false;
         --it;
         return it->second >= right;
     }
@@ -36,7 +38,8 @@ public:
             if (prev->second > left) {
                 int pe = prev->second;
                 prev->second = left;
-                if (pe > right) intervals[right] = pe;
+                if (pe > right)
+                    intervals[right] = pe;
             }
         }
         it = intervals.lower_bound(left);
@@ -57,8 +60,7 @@ int main() {
     RangeModule rm;
     rm.addRange(10, 20);
     rm.removeRange(14, 16);
-    std::cout << std::boolalpha
-              << rm.queryRange(10, 14) << " (expected true)\n"
+    std::cout << std::boolalpha << rm.queryRange(10, 14) << " (expected true)\n"
               << rm.queryRange(13, 15) << " (expected false)\n"
               << rm.queryRange(16, 17) << " (expected true)\n";
     return 0;

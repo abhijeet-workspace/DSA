@@ -8,7 +8,7 @@ void dfs(const std::vector<int>& nums, int i, int curXor, int& sum) {
         sum += curXor;
         return;
     }
-    dfs(nums, i + 1, curXor, sum); // exclude
+    dfs(nums, i + 1, curXor, sum);                                // exclude
     dfs(nums, i + 1, curXor ^ nums[static_cast<size_t>(i)], sum); // include
 }
 

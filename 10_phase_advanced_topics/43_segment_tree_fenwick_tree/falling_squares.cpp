@@ -13,13 +13,15 @@ struct Seg {
         lazy[node] = v;
     }
     void push(int node) {
-        if (lazy[node] == -1) return;
+        if (lazy[node] == -1)
+            return;
         apply(2 * node, lazy[node]);
         apply(2 * node + 1, lazy[node]);
         lazy[node] = -1;
     }
     void update(int node, int s, int e, int l, int r, int v) {
-        if (r < s || e < l) return;
+        if (r < s || e < l)
+            return;
         if (l <= s && e <= r) {
             apply(node, v);
             return;
@@ -31,8 +33,10 @@ struct Seg {
         t[node] = std::max(t[2 * node], t[2 * node + 1]);
     }
     int query(int node, int s, int e, int l, int r) {
-        if (r < s || e < l) return 0;
-        if (l <= s && e <= r) return t[node];
+        if (r < s || e < l)
+            return 0;
+        if (l <= s && e <= r)
+            return t[node];
         push(node);
         int m = (s + e) / 2;
         return std::max(query(2 * node, s, m, l, r), query(2 * node + 1, m + 1, e, l, r));
@@ -49,7 +53,9 @@ std::vector<int> fallingSquares(const std::vector<std::vector<int>>& positions) 
     }
     std::sort(xs.begin(), xs.end());
     xs.erase(std::unique(xs.begin(), xs.end()), xs.end());
-    auto id = [&](int x) { return static_cast<int>(std::lower_bound(xs.begin(), xs.end(), x) - xs.begin()); };
+    auto id = [&](int x) {
+        return static_cast<int>(std::lower_bound(xs.begin(), xs.end(), x) - xs.begin());
+    };
     Seg seg(static_cast<int>(xs.size()));
     std::vector<int> ans;
     int best = 0;
@@ -64,7 +70,8 @@ std::vector<int> fallingSquares(const std::vector<std::vector<int>>& positions) 
 }
 
 int main() {
-    for (int h : fallingSquares({{1, 2}, {2, 3}, {6, 1}})) std::cout << h << " ";
+    for (int h : fallingSquares({{1, 2}, {2, 3}, {6, 1}}))
+        std::cout << h << " ";
     std::cout << "(expected 2 5 5)\n";
     return 0;
 }

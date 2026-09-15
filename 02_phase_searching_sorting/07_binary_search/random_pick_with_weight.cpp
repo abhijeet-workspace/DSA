@@ -8,7 +8,7 @@
 class Solution {
     std::vector<int> prefix;
 
-public:
+  public:
     explicit Solution(const std::vector<int>& w) : prefix(w) {
         std::partial_sum(prefix.begin(), prefix.end(), prefix.begin());
     }

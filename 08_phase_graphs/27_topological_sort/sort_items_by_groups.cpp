@@ -75,8 +75,7 @@ int main() {
     const int n = 8;
     const int m = 2;
     std::vector<int> group = {-1, -1, 1, 0, 0, 1, 0, -1};
-    const std::vector<std::vector<int>> beforeItems = {
-        {}, {6}, {5}, {6}, {3, 6}, {}, {}, {}};
+    const std::vector<std::vector<int>> beforeItems = {{}, {6}, {5}, {6}, {3, 6}, {}, {}, {}};
     const auto ans = sortItems(n, m, group, beforeItems);
     std::cout << "order size " << ans.size() << " (expected 8): ";
     for (int x : ans) {

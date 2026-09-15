@@ -1,5 +1,6 @@
-// Count of Smaller Numbers After Self — https://leetcode.com/problems/count-of-smaller-numbers-after-self/
-// Fenwick frequencies + coordinate compression, scan right→left.
+// Count of Smaller Numbers After Self —
+// https://leetcode.com/problems/count-of-smaller-numbers-after-self/ Fenwick frequencies +
+// coordinate compression, scan right→left.
 #include <algorithm>
 #include <iostream>
 #include <vector>
@@ -9,11 +10,13 @@ struct Fenwick {
     std::vector<int> bit;
     explicit Fenwick(int n) : n(n), bit(n + 1, 0) {}
     void add(int i, int v) {
-        for (; i <= n; i += i & -i) bit[i] += v;
+        for (; i <= n; i += i & -i)
+            bit[i] += v;
     }
     int sum(int i) const {
         int s = 0;
-        for (; i > 0; i -= i & -i) s += bit[i];
+        for (; i > 0; i -= i & -i)
+            s += bit[i];
         return s;
     }
 };
@@ -23,7 +26,9 @@ std::vector<int> countSmaller(std::vector<int> nums) {
     std::sort(sorted.begin(), sorted.end());
     sorted.erase(std::unique(sorted.begin(), sorted.end()), sorted.end());
     auto rank = [&](int x) {
-        return static_cast<int>(std::lower_bound(sorted.begin(), sorted.end(), x) - sorted.begin()) + 1;
+        return static_cast<int>(std::lower_bound(sorted.begin(), sorted.end(), x) -
+                                sorted.begin()) +
+               1;
     };
     Fenwick fw(static_cast<int>(sorted.size()));
     std::vector<int> ans(nums.size());
@@ -36,7 +41,8 @@ std::vector<int> countSmaller(std::vector<int> nums) {
 }
 
 int main() {
-    for (int x : countSmaller({5, 2, 6, 1})) std::cout << x << " ";
+    for (int x : countSmaller({5, 2, 6, 1}))
+        std::cout << x << " ";
     std::cout << "(expected 2 1 1 0)\n";
     return 0;
 }

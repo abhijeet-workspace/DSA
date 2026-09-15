@@ -1,8 +1,9 @@
-// Construct Binary Tree from Preorder and Inorder — https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/
-// Build unique tree from preorder + inorder (distinct values).
+// Construct Binary Tree from Preorder and Inorder —
+// https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/ Build
+// unique tree from preorder + inorder (distinct values).
 #include <iostream>
-#include <vector>
 #include <unordered_map>
+#include <vector>
 
 struct TreeNode {
     int val;
@@ -18,8 +19,8 @@ TreeNode* build(const std::vector<int>& pre, int& i, int L, int R,
     }
     const int v = pre[static_cast<size_t>(i++)]; // next preorder root
     TreeNode* root = new TreeNode(v);
-    const int m = pos.at(v); // inorder split index
-    root->left = build(pre, i, L, m - 1, pos); // left subtree
+    const int m = pos.at(v);                    // inorder split index
+    root->left = build(pre, i, L, m - 1, pos);  // left subtree
     root->right = build(pre, i, m + 1, R, pos); // right subtree
     return root;
 }

@@ -21,7 +21,7 @@ void inorderLink(TreeNode* node, TreeNode*& prev, TreeNode*& head) {
         prev->right = node; // prev -> next
         node->left = prev;  // node -> prev
     }
-    prev = node; // advance prev
+    prev = node;                          // advance prev
     inorderLink(node->right, prev, head); // then right subtree
 }
 

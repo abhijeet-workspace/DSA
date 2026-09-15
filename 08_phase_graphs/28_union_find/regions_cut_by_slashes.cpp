@@ -45,7 +45,7 @@ int regionsBySlashes(const std::vector<std::string>& grid) {
             } else if (ch == '/') {
                 dsu.unite(base + 0, base + 3); // N-W
                 dsu.unite(base + 1, base + 2); // E-S
-            } else { // '\\'
+            } else {                           // '\\'
                 dsu.unite(base + 0, base + 1); // N-E
                 dsu.unite(base + 2, base + 3); // S-W
             }

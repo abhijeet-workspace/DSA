@@ -25,7 +25,8 @@ int minCost(std::vector<std::vector<int>>& grid) {
             if (nr < 0 || nc < 0 || nr >= m || nc >= n) {
                 continue;
             }
-            const int cost = (k + 1 == grid[static_cast<size_t>(r)][static_cast<size_t>(c)]) ? 0 : 1;
+            const int cost =
+                (k + 1 == grid[static_cast<size_t>(r)][static_cast<size_t>(c)]) ? 0 : 1;
             const int nd = dist[static_cast<size_t>(r)][static_cast<size_t>(c)] + cost;
             if (nd < dist[static_cast<size_t>(nr)][static_cast<size_t>(nc)]) {
                 dist[static_cast<size_t>(nr)][static_cast<size_t>(nc)] = nd;

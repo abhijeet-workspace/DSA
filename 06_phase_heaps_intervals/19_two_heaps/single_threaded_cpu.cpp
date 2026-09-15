@@ -21,7 +21,8 @@ std::vector<int> getOrder(std::vector<std::vector<int>>& tasks) {
     int i = 0;
     while (static_cast<int>(order.size()) < n) {
         while (i < n && arr[static_cast<size_t>(i)][0] <= time) {
-            avail.push({arr[static_cast<size_t>(i)][1], static_cast<int>(arr[static_cast<size_t>(i)][2])});
+            avail.push(
+                {arr[static_cast<size_t>(i)][1], static_cast<int>(arr[static_cast<size_t>(i)][2])});
             ++i;
         }
         if (avail.empty()) {
@@ -39,7 +40,8 @@ std::vector<int> getOrder(std::vector<std::vector<int>>& tasks) {
 int main() {
     std::vector<std::vector<int>> tasks = {{1, 2}, {2, 4}, {3, 2}, {4, 1}};
     auto o = getOrder(tasks);
-    for (int x : o) std::cout << x << " ";
+    for (int x : o)
+        std::cout << x << " ";
     std::cout << "(expected 0 2 3 1)\n";
     return 0;
 }

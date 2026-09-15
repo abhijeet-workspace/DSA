@@ -33,8 +33,8 @@ int minimumEffortPath(std::vector<std::vector<int>>& heights) {
             if (nr < 0 || nc < 0 || nr >= m || nc >= n) {
                 continue;
             }
-            const int step = std::abs(heights[static_cast<size_t>(r)][static_cast<size_t>(c)]
-                                      - heights[static_cast<size_t>(nr)][static_cast<size_t>(nc)]);
+            const int step = std::abs(heights[static_cast<size_t>(r)][static_cast<size_t>(c)] -
+                                      heights[static_cast<size_t>(nr)][static_cast<size_t>(nc)]);
             const int ne = std::max(eff, step);
             if (ne < dist[static_cast<size_t>(nr)][static_cast<size_t>(nc)]) {
                 dist[static_cast<size_t>(nr)][static_cast<size_t>(nc)] = ne;

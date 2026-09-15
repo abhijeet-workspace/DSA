@@ -16,12 +16,14 @@ int profitableSchemes(int n, int minProfit, std::vector<int>& group, std::vector
                 const int np = std::min(minProfit, q + p);
                 dp[static_cast<size_t>(j)][static_cast<size_t>(np)] =
                     (dp[static_cast<size_t>(j)][static_cast<size_t>(np)] +
-                     dp[static_cast<size_t>(j - g)][static_cast<size_t>(q)]) % MOD;
+                     dp[static_cast<size_t>(j - g)][static_cast<size_t>(q)]) %
+                    MOD;
             }
         }
     }
     long long ans = 0;
-    for (int j = 0; j <= n; ++j) ans = (ans + dp[static_cast<size_t>(j)][static_cast<size_t>(minProfit)]) % MOD;
+    for (int j = 0; j <= n; ++j)
+        ans = (ans + dp[static_cast<size_t>(j)][static_cast<size_t>(minProfit)]) % MOD;
     return static_cast<int>(ans);
 }
 

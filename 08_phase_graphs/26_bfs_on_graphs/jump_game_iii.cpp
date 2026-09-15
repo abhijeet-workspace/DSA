@@ -11,12 +11,16 @@ bool canReach(std::vector<int> arr, int start) {
     while (!q.empty()) {
         int i = q.front();
         q.pop();
-        if (arr[static_cast<size_t>(i)] == 0) return true;
-        if (arr[static_cast<size_t>(i)] < 0) continue; // visited marker
+        if (arr[static_cast<size_t>(i)] == 0)
+            return true;
+        if (arr[static_cast<size_t>(i)] < 0)
+            continue; // visited marker
         int jump = arr[static_cast<size_t>(i)];
         arr[static_cast<size_t>(i)] = -1;
-        if (i + jump < n) q.push(i + jump);
-        if (i - jump >= 0) q.push(i - jump);
+        if (i + jump < n)
+            q.push(i + jump);
+        if (i - jump >= 0)
+            q.push(i - jump);
     }
     return false;
 }

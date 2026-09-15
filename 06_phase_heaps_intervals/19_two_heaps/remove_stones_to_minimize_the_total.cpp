@@ -1,5 +1,6 @@
-// Remove Stones to Minimize the Total — https://leetcode.com/problems/remove-stones-to-minimize-the-total/
-// Max-heap: each op replace x with floor(x/2), k times; return sum.
+// Remove Stones to Minimize the Total —
+// https://leetcode.com/problems/remove-stones-to-minimize-the-total/ Max-heap: each op replace x
+// with floor(x/2), k times; return sum.
 #include <iostream>
 #include <queue>
 #include <vector>

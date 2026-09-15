@@ -10,7 +10,8 @@ std::vector<std::vector<int>> subsets(const std::vector<int>& nums) {
     for (int mask = 0; mask < (1 << n); ++mask) {
         std::vector<int> cur;
         for (int i = 0; i < n; ++i) {
-            if (mask & (1 << i)) cur.push_back(nums[static_cast<size_t>(i)]);
+            if (mask & (1 << i))
+                cur.push_back(nums[static_cast<size_t>(i)]);
         }
         result.push_back(std::move(cur));
     }

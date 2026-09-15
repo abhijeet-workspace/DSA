@@ -7,14 +7,13 @@ class MyCalendarTwo {
     std::vector<std::pair<int, int>> booked;
     std::vector<std::pair<int, int>> overlaps;
 
-    static bool intersects(int s1, int e1, int s2, int e2) {
-        return s1 < e2 && s2 < e1;
-    }
+    static bool intersects(int s1, int e1, int s2, int e2) { return s1 < e2 && s2 < e1; }
 
-public:
+  public:
     bool book(int start, int end) {
         for (auto [os, oe] : overlaps) {
-            if (intersects(start, end, os, oe)) return false; // would be triple
+            if (intersects(start, end, os, oe))
+                return false; // would be triple
         }
         for (auto [bs, be] : booked) {
             if (intersects(start, end, bs, be)) {
@@ -28,8 +27,7 @@ public:
 
 int main() {
     MyCalendarTwo cal;
-    std::cout << std::boolalpha
-              << cal.book(10, 20) << " (expected true)\n"
+    std::cout << std::boolalpha << cal.book(10, 20) << " (expected true)\n"
               << cal.book(50, 60) << " (expected true)\n"
               << cal.book(10, 40) << " (expected true)\n"
               << cal.book(5, 15) << " (expected false)\n"

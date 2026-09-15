@@ -13,7 +13,7 @@ class Twitter {
     std::unordered_map<int, std::unordered_set<int>> followees;
     std::unordered_map<int, std::vector<std::pair<int, int>>> tweets; // {time, tweetId}
 
-public:
+  public:
     void postTweet(int userId, int tweetId) {
         tweets[userId].push_back({time++, tweetId}); // append chronologically
     }

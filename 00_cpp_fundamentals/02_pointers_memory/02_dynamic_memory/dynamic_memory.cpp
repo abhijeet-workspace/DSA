@@ -5,7 +5,7 @@
 
 int main() {
     int* p = static_cast<int*>(std::malloc(sizeof(int))); // C heap alloc
-    *p = 10; // write through pointer
+    *p = 10;                                              // write through pointer
     std::cout << "C malloc: " << *p << std::endl;
     std::free(p); // C free
 

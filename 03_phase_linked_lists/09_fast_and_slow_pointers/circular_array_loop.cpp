@@ -52,8 +52,7 @@ bool circularArrayLoop(std::vector<int>& nums) {
 
 int main() {
     std::vector<int> a{2, -1, 1, 2, 2};
-    std::cout << std::boolalpha << circularArrayLoop(a)
-              << " (expected true)\n";
+    std::cout << std::boolalpha << circularArrayLoop(a) << " (expected true)\n";
     std::vector<int> b{-1, 2};
     std::cout << circularArrayLoop(b) << " (expected false)\n";
     return 0;

@@ -8,17 +8,21 @@ int bitMask(const std::string& s) {
     int mask = 0;
     for (char c : s) {
         const int b = 1 << (c - 'a');
-        if (mask & b) return -1; // duplicate inside word
+        if (mask & b)
+            return -1; // duplicate inside word
         mask |= b;
     }
     return mask;
 }
 
-void dfs(const std::vector<int>& masks, const std::vector<int>& lens, int i, int used, int curLen, int& best) {
+void dfs(const std::vector<int>& masks, const std::vector<int>& lens, int i, int used, int curLen,
+         int& best) {
     best = std::max(best, curLen);
     for (int j = i; j < static_cast<int>(masks.size()); ++j) {
-        if (masks[static_cast<size_t>(j)] < 0) continue;
-        if (used & masks[static_cast<size_t>(j)]) continue;
+        if (masks[static_cast<size_t>(j)] < 0)
+            continue;
+        if (used & masks[static_cast<size_t>(j)])
+            continue;
         dfs(masks, lens, j + 1, used | masks[static_cast<size_t>(j)],
             curLen + lens[static_cast<size_t>(j)], best);
     }

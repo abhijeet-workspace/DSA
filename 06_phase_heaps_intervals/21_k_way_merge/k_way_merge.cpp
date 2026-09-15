@@ -92,7 +92,8 @@ std::vector<std::vector<int>> kSmallestPairs(const std::vector<int>& nums1,
         (void)sum;
         result.push_back({nums1[static_cast<size_t>(i)], nums2[static_cast<size_t>(j)]});
         if (i + 1 < static_cast<int>(nums1.size())) {
-            minHeap.push({nums1[static_cast<size_t>(i + 1)] + nums2[static_cast<size_t>(j)], i + 1, j});
+            minHeap.push(
+                {nums1[static_cast<size_t>(i + 1)] + nums2[static_cast<size_t>(j)], i + 1, j});
         }
     }
     return result;

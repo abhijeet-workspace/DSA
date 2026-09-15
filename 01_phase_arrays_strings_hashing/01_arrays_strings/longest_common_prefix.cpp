@@ -5,7 +5,8 @@
 #include <vector>
 
 std::string longestCommonPrefix(const std::vector<std::string>& strs) {
-    if (strs.empty()) return "";
+    if (strs.empty())
+        return "";
     const std::string& first = strs[0];
     for (size_t i = 0; i < first.size(); ++i) {
         const char c = first[i];
@@ -19,15 +20,10 @@ std::string longestCommonPrefix(const std::vector<std::string>& strs) {
 }
 
 int main() {
-    std::cout << longestCommonPrefix({"flower", "flow", "flight"})
-              << " (expected fl)\n"
-              << longestCommonPrefix({"dog", "racecar", "car"})
-              << " (expected )\n"
-              << longestCommonPrefix({"a"})
-              << " (expected a)\n"
-              << longestCommonPrefix({"", "b"})
-              << " (expected )\n"
-              << longestCommonPrefix({"ab", "a"})
-              << " (expected a)\n";
+    std::cout << longestCommonPrefix({"flower", "flow", "flight"}) << " (expected fl)\n"
+              << longestCommonPrefix({"dog", "racecar", "car"}) << " (expected )\n"
+              << longestCommonPrefix({"a"}) << " (expected a)\n"
+              << longestCommonPrefix({"", "b"}) << " (expected )\n"
+              << longestCommonPrefix({"ab", "a"}) << " (expected a)\n";
     return 0;
 }

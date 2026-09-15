@@ -7,10 +7,13 @@
 std::string longestPrefix(const std::string& s) {
     int n = static_cast<int>(s.size());
     std::vector<int> lps(n, 0);
-    for (int i = 1, len = 0; i < n; ) {
-        if (s[i] == s[len]) lps[i++] = ++len;
-        else if (len) len = lps[len - 1];
-        else lps[i++] = 0;
+    for (int i = 1, len = 0; i < n;) {
+        if (s[i] == s[len])
+            lps[i++] = ++len;
+        else if (len)
+            len = lps[len - 1];
+        else
+            lps[i++] = 0;
     }
     return s.substr(0, lps.back());
 }

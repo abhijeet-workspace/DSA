@@ -1,5 +1,6 @@
-// Minimum Operations to Halve Array Sum — https://leetcode.com/problems/minimum-operations-to-halve-array-sum/
-// Max-heap of doubles; repeatedly halve largest until sum <= half initial.
+// Minimum Operations to Halve Array Sum —
+// https://leetcode.com/problems/minimum-operations-to-halve-array-sum/ Max-heap of doubles;
+// repeatedly halve largest until sum <= half initial.
 #include <iostream>
 #include <queue>
 #include <vector>

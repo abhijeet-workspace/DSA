@@ -10,11 +10,13 @@ int minimumDifference(const std::vector<int>& nums) {
     dp[0] = 1;
     for (int x : nums) {
         for (int w = target; w >= x; --w) {
-            if (dp[static_cast<size_t>(w - x)]) dp[static_cast<size_t>(w)] = 1;
+            if (dp[static_cast<size_t>(w - x)])
+                dp[static_cast<size_t>(w)] = 1;
         }
     }
     for (int w = target; w >= 0; --w) {
-        if (dp[static_cast<size_t>(w)]) return total - 2 * w;
+        if (dp[static_cast<size_t>(w)])
+            return total - 2 * w;
     }
     return total;
 }

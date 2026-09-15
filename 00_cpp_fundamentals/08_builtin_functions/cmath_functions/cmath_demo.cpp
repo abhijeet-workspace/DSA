@@ -1,9 +1,9 @@
 // Cmath Demo — <cmath> & <cstdlib>
 // Distance, amortized loan payment, and quadratic roots using math builtins.
-#include <iostream>
+#include <algorithm>
 #include <cmath>
 #include <cstdlib>
-#include <algorithm>
+#include <iostream>
 
 double calculateDistance(double x1, double y1, double x2, double y2) {
     return std::hypot(x2 - x1, y2 - y1); // sqrt(dx^2 + dy^2) without overflow risk
@@ -31,16 +31,14 @@ int main() {
     std::cout << "=== Built-in Functions: <cmath> & <cstdlib> ===\n";
 
     std::cout << "Absolute value of -42: " << std::abs(-42) << "\n";
-    std::cout << "Ceil of 3.14: " << std::ceil(3.14)
-              << " | Floor of 3.14: " << std::floor(3.14)
+    std::cout << "Ceil of 3.14: " << std::ceil(3.14) << " | Floor of 3.14: " << std::floor(3.14)
               << " | Round of 3.6: " << std::round(3.6) << "\n";
     std::cout << "Floating remainder of 5.5 / 2.0: " << std::fmod(5.5, 2.0) << "\n";
-    std::cout << "Min(10, 20): " << std::min(10, 20)
-              << " | Max(10, 20): " << std::max(10, 20) << "\n";
+    std::cout << "Min(10, 20): " << std::min(10, 20) << " | Max(10, 20): " << std::max(10, 20)
+              << "\n";
 
     std::cout << "\n1. Coordinate Distance:\n";
-    std::cout << "   Distance between (0,0) and (3,4): "
-              << calculateDistance(0, 0, 3, 4) << "\n";
+    std::cout << "   Distance between (0,0) and (3,4): " << calculateDistance(0, 0, 3, 4) << "\n";
 
     std::cout << "\n2. Monthly Loan Payment:\n";
     double principal = 100000.0;

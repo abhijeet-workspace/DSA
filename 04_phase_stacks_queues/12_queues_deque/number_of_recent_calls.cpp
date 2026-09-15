@@ -6,7 +6,7 @@
 class RecentCounter {
     std::queue<int> q_;
 
-public:
+  public:
     int ping(int t) {
         q_.push(t);
         while (!q_.empty() && q_.front() < t - 3000) {

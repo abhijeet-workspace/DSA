@@ -33,9 +33,8 @@ int sumSubarrayMins(const std::vector<int>& arr) {
 
     long long result = 0;
     for (int i = 0; i < n; ++i) {
-        const long long contrib =
-            static_cast<long long>(left[static_cast<size_t>(i)]) *
-            static_cast<long long>(right[static_cast<size_t>(i)]) % MOD;
+        const long long contrib = static_cast<long long>(left[static_cast<size_t>(i)]) *
+                                  static_cast<long long>(right[static_cast<size_t>(i)]) % MOD;
         result = (result + static_cast<long long>(arr[static_cast<size_t>(i)]) * contrib) % MOD;
     }
     return static_cast<int>(result);
@@ -43,7 +42,6 @@ int sumSubarrayMins(const std::vector<int>& arr) {
 
 int main() {
     const std::vector<int> arr = {3, 1, 2, 4};
-    std::cout << "Sum of subarray mins: " << sumSubarrayMins(arr)
-              << " (expected 17)\n";
+    std::cout << "Sum of subarray mins: " << sumSubarrayMins(arr) << " (expected 17)\n";
     return 0;
 }

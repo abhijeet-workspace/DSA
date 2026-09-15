@@ -4,7 +4,8 @@
 #include <vector>
 
 int maximalSquare(std::vector<std::vector<char>>& matrix) {
-    if (matrix.empty() || matrix[0].empty()) return 0;
+    if (matrix.empty() || matrix[0].empty())
+        return 0;
     const int m = static_cast<int>(matrix.size());
     const int n = static_cast<int>(matrix[0].size());
     std::vector<std::vector<int>> dp(m + 1, std::vector<int>(n + 1, 0));

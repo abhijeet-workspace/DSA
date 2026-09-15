@@ -12,7 +12,8 @@ int triangleNumber(std::vector<int> nums) {
         int lo = 0;
         int hi = c - 1;
         while (lo < hi) {
-            if (nums[static_cast<size_t>(lo)] + nums[static_cast<size_t>(hi)] > nums[static_cast<size_t>(c)]) {
+            if (nums[static_cast<size_t>(lo)] + nums[static_cast<size_t>(hi)] >
+                nums[static_cast<size_t>(c)]) {
                 ans += hi - lo; // all [lo, hi-1] work with hi
                 --hi;
             } else {

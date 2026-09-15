@@ -13,8 +13,7 @@ int main() {
     std::cin >> limit;
 
     sumOfNaturalNumbersByLoop(limit);
-    std::cout << "Using Recursion: " << sumOfNaturalNumbersByRecursion(limit)
-              << std::endl;
+    std::cout << "Using Recursion: " << sumOfNaturalNumbersByRecursion(limit) << std::endl;
     sumOfNaturalNumbersByFormula(limit);
     return 0;
 }
@@ -24,8 +23,7 @@ void sumOfNaturalNumbersByLoop(int limit) {
     for (int i = 1; i <= limit; i++) { // accumulate 1..limit
         sum += i;
     }
-    std::cout << "Sum of first " << limit << " natural numbers is: " << sum
-              << std::endl;
+    std::cout << "Sum of first " << limit << " natural numbers is: " << sum << std::endl;
 }
 
 int sumOfNaturalNumbersByRecursion(int limit) {
@@ -37,6 +35,5 @@ int sumOfNaturalNumbersByRecursion(int limit) {
 
 void sumOfNaturalNumbersByFormula(int limit) {
     int sum = (limit * (limit + 1)) / 2; // Gauss formula
-    std::cout << "Sum of first " << limit << " natural numbers is: " << sum
-              << std::endl;
+    std::cout << "Sum of first " << limit << " natural numbers is: " << sum << std::endl;
 }

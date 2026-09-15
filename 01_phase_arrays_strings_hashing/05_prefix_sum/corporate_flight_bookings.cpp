@@ -3,8 +3,7 @@
 #include <iostream>
 #include <vector>
 
-std::vector<int> corpFlightBookings(const std::vector<std::vector<int>>& bookings,
-                                    int n) {
+std::vector<int> corpFlightBookings(const std::vector<std::vector<int>>& bookings, int n) {
     std::vector<int> diff(static_cast<size_t>(n + 1), 0);
     for (const auto& b : bookings) {
         const int first = b[0];

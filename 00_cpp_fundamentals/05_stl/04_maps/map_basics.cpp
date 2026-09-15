@@ -21,16 +21,14 @@ void demonstrateMap() {
 
     std::string searchKey = "Rahul";
     if (ageMap.find(searchKey) != ageMap.end()) {
-        std::cout << "Found " << searchKey << " with age " << ageMap[searchKey]
-                  << std::endl;
+        std::cout << "Found " << searchKey << " with age " << ageMap[searchKey] << std::endl;
     } else {
         std::cout << searchKey << " not found." << std::endl;
     }
 }
 
 void demonstrateUnorderedMap() {
-    std::cout << "\n--- std::unordered_map (Hash Table, Key-Value Pairs) ---"
-              << std::endl;
+    std::cout << "\n--- std::unordered_map (Hash Table, Key-Value Pairs) ---" << std::endl;
     std::unordered_map<std::string, double> priceMap;
 
     priceMap["Apple"] = 1.99;

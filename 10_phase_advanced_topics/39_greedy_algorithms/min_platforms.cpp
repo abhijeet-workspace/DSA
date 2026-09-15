@@ -1,8 +1,8 @@
 // Min Platforms — classic interval overlap / Meeting Rooms II
 // Sort arrivals & departures; sweep concurrent trains.
+#include <algorithm>
 #include <iostream>
 #include <vector>
-#include <algorithm>
 
 int minPlatforms(std::vector<int> arrival, std::vector<int> departure) {
     std::sort(arrival.begin(), arrival.end());

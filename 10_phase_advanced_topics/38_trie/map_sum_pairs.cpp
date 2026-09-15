@@ -14,12 +14,14 @@ class MapSum {
     std::unordered_map<std::string, int> val; // last value per key
 
     void clear(TrieNode* node) {
-        if (!node) return;
-        for (TrieNode* ch : node->children) clear(ch);
+        if (!node)
+            return;
+        for (TrieNode* ch : node->children)
+            clear(ch);
         delete node;
     }
 
-public:
+  public:
     ~MapSum() { clear(root); }
 
     void insert(const std::string& key, int value) {
@@ -28,7 +30,8 @@ public:
         TrieNode* cur = root;
         for (char c : key) {
             const int i = c - 'a';
-            if (!cur->children[i]) cur->children[i] = new TrieNode();
+            if (!cur->children[i])
+                cur->children[i] = new TrieNode();
             cur = cur->children[i];
             cur->prefixSum += delta; // update every prefix node
         }
@@ -38,7 +41,8 @@ public:
         TrieNode* cur = root;
         for (char c : prefix) {
             const int i = c - 'a';
-            if (!cur->children[i]) return 0;
+            if (!cur->children[i])
+                return 0;
             cur = cur->children[i];
         }
         return cur->prefixSum;

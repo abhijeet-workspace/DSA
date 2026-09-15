@@ -3,13 +3,14 @@
 #include <iostream>
 #include <vector>
 
-void dfs(const std::vector<std::vector<int>>& graph, int u, int target,
-         std::vector<int>& path, std::vector<std::vector<int>>& result) {
+void dfs(const std::vector<std::vector<int>>& graph, int u, int target, std::vector<int>& path,
+         std::vector<std::vector<int>>& result) {
     path.push_back(u);
     if (u == target) {
         result.push_back(path);
     } else {
-        for (int v : graph[static_cast<size_t>(u)]) dfs(graph, v, target, path, result);
+        for (int v : graph[static_cast<size_t>(u)])
+            dfs(graph, v, target, path, result);
     }
     path.pop_back();
 }

@@ -52,8 +52,7 @@ void demonstrateIfElse(int score) {
 }
 
 void demonstrateNestedIf(int age, bool isCitizen) {
-    std::cout << "Age: " << age << ", Citizen: " << (isCitizen ? "Yes" : "No")
-              << " -> ";
+    std::cout << "Age: " << age << ", Citizen: " << (isCitizen ? "Yes" : "No") << " -> ";
     if (age >= 18) {
         if (isCitizen) {
             std::cout << "Eligible to vote!\n";
@@ -68,27 +67,27 @@ void demonstrateNestedIf(int age, bool isCitizen) {
 void demonstrateSwitchCase(int month) {
     std::cout << "Month: " << month << " -> ";
     switch (month) {
-        case 1:
-        case 3:
-        case 5:
-        case 7:
-        case 8:
-        case 10:
-        case 12:
-            std::cout << "31 days\n"; // intentional fall-through group
-            break;
-        case 4:
-        case 6:
-        case 9:
-        case 11:
-            std::cout << "30 days\n";
-            break;
-        case 2:
-            std::cout << "28 or 29 days (Leap Year dependent)\n";
-            break;
-        default:
-            std::cout << "Invalid month number!\n";
-            break;
+    case 1:
+    case 3:
+    case 5:
+    case 7:
+    case 8:
+    case 10:
+    case 12:
+        std::cout << "31 days\n"; // intentional fall-through group
+        break;
+    case 4:
+    case 6:
+    case 9:
+    case 11:
+        std::cout << "30 days\n";
+        break;
+    case 2:
+        std::cout << "28 or 29 days (Leap Year dependent)\n";
+        break;
+    default:
+        std::cout << "Invalid month number!\n";
+        break;
     }
 }
 

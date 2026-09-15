@@ -1,12 +1,13 @@
 // Manacher — longest palindromic substring in O(N)
 // Transform with '#'; reuse mirror radii inside rightmost palindrome [C,R]
-#include <iostream>
-#include <vector>
-#include <string>
 #include <algorithm>
+#include <iostream>
+#include <string>
+#include <vector>
 
 std::string longestPalindrome(const std::string& s) {
-    if (s.empty()) return "";
+    if (s.empty())
+        return "";
     std::string t = "#";
     for (char c : s) {
         t += c;
@@ -17,9 +18,9 @@ std::string longestPalindrome(const std::string& s) {
     int C = 0, R = 0;
     for (int i = 0; i < n; ++i) {
         int mirror = 2 * C - i;
-        if (i < R) P[i] = std::min(R - i, P[mirror]);
-        while (i - P[i] - 1 >= 0 && i + P[i] + 1 < n &&
-               t[i - P[i] - 1] == t[i + P[i] + 1])
+        if (i < R)
+            P[i] = std::min(R - i, P[mirror]);
+        while (i - P[i] - 1 >= 0 && i + P[i] + 1 < n && t[i - P[i] - 1] == t[i + P[i] + 1])
             ++P[i];
         if (i + P[i] > R) {
             C = i;

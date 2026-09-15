@@ -11,8 +11,7 @@ int largestRectangleArea(std::vector<int>& heights) {
     heights.push_back(0); // sentinel flush
     for (int i = 0; i < static_cast<int>(heights.size()); ++i) {
         while (!st.empty() &&
-               heights[static_cast<size_t>(st.top())] >=
-                   heights[static_cast<size_t>(i)]) {
+               heights[static_cast<size_t>(st.top())] >= heights[static_cast<size_t>(i)]) {
             const int h = heights[static_cast<size_t>(st.top())];
             st.pop();
             const int w = st.empty() ? i : i - st.top() - 1;
@@ -34,9 +33,7 @@ int maximalRectangle(const std::vector<std::vector<char>>& matrix) {
     for (const auto& row : matrix) {
         for (int j = 0; j < cols; ++j) {
             heights[static_cast<size_t>(j)] =
-                row[static_cast<size_t>(j)] == '1'
-                    ? heights[static_cast<size_t>(j)] + 1
-                    : 0;
+                row[static_cast<size_t>(j)] == '1' ? heights[static_cast<size_t>(j)] + 1 : 0;
         }
         best = std::max(best, largestRectangleArea(heights));
     }

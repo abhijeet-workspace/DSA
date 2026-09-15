@@ -1,5 +1,6 @@
-// Vertical Order Traversal of a Binary Tree — https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/
-// Group nodes by (col,row); same cell sorted by value. BFS with map of col -> multiset of (row,val).
+// Vertical Order Traversal of a Binary Tree —
+// https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/ Group nodes by
+// (col,row); same cell sorted by value. BFS with map of col -> multiset of (row,val).
 #include <iostream>
 #include <map>
 #include <queue>
@@ -15,7 +16,7 @@ struct TreeNode {
 };
 
 std::vector<std::vector<int>> verticalTraversal(TreeNode* root) {
-    std::map<int, std::multiset<std::pair<int, int>>> cols; // col -> {(row, val)}
+    std::map<int, std::multiset<std::pair<int, int>>> cols;  // col -> {(row, val)}
     std::queue<std::pair<TreeNode*, std::pair<int, int>>> q; // node, {row, col}
     q.push({root, {0, 0}});
     while (!q.empty()) {
@@ -57,7 +58,8 @@ int main() {
     const auto out = verticalTraversal(root);
     for (const auto& col : out) {
         for (size_t i = 0; i < col.size(); ++i) {
-            if (i) std::cout << ' ';
+            if (i)
+                std::cout << ' ';
             std::cout << col[i];
         }
         std::cout << " | ";

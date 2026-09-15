@@ -5,8 +5,10 @@
 
 char findTheDifference(const std::string& s, const std::string& t) {
     char diff = 0;
-    for (char c : s) diff ^= c;
-    for (char c : t) diff ^= c;
+    for (char c : s)
+        diff ^= c;
+    for (char c : t)
+        diff ^= c;
     return diff;
 }
 

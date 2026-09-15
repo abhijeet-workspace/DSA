@@ -5,11 +5,14 @@
 
 bool isValid(const std::vector<std::vector<char>>& board, int row, int col, char c) {
     for (int i = 0; i < 9; ++i) {
-        if (board[static_cast<size_t>(i)][static_cast<size_t>(col)] == c) return false; // col
-        if (board[static_cast<size_t>(row)][static_cast<size_t>(i)] == c) return false; // row
+        if (board[static_cast<size_t>(i)][static_cast<size_t>(col)] == c)
+            return false; // col
+        if (board[static_cast<size_t>(row)][static_cast<size_t>(i)] == c)
+            return false; // row
         const int br = 3 * (row / 3) + i / 3;
         const int bc = 3 * (col / 3) + i % 3;
-        if (board[static_cast<size_t>(br)][static_cast<size_t>(bc)] == c) return false; // box
+        if (board[static_cast<size_t>(br)][static_cast<size_t>(bc)] == c)
+            return false; // box
     }
     return true;
 }
@@ -17,11 +20,14 @@ bool isValid(const std::vector<std::vector<char>>& board, int row, int col, char
 bool solve(std::vector<std::vector<char>>& board) {
     for (int i = 0; i < 9; ++i) {
         for (int j = 0; j < 9; ++j) {
-            if (board[static_cast<size_t>(i)][static_cast<size_t>(j)] != '.') continue;
+            if (board[static_cast<size_t>(i)][static_cast<size_t>(j)] != '.')
+                continue;
             for (char c = '1'; c <= '9'; ++c) {
-                if (!isValid(board, i, j, c)) continue;
+                if (!isValid(board, i, j, c))
+                    continue;
                 board[static_cast<size_t>(i)][static_cast<size_t>(j)] = c; // try
-                if (solve(board)) return true;
+                if (solve(board))
+                    return true;
                 board[static_cast<size_t>(i)][static_cast<size_t>(j)] = '.'; // undo
             }
             return false; // no digit works here

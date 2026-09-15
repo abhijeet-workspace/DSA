@@ -5,26 +5,22 @@
 
 class PrefixSum2D {
     std::vector<std::vector<int>> prefix; // prefix[r][c] = sum of matrix[0..r-1][0..c-1]
-public:
+  public:
     explicit PrefixSum2D(const std::vector<std::vector<int>>& matrix) {
         int rows = static_cast<int>(matrix.size());
         int cols = static_cast<int>(matrix[0].size());
         prefix.assign(rows + 1, std::vector<int>(cols + 1, 0));
         for (int r = 1; r <= rows; ++r) {
             for (int c = 1; c <= cols; ++c) {
-                prefix[r][c] = matrix[r - 1][c - 1]
-                             + prefix[r - 1][c]
-                             + prefix[r][c - 1]
-                             - prefix[r - 1][c - 1]; // inclusion-exclusion build
+                prefix[r][c] = matrix[r - 1][c - 1] + prefix[r - 1][c] + prefix[r][c - 1] -
+                               prefix[r - 1][c - 1]; // inclusion-exclusion build
             }
         }
     }
 
     int query(int r1, int c1, int r2, int c2) const {
-        return prefix[r2 + 1][c2 + 1]
-             - prefix[r1][c2 + 1]
-             - prefix[r2 + 1][c1]
-             + prefix[r1][c1]; // IE: subtract left/above, add corner back
+        return prefix[r2 + 1][c2 + 1] - prefix[r1][c2 + 1] - prefix[r2 + 1][c1] +
+               prefix[r1][c1]; // IE: subtract left/above, add corner back
     }
 };
 

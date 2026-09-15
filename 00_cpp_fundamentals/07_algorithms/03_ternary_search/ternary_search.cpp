@@ -11,8 +11,10 @@ int ternarySearch(const std::vector<int>& arr, int target) {
         int mid1 = left + (right - left) / 3;
         int mid2 = right - (right - left) / 3;
 
-        if (arr[mid1] == target) return mid1;
-        if (arr[mid2] == target) return mid2;
+        if (arr[mid1] == target)
+            return mid1;
+        if (arr[mid2] == target)
+            return mid2;
 
         if (target < arr[mid1]) {
             right = mid1 - 1;

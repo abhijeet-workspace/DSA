@@ -1,4 +1,5 @@
-// Shortest Path Visiting All Nodes — https://leetcode.com/problems/shortest-path-visiting-all-nodes/
+// Shortest Path Visiting All Nodes —
+// https://leetcode.com/problems/shortest-path-visiting-all-nodes/
 #include <iostream>
 #include <queue>
 #include <vector>
@@ -15,7 +16,8 @@ int shortestPathLength(std::vector<std::vector<int>>& graph) {
     while (!q.empty()) {
         auto [u, mask, d] = q.front();
         q.pop();
-        if (mask == full) return d;
+        if (mask == full)
+            return d;
         for (int v : graph[static_cast<size_t>(u)]) {
             const int nmask = mask | (1 << v);
             if (!seen[static_cast<size_t>(v)][static_cast<size_t>(nmask)]) {

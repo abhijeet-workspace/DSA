@@ -5,12 +5,15 @@
 
 std::vector<int> singleNumber(const std::vector<int>& nums) {
     int x = 0;
-    for (int n : nums) x ^= n;
-    int mask = x & -x;  // lowest set bit
+    for (int n : nums)
+        x ^= n;
+    int mask = x & -x; // lowest set bit
     int a = 0, b = 0;
     for (int n : nums) {
-        if (n & mask) a ^= n;
-        else b ^= n;
+        if (n & mask)
+            a ^= n;
+        else
+            b ^= n;
     }
     return {a, b};
 }

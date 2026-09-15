@@ -10,7 +10,8 @@ int findJudge(int n, const std::vector<std::vector<int>>& trust) {
         ++score[static_cast<size_t>(t[1])]; // is trusted
     }
     for (int i = 1; i <= n; ++i) {
-        if (score[static_cast<size_t>(i)] == n - 1) return i;
+        if (score[static_cast<size_t>(i)] == n - 1)
+            return i;
     }
     return -1;
 }

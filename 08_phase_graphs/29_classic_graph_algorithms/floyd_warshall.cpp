@@ -13,10 +13,10 @@ void floydWarshall(int V, const std::vector<std::vector<int>>& graph) {
             for (int j = 0; j < V; ++j) {
                 if (dist[static_cast<size_t>(i)][static_cast<size_t>(k)] != INF &&
                     dist[static_cast<size_t>(k)][static_cast<size_t>(j)] != INF) {
-                    dist[static_cast<size_t>(i)][static_cast<size_t>(j)] = std::min(
-                        dist[static_cast<size_t>(i)][static_cast<size_t>(j)],
-                        dist[static_cast<size_t>(i)][static_cast<size_t>(k)] +
-                            dist[static_cast<size_t>(k)][static_cast<size_t>(j)]);
+                    dist[static_cast<size_t>(i)][static_cast<size_t>(j)] =
+                        std::min(dist[static_cast<size_t>(i)][static_cast<size_t>(j)],
+                                 dist[static_cast<size_t>(i)][static_cast<size_t>(k)] +
+                                     dist[static_cast<size_t>(k)][static_cast<size_t>(j)]);
                 }
             }
         }

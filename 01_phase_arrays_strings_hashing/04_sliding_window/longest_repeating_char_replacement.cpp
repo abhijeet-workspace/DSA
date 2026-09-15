@@ -1,9 +1,9 @@
 // Longest Repeating Character Replacement — LC 424
 // Window valid while (len − maxFreq) ≤ k replacements.
+#include <algorithm>
+#include <array>
 #include <iostream>
 #include <string>
-#include <array>
-#include <algorithm>
 
 int characterReplacement(const std::string& s, int k) {
     std::array<int, 26> freq{};

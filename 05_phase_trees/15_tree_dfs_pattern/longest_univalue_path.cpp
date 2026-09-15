@@ -1,6 +1,6 @@
 // Longest Univalue Path — https://leetcode.com/problems/longest-univalue-path/
-#include <iostream>
 #include <algorithm>
+#include <iostream>
 
 struct TreeNode {
     int val;

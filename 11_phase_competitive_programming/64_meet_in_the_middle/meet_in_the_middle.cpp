@@ -11,7 +11,8 @@ void enumerateSums(const std::vector<int>& a, std::vector<long long>& out) {
     for (int mask = 0; mask < total; ++mask) {
         long long sum = 0;
         for (int i = 0; i < n; ++i) {
-            if (mask & (1 << i)) sum += a[static_cast<size_t>(i)];
+            if (mask & (1 << i))
+                sum += a[static_cast<size_t>(i)];
         }
         out[static_cast<size_t>(mask)] = sum;
     }
@@ -29,7 +30,8 @@ bool meetInTheMiddle(const std::vector<int>& arr, long long target) {
 
     for (long long s : sumsL) {
         long long need = target - s;
-        if (std::binary_search(sumsR.begin(), sumsR.end(), need)) return true;
+        if (std::binary_search(sumsR.begin(), sumsR.end(), need))
+            return true;
     }
     return false;
 }
@@ -37,10 +39,10 @@ bool meetInTheMiddle(const std::vector<int>& arr, long long target) {
 int main() {
     std::vector<int> arr = {3, 34, 4, 12, 5, 2};
     long long target = 9;
-    std::cout << "Subset sum " << target << "? "
-              << (meetInTheMiddle(arr, target) ? "yes" : "no") << "\n"; // yes (4+5)
+    std::cout << "Subset sum " << target << "? " << (meetInTheMiddle(arr, target) ? "yes" : "no")
+              << "\n"; // yes (4+5)
     target = 30;
-    std::cout << "Subset sum " << target << "? "
-              << (meetInTheMiddle(arr, target) ? "yes" : "no") << "\n"; // no
+    std::cout << "Subset sum " << target << "? " << (meetInTheMiddle(arr, target) ? "yes" : "no")
+              << "\n"; // no
     return 0;
 }

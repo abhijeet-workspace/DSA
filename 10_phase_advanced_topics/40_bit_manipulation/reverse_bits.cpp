@@ -1,7 +1,7 @@
 // Reverse Bits — https://leetcode.com/problems/reverse-bits/
 // Build result by shifting in n's LSB 32 times (do not early-stop).
-#include <iostream>
 #include <cstdint>
+#include <iostream>
 
 std::uint32_t reverseBits(std::uint32_t n) {
     std::uint32_t res = 0;

@@ -1,4 +1,5 @@
-// Populating Next Right Pointers in Each Node — https://leetcode.com/problems/populating-next-right-pointers-in-each-node/
+// Populating Next Right Pointers in Each Node —
+// https://leetcode.com/problems/populating-next-right-pointers-in-each-node/
 #include <iostream>
 #include <queue>
 
@@ -11,18 +12,23 @@ struct Node {
 };
 
 Node* connect(Node* root) {
-    if (!root) return root;
+    if (!root)
+        return root;
     std::queue<Node*> q;
     q.push(root);
     while (!q.empty()) {
         const int sz = static_cast<int>(q.size());
         Node* prev = nullptr;
         for (int i = 0; i < sz; ++i) {
-            Node* u = q.front(); q.pop();
-            if (prev) prev->next = u;
+            Node* u = q.front();
+            q.pop();
+            if (prev)
+                prev->next = u;
             prev = u;
-            if (u->left) q.push(u->left);
-            if (u->right) q.push(u->right);
+            if (u->left)
+                q.push(u->left);
+            if (u->right)
+                q.push(u->right);
         }
     }
     return root;

@@ -19,7 +19,8 @@ int main() {
 
     int index = linearSearch(arr, target);
     std::cout << "Array: ";
-    for (int x : arr) std::cout << x << ' ';
+    for (int x : arr)
+        std::cout << x << ' ';
     std::cout << '\n';
     std::cout << "Searching for " << target << " -> Index: " << index << '\n';
 

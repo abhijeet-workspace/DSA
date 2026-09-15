@@ -13,23 +13,27 @@ std::vector<int> kahn(int n, const std::vector<std::vector<int>>& edges) {
     }
     std::queue<int> q;
     for (int i = 0; i < n; ++i)
-        if (indeg[static_cast<size_t>(i)] == 0) q.push(i);
+        if (indeg[static_cast<size_t>(i)] == 0)
+            q.push(i);
     std::vector<int> order;
     while (!q.empty()) {
         int u = q.front();
         q.pop();
         order.push_back(u);
         for (int v : g[static_cast<size_t>(u)])
-            if (--indeg[static_cast<size_t>(v)] == 0) q.push(v);
+            if (--indeg[static_cast<size_t>(v)] == 0)
+                q.push(v);
     }
-    if (static_cast<int>(order.size()) != n) return {}; // cycle
+    if (static_cast<int>(order.size()) != n)
+        return {}; // cycle
     return order;
 }
 
 int main() {
     const auto o = kahn(4, {{0, 1}, {0, 2}, {1, 3}, {2, 3}});
     std::cout << "order size=" << o.size() << " (expected 4)\n";
-    for (int x : o) std::cout << x << " ";
+    for (int x : o)
+        std::cout << x << " ";
     std::cout << "\n";
     return 0;
 }

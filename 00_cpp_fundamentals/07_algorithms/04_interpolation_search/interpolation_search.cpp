@@ -9,12 +9,14 @@ int interpolationSearch(const std::vector<int>& arr, int target) {
 
     while (low <= high && target >= arr[low] && target <= arr[high]) {
         if (low == high) {
-            if (arr[low] == target) return low;
+            if (arr[low] == target)
+                return low;
             return -1;
         }
 
-        int pos = low + static_cast<int>(
-            (static_cast<double>(high - low) / (arr[high] - arr[low])) * (target - arr[low]));
+        int pos =
+            low + static_cast<int>((static_cast<double>(high - low) / (arr[high] - arr[low])) *
+                                   (target - arr[low]));
 
         if (arr[pos] == target) {
             return pos;

@@ -1,8 +1,8 @@
 // Find the Duplicate Number — https://leetcode.com/problems/find-the-duplicate-number/
 // n+1 ints in [1,n]; exactly one duplicate — return it (cyclic-sort placement).
 #include <iostream>
-#include <vector>
 #include <utility>
+#include <vector>
 
 int findDuplicate(std::vector<int>& nums) {
     int i = 0;

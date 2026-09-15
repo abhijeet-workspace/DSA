@@ -42,10 +42,9 @@ int minCostConnectPoints(std::vector<std::vector<int>>& points) {
     std::vector<std::tuple<int, int, int>> edges; // w, i, j
     for (int i = 0; i < n; ++i) {
         for (int j = i + 1; j < n; ++j) {
-            const int w = std::abs(points[static_cast<size_t>(i)][0] -
-                                   points[static_cast<size_t>(j)][0]) +
-                          std::abs(points[static_cast<size_t>(i)][1] -
-                                   points[static_cast<size_t>(j)][1]);
+            const int w =
+                std::abs(points[static_cast<size_t>(i)][0] - points[static_cast<size_t>(j)][0]) +
+                std::abs(points[static_cast<size_t>(i)][1] - points[static_cast<size_t>(j)][1]);
             edges.emplace_back(w, i, j);
         }
     }

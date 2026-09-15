@@ -27,8 +27,7 @@ int tsp(const std::vector<std::vector<int>>& dist, int mask, int u, int V,
 
 int solveTSP(const std::vector<std::vector<int>>& dist) {
     const int V = static_cast<int>(dist.size());
-    std::vector<std::vector<int>> memo(static_cast<size_t>(V),
-                                       std::vector<int>(1u << V, -1));
+    std::vector<std::vector<int>> memo(static_cast<size_t>(V), std::vector<int>(1u << V, -1));
     return tsp(dist, 1, 0, V, memo); // start at 0; bit 0 set
 }
 

@@ -1,8 +1,8 @@
 // Set Mismatch — https://leetcode.com/problems/set-mismatch/
 // Place v at v-1; slot with wrong value → duplicate = nums[i], missing = i+1.
 #include <iostream>
-#include <vector>
 #include <utility>
+#include <vector>
 
 std::vector<int> findErrorNums(std::vector<int>& nums) {
     const int n = static_cast<int>(nums.size());

@@ -36,12 +36,10 @@ class Graph {
         }
     }
 
-public:
+  public:
     explicit Graph(int V_) : V(V_), adj(V_) {}
 
-    void addEdge(int v, int w) {
-        adj[v].push_back(w);
-    }
+    void addEdge(int v, int w) { adj[v].push_back(w); }
 
     std::vector<std::vector<int>> findSCCs() {
         std::vector<int> disc(V, -1), low(V, -1);

@@ -22,7 +22,7 @@ ListNode* partition(ListNode* head, int x) {
             ge = ge->next;
         }
     }
-    ge->next = nullptr; // terminate >= chain
+    ge->next = nullptr;        // terminate >= chain
     less->next = geDummy.next; // join
     return lessDummy.next;
 }

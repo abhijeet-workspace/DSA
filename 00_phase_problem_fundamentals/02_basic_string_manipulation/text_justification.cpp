@@ -11,7 +11,9 @@ std::vector<std::string> fullJustify(const std::vector<std::string>& words, int 
     while (i < n) {
         int j = i;
         int lineLen = 0; // sum of word lengths only
-        while (j < n && lineLen + static_cast<int>(words[static_cast<size_t>(j)].size()) + (j - i) <= maxWidth) {
+        while (j < n &&
+               lineLen + static_cast<int>(words[static_cast<size_t>(j)].size()) + (j - i) <=
+                   maxWidth) {
             lineLen += static_cast<int>(words[static_cast<size_t>(j)].size());
             ++j;
         }
@@ -23,7 +25,8 @@ std::vector<std::string> fullJustify(const std::vector<std::string>& words, int 
         const bool lastLine = (j == n);
         if (gaps == 0 || lastLine) {
             for (int k = i; k < j; ++k) {
-                if (k > i) line.push_back(' ');
+                if (k > i)
+                    line.push_back(' ');
                 line += words[static_cast<size_t>(k)];
             }
             line.append(static_cast<size_t>(maxWidth - static_cast<int>(line.size())), ' ');
@@ -34,7 +37,8 @@ std::vector<std::string> fullJustify(const std::vector<std::string>& words, int 
                 line += words[static_cast<size_t>(k)];
                 if (k < j - 1) {
                     int put = base + (extra > 0 ? 1 : 0);
-                    if (extra > 0) --extra;
+                    if (extra > 0)
+                        --extra;
                     line.append(static_cast<size_t>(put), ' ');
                 }
             }
@@ -47,7 +51,8 @@ std::vector<std::string> fullJustify(const std::vector<std::string>& words, int 
 
 int main() {
     auto lines = fullJustify({"This", "is", "an", "example", "of", "text", "justification."}, 16);
-    for (const auto& L : lines) std::cout << "[" << L << "]\n";
+    for (const auto& L : lines)
+        std::cout << "[" << L << "]\n";
     // expected:
     // [This    is    an]
     // [example  of text]

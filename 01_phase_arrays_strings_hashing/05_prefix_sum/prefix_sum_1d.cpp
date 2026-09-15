@@ -5,7 +5,7 @@
 
 class PrefixSum1D {
     std::vector<int> prefix; // prefix[i] = sum(arr[0..i-1]); prefix[0]=0
-public:
+  public:
     explicit PrefixSum1D(const std::vector<int>& arr) : prefix(arr.size() + 1, 0) {
         for (int i = 0; i < static_cast<int>(arr.size()); ++i) {
             prefix[i + 1] = prefix[i] + arr[i]; // cumulative sum

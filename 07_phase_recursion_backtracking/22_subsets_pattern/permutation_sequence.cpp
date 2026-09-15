@@ -6,9 +6,11 @@
 
 std::string getPermutation(int n, int k) {
     std::vector<int> nums;
-    for (int i = 1; i <= n; ++i) nums.push_back(i);
+    for (int i = 1; i <= n; ++i)
+        nums.push_back(i);
     std::vector<int> fact(static_cast<size_t>(n), 1);
-    for (int i = 1; i < n; ++i) fact[static_cast<size_t>(i)] = fact[static_cast<size_t>(i - 1)] * i;
+    for (int i = 1; i < n; ++i)
+        fact[static_cast<size_t>(i)] = fact[static_cast<size_t>(i - 1)] * i;
     --k; // 0-index
     std::string ans;
     for (int i = n; i >= 1; --i) {

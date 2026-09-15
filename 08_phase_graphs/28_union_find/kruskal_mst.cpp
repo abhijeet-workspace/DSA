@@ -14,8 +14,7 @@ struct Edge {
 struct UnionFind {
     std::vector<int> parent;
     std::vector<int> rank;
-    explicit UnionFind(int n)
-        : parent(static_cast<size_t>(n)), rank(static_cast<size_t>(n), 0) {
+    explicit UnionFind(int n) : parent(static_cast<size_t>(n)), rank(static_cast<size_t>(n), 0) {
         for (int i = 0; i < n; ++i) {
             parent[static_cast<size_t>(i)] = i;
         }
@@ -65,7 +64,6 @@ int main() {
     std::vector<Edge> edges = {
         {0, 1, 10}, {0, 2, 6}, {0, 3, 5}, {1, 3, 15}, {2, 3, 4},
     };
-    std::cout << "MST weight: " << getMSTWeight(V, edges)
-              << " (expected 19)\n";
+    std::cout << "MST weight: " << getMSTWeight(V, edges) << " (expected 19)\n";
     return 0;
 }

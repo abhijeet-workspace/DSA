@@ -20,8 +20,10 @@ double maxProbability(int n, const std::vector<std::vector<int>>& edges,
     while (!pq.empty()) {
         auto [p, u] = pq.top();
         pq.pop();
-        if (p != best[static_cast<size_t>(u)]) continue;
-        if (u == end) return p;
+        if (p != best[static_cast<size_t>(u)])
+            continue;
+        if (u == end)
+            return p;
         for (auto [v, w] : g[static_cast<size_t>(u)]) {
             double np = p * w;
             if (np > best[static_cast<size_t>(v)]) {

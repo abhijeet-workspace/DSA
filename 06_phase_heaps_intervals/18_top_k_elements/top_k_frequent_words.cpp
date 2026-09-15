@@ -22,8 +22,8 @@ std::vector<std::string> topKFrequent(const std::vector<std::string>& words, int
     for (const auto& w : words) {
         ++freq[w];
     }
-    std::priority_queue<std::pair<int, std::string>,
-                        std::vector<std::pair<int, std::string>>, WordCmp>
+    std::priority_queue<std::pair<int, std::string>, std::vector<std::pair<int, std::string>>,
+                        WordCmp>
         min_heap;
     for (const auto& [word, count] : freq) {
         min_heap.push({count, word});
@@ -40,17 +40,15 @@ std::vector<std::string> topKFrequent(const std::vector<std::string>& words, int
 }
 
 int main() {
-    const auto r1 = topKFrequent(
-        {"i", "love", "leetcode", "i", "love", "coding"}, 2);
+    const auto r1 = topKFrequent({"i", "love", "leetcode", "i", "love", "coding"}, 2);
     std::cout << "top:";
     for (const auto& w : r1) {
         std::cout << " " << w;
     }
     std::cout << " (expected i love)\n";
 
-    const auto r2 = topKFrequent(
-        {"the", "day", "is", "sunny", "the", "the", "the", "sunny", "is", "is"},
-        4);
+    const auto r2 =
+        topKFrequent({"the", "day", "is", "sunny", "the", "the", "the", "sunny", "is", "is"}, 4);
     std::cout << "top:";
     for (const auto& w : r2) {
         std::cout << " " << w;

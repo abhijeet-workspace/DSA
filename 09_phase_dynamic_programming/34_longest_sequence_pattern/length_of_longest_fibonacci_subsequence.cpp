@@ -1,4 +1,5 @@
-// Length of Longest Fibonacci Subsequence — https://leetcode.com/problems/length-of-longest-fibonacci-subsequence/
+// Length of Longest Fibonacci Subsequence —
+// https://leetcode.com/problems/length-of-longest-fibonacci-subsequence/
 #include <algorithm>
 #include <iostream>
 #include <unordered_set>
@@ -14,9 +15,12 @@ int lenLongestFibSubseq(std::vector<int>& arr) {
             int len = 2;
             while (s.count(static_cast<int>(x + y))) {
                 const long long z = x + y;
-                x = y; y = z; ++len;
+                x = y;
+                y = z;
+                ++len;
             }
-            if (len >= 3) ans = std::max(ans, len);
+            if (len >= 3)
+                ans = std::max(ans, len);
         }
     }
     return ans;

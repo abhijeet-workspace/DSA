@@ -7,7 +7,8 @@ int numTrees(int n) {
     dp[0] = 1;
     for (int i = 1; i <= n; ++i)
         for (int j = 0; j < i; ++j)
-            dp[static_cast<size_t>(i)] += dp[static_cast<size_t>(j)] * dp[static_cast<size_t>(i - 1 - j)];
+            dp[static_cast<size_t>(i)] +=
+                dp[static_cast<size_t>(j)] * dp[static_cast<size_t>(i - 1 - j)];
     return static_cast<int>(dp[static_cast<size_t>(n)]);
 }
 

@@ -23,7 +23,8 @@ int main() {
     std::vector<int> arr = {12, 34, 54, 2, 3};
     shellSort(arr);
     std::cout << "Sorted: ";
-    for (int x : arr) std::cout << x << ' ';
+    for (int x : arr)
+        std::cout << x << ' ';
     std::cout << '\n';
     return 0;
 }

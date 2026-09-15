@@ -32,7 +32,8 @@ ListNode* mergeKLists(std::vector<ListNode*>& lists) {
     using P = std::pair<int, ListNode*>;
     std::priority_queue<P, std::vector<P>, std::greater<P>> pq;
     for (ListNode* h : lists) {
-        if (h) pq.push({h->val, h});
+        if (h)
+            pq.push({h->val, h});
     }
     ListNode dummy(0);
     ListNode* tail = &dummy;
@@ -42,7 +43,8 @@ ListNode* mergeKLists(std::vector<ListNode*>& lists) {
         (void)v;
         tail->next = node;
         tail = tail->next;
-        if (node->next) pq.push({node->next->val, node->next});
+        if (node->next)
+            pq.push({node->next->val, node->next});
     }
     return dummy.next;
 }
@@ -52,7 +54,8 @@ int main() {
     ListNode* m = mergeKLists(lists);
     for (ListNode* p = m; p; p = p->next) {
         std::cout << p->val;
-        if (p->next) std::cout << "->";
+        if (p->next)
+            std::cout << "->";
     }
     std::cout << " (expected 1->1->2->3->4->4->5->6)\n";
     freeList(m);

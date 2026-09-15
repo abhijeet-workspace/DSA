@@ -29,12 +29,11 @@ bool isBalanced(const std::string& expr) {
 
 int main() {
     const std::vector<std::string> tests = {
-        "({[]})", "({[}])", "(())", "((()))", "([)]",
-        "{[()]}", "(((", ")))", "[{()}]", "[({})]",
+        "({[]})", "({[}])", "(())", "((()))", "([)]", "{[()]}", "(((", ")))", "[{()}]", "[({})]",
     };
     for (const auto& expr : tests) {
-        std::cout << '"' << expr << "\" -> "
-                  << (isBalanced(expr) ? "BALANCED" : "NOT BALANCED") << '\n';
+        std::cout << '"' << expr << "\" -> " << (isBalanced(expr) ? "BALANCED" : "NOT BALANCED")
+                  << '\n';
     }
     return 0;
 }

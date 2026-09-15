@@ -6,7 +6,7 @@
 class MyCalendarThree {
     std::map<int, int> diff;
 
-public:
+  public:
     int book(int start, int end) {
         ++diff[start];
         --diff[end];

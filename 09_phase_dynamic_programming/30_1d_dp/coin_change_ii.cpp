@@ -5,7 +5,7 @@
 
 int change(int amount, const std::vector<int>& coins) {
     std::vector<int> dp(static_cast<size_t>(amount) + 1, 0);
-    dp[0] = 1; // one way to make 0
+    dp[0] = 1;            // one way to make 0
     for (int c : coins) { // outer coins → combinations not permutations
         for (int a = c; a <= amount; ++a) {
             dp[static_cast<size_t>(a)] += dp[static_cast<size_t>(a - c)];

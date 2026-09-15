@@ -51,7 +51,7 @@ void demonstrateForLoop() {
 void demonstrateWhileLoop(int num) {
     int original = num; // keep for printing
     int sum = 0;
-    while (num > 0) { // unknown digit count
+    while (num > 0) {             // unknown digit count
         int lastDigit = num % 10; // peel ones place
         sum += lastDigit;
         num = num / 10; // drop last digit

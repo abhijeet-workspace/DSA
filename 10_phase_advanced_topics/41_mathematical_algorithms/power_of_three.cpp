@@ -7,8 +7,7 @@ bool isPowerOfThree(int n) {
 }
 
 int main() {
-    std::cout << std::boolalpha
-              << isPowerOfThree(27) << " (expected true)\n"
+    std::cout << std::boolalpha << isPowerOfThree(27) << " (expected true)\n"
               << isPowerOfThree(0) << " (expected false)\n"
               << isPowerOfThree(9) << " (expected true)\n";
     return 0;

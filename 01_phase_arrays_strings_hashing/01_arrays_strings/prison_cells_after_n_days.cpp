@@ -39,19 +39,22 @@ int main() {
     // n=7 returns to the start of a 7-day cycle (LC example text is inconsistent with the rule).
     const auto a = prisonAfterNDays({0, 1, 0, 1, 1, 0, 1, 0}, 7);
     for (size_t i = 0; i < a.size(); ++i) {
-        if (i) std::cout << ' ';
+        if (i)
+            std::cout << ' ';
         std::cout << a[i];
     }
     std::cout << " (expected 0 1 0 1 1 0 1 0)\n";
     const auto b = prisonAfterNDays({0, 1, 0, 1, 1, 0, 1, 0}, 1);
     for (size_t i = 0; i < b.size(); ++i) {
-        if (i) std::cout << ' ';
+        if (i)
+            std::cout << ' ';
         std::cout << b[i];
     }
     std::cout << " (expected 0 1 1 0 0 1 1 0)\n";
     const auto c = prisonAfterNDays({1, 0, 0, 1, 0, 0, 1, 0}, 1000000000);
     for (size_t i = 0; i < c.size(); ++i) {
-        if (i) std::cout << ' ';
+        if (i)
+            std::cout << ' ';
         std::cout << c[i];
     }
     std::cout << " (expected 0 0 1 1 1 1 1 0)\n";

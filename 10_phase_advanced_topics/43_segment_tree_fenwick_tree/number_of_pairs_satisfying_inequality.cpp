@@ -1,5 +1,6 @@
-// Number of Pairs Satisfying Inequality — https://leetcode.com/problems/number-of-pairs-satisfying-inequality/
-// a[i]=nums1[i]-nums2[i]; count i<j with a[i] <= a[j]+diff via Fenwick.
+// Number of Pairs Satisfying Inequality —
+// https://leetcode.com/problems/number-of-pairs-satisfying-inequality/ a[i]=nums1[i]-nums2[i];
+// count i<j with a[i] <= a[j]+diff via Fenwick.
 #include <algorithm>
 #include <iostream>
 #include <vector>
@@ -9,11 +10,13 @@ struct Fenwick {
     std::vector<int> bit;
     explicit Fenwick(int n) : n(n), bit(n + 1, 0) {}
     void add(int i, int v) {
-        for (; i <= n; i += i & -i) bit[i] += v;
+        for (; i <= n; i += i & -i)
+            bit[i] += v;
     }
     int sum(int i) const {
         int s = 0;
-        for (; i > 0; i -= i & -i) s += bit[i];
+        for (; i > 0; i -= i & -i)
+            s += bit[i];
         return s;
     }
 };
@@ -21,9 +24,11 @@ struct Fenwick {
 long long numberOfPairs(const std::vector<int>& nums1, const std::vector<int>& nums2, int diff) {
     int n = static_cast<int>(nums1.size());
     std::vector<long long> a(n);
-    for (int i = 0; i < n; ++i) a[i] = 1LL * nums1[i] - nums2[i];
+    for (int i = 0; i < n; ++i)
+        a[i] = 1LL * nums1[i] - nums2[i];
     std::vector<long long> keys = a;
-    for (auto v : a) keys.push_back(v + diff);
+    for (auto v : a)
+        keys.push_back(v + diff);
     std::sort(keys.begin(), keys.end());
     keys.erase(std::unique(keys.begin(), keys.end()), keys.end());
     auto id = [&](long long x) {

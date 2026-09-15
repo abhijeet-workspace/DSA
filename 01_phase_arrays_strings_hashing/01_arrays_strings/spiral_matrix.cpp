@@ -5,10 +5,11 @@
 
 std::vector<int> spiralOrder(const std::vector<std::vector<int>>& a) {
     std::vector<int> res;
-    if (a.empty()) return res;
-    int t = 0; // top bound
-    int b = static_cast<int>(a.size()) - 1; // bottom
-    int l = 0; // left
+    if (a.empty())
+        return res;
+    int t = 0;                                 // top bound
+    int b = static_cast<int>(a.size()) - 1;    // bottom
+    int l = 0;                                 // left
     int r = static_cast<int>(a[0].size()) - 1; // right
     while (t <= b && l <= r) {
         for (int j = l; j <= r; ++j) // right across top

@@ -8,10 +8,12 @@ class ZigzagIterator {
     std::vector<std::vector<int>> data;
     std::queue<std::pair<int, int>> q; // vec, idx
 
-public:
+  public:
     ZigzagIterator(std::vector<int>& v1, std::vector<int>& v2) : data{v1, v2} {
-        if (!v1.empty()) q.push({0, 0});
-        if (!v2.empty()) q.push({1, 0});
+        if (!v1.empty())
+            q.push({0, 0});
+        if (!v2.empty())
+            q.push({1, 0});
     }
 
     int next() {
@@ -31,7 +33,8 @@ int main() {
     std::vector<int> v1 = {1, 2};
     std::vector<int> v2 = {3, 4, 5, 6};
     ZigzagIterator z(v1, v2);
-    while (z.hasNext()) std::cout << z.next() << " ";
+    while (z.hasNext())
+        std::cout << z.next() << " ";
     std::cout << "(expected 1 3 2 4 5 6)\n";
     return 0;
 }

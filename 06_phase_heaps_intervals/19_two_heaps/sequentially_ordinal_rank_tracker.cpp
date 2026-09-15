@@ -1,5 +1,6 @@
-// Sequentially Ordinal Rank Tracker — https://leetcode.com/problems/sequentially-ordinal-rank-tracker/
-// Dual ordered sets: best `queryCount` vs rest; get() returns the i-th best (i grows).
+// Sequentially Ordinal Rank Tracker —
+// https://leetcode.com/problems/sequentially-ordinal-rank-tracker/ Dual ordered sets: best
+// `queryCount` vs rest; get() returns the i-th best (i grows).
 #include <iostream>
 #include <set>
 #include <string>
@@ -20,7 +21,7 @@ class SORTracker {
     std::multiset<Loc> rest;
     int queryCount = 0;
 
-public:
+  public:
     void add(std::string name, int score) {
         good.insert({score, std::move(name)});
         if (static_cast<int>(good.size()) > queryCount) {

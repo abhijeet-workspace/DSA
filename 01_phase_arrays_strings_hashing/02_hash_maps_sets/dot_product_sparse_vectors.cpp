@@ -1,12 +1,13 @@
-// Dot Product of Two Sparse Vectors — https://leetcode.com/problems/dot-product-of-two-sparse-vectors/
-// Store only non-zero pairs; dot by intersecting indices.
+// Dot Product of Two Sparse Vectors —
+// https://leetcode.com/problems/dot-product-of-two-sparse-vectors/ Store only non-zero pairs; dot
+// by intersecting indices.
 #include <iostream>
 #include <unordered_map>
 #include <utility>
 #include <vector>
 
 class SparseVector {
-public:
+  public:
     std::vector<std::pair<int, int>> nz; // (index, value)
 
     explicit SparseVector(const std::vector<int>& nums) {

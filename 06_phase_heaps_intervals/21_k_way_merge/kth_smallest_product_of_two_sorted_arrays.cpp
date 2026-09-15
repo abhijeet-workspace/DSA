@@ -1,5 +1,6 @@
-// Kth Smallest Product of Two Sorted Arrays — https://leetcode.com/problems/kth-smallest-product-of-two-sorted-arrays/
-// Binary search on product value; count pairs with nums1[i]*nums2[j] <= mid.
+// Kth Smallest Product of Two Sorted Arrays —
+// https://leetcode.com/problems/kth-smallest-product-of-two-sorted-arrays/ Binary search on product
+// value; count pairs with nums1[i]*nums2[j] <= mid.
 #include <iostream>
 #include <vector>
 

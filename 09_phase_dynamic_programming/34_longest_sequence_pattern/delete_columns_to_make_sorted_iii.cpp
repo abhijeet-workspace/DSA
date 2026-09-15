@@ -1,4 +1,5 @@
-// Delete Columns to Make Sorted III — https://leetcode.com/problems/delete-columns-to-make-sorted-iii/
+// Delete Columns to Make Sorted III —
+// https://leetcode.com/problems/delete-columns-to-make-sorted-iii/
 #include <algorithm>
 #include <iostream>
 #include <string>
@@ -19,8 +20,9 @@ int minDeletionSize(std::vector<std::string>& strs) {
                     break;
                 }
             }
-            if (ok) dp[static_cast<size_t>(j)] =
-                        std::max(dp[static_cast<size_t>(j)], dp[static_cast<size_t>(i)] + 1);
+            if (ok)
+                dp[static_cast<size_t>(j)] =
+                    std::max(dp[static_cast<size_t>(j)], dp[static_cast<size_t>(i)] + 1);
         }
         keep = std::max(keep, dp[static_cast<size_t>(j)]);
     }

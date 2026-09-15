@@ -4,38 +4,33 @@
 #include <string>
 #include <type_traits>
 
-template <typename T>
-T findMax(T a, T b) {
+template <typename T> T findMax(T a, T b) {
     return (a > b) ? a : b; // type-generic comparison
 }
 
-template <typename T, int Size>
-class StaticArray {
-private:
+template <typename T, int Size> class StaticArray {
+  private:
     T arr[Size];
-public:
+
+  public:
     void set(int idx, T val) {
-        if (idx >= 0 && idx < Size) arr[idx] = val;
+        if (idx >= 0 && idx < Size)
+            arr[idx] = val;
     }
-    T get(int idx) const {
-        return (idx >= 0 && idx < Size) ? arr[idx] : T();
-    }
+    T get(int idx) const { return (idx >= 0 && idx < Size) ? arr[idx] : T(); }
     int getSize() const { return Size; }
 };
 
-template <>
-double findMax<double>(double a, double b) {
+template <> double findMax<double>(double a, double b) {
     std::cout << "(Specialized double function called) ";
     return (a > b) ? a : b;
 }
 
-template <typename... Args>
-auto sumAll(Args... args) {
+template <typename... Args> auto sumAll(Args... args) {
     return (args + ...); // C++17 fold: sum pack
 }
 
-template <typename T>
-void printTypeInfo(T val) {
+template <typename T> void printTypeInfo(T val) {
     if constexpr (std::is_integral_v<T>) {
         std::cout << val << " is an Integral Type.\n";
     } else if constexpr (std::is_floating_point_v<T>) {
@@ -56,8 +51,7 @@ int main() {
     intArray.set(0, 42);
     std::cout << "StaticArray<int, 5> at index 0: " << intArray.get(0) << "\n\n";
 
-    std::cout << "Summing (1, 2, 3, 4, 5) using Fold Expression: "
-              << sumAll(1, 2, 3, 4, 5) << "\n";
+    std::cout << "Summing (1, 2, 3, 4, 5) using Fold Expression: " << sumAll(1, 2, 3, 4, 5) << "\n";
     std::cout << "Summing (1.5, 2.5, 3.5): " << sumAll(1.5, 2.5, 3.5) << "\n\n";
 
     printTypeInfo(100);

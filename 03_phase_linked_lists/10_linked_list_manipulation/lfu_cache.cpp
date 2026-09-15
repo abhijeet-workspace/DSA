@@ -26,7 +26,7 @@ class LFUCache {
         keyIter_[key] = freqToKeys_[freq + 1].begin();
     }
 
-public:
+  public:
     explicit LFUCache(int capacity) : capacity_(capacity) {}
 
     int get(int key) {

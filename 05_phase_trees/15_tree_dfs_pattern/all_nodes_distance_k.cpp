@@ -1,9 +1,10 @@
-// All Nodes Distance K in Binary Tree — https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/
+// All Nodes Distance K in Binary Tree —
+// https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/
 #include <iostream>
-#include <vector>
 #include <queue>
 #include <unordered_map>
 #include <unordered_set>
+#include <vector>
 
 struct TreeNode {
     int val;
@@ -12,8 +13,7 @@ struct TreeNode {
     explicit TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
 };
 
-void markParent(TreeNode* n, TreeNode* p,
-                std::unordered_map<TreeNode*, TreeNode*>& parent) {
+void markParent(TreeNode* n, TreeNode* p, std::unordered_map<TreeNode*, TreeNode*>& parent) {
     if (!n) {
         return;
     }
@@ -37,8 +37,7 @@ std::vector<int> distanceK(TreeNode* root, TreeNode* target, int k) {
         for (int i = 0; i < sz; ++i) {
             TreeNode* u = q.front();
             q.pop();
-            for (TreeNode* v : {u->left, u->right,
-                    parent.count(u) ? parent[u] : nullptr}) {
+            for (TreeNode* v : {u->left, u->right, parent.count(u) ? parent[u] : nullptr}) {
                 if (v && !seen.count(v)) {
                     seen.insert(v);
                     q.push(v);

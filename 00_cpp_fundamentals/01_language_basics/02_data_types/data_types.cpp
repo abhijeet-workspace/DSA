@@ -3,16 +3,16 @@
 #include <iostream>
 
 int main() {
-    int age = 20;           // integer
-    float marks = 87.5f;    // single-precision float
-    double pi = 3.14159;    // double-precision floating point
-    char grade = 'A';       // character
-    bool isPass = true;     // boolean
+    int age = 20;        // integer
+    float marks = 87.5f; // single-precision float
+    double pi = 3.14159; // double-precision floating point
+    char grade = 'A';    // character
+    bool isPass = true;  // boolean
 
-    std::cout << age << " " << marks << " " << pi << " " << grade << " "
-              << isPass << std::endl; // print initial values
+    std::cout << age << " " << marks << " " << pi << " " << grade << " " << isPass
+              << std::endl; // print initial values
 
-    age = 30; // mutate age
+    age = 30;                                     // mutate age
     std::cout << "New Age: " << age << std::endl; // print updated age
     return 0;
 }

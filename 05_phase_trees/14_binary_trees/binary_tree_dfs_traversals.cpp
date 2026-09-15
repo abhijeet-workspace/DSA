@@ -14,9 +14,9 @@ void inorder(TreeNode* node, std::vector<int>& res) {
     if (!node) {
         return;
     }
-    inorder(node->left, res);   // left
-    res.push_back(node->val);   // root
-    inorder(node->right, res);  // right
+    inorder(node->left, res);  // left
+    res.push_back(node->val);  // root
+    inorder(node->right, res); // right
 }
 
 void preorder(TreeNode* node, std::vector<int>& res) {

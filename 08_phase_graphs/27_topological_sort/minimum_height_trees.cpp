@@ -5,7 +5,8 @@
 #include <vector>
 
 std::vector<int> findMinHeightTrees(int n, const std::vector<std::vector<int>>& edges) {
-    if (n == 1) return {0};
+    if (n == 1)
+        return {0};
     std::vector<std::vector<int>> g(static_cast<size_t>(n));
     std::vector<int> deg(static_cast<size_t>(n), 0);
     for (const auto& e : edges) {
@@ -16,7 +17,8 @@ std::vector<int> findMinHeightTrees(int n, const std::vector<std::vector<int>>& 
     }
     std::queue<int> q;
     for (int i = 0; i < n; ++i)
-        if (deg[static_cast<size_t>(i)] == 1) q.push(i);
+        if (deg[static_cast<size_t>(i)] == 1)
+            q.push(i);
     int remain = n;
     while (remain > 2) {
         int sz = static_cast<int>(q.size());
@@ -25,7 +27,8 @@ std::vector<int> findMinHeightTrees(int n, const std::vector<std::vector<int>>& 
             int u = q.front();
             q.pop();
             for (int v : g[static_cast<size_t>(u)]) {
-                if (--deg[static_cast<size_t>(v)] == 1) q.push(v);
+                if (--deg[static_cast<size_t>(v)] == 1)
+                    q.push(v);
             }
         }
     }
@@ -39,7 +42,8 @@ std::vector<int> findMinHeightTrees(int n, const std::vector<std::vector<int>>& 
 
 int main() {
     const auto r = findMinHeightTrees(4, {{1, 0}, {1, 2}, {1, 3}});
-    for (int x : r) std::cout << x << " ";
+    for (int x : r)
+        std::cout << x << " ";
     std::cout << "(expected 1)\n";
     return 0;
 }

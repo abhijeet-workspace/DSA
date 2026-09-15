@@ -1,5 +1,6 @@
-// Lowest Common Ancestor of a Binary Tree — https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/
-// Find LCA of nodes p and q in a general binary tree (not a BST).
+// Lowest Common Ancestor of a Binary Tree —
+// https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/ Find LCA of nodes p and q
+// in a general binary tree (not a BST).
 #include <iostream>
 
 struct TreeNode {

@@ -22,8 +22,7 @@ struct AC {
         for (char ch : s) {
             const int c = ch - 'a';
             if (t[static_cast<size_t>(v)].next[static_cast<size_t>(c)] == -1) {
-                t[static_cast<size_t>(v)].next[static_cast<size_t>(c)] =
-                    static_cast<int>(t.size());
+                t[static_cast<size_t>(v)].next[static_cast<size_t>(c)] = static_cast<int>(t.size());
                 t.push_back(Node());
             }
             v = t[static_cast<size_t>(v)].next[static_cast<size_t>(c)];
@@ -56,10 +55,9 @@ struct AC {
                 t[static_cast<size_t>(u)].link =
                     t[static_cast<size_t>(t[static_cast<size_t>(v)].link)]
                         .next[static_cast<size_t>(c)];
-                const auto& from =
-                    t[static_cast<size_t>(t[static_cast<size_t>(u)].link)].outs;
-                t[static_cast<size_t>(u)].outs.insert(
-                    t[static_cast<size_t>(u)].outs.end(), from.begin(), from.end());
+                const auto& from = t[static_cast<size_t>(t[static_cast<size_t>(u)].link)].outs;
+                t[static_cast<size_t>(u)].outs.insert(t[static_cast<size_t>(u)].outs.end(),
+                                                      from.begin(), from.end());
                 q.push(u);
             }
         }
@@ -86,7 +84,7 @@ int main() {
     }
     ac.build();
     const auto seen = ac.findIn("ushers", static_cast<int>(pats.size()));
-    std::cout << "he=" << int(seen[0]) << " she=" << int(seen[1])
-              << " hers=" << int(seen[3]) << " (expected 1 1 1)\n";
+    std::cout << "he=" << int(seen[0]) << " she=" << int(seen[1]) << " hers=" << int(seen[3])
+              << " (expected 1 1 1)\n";
     return 0;
 }

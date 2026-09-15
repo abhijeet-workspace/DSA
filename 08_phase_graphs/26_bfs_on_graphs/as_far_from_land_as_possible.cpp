@@ -15,7 +15,8 @@ int maxDistance(std::vector<std::vector<int>> grid) {
             } else
                 ++water;
         }
-    if (land == 0 || water == 0) return -1;
+    if (land == 0 || water == 0)
+        return -1;
     static const int dr[4] = {1, -1, 0, 0};
     static const int dc[4] = {0, 0, 1, -1};
     int dist = -1;
@@ -27,8 +28,10 @@ int maxDistance(std::vector<std::vector<int>> grid) {
             q.pop();
             for (int k = 0; k < 4; ++k) {
                 int nr = r + dr[k], nc = c + dc[k];
-                if (nr < 0 || nc < 0 || nr >= n || nc >= n) continue;
-                if (grid[static_cast<size_t>(nr)][static_cast<size_t>(nc)] != 0) continue;
+                if (nr < 0 || nc < 0 || nr >= n || nc >= n)
+                    continue;
+                if (grid[static_cast<size_t>(nr)][static_cast<size_t>(nc)] != 0)
+                    continue;
                 grid[static_cast<size_t>(nr)][static_cast<size_t>(nc)] = 1;
                 q.push({nr, nc});
             }

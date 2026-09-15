@@ -19,7 +19,8 @@ std::vector<std::string> decode(const std::string& s) {
     size_t i = 0;
     while (i < s.size()) {
         size_t j = i;
-        while (j < s.size() && s[j] != '#') ++j;
+        while (j < s.size() && s[j] != '#')
+            ++j;
         const int len = std::stoi(s.substr(i, j - i));
         i = j + 1;
         out.push_back(s.substr(i, static_cast<size_t>(len)));
@@ -33,7 +34,6 @@ int main() {
     const std::string encoded = encode(original);
     const auto decoded = decode(encoded);
     std::cout << "encoded=" << encoded << "\n";
-    std::cout << "roundtrip_ok=" << std::boolalpha << (decoded == original)
-              << " (expected true)\n";
+    std::cout << "roundtrip_ok=" << std::boolalpha << (decoded == original) << " (expected true)\n";
     return 0;
 }

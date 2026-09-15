@@ -27,8 +27,7 @@ void demonstrateQueue() {
     q.push("Customer B");
     q.push("Customer C");
 
-    std::cout << "Queue Front: " << q.front() << " | Queue Back: " << q.back()
-              << std::endl;
+    std::cout << "Queue Front: " << q.front() << " | Queue Back: " << q.back() << std::endl;
     q.pop();
     std::cout << "Queue Front after Pop: " << q.front() << std::endl;
 }
@@ -43,8 +42,7 @@ void demonstratePriorityQueue() {
     maxHeap.push(20);
     std::cout << "Max-Heap Top (should be 30): " << maxHeap.top() << std::endl;
     maxHeap.pop();
-    std::cout << "Max-Heap Top after Pop (should be 20): " << maxHeap.top()
-              << std::endl;
+    std::cout << "Max-Heap Top after Pop (should be 20): " << maxHeap.top() << std::endl;
 
     std::priority_queue<int, std::vector<int>, std::greater<int>> minHeap;
     minHeap.push(15);
@@ -53,8 +51,7 @@ void demonstratePriorityQueue() {
     minHeap.push(20);
     std::cout << "Min-Heap Top (should be 5): " << minHeap.top() << std::endl;
     minHeap.pop();
-    std::cout << "Min-Heap Top after Pop (should be 15): " << minHeap.top()
-              << std::endl;
+    std::cout << "Min-Heap Top after Pop (should be 15): " << minHeap.top() << std::endl;
 }
 
 int main() {

@@ -1,5 +1,6 @@
-// Find Smallest Letter Greater Than Target — https://leetcode.com/problems/find-smallest-letter-greater-than-target/
-// Circular sorted letters; return smallest letter strictly greater than target.
+// Find Smallest Letter Greater Than Target —
+// https://leetcode.com/problems/find-smallest-letter-greater-than-target/ Circular sorted letters;
+// return smallest letter strictly greater than target.
 #include <iostream>
 #include <vector>
 

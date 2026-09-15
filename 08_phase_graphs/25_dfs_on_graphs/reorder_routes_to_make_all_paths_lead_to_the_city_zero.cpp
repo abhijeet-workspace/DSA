@@ -3,11 +3,14 @@
 #include <iostream>
 #include <vector>
 
-void dfs(int u, const std::vector<std::vector<std::pair<int, int>>>& g, std::vector<char>& vis, int& changes) {
+void dfs(int u, const std::vector<std::vector<std::pair<int, int>>>& g, std::vector<char>& vis,
+         int& changes) {
     vis[static_cast<size_t>(u)] = 1;
     for (const auto& [v, dir] : g[static_cast<size_t>(u)]) {
-        if (vis[static_cast<size_t>(v)]) continue;
-        changes += dir; // dir=1 means original edge u→v must flip to point toward 0 when rooted at 0
+        if (vis[static_cast<size_t>(v)])
+            continue;
+        changes +=
+            dir; // dir=1 means original edge u→v must flip to point toward 0 when rooted at 0
         dfs(v, g, vis, changes);
     }
 }
@@ -15,8 +18,8 @@ void dfs(int u, const std::vector<std::vector<std::pair<int, int>>>& g, std::vec
 int minReorder(int n, const std::vector<std::vector<int>>& connections) {
     std::vector<std::vector<std::pair<int, int>>> g(static_cast<size_t>(n));
     for (const auto& e : connections) {
-        g[static_cast<size_t>(e[0])].push_back({e[1], 1});  // original direction
-        g[static_cast<size_t>(e[1])].push_back({e[0], 0});  // opposite
+        g[static_cast<size_t>(e[0])].push_back({e[1], 1}); // original direction
+        g[static_cast<size_t>(e[1])].push_back({e[0], 0}); // opposite
     }
     std::vector<char> vis(static_cast<size_t>(n), 0);
     int changes = 0;

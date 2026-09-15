@@ -10,8 +10,9 @@ class TicTacToe {
     int diag_ = 0;
     int anti_ = 0;
 
-public:
-    explicit TicTacToe(int n) : n_(n), rows_(static_cast<size_t>(n), 0), cols_(static_cast<size_t>(n), 0) {}
+  public:
+    explicit TicTacToe(int n)
+        : n_(n), rows_(static_cast<size_t>(n), 0), cols_(static_cast<size_t>(n), 0) {}
 
     int move(int row, int col, int player) {
         const int d = player == 1 ? 1 : -1;
@@ -24,8 +25,8 @@ public:
             anti_ += d;
         }
         if (std::abs(rows_[static_cast<size_t>(row)]) == n_ ||
-            std::abs(cols_[static_cast<size_t>(col)]) == n_ ||
-            std::abs(diag_) == n_ || std::abs(anti_) == n_) {
+            std::abs(cols_[static_cast<size_t>(col)]) == n_ || std::abs(diag_) == n_ ||
+            std::abs(anti_) == n_) {
             return player;
         }
         return 0;

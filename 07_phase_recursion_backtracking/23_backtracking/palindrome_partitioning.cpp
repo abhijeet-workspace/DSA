@@ -6,7 +6,8 @@
 
 bool isPalindrome(const std::string& s, int l, int r) {
     while (l < r) {
-        if (s[static_cast<size_t>(l++)] != s[static_cast<size_t>(r--)]) return false;
+        if (s[static_cast<size_t>(l++)] != s[static_cast<size_t>(r--)])
+            return false;
     }
     return true;
 }
@@ -18,7 +19,8 @@ void backtrack(const std::string& s, int start, std::vector<std::string>& curren
         return;
     }
     for (int i = start; i < static_cast<int>(s.size()); ++i) {
-        if (!isPalindrome(s, start, i)) continue;
+        if (!isPalindrome(s, start, i))
+            continue;
         current.push_back(s.substr(static_cast<size_t>(start),
                                    static_cast<size_t>(i - start + 1))); // take cut
         backtrack(s, i + 1, current, result);
@@ -36,11 +38,11 @@ std::vector<std::vector<std::string>> partition(const std::string& s) {
 int main() {
     const std::string s = "aab";
     const auto result = partition(s);
-    std::cout << "Partitions of \"" << s << "\" (" << result.size()
-              << " expected 2):\n";
+    std::cout << "Partitions of \"" << s << "\" (" << result.size() << " expected 2):\n";
     for (const auto& row : result) {
         std::cout << "[ ";
-        for (const auto& part : row) std::cout << "\"" << part << "\" ";
+        for (const auto& part : row)
+            std::cout << "\"" << part << "\" ";
         std::cout << "]\n";
     }
     return 0;

@@ -1,5 +1,6 @@
-// Create Sorted Array through Instructions — https://leetcode.com/problems/create-sorted-array-through-instructions/
-// Fenwick frequencies; cost = min(less, greater) per insert.
+// Create Sorted Array through Instructions —
+// https://leetcode.com/problems/create-sorted-array-through-instructions/ Fenwick frequencies; cost
+// = min(less, greater) per insert.
 #include <iostream>
 #include <vector>
 
@@ -8,11 +9,13 @@ struct Fenwick {
     std::vector<int> bit;
     explicit Fenwick(int n) : n(n), bit(n + 1, 0) {}
     void add(int i, int v) {
-        for (; i <= n; i += i & -i) bit[i] += v;
+        for (; i <= n; i += i & -i)
+            bit[i] += v;
     }
     int sum(int i) const {
         int s = 0;
-        for (; i > 0; i -= i & -i) s += bit[i];
+        for (; i > 0; i -= i & -i)
+            s += bit[i];
         return s;
     }
 };
@@ -20,7 +23,8 @@ struct Fenwick {
 int createSortedArray(const std::vector<int>& instructions) {
     const int MOD = 1'000'000'007;
     int mx = 0;
-    for (int x : instructions) mx = std::max(mx, x);
+    for (int x : instructions)
+        mx = std::max(mx, x);
     Fenwick fw(mx);
     long long cost = 0;
     for (int i = 0; i < static_cast<int>(instructions.size()); ++i) {

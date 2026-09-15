@@ -13,13 +13,14 @@ struct Node {
 class MagicDictionary {
     Node* root = new Node();
 
-public:
+  public:
     void buildDict(const std::vector<std::string>& dictionary) {
         for (const auto& w : dictionary) {
             Node* cur = root;
             for (char c : w) {
                 int i = c - 'a';
-                if (!cur->ch[i]) cur->ch[i] = new Node();
+                if (!cur->ch[i])
+                    cur->ch[i] = new Node();
                 cur = cur->ch[i];
             }
             cur->end = true;
@@ -28,13 +29,17 @@ public:
 
     bool search(const std::string& searchWord) const {
         std::function<bool(Node*, int, bool)> dfs = [&](Node* node, int i, bool changed) -> bool {
-            if (!node) return false;
-            if (i == static_cast<int>(searchWord.size())) return changed && node->end;
+            if (!node)
+                return false;
+            if (i == static_cast<int>(searchWord.size()))
+                return changed && node->end;
             int c = searchWord[static_cast<size_t>(i)] - 'a';
-            if (dfs(node->ch[c], i + 1, changed)) return true;
+            if (dfs(node->ch[c], i + 1, changed))
+                return true;
             if (!changed) {
                 for (int j = 0; j < 26; ++j)
-                    if (j != c && dfs(node->ch[j], i + 1, true)) return true;
+                    if (j != c && dfs(node->ch[j], i + 1, true))
+                        return true;
             }
             return false;
         };

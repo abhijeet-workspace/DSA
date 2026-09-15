@@ -16,7 +16,8 @@ std::vector<std::vector<std::string>> suggestedProducts(std::vector<std::string>
         it = std::lower_bound(it, products.end(), prefix);
         std::vector<std::string> suggestions;
         for (auto j = it; j != products.end() && suggestions.size() < 3; ++j) {
-            if (j->compare(0, prefix.size(), prefix) != 0) break;
+            if (j->compare(0, prefix.size(), prefix) != 0)
+                break;
             suggestions.push_back(*j);
         }
         ans.push_back(std::move(suggestions));
@@ -27,10 +28,12 @@ std::vector<std::vector<std::string>> suggestedProducts(std::vector<std::string>
 static void printAns(const std::vector<std::vector<std::string>>& ans) {
     std::cout << "[";
     for (size_t i = 0; i < ans.size(); ++i) {
-        if (i) std::cout << ", ";
+        if (i)
+            std::cout << ", ";
         std::cout << "[";
         for (size_t j = 0; j < ans[i].size(); ++j) {
-            if (j) std::cout << ", ";
+            if (j)
+                std::cout << ", ";
             std::cout << ans[i][j];
         }
         std::cout << "]";
@@ -39,7 +42,8 @@ static void printAns(const std::vector<std::vector<std::string>>& ans) {
 }
 
 int main() {
-    const auto a1 = suggestedProducts({"mobile", "mouse", "moneypot", "monitor", "mousepad"}, "mouse");
+    const auto a1 =
+        suggestedProducts({"mobile", "mouse", "moneypot", "monitor", "mousepad"}, "mouse");
     printAns(a1);
     std::cout << " (expected [[mobile, moneypot, monitor], [mobile, moneypot, monitor], "
                  "[mouse, mousepad], [mouse, mousepad], [mouse, mousepad]])\n";

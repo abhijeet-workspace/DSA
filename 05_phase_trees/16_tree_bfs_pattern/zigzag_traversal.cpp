@@ -1,5 +1,6 @@
-// Binary Tree Zigzag Level Order — https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/
-// Level order alternating left→right and right→left.
+// Binary Tree Zigzag Level Order —
+// https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/ Level order alternating
+// left→right and right→left.
 #include <iostream>
 #include <queue>
 #include <vector>

@@ -7,8 +7,8 @@ int sumOddLengthSubarrays(const std::vector<int>& arr) {
     const int n = static_cast<int>(arr.size());
     int total = 0;
     for (int i = 0; i < n; ++i) {
-        int endsLeft = i + 1;       // subarrays starting at ≤ i
-        int endsRight = n - i;      // subarrays ending at ≥ i
+        int endsLeft = i + 1;                       // subarrays starting at ≤ i
+        int endsRight = n - i;                      // subarrays ending at ≥ i
         int count = (endsLeft * endsRight + 1) / 2; // odd-length ones containing i
         total += arr[static_cast<size_t>(i)] * count;
     }

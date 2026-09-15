@@ -17,7 +17,8 @@ int largestPathValue(const std::string& colors, const std::vector<std::vector<in
     std::vector<std::vector<int>> dp(static_cast<size_t>(n), std::vector<int>(26, 0));
     std::queue<int> q;
     for (int i = 0; i < n; ++i)
-        if (indeg[static_cast<size_t>(i)] == 0) q.push(i);
+        if (indeg[static_cast<size_t>(i)] == 0)
+            q.push(i);
     int seen = 0, ans = 0;
     while (!q.empty()) {
         int u = q.front();
@@ -29,7 +30,8 @@ int largestPathValue(const std::string& colors, const std::vector<std::vector<in
             for (int c = 0; c < 26; ++c)
                 dp[static_cast<size_t>(v)][c] =
                     std::max(dp[static_cast<size_t>(v)][c], dp[static_cast<size_t>(u)][c]);
-            if (--indeg[static_cast<size_t>(v)] == 0) q.push(v);
+            if (--indeg[static_cast<size_t>(v)] == 0)
+                q.push(v);
         }
     }
     return seen == n ? ans : -1;

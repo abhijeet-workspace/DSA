@@ -12,7 +12,7 @@ ListNode* middleNode(ListNode* head) {
     ListNode* slow = head;
     ListNode* fast = head;
     while (fast && fast->next) { // stop when fast cannot take 2 steps
-        slow = slow->next; // +1
+        slow = slow->next;       // +1
         fast = fast->next->next; // +2
     }
     return slow; // slow at middle (second if even length)

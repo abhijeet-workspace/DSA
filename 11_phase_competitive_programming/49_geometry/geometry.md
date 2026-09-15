@@ -1,6 +1,6 @@
 # Geometry
 
-## Problem Statement
+## 1. Problem Statement
 Computational geometry basics: point orientation (cross product), convex hull via Graham scan, and segment intersection (general + collinear cases).
 
 - **Inputs:** point sets / two segments.
@@ -8,37 +8,47 @@ Computational geometry basics: point orientation (cross product), convex hull vi
 - **Valid answer:** minimal convex polygon covering all points; true iff segments share a point.
 - **Edges:** <3 points → empty hull; collinear overlaps; integer overflow on cross.
 
-## Intuition
-Cross product sign gives turn direction. Graham scan sorts by polar angle around the lowest point, then keeps only left turns. Segments intersect if endpoints lie on opposite sides of each other (with collinear on-segment checks).
+## 2. Intuition
 
-## Brute Force → Optimal
-- **Brute:** check all point triples for hull edges — O(N³); geometric libraries heavy.
-- **Optimal:** Graham / Andrew monotone chain — O(N log N); orientation tests O(1).
+Cross product sign gives turn direction. Graham scan sorts by polar angle; segments intersect via
+orientations.
 
-## Data Structure / Approach Justification
-**Chosen:** `Point` struct; global pivot for polar sort; stack-like hull vector.
+## 3. Brute Force → Optimal
 
-- **vs Andrew monotone chain:** similar complexity; often fewer floats / cleaner.
-- **vs Jarvis march:** O(NH) better only for tiny hull size H.
+- **Brute:** O(N³) hull edges.
+- **Optimal:** Graham / Andrew O(N log N).
 
-## Logic Walkthrough
-Find lowest (then leftmost) pivot; sort by CCW angle (closer first if collinear); drop same-angle intermediates; push while not CCW turn. Intersect: four orientations + four collinear on-segment fallbacks.
+## 4. Data Structure / Approach Justification
 
-## Dry Run
-Points include `(0,0),(0,3),(3,1),(4,4),…`. Hull extremes typically `(0,0),(3,1),(4,4),(0,3)`.
-Segments `(1,1)-(10,1)` and `(1,2)-(10,2)`: orientations never opposite → **no** intersect.
+**Chosen:** Point struct; Graham scan; orientation tests.
 
-## Time & Space Complexity
-Hull **O(N log N)** time (sort), **O(N)** space. Orientation/intersect **O(1)**. Why: sort dominates (section 4).
+**Pedagogy:** toolkit teaching lab. Later files isolate LC geometry and Andrew hull / closest pair
+labs.
 
-## Trade-offs & Alternatives
-Integer cross avoids float angles but needs 64-bit. For online hull or dynamic points, use other structures.
+## 5. Logic Walkthrough
 
-## Common Mistakes / Edge Cases
-Int overflow on `(q.y-p.y)*(r.x-q.x)`; wrong turn test (`!=2` vs `==1`); forgetting collinear segment overlap; mutating input order unexpectedly.
+Lowest pivot; polar sort; keep left turns. Intersect: four orientations + on-segment.
 
-## Interview Follow-ups / Variations
-Closest pair; polygon area / point-in-polygon; line sweep intersections; rotating calipers diameter.
+## 6. Dry Run
 
-## Tags
-`geometry`, `convex-hull`, `graham-scan`, `orientation`, `segments`, `difficulty:medium`
+Classic samples in companion `.cpp`.
+
+## 7. Time & Space Complexity
+
+Hull **O(N log N)**; orientation **O(1)**.
+
+## 8. Trade-offs & Alternatives
+
+Andrew monotone chain often cleaner; Jarvis O(NH).
+
+## 9. Common Mistakes / Edge Cases
+
+Int overflow on cross; collinear overlap misses.
+
+## 10. Interview Follow-ups / Variations
+
+Closest pair; rotating calipers; polygon area.
+
+## 11. Tags
+
+`geometry`, `convex-hull`, `graham-scan`, `difficulty:medium`

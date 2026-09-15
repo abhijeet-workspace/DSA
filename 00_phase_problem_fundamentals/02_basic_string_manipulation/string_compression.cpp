@@ -18,7 +18,8 @@ int compress(std::vector<char>& chars) {
         chars[static_cast<size_t>(write++)] = c;
         if (count > 1) {
             const std::string num = std::to_string(count);
-            for (char d : num) chars[static_cast<size_t>(write++)] = d;
+            for (char d : num)
+                chars[static_cast<size_t>(write++)] = d;
         }
     }
     return write;
@@ -27,7 +28,8 @@ int compress(std::vector<char>& chars) {
 int main() {
     std::vector<char> a{'a', 'a', 'b', 'b', 'c', 'c', 'c'};
     const int len = compress(a);
-    for (int i = 0; i < len; ++i) std::cout << a[static_cast<size_t>(i)];
+    for (int i = 0; i < len; ++i)
+        std::cout << a[static_cast<size_t>(i)];
     std::cout << " (expected a2b2c3)\n";
     return 0;
 }

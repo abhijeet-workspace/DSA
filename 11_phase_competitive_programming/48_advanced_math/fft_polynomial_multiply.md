@@ -1,45 +1,52 @@
 # FFT Polynomial Multiply
 
-## Problem Statement
-Multiply two polynomials (coefficient convolution) in near-linear time via FFT.
+## 1. Problem Statement
 
-- **Inputs:** coefficient vectors `a`, `b` (low degree first).
-- **Output:** product coefficients (length ≥ deg(a)+deg(b)+1).
-- **Valid answer:** exact integers after rounding complex DFT results (small coeffs).
-- **Edges:** empty poly; pad to power of two; large coeffs → precision risk.
+Multiply polynomials via FFT (complex DFT).
 
-## Intuition
-DFT turns convolution into pointwise products. Evaluate both polys at roots of unity (FFT), multiply values, inverse FFT back to coefficients.
+- **Inputs:** coeff vectors a,b.
+- **Output:** convolution.
+- **Edges:** pad power-of-two; precision.
 
-## Brute Force → Optimal
-- **Brute:** schoolbook Σ a[i]b[k−i] — O(N²).
-- **Optimal:** recursive Cooley–Tukey FFT — O(N log N).
+## 2. Intuition
 
-## Data Structure / Approach Justification
-**Chosen:** `complex<double>` recursive FFT with in-place butterfly merge.
+DFT turns convolution into pointwise products.
 
-- **vs NTT:** modular exactness when working mod prime with root of unity.
-- **vs Karatsuba:** O(N^{1.58}) without trig; still slower asymptotically than FFT.
+## 3. Brute Force → Optimal
 
-## Logic Walkthrough
-Pad both to next power of two ≥ |a|+|b|. FFT both; pointwise multiply; inverse FFT; `llround` reals to integer coeffs.
+- **Brute:** O(N²).
+- **Optimal:** O(N log N) FFT.
 
-## Dry Run
-`(1+2x+3x²)·(2+3x)`:
-- schoolbook: 2 + (3+4)x + (6+6)x² + 9x³ = `2,7,12,9`
-- FFT path yields same after round.
+## 4. Data Structure / Approach Justification
 
-## Time & Space Complexity
-Time **O(N log N)**. Space **O(N)** for buffers. Why: each FFT level O(N), log N levels (section 4).
+**Chosen:** complex recursive FFT + llround.
 
-## Trade-offs & Alternatives
-Float FFT needs care with large ints; prefer NTT for modular contests. Iterative bit-reversal FFT reduces recursion overhead.
+**Pedagogy:** Core advanced-math tool; contrast naive and NTT labs in this folder.
 
-## Common Mistakes / Edge Cases
-Forgetting pad length; skipping invert divide-by-2 (or /n); using size |a| not |a|+|b|; precision overflow.
+## 5. Logic Walkthrough
 
-## Interview Follow-ups / Variations
-String matching via FFT; online convolution; NTT template; multipoint evaluation.
+See implementation and dry run.
 
-## Tags
-`fft`, `polynomial`, `convolution`, `divide-conquer`, `difficulty:hard`
+## 6. Dry Run
+
+(1+2x+3x²)(2+3x) → 2,7,12,9.
+
+## 7. Time & Space Complexity
+
+O(N log N) time, O(N) space.
+
+## 8. Trade-offs & Alternatives
+
+Matrix/FFT/NTT choice depends on modulus, precision, and n size.
+
+## 9. Common Mistakes / Edge Cases
+
+Off-by-one exponents; overflow before mod; wrong identity matrix; FFT padding; singular pivots.
+
+## 10. Interview Follow-ups / Variations
+
+Higher-order recurrences; modular NTT; path counting; interpolation tricks.
+
+## 11. Tags
+
+`fft`, `polynomial`, `difficulty:hard`

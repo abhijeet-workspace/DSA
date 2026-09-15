@@ -1,8 +1,8 @@
 // Reverse Words in a String — LC 151
 // Trim, collapse spaces, reverse whole string, then reverse each word.
+#include <algorithm>
 #include <iostream>
 #include <string>
-#include <algorithm>
 
 std::string reverseWords(std::string s) {
     // 1) Clean: single spaces, no leading/trailing.
@@ -11,7 +11,8 @@ std::string reverseWords(std::string s) {
     bool spacePending = false;
     for (char c : s) {
         if (c == ' ') {
-            if (!cleaned.empty()) spacePending = true;
+            if (!cleaned.empty())
+                spacePending = true;
         } else {
             if (spacePending) {
                 cleaned.push_back(' ');
@@ -27,7 +28,8 @@ std::string reverseWords(std::string s) {
     int i = 0;
     while (i < n) {
         int j = i;
-        while (j < n && s[static_cast<size_t>(j)] != ' ') ++j;
+        while (j < n && s[static_cast<size_t>(j)] != ' ')
+            ++j;
         std::reverse(s.begin() + i, s.begin() + j);
         i = j + 1;
     }

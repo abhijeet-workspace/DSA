@@ -1,4 +1,5 @@
-// Form Largest Integer With Digits That Add up to Target — https://leetcode.com/problems/form-largest-integer-with-digits-that-add-up-to-target/
+// Form Largest Integer With Digits That Add up to Target —
+// https://leetcode.com/problems/form-largest-integer-with-digits-that-add-up-to-target/
 #include <iostream>
 #include <string>
 #include <vector>
@@ -9,10 +10,12 @@ std::string largestNumber(std::vector<int>& cost, int target) {
     for (int t = 1; t <= target; ++t) {
         for (int d = 1; d <= 9; ++d) {
             const int c = cost[static_cast<size_t>(d - 1)];
-            if (t < c || dp[static_cast<size_t>(t - c)] == "#") continue;
+            if (t < c || dp[static_cast<size_t>(t - c)] == "#")
+                continue;
             std::string cand = std::to_string(d) + dp[static_cast<size_t>(t - c)];
             auto& cur = dp[static_cast<size_t>(t)];
-            if (cur == "#" || cand.size() > cur.size() || (cand.size() == cur.size() && cand > cur)) {
+            if (cur == "#" || cand.size() > cur.size() ||
+                (cand.size() == cur.size() && cand > cur)) {
                 cur = cand;
             }
         }

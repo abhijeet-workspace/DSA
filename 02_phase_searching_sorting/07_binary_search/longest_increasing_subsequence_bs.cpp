@@ -1,5 +1,6 @@
-// Longest Increasing Subsequence (patience / tails) — https://leetcode.com/problems/longest-increasing-subsequence/
-// tails[len] = smallest tail of an IS of length len+1; binary search the insert point.
+// Longest Increasing Subsequence (patience / tails) —
+// https://leetcode.com/problems/longest-increasing-subsequence/ tails[len] = smallest tail of an IS
+// of length len+1; binary search the insert point.
 #include <algorithm>
 #include <iostream>
 #include <vector>

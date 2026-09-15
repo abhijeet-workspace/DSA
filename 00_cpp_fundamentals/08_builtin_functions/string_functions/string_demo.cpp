@@ -14,9 +14,8 @@ void parseEmail(const std::string& email) {
 
     std::string masked = username;
     if (username.length() > 2) {
-        masked = username.front()
-                 + std::string(username.length() - 2, '*')
-                 + username.back(); // keep first/last, star the middle
+        masked = username.front() + std::string(username.length() - 2, '*') +
+                 username.back(); // keep first/last, star the middle
     }
 
     std::cout << "Masked Email: " << masked << "@" << domain << "\n";
@@ -39,7 +38,7 @@ Employee parseCSVRecord(const std::string& csvLine) {
 
     Employee emp;
     emp.name = name;
-    emp.age = std::stoi(ageStr); // string -> int
+    emp.age = std::stoi(ageStr);    // string -> int
     emp.salary = std::stod(salStr); // string -> double
     return emp;
 }

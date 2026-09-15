@@ -15,9 +15,9 @@ bool hasCycle(ListNode* head) {
     ListNode* slow = head;
     ListNode* fast = head;
     while (fast && fast->next) { // need room for two steps
-        slow = slow->next; // +1
+        slow = slow->next;       // +1
         fast = fast->next->next; // +2
-        if (slow == fast) { // collision inside cycle
+        if (slow == fast) {      // collision inside cycle
             return true;
         }
     }

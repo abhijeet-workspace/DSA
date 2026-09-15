@@ -6,17 +6,20 @@
 void dfs(std::vector<std::vector<int>>& grid, int r, int c, int remain, int& ways) {
     const int R = static_cast<int>(grid.size());
     const int C = static_cast<int>(grid[0].size());
-    if (r < 0 || c < 0 || r >= R || c >= C || grid[static_cast<size_t>(r)][static_cast<size_t>(c)] == -1)
+    if (r < 0 || c < 0 || r >= R || c >= C ||
+        grid[static_cast<size_t>(r)][static_cast<size_t>(c)] == -1)
         return;
     if (grid[static_cast<size_t>(r)][static_cast<size_t>(c)] == 2) {
-        if (remain == 0) ++ways;
+        if (remain == 0)
+            ++ways;
         return;
     }
     const int old = grid[static_cast<size_t>(r)][static_cast<size_t>(c)];
     grid[static_cast<size_t>(r)][static_cast<size_t>(c)] = -1;
     static const int dr[4] = {1, -1, 0, 0};
     static const int dc[4] = {0, 0, 1, -1};
-    for (int k = 0; k < 4; ++k) dfs(grid, r + dr[k], c + dc[k], remain - 1, ways);
+    for (int k = 0; k < 4; ++k)
+        dfs(grid, r + dr[k], c + dc[k], remain - 1, ways);
     grid[static_cast<size_t>(r)][static_cast<size_t>(c)] = old;
 }
 
@@ -28,7 +31,8 @@ int uniquePathsIII(std::vector<std::vector<int>> grid) {
                 sr = i;
                 sc = j;
             }
-            if (grid[static_cast<size_t>(i)][static_cast<size_t>(j)] != -1) ++empty;
+            if (grid[static_cast<size_t>(i)][static_cast<size_t>(j)] != -1)
+                ++empty;
         }
     }
     // remain steps after leaving start: empty-1 (include end cell in count)

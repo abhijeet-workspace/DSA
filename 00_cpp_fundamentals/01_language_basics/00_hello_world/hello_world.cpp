@@ -4,5 +4,5 @@
 
 int main() {
     std::cout << "Hello World" << std::endl; // write message and newline
-    return 0; // success exit code
+    return 0;                                // success exit code
 }

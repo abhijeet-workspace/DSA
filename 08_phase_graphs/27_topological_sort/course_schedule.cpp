@@ -34,8 +34,7 @@ bool canFinish(int numCourses, const std::vector<std::vector<int>>& prerequisite
 }
 
 int main() {
-    std::cout << std::boolalpha
-              << canFinish(2, {{1, 0}}) << " (expected true)\n"
+    std::cout << std::boolalpha << canFinish(2, {{1, 0}}) << " (expected true)\n"
               << canFinish(2, {{1, 0}, {0, 1}}) << " (expected false)\n";
     return 0;
 }

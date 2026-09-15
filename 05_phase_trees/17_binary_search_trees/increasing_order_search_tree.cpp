@@ -9,7 +9,8 @@ struct TreeNode {
 };
 
 void inorder(TreeNode* n, TreeNode*& tail) {
-    if (!n) return;
+    if (!n)
+        return;
     inorder(n->left, tail);
     n->left = nullptr;
     tail->right = n;

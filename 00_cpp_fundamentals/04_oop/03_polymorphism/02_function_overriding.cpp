@@ -3,21 +3,21 @@
 #include <iostream>
 
 class Animal {
-public:
+  public:
     virtual void sound() { // enable dynamic dispatch
         std::cout << "Animal makes a sound" << std::endl;
     }
 };
 
 class Dog : public Animal {
-public:
+  public:
     void sound() override { // override base
         std::cout << "Dog barks" << std::endl;
     }
 };
 
 class Cat : public Animal {
-public:
+  public:
     void sound() override { // override base
         std::cout << "Cat meows" << std::endl;
     }

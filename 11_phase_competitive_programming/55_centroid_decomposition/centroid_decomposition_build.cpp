@@ -11,13 +11,8 @@ struct CentroidDecomp {
     int root = -1;
 
     explicit CentroidDecomp(int n_)
-        : n(n_),
-          g(n_ + 1),
-          sz(n_ + 1, 0),
-          dead(n_ + 1, 0),
-          cpar(n_ + 1, -1),
-          compsize_at(n_ + 1, 0),
-          ctree(n_ + 1) {}
+        : n(n_), g(n_ + 1), sz(n_ + 1, 0), dead(n_ + 1, 0), cpar(n_ + 1, -1),
+          compsize_at(n_ + 1, 0), ctree(n_ + 1) {}
 
     void addEdge(int u, int v) {
         g[static_cast<size_t>(u)].push_back(v);
@@ -27,7 +22,8 @@ struct CentroidDecomp {
     int dfsSize(int v, int p) {
         sz[static_cast<size_t>(v)] = 1;
         for (int to : g[static_cast<size_t>(v)]) {
-            if (to == p || dead[static_cast<size_t>(to)]) continue;
+            if (to == p || dead[static_cast<size_t>(to)])
+                continue;
             sz[static_cast<size_t>(v)] += dfsSize(to, v);
         }
         return sz[static_cast<size_t>(v)];
@@ -35,7 +31,8 @@ struct CentroidDecomp {
 
     int findCentroid(int v, int p, int comp) {
         for (int to : g[static_cast<size_t>(v)]) {
-            if (to == p || dead[static_cast<size_t>(to)]) continue;
+            if (to == p || dead[static_cast<size_t>(to)])
+                continue;
             if (sz[static_cast<size_t>(to)] > comp / 2)
                 return findCentroid(to, v, comp);
         }
@@ -48,10 +45,13 @@ struct CentroidDecomp {
         dead[static_cast<size_t>(c)] = 1; // remove before recurse
         cpar[static_cast<size_t>(c)] = parent;
         compsize_at[static_cast<size_t>(c)] = comp;
-        if (parent < 0) root = c;
-        else ctree[static_cast<size_t>(parent)].push_back(c);
+        if (parent < 0)
+            root = c;
+        else
+            ctree[static_cast<size_t>(parent)].push_back(c);
         for (int to : g[static_cast<size_t>(c)]) {
-            if (!dead[static_cast<size_t>(to)]) build(to, c);
+            if (!dead[static_cast<size_t>(to)])
+                build(to, c);
         }
     }
 
@@ -67,12 +67,15 @@ int main() {
 
     std::cout << "centroid_root=" << cd.root << "\n";
     std::cout << "cpar[1..4]:";
-    for (int i = 1; i <= 4; ++i) std::cout << " " << cd.cpar[static_cast<size_t>(i)];
+    for (int i = 1; i <= 4; ++i)
+        std::cout << " " << cd.cpar[static_cast<size_t>(i)];
     std::cout << "\n";
     std::cout << "compsize_at_root=" << cd.compsize_at[static_cast<size_t>(cd.root)]
               << " (expected 4)\n";
     int marked = 0;
-    for (int i = 1; i <= 4; ++i) if (cd.dead[static_cast<size_t>(i)]) ++marked;
+    for (int i = 1; i <= 4; ++i)
+        if (cd.dead[static_cast<size_t>(i)])
+            ++marked;
     std::cout << "nodes_decomposed=" << marked << " (expected 4)\n";
     return 0;
 }

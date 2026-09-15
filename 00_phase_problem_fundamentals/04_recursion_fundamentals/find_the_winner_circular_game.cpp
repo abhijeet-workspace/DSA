@@ -1,11 +1,12 @@
 // Find the Winner of the Circular Game — LC 1823
 // Josephus recursion (0-based f, map to 1-based).
-#include <iostream>
 #include <functional>
+#include <iostream>
 
 int findTheWinner(int n, int k) {
     std::function<int(int)> f = [&](int m) -> int {
-        if (m == 1) return 0;
+        if (m == 1)
+            return 0;
         return (f(m - 1) + k) % m;
     };
     return f(n) + 1;

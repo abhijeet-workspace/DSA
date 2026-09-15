@@ -63,7 +63,6 @@ int main() {
     std::cout << "isqrt(10) = " << isqrt(10) << " (expected 3)\n";
     std::cout << "perfect square 16? " << (isPerfectSquare(16) ? "yes" : "no")
               << " (expected yes)\n";
-    std::cout << "81 power of 3? " << (isPowerOfK(81, 3) ? "yes" : "no")
-              << " (expected yes)\n";
+    std::cout << "81 power of 3? " << (isPowerOfK(81, 3) ? "yes" : "no") << " (expected yes)\n";
     return 0;
 }

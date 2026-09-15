@@ -24,12 +24,11 @@ void demonstrateList() {
     }
     std::cout << std::endl;
 
-    std::cout << "Front element: " << l.front() << ", Back element: " << l.back()
-              << std::endl;
+    std::cout << "Front element: " << l.front() << ", Back element: " << l.back() << std::endl;
 
     auto it = l.begin();
     std::advance(it, 2); // move to index 2
-    l.insert(it, 15); // O(1) splice at iterator
+    l.insert(it, 15);    // O(1) splice at iterator
 
     std::cout << "After inserting 15 at index 2: ";
     for (int val : l) {

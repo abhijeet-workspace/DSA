@@ -15,7 +15,8 @@ int longestStrChain(std::vector<std::string>& words) {
         for (size_t i = 0; i < w.size(); ++i) {
             std::string pred = w.substr(0, i) + w.substr(i + 1);
             auto it = best.find(pred);
-            if (it != best.end()) cur = std::max(cur, it->second + 1);
+            if (it != best.end())
+                cur = std::max(cur, it->second + 1);
         }
         best[w] = cur;
         ans = std::max(ans, cur);

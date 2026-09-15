@@ -5,14 +5,15 @@
 #include <string>
 #include <vector>
 
-int shortestWordDistance(const std::vector<std::string>& wordsDict,
-                         const std::string& word1, const std::string& word2) {
+int shortestWordDistance(const std::vector<std::string>& wordsDict, const std::string& word1,
+                         const std::string& word2) {
     int best = static_cast<int>(wordsDict.size());
     int prev = -1;
     const bool same = (word1 == word2);
     for (int i = 0; i < static_cast<int>(wordsDict.size()); ++i) {
         const std::string& w = wordsDict[static_cast<size_t>(i)];
-        if (w != word1 && w != word2) continue;
+        if (w != word1 && w != word2)
+            continue;
         if (prev != -1 && (same || w != wordsDict[static_cast<size_t>(prev)])) {
             best = std::min(best, i - prev);
         }

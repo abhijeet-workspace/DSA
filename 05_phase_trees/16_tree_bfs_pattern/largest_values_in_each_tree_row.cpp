@@ -1,8 +1,9 @@
-// Find Largest Value in Each Tree Row — https://leetcode.com/problems/find-largest-value-in-each-tree-row/
-#include <iostream>
-#include <vector>
-#include <queue>
+// Find Largest Value in Each Tree Row —
+// https://leetcode.com/problems/find-largest-value-in-each-tree-row/
 #include <climits>
+#include <iostream>
+#include <queue>
+#include <vector>
 
 struct TreeNode {
     int val;
@@ -13,17 +14,21 @@ struct TreeNode {
 
 std::vector<int> largestValues(TreeNode* root) {
     std::vector<int> ans;
-    if (!root) return ans;
+    if (!root)
+        return ans;
     std::queue<TreeNode*> q;
     q.push(root);
     while (!q.empty()) {
         const int sz = static_cast<int>(q.size());
         int mx = INT_MIN;
         for (int i = 0; i < sz; ++i) {
-            TreeNode* u = q.front(); q.pop();
+            TreeNode* u = q.front();
+            q.pop();
             mx = std::max(mx, u->val);
-            if (u->left) q.push(u->left);
-            if (u->right) q.push(u->right);
+            if (u->left)
+                q.push(u->left);
+            if (u->right)
+                q.push(u->right);
         }
         ans.push_back(mx);
     }

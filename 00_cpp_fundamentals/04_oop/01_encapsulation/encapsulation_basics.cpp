@@ -5,14 +5,14 @@
 #include <string>
 
 class BankAccount {
-private:
-    std::string owner; // account holder
-    double balance; // current funds
+  private:
+    std::string owner;         // account holder
+    double balance;            // current funds
     std::string accountNumber; // account id
 
-public:
+  public:
     BankAccount(std::string ownerName, double initialBalance, std::string accNumber) {
-        owner = ownerName; // set owner
+        owner = ownerName;         // set owner
         accountNumber = accNumber; // set id
         if (initialBalance >= 0) { // validate initial funds
             balance = initialBalance;
@@ -41,8 +41,8 @@ public:
     void deposit(double amount) { // add funds if positive
         if (amount > 0) {
             balance += amount;
-            std::cout << "Successfully deposited $" << amount
-                      << ". New Balance: $" << balance << std::endl;
+            std::cout << "Successfully deposited $" << amount << ". New Balance: $" << balance
+                      << std::endl;
         } else {
             std::cout << "Error: Deposit amount must be positive!" << std::endl;
         }
@@ -55,11 +55,10 @@ public:
         }
         if (amount <= balance) {
             balance -= amount;
-            std::cout << "Successfully withdrew $" << amount
-                      << ". Remaining Balance: $" << balance << std::endl;
+            std::cout << "Successfully withdrew $" << amount << ". Remaining Balance: $" << balance
+                      << std::endl;
         } else {
-            std::cout << "Error: Insufficient funds! Current Balance: $"
-                      << balance << std::endl;
+            std::cout << "Error: Insufficient funds! Current Balance: $" << balance << std::endl;
         }
     }
 };
@@ -71,13 +70,13 @@ int main() {
         std::cout << "Account Owner: " << account.getOwner() << std::endl;
         std::cout << "Initial Balance: $" << account.getBalance() << std::endl;
 
-        account.deposit(250.0); // valid deposit
+        account.deposit(250.0);  // valid deposit
         account.withdraw(500.0); // valid withdraw
 
         std::cout << "\n--- Testing Data Validation & Protection ---" << std::endl;
-        account.deposit(-50); // rejected
-        account.withdraw(2000.0); // rejected
-        account.setOwner(""); // rejected
+        account.deposit(-50);                // rejected
+        account.withdraw(2000.0);            // rejected
+        account.setOwner("");                // rejected
         account.setOwner("Rahul S. Sharma"); // accepted
         std::cout << "Updated Account Owner: " << account.getOwner() << std::endl;
     } catch (const std::exception& e) {

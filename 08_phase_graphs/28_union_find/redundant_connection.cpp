@@ -7,8 +7,7 @@
 struct DSU {
     std::vector<int> parent;
     std::vector<int> rank;
-    explicit DSU(int n)
-        : parent(static_cast<size_t>(n)), rank(static_cast<size_t>(n), 1) {
+    explicit DSU(int n) : parent(static_cast<size_t>(n)), rank(static_cast<size_t>(n), 1) {
         std::iota(parent.begin(), parent.end(), 0);
     }
     int find(int i) {

@@ -8,7 +8,8 @@
 int minMutation(const std::string& startGene, const std::string& endGene,
                 const std::vector<std::string>& bank) {
     std::unordered_set<std::string> valid(bank.begin(), bank.end());
-    if (!valid.count(endGene)) return -1;
+    if (!valid.count(endGene))
+        return -1;
     const std::string genes = "ACGT";
     std::unordered_set<std::string> vis{{startGene}};
     std::queue<std::pair<std::string, int>> q;
@@ -16,11 +17,13 @@ int minMutation(const std::string& startGene, const std::string& endGene,
     while (!q.empty()) {
         auto [cur, dist] = q.front();
         q.pop();
-        if (cur == endGene) return dist;
+        if (cur == endGene)
+            return dist;
         for (size_t i = 0; i < cur.size(); ++i) {
             char old = cur[i];
             for (char g : genes) {
-                if (g == old) continue;
+                if (g == old)
+                    continue;
                 cur[i] = g;
                 if (valid.count(cur) && !vis.count(cur)) {
                     vis.insert(cur);

@@ -7,8 +7,7 @@ struct PimplWidget::Impl { // private details live only in this TU
     explicit Impl(std::string n) : name(std::move(n)) {}
 };
 
-PimplWidget::PimplWidget(std::string name)
-    : impl_(std::make_unique<Impl>(std::move(name))) {}
+PimplWidget::PimplWidget(std::string name) : impl_(std::make_unique<Impl>(std::move(name))) {}
 
 PimplWidget::~PimplWidget() = default; // needed because Impl is incomplete in header
 

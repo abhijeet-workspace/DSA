@@ -7,7 +7,7 @@ class MyCalendarThree {
     std::map<int, int> delta;
     int maxK = 0;
 
-public:
+  public:
     int book(int start, int end) {
         delta[start] += 1;
         delta[end] -= 1;

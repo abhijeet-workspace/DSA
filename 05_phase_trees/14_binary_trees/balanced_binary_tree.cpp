@@ -1,8 +1,8 @@
 // Balanced Binary Tree — https://leetcode.com/problems/balanced-binary-tree/
 // Return true if height difference of every node's subtrees is at most 1.
-#include <iostream>
 #include <algorithm>
 #include <cmath>
+#include <iostream>
 
 struct TreeNode {
     int val;

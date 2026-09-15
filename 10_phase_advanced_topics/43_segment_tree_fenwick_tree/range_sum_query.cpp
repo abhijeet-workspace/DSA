@@ -24,20 +24,24 @@ class NumArray {
             return;
         }
         int mid = start + (end - start) / 2;
-        if (idx <= mid) updateVal(2 * node, start, mid, idx, val);
-        else updateVal(2 * node + 1, mid + 1, end, idx, val);
+        if (idx <= mid)
+            updateVal(2 * node, start, mid, idx, val);
+        else
+            updateVal(2 * node + 1, mid + 1, end, idx, val);
         tree[node] = tree[2 * node] + tree[2 * node + 1];
     }
 
     int sumRangeQuery(int node, int start, int end, int l, int r) {
-        if (r < start || end < l) return 0;           // no overlap
-        if (l <= start && end <= r) return tree[node]; // full cover
+        if (r < start || end < l)
+            return 0; // no overlap
+        if (l <= start && end <= r)
+            return tree[node]; // full cover
         int mid = start + (end - start) / 2;
         return sumRangeQuery(2 * node, start, mid, l, r) +
                sumRangeQuery(2 * node + 1, mid + 1, end, l, r);
     }
 
-public:
+  public:
     NumArray(std::vector<int>& nums) {
         n = static_cast<int>(nums.size());
         if (n > 0) {
@@ -47,11 +51,13 @@ public:
     }
 
     void update(int index, int val) {
-        if (n > 0) updateVal(1, 0, n - 1, index, val);
+        if (n > 0)
+            updateVal(1, 0, n - 1, index, val);
     }
 
     int sumRange(int left, int right) {
-        if (n == 0) return 0;
+        if (n == 0)
+            return 0;
         return sumRangeQuery(1, 0, n - 1, left, right);
     }
 };

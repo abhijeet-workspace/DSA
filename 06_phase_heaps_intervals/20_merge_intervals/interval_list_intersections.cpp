@@ -4,9 +4,9 @@
 #include <iostream>
 #include <vector>
 
-std::vector<std::vector<int>> intervalIntersection(
-    const std::vector<std::vector<int>>& firstList,
-    const std::vector<std::vector<int>>& secondList) {
+std::vector<std::vector<int>>
+intervalIntersection(const std::vector<std::vector<int>>& firstList,
+                     const std::vector<std::vector<int>>& secondList) {
     std::vector<std::vector<int>> result;
     size_t i = 0;
     size_t j = 0;
@@ -26,9 +26,8 @@ std::vector<std::vector<int>> intervalIntersection(
 }
 
 int main() {
-    const auto r = intervalIntersection(
-        {{0, 2}, {5, 10}, {13, 23}, {24, 25}},
-        {{1, 5}, {8, 12}, {15, 24}, {25, 26}});
+    const auto r = intervalIntersection({{0, 2}, {5, 10}, {13, 23}, {24, 25}},
+                                        {{1, 5}, {8, 12}, {15, 24}, {25, 26}});
     for (const auto& x : r) {
         std::cout << "[" << x[0] << "," << x[1] << "] ";
     }

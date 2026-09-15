@@ -46,7 +46,6 @@ int main() {
     std::cout << "avg = " << average(arr, 3) << " (expected 4)\n";
 
     std::cout << "sum 1..5 loop = " << sumNaturalLoop(5) << " (expected 15)\n";
-    std::cout << "sum 1..5 formula = " << sumNaturalFormula(5)
-              << " (expected 15)\n";
+    std::cout << "sum 1..5 formula = " << sumNaturalFormula(5) << " (expected 15)\n";
     return 0;
 }

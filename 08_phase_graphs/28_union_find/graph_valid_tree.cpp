@@ -55,9 +55,8 @@ bool validTree(int n, const std::vector<std::vector<int>>& edges) {
 }
 
 int main() {
-    std::cout << std::boolalpha
-              << validTree(5, {{0, 1}, {0, 2}, {0, 3}, {1, 4}}) << " (expected true)\n"
-              << validTree(5, {{0, 1}, {1, 2}, {2, 3}, {1, 3}, {1, 4}})
-              << " (expected false)\n";
+    std::cout << std::boolalpha << validTree(5, {{0, 1}, {0, 2}, {0, 3}, {1, 4}})
+              << " (expected true)\n"
+              << validTree(5, {{0, 1}, {1, 2}, {2, 3}, {1, 3}, {1, 4}}) << " (expected false)\n";
     return 0;
 }

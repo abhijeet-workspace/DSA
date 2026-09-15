@@ -1,5 +1,6 @@
-// Maximum Product After K Increments — https://leetcode.com/problems/maximum-product-after-k-increments/
-// Always increment the current minimum (min-heap) for k steps.
+// Maximum Product After K Increments —
+// https://leetcode.com/problems/maximum-product-after-k-increments/ Always increment the current
+// minimum (min-heap) for k steps.
 #include <iostream>
 #include <queue>
 #include <vector>

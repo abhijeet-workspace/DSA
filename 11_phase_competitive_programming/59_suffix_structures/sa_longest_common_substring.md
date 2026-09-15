@@ -24,6 +24,8 @@ Common substrings appear as neighboring suffixes from different sides after sort
 | Binary search + rolling hash | Simpler code, hash risk |
 | DP | Fine for small N |
 
+**Pedagogy:** two-string LCS via joined SA+LCP scan; foundation for k-string version.
+
 ## 5. Logic Walkthrough
 1. Build `s = A + "#" + B + "$"`.
 2. SA + Kasai LCP on `s`.

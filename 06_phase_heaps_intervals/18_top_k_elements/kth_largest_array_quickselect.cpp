@@ -1,5 +1,6 @@
-// Kth Largest Element in an Array (Quickselect) — https://leetcode.com/problems/kth-largest-element-in-an-array/
-// Return the kth largest element (sorted order, not distinct). Average O(N), worst O(N²).
+// Kth Largest Element in an Array (Quickselect) —
+// https://leetcode.com/problems/kth-largest-element-in-an-array/ Return the kth largest element
+// (sorted order, not distinct). Average O(N), worst O(N²).
 #include <cstdlib>
 #include <ctime>
 #include <iostream>

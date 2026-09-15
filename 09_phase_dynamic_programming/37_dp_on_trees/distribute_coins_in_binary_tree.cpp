@@ -12,7 +12,8 @@ struct TreeNode {
 
 int moves = 0;
 int dfs(TreeNode* node) {
-    if (!node) return 0;
+    if (!node)
+        return 0;
     int L = dfs(node->left), R = dfs(node->right);
     moves += std::abs(L) + std::abs(R);
     return node->val - 1 + L + R;
@@ -26,7 +27,8 @@ int distributeCoins(TreeNode* root) {
 
 int main() {
     TreeNode a(3), b(0), c(0);
-    a.left = &b; a.right = &c;
+    a.left = &b;
+    a.right = &c;
     std::cout << distributeCoins(&a) << " (expected 2)\n";
     return 0;
 }

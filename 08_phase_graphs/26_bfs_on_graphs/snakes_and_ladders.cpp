@@ -8,7 +8,8 @@ int snakesAndLadders(const std::vector<std::vector<int>>& board) {
     auto idToRC = [&](int id) {
         int r = (id - 1) / n;
         int c = (id - 1) % n;
-        if (r % 2 == 1) c = n - 1 - c;
+        if (r % 2 == 1)
+            c = n - 1 - c;
         r = n - 1 - r;
         return std::pair<int, int>{r, c};
     };
@@ -19,7 +20,8 @@ int snakesAndLadders(const std::vector<std::vector<int>>& board) {
     while (!q.empty()) {
         int cur = q.front();
         q.pop();
-        if (cur == n * n) return dist[static_cast<size_t>(cur)];
+        if (cur == n * n)
+            return dist[static_cast<size_t>(cur)];
         for (int step = 1; step <= 6 && cur + step <= n * n; ++step) {
             int next = cur + step;
             auto [r, c] = idToRC(next);
@@ -35,9 +37,9 @@ int snakesAndLadders(const std::vector<std::vector<int>>& board) {
 }
 
 int main() {
-    std::vector<std::vector<int>> board = {
-        {-1, -1, -1, -1, -1, -1}, {-1, -1, -1, -1, -1, -1}, {-1, -1, -1, -1, -1, -1},
-        {-1, 35, -1, -1, 13, -1}, {-1, -1, -1, -1, -1, -1}, {-1, 15, -1, -1, -1, -1}};
+    std::vector<std::vector<int>> board = {{-1, -1, -1, -1, -1, -1}, {-1, -1, -1, -1, -1, -1},
+                                           {-1, -1, -1, -1, -1, -1}, {-1, 35, -1, -1, 13, -1},
+                                           {-1, -1, -1, -1, -1, -1}, {-1, 15, -1, -1, -1, -1}};
     std::cout << snakesAndLadders(board) << " (expected 4)\n";
     return 0;
 }

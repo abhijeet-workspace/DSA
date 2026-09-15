@@ -6,14 +6,14 @@
 bool isSubsequence(const std::string& s, const std::string& t) {
     size_t i = 0;
     for (size_t j = 0; j < t.size() && i < s.size(); ++j) {
-        if (s[i] == t[j]) ++i;
+        if (s[i] == t[j])
+            ++i;
     }
     return i == s.size();
 }
 
 int main() {
-    std::cout << std::boolalpha
-              << isSubsequence("abc", "ahbgdc") << " (expected true)\n"
+    std::cout << std::boolalpha << isSubsequence("abc", "ahbgdc") << " (expected true)\n"
               << isSubsequence("axc", "ahbgdc") << " (expected false)\n"
               << isSubsequence("", "ahbgdc") << " (expected true)\n";
     return 0;

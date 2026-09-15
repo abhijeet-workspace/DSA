@@ -24,11 +24,8 @@ int removeCoveredIntervals(std::vector<std::vector<int>> intervals) {
 }
 
 int main() {
-    std::cout << removeCoveredIntervals({{1, 4}, {3, 6}, {2, 8}})
-              << " (expected 2)\n";
-    std::cout << removeCoveredIntervals({{1, 4}, {2, 3}})
-              << " (expected 1)\n";
-    std::cout << removeCoveredIntervals({{1, 2}, {1, 4}, {3, 4}})
-              << " (expected 1)\n";
+    std::cout << removeCoveredIntervals({{1, 4}, {3, 6}, {2, 8}}) << " (expected 2)\n";
+    std::cout << removeCoveredIntervals({{1, 4}, {2, 3}}) << " (expected 1)\n";
+    std::cout << removeCoveredIntervals({{1, 2}, {1, 4}, {3, 4}}) << " (expected 1)\n";
     return 0;
 }

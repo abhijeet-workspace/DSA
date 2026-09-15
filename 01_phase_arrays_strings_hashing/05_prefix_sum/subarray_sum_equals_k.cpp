@@ -6,13 +6,13 @@
 
 int subarraySumEqualsK(const std::vector<int>& nums, int k) {
     std::unordered_map<int, int> freq; // prefixSum -> how many times seen
-    freq[0] = 1; // empty prefix so subarrays from index 0 count
+    freq[0] = 1;                       // empty prefix so subarrays from index 0 count
     int count = 0;
     int prefixSum = 0;
     for (int x : nums) {
         prefixSum += x;
         count += freq[prefixSum - k]; // prior prefixes that complete sum k
-        ++freq[prefixSum]; // record current prefix after querying
+        ++freq[prefixSum];            // record current prefix after querying
     }
     return count;
 }

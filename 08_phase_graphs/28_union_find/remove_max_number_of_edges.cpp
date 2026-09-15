@@ -9,9 +9,7 @@ struct DSU {
     std::vector<int> rank;
     int components;
     explicit DSU(int n)
-        : parent(static_cast<size_t>(n + 1)),
-          rank(static_cast<size_t>(n + 1), 1),
-          components(n) {
+        : parent(static_cast<size_t>(n + 1)), rank(static_cast<size_t>(n + 1), 1), components(n) {
         std::iota(parent.begin(), parent.end(), 0);
     }
     int find(int i) {
@@ -71,8 +69,8 @@ int maxNumEdgesToRemove(int n, const std::vector<std::vector<int>>& edges) {
 }
 
 int main() {
-    const std::vector<std::vector<int>> edges = {
-        {3, 1, 2}, {3, 2, 3}, {1, 1, 3}, {1, 2, 4}, {1, 1, 2}, {2, 3, 4}};
+    const std::vector<std::vector<int>> edges = {{3, 1, 2}, {3, 2, 3}, {1, 1, 3},
+                                                 {1, 2, 4}, {1, 1, 2}, {2, 3, 4}};
     std::cout << maxNumEdgesToRemove(4, edges) << " (expected 2)\n";
     return 0;
 }

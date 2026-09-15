@@ -10,10 +10,7 @@ struct DSU {
     int components;
     int extra; // redundant edges within a component
     explicit DSU(int n)
-        : parent(static_cast<size_t>(n)),
-          rank(static_cast<size_t>(n), 1),
-          components(n),
-          extra(0) {
+        : parent(static_cast<size_t>(n)), rank(static_cast<size_t>(n), 1), components(n), extra(0) {
         std::iota(parent.begin(), parent.end(), 0);
     }
     int find(int i) {
@@ -55,7 +52,6 @@ int makeConnected(int n, const std::vector<std::vector<int>>& connections) {
 
 int main() {
     std::cout << makeConnected(4, {{0, 1}, {0, 2}, {1, 2}}) << " (expected 1)\n";
-    std::cout << makeConnected(6, {{0, 1}, {0, 2}, {0, 3}, {1, 2}, {1, 3}})
-              << " (expected 2)\n";
+    std::cout << makeConnected(6, {{0, 1}, {0, 2}, {0, 3}, {1, 2}, {1, 3}}) << " (expected 2)\n";
     return 0;
 }

@@ -15,7 +15,7 @@ class HitCounter {
         }
     }
 
-public:
+  public:
     void hit(int timestamp) {
         evict(timestamp);
         if (!q_.empty() && q_.back().first == timestamp) {

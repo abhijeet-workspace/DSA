@@ -40,7 +40,7 @@ void mergeSort(std::vector<int>& arr, int lo, int hi) {
         return; // base case
     }
     int mid = lo + (hi - lo) / 2;
-    mergeSort(arr, lo, mid); // left half
+    mergeSort(arr, lo, mid);     // left half
     mergeSort(arr, mid + 1, hi); // right half
     std::vector<int> temp;
     int l = lo;
@@ -84,7 +84,7 @@ void generateSubsets(const std::vector<int>& arr, int idx, std::vector<int>& cur
     generateSubsets(arr, idx + 1, current, result); // exclude
     current.push_back(arr[idx]);
     generateSubsets(arr, idx + 1, current, result); // include
-    current.pop_back(); // backtrack
+    current.pop_back();                             // backtrack
 }
 
 void reverseInPlace(std::vector<int>& arr) {
@@ -108,15 +108,13 @@ void benchmarkLinearVsQuadratic() {
         volatile long long s = linearSum(data);
         (void)s;
         auto t2 = std::chrono::high_resolution_clock::now();
-        long long linearUs =
-            std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1).count();
+        long long linearUs = std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1).count();
 
         auto t3 = std::chrono::high_resolution_clock::now();
         bool dup = hasDuplicateBrute(data);
         (void)dup;
         auto t4 = std::chrono::high_resolution_clock::now();
-        long long quadUs =
-            std::chrono::duration_cast<std::chrono::microseconds>(t4 - t3).count();
+        long long quadUs = std::chrono::duration_cast<std::chrono::microseconds>(t4 - t3).count();
 
         long long ratio = quadUs > 0 ? quadUs / std::max(1LL, linearUs) : 0;
         std::cout << "N=" << n << " | O(N): " << linearUs << "us"
@@ -133,8 +131,7 @@ int main() {
 
     std::vector<int> sorted_arr = arr;
     std::sort(sorted_arr.begin(), sorted_arr.end());
-    std::cout << "O(log N) binarySearch(5): idx=" << binarySearch(sorted_arr, 5)
-              << "\n";
+    std::cout << "O(log N) binarySearch(5): idx=" << binarySearch(sorted_arr, 5) << "\n";
 
     std::cout << "O(N) linearSum: " << linearSum(arr) << "\n";
 
@@ -142,20 +139,18 @@ int main() {
     mergeSort(to_sort, 0, static_cast<int>(to_sort.size()) - 1);
     std::cout << "O(N log N) mergeSort: [";
     for (int i = 0; i < static_cast<int>(to_sort.size()); ++i) {
-        std::cout << to_sort[i]
-                  << (i + 1 < static_cast<int>(to_sort.size()) ? "," : "");
+        std::cout << to_sort[i] << (i + 1 < static_cast<int>(to_sort.size()) ? "," : "");
     }
     std::cout << "]\n";
 
-    std::cout << "O(N^2) hasDuplicateBrute: "
-              << (hasDuplicateBrute(arr) ? "true" : "false") << "\n";
+    std::cout << "O(N^2) hasDuplicateBrute: " << (hasDuplicateBrute(arr) ? "true" : "false")
+              << "\n";
 
     std::vector<int> small = {1, 2, 3};
     std::vector<int> cur;
     std::vector<std::vector<int>> subsets;
     generateSubsets(small, 0, cur, subsets);
-    std::cout << "O(2^N) subsets of {1,2,3}: count=" << subsets.size()
-              << " (expected 8)\n";
+    std::cout << "O(2^N) subsets of {1,2,3}: count=" << subsets.size() << " (expected 8)\n";
 
     reverseInPlace(arr);
     std::cout << "O(1) space reverseInPlace: arr[0]=" << arr[0] << "\n";

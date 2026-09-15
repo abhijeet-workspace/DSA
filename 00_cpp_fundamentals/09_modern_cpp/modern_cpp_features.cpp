@@ -1,17 +1,17 @@
 // Modern C++ Features — C++11/14/17 for DSA
 // Structured bindings, lambdas, move, smart pointers, optional, string_view, if constexpr.
+#include <algorithm>
 #include <iostream>
-#include <vector>
-#include <unordered_map>
+#include <memory>
+#include <optional>
+#include <queue>
 #include <string>
 #include <string_view>
-#include <optional>
-#include <memory>
-#include <algorithm>
-#include <queue>
 #include <tuple>
 #include <type_traits>
+#include <unordered_map>
 #include <utility>
+#include <vector>
 
 void demoStructuredBindings() {
     std::cout << "\n--- 1. Auto & Structured Bindings (C++17) ---\n";
@@ -22,17 +22,16 @@ void demoStructuredBindings() {
 
     std::tuple<int, double, char> t = {42, 3.14, 'Z'};
     auto [iVal, dVal, cVal] = t; // unpack tuple
-    std::cout << "Tuple unpacked -> Int: " << iVal << ", Double: " << dVal
-              << ", Char: " << cVal << "\n";
+    std::cout << "Tuple unpacked -> Int: " << iVal << ", Double: " << dVal << ", Char: " << cVal
+              << "\n";
 
-    std::unordered_map<std::string, std::vector<int>> studentGrades = {
-        {"Bob", {85, 90}},
-        {"Charlie", {78, 88, 92}}
-    };
+    std::unordered_map<std::string, std::vector<int>> studentGrades = {{"Bob", {85, 90}},
+                                                                       {"Charlie", {78, 88, 92}}};
 
     for (const auto& [student, grades] : studentGrades) { // avoid copying key/value
         std::cout << "  Student: " << student << " | Grades: ";
-        for (int grade : grades) std::cout << grade << " ";
+        for (int grade : grades)
+            std::cout << grade << " ";
         std::cout << "\n";
     }
 }
@@ -46,10 +45,9 @@ void demoLambdas() {
     std::cout << "\n--- 2. Lambdas as Custom Comparators ---\n";
 
     std::vector<Interval> intervals = {{5, 8}, {1, 4}, {3, 6}};
-    std::sort(intervals.begin(), intervals.end(),
-              [](const Interval& a, const Interval& b) {
-                  return a.start < b.start; // sort by start ascending
-              });
+    std::sort(intervals.begin(), intervals.end(), [](const Interval& a, const Interval& b) {
+        return a.start < b.start; // sort by start ascending
+    });
 
     std::cout << "Sorted Intervals (by start time):\n";
     for (const auto& interval : intervals) {
@@ -61,8 +59,7 @@ void demoLambdas() {
         return a.first > b.first; // greater-first => min-heap on distance
     };
 
-    std::priority_queue<std::pair<int, int>, std::vector<std::pair<int, int>>,
-                        decltype(minHeapCmp)>
+    std::priority_queue<std::pair<int, int>, std::vector<std::pair<int, int>>, decltype(minHeapCmp)>
         pq(minHeapCmp);
 
     pq.push({10, 2});
@@ -78,7 +75,7 @@ void demoLambdas() {
 }
 
 class LargeBuffer {
-public:
+  public:
     std::string name;
     std::vector<int> data;
 
@@ -86,8 +83,7 @@ public:
         std::cout << "  [Constructor] Created buffer '" << name << "' of size " << size << "\n";
     }
 
-    LargeBuffer(const LargeBuffer& other)
-        : name(other.name + " (Copy)"), data(other.data) {
+    LargeBuffer(const LargeBuffer& other) : name(other.name + " (Copy)"), data(other.data) {
         std::cout << "  [Copy Constructor] Deep-copied data for '" << name << "'\n";
     }
 
@@ -101,7 +97,7 @@ void demoMoveSemantics() {
     std::cout << "\n--- 3. Move Semantics & std::move ---\n";
 
     LargeBuffer original("BufA", 10000);
-    LargeBuffer copied = original; // deep copy of 10k ints
+    LargeBuffer copied = original;           // deep copy of 10k ints
     LargeBuffer moved = std::move(original); // O(1) steal; original left empty
 
     std::cout << "  Copied data size: " << copied.data.size() << "\n";
@@ -119,7 +115,8 @@ struct TreeNode {
 };
 
 void printTreeInOrder(const TreeNode* node) {
-    if (!node) return;
+    if (!node)
+        return;
     printTreeInOrder(node->left.get()); // raw view for recursion
     std::cout << node->val << " ";
     printTreeInOrder(node->right.get());
@@ -139,7 +136,8 @@ void demoSmartPointers() {
 
 std::optional<int> findFirstEven(const std::vector<int>& nums) {
     for (int num : nums) {
-        if (num % 2 == 0) return num; // wrap found value
+        if (num % 2 == 0)
+            return num; // wrap found value
     }
     return std::nullopt; // explicit empty
 }
@@ -162,7 +160,8 @@ void demoOptional() {
 }
 
 void printPrefix(std::string_view sv, size_t length) {
-    if (length > sv.length()) length = sv.length();
+    if (length > sv.length())
+        length = sv.length();
     std::string_view prefix = sv.substr(0, length); // O(1) non-owning slice
     std::cout << "  Prefix: " << prefix << " (size: " << prefix.size() << ")\n";
 }
@@ -174,11 +173,10 @@ void demoStringView() {
     printPrefix("direct_literal", 6);
 }
 
-template <typename T>
-void printValueInfo(T val) {
+template <typename T> void printValueInfo(T val) {
     if constexpr (std::is_integral_v<T>) { // compile-time branch
-        std::cout << "  Integral value: " << val << " | Even? "
-                  << (val % 2 == 0 ? "Yes" : "No") << "\n";
+        std::cout << "  Integral value: " << val << " | Even? " << (val % 2 == 0 ? "Yes" : "No")
+                  << "\n";
     } else {
         std::cout << "  Non-integral value: " << val << "\n";
     }

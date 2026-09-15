@@ -20,7 +20,6 @@ int arrangeCoins(int n) {
 }
 
 int main() {
-    std::cout << arrangeCoins(5) << " (expected 2)\n"
-              << arrangeCoins(8) << " (expected 3)\n";
+    std::cout << arrangeCoins(5) << " (expected 2)\n" << arrangeCoins(8) << " (expected 3)\n";
     return 0;
 }

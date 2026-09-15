@@ -9,7 +9,7 @@ class MyCircularDeque {
     int count_ = 0;
     int cap_;
 
-public:
+  public:
     explicit MyCircularDeque(int k) : buf_(static_cast<size_t>(k)), cap_(k) {}
 
     bool insertFront(int value) {

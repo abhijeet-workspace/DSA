@@ -6,11 +6,14 @@
 int countArrangement(int n) {
     std::vector<int> memo(1 << n, -1);
     std::function<int(int, int)> dfs = [&](int pos, int mask) -> int {
-        if (pos == n + 1) return 1;
-        if (memo[static_cast<size_t>(mask)] != -1) return memo[static_cast<size_t>(mask)];
+        if (pos == n + 1)
+            return 1;
+        if (memo[static_cast<size_t>(mask)] != -1)
+            return memo[static_cast<size_t>(mask)];
         int ans = 0;
         for (int num = 1; num <= n; ++num) {
-            if (mask & (1 << (num - 1))) continue;
+            if (mask & (1 << (num - 1)))
+                continue;
             if (num % pos == 0 || pos % num == 0)
                 ans += dfs(pos + 1, mask | (1 << (num - 1)));
         }

@@ -7,7 +7,7 @@
 #include <vector>
 
 std::vector<int> assignTasks(std::vector<int>& servers, std::vector<int>& tasks) {
-    using Free = std::pair<int, int>; // weight, index
+    using Free = std::pair<int, int>;             // weight, index
     using Busy = std::tuple<long long, int, int>; // freeTime, weight, index
     std::priority_queue<Free, std::vector<Free>, std::greater<Free>> free;
     std::priority_queue<Busy, std::vector<Busy>, std::greater<Busy>> busy;
@@ -39,7 +39,8 @@ int main() {
     std::vector<int> servers = {3, 3, 2};
     std::vector<int> tasks = {1, 2, 3, 2, 1, 2};
     auto a = assignTasks(servers, tasks);
-    for (int x : a) std::cout << x << " ";
+    for (int x : a)
+        std::cout << x << " ";
     std::cout << "(expected 2 2 0 2 1 2)\n";
     return 0;
 }

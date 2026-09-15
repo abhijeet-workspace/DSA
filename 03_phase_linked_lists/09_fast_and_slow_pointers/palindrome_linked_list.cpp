@@ -43,8 +43,7 @@ int main() {
     head->next = new ListNode(2);
     head->next->next = new ListNode(2);
     head->next->next->next = new ListNode(1);
-    std::cout << std::boolalpha << isPalindrome(head)
-              << " (expected true)\n";
+    std::cout << std::boolalpha << isPalindrome(head) << " (expected true)\n";
     while (head) {
         ListNode* t = head;
         head = head->next;

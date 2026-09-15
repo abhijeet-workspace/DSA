@@ -2,8 +2,8 @@
 // For each interval i, find the interval with smallest start >= end_i (or -1).
 #include <algorithm>
 #include <iostream>
-#include <vector>
 #include <utility>
+#include <vector>
 
 std::vector<int> findRightInterval(const std::vector<std::vector<int>>& intervals) {
     const int n = static_cast<int>(intervals.size());

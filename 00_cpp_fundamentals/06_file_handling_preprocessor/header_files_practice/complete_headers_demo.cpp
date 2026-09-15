@@ -1,52 +1,55 @@
 // Complete Headers Demo — local teaching demo
-// Build: g++ -std=c++17 complete_headers_demo.cpp widget.cpp pimpl_widget.cpp -o complete_headers_demo
-#include <iostream>
-#include <iomanip>
-#include <sstream>
+// Build: g++ -std=c++17 complete_headers_demo.cpp widget.cpp pimpl_widget.cpp -o
+// complete_headers_demo
 #include <fstream>
+#include <iomanip>
+#include <iostream>
+#include <sstream>
 #include <string>
 #include <string_view>
 
-#include <vector>
+#include <algorithm>
 #include <deque>
 #include <list>
 #include <map>
-#include <algorithm>
 #include <numeric>
+#include <vector>
 
+#include <any>
 #include <optional>
 #include <variant>
-#include <any>
 
 #include <memory>
 
-#include <thread>
 #include <chrono>
+#include <thread>
 
-#include <filesystem>
-#include <regex>
-#include <random>
 #include <cmath>
+#include <filesystem>
+#include <random>
+#include <regex>
 
-#include <cstring>
 #include <cctype>
+#include <cstring>
 
-#include "config.h"
 #include "basics.h"
-#include "utils.h"
+#include "config.h"
 #include "math_ops.hpp"
-#include "widget.h"
 #include "pimpl_widget.h"
+#include "utils.h"
+#include "widget.h"
 
 static void io_demo() {
     std::cout << "-- iostream / iomanip / sstream / fstream demo --\n";
-    std::cout << std::setw(10) << std::left << "Name" << "|" << std::setw(5) << std::right << "Age" << '\n';
+    std::cout << std::setw(10) << std::left << "Name" << "|" << std::setw(5) << std::right << "Age"
+              << '\n';
     std::stringstream ss;
     ss << "Alice 30\nBob 25\n";
     std::string name;
     int age = 0;
     while (ss >> name >> age) { // parse tokens
-        std::cout << std::setw(10) << std::left << name << "|" << std::setw(5) << std::right << age << '\n';
+        std::cout << std::setw(10) << std::left << name << "|" << std::setw(5) << std::right << age
+                  << '\n';
     }
     {
         std::ofstream out("tmp_demo.txt");
@@ -71,8 +74,7 @@ static void containers_demo() {
     std::deque<int> dq = {7, 8};
     std::list<int> lst = {9, 10};
     std::cout << "vector sum=" << std::accumulate(v.begin(), v.end(), 0)
-              << " deque front=" << dq.front()
-              << " list back=" << lst.back() << '\n';
+              << " deque front=" << dq.front() << " list back=" << lst.back() << '\n';
     std::map<std::string, int> mp{{"x", 1}, {"y", 2}};
     std::cout << "map x=" << mp["x"] << '\n';
 }
@@ -83,7 +85,8 @@ static void algorithm_demo() {
     std::sort(w.begin(), w.end());
     w.erase(std::unique(w.begin(), w.end()), w.end()); // compact uniques
     std::cout << "unique sorted: ";
-    for (int x : w) std::cout << x << ' ';
+    for (int x : w)
+        std::cout << x << ' ';
     std::cout << '\n';
 }
 

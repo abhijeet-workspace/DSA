@@ -1,5 +1,6 @@
-// Find Minimum in Rotated Sorted Array — https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/
-// Distinct rotated ascending nums; return the minimum value.
+// Find Minimum in Rotated Sorted Array —
+// https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/ Distinct rotated ascending
+// nums; return the minimum value.
 #include <iostream>
 #include <vector>
 

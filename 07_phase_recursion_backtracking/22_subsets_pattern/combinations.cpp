@@ -3,15 +3,15 @@
 #include <iostream>
 #include <vector>
 
-void dfs(int start, int n, int k, std::vector<int>& path,
-         std::vector<std::vector<int>>& result) {
+void dfs(int start, int n, int k, std::vector<int>& path, std::vector<std::vector<int>>& result) {
     if (static_cast<int>(path.size()) == k) {
         result.push_back(path);
         return;
     }
     for (int x = start; x <= n; ++x) {
         // prune: not enough numbers left
-        if (n - x + 1 < k - static_cast<int>(path.size())) break;
+        if (n - x + 1 < k - static_cast<int>(path.size()))
+            break;
         path.push_back(x);
         dfs(x + 1, n, k, path, result);
         path.pop_back();

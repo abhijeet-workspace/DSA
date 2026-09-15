@@ -14,7 +14,7 @@ class Vector2D {
         }
     }
 
-public:
+  public:
     explicit Vector2D(std::vector<std::vector<int>>& vec) : data(&vec) { advanceToNext(); }
 
     int next() {
@@ -29,7 +29,8 @@ public:
 int main() {
     std::vector<std::vector<int>> vec = {{1, 2}, {}, {3}, {4, 5}};
     Vector2D it(vec);
-    while (it.hasNext()) std::cout << it.next() << " ";
+    while (it.hasNext())
+        std::cout << it.next() << " ";
     std::cout << "(expected 1 2 3 4 5)\n";
     return 0;
 }

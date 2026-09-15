@@ -1,8 +1,8 @@
 // House Robber II — https://leetcode.com/problems/house-robber-ii/
 // Circular street: first and last adjacent; max of two linear ranges.
+#include <algorithm>
 #include <iostream>
 #include <vector>
-#include <algorithm>
 
 int robLinear(const std::vector<int>& nums, int L, int R) {
     int prev2 = 0;
@@ -25,7 +25,6 @@ int rob(const std::vector<int>& nums) {
 }
 
 int main() {
-    std::cout << rob({2, 3, 2}) << " (expected 3)\n"
-              << rob({1, 2, 3, 1}) << " (expected 4)\n";
+    std::cout << rob({2, 3, 2}) << " (expected 3)\n" << rob({1, 2, 3, 1}) << " (expected 4)\n";
     return 0;
 }

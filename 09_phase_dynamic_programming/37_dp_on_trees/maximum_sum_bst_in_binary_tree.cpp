@@ -20,7 +20,8 @@ struct Info {
 int bestSum = 0;
 
 Info dfs(TreeNode* node) {
-    if (!node) return {true, INT_MAX, INT_MIN, 0};
+    if (!node)
+        return {true, INT_MAX, INT_MIN, 0};
     auto L = dfs(node->left), R = dfs(node->right);
     if (L.bst && R.bst && L.mx < node->val && node->val < R.mn) {
         const int s = L.sum + R.sum + node->val;
@@ -38,10 +39,14 @@ int maxSumBST(TreeNode* root) {
 
 int main() {
     TreeNode a(1), b(4), c(3), d(2), e(4), f(2), g(5), h(4), i(6);
-    a.left = &b; a.right = &c;
-    b.left = &d; b.right = &e;
-    c.left = &f; c.right = &g;
-    g.left = &h; g.right = &i;
+    a.left = &b;
+    a.right = &c;
+    b.left = &d;
+    b.right = &e;
+    c.left = &f;
+    c.right = &g;
+    g.left = &h;
+    g.right = &i;
     std::cout << maxSumBST(&a) << " (expected 20)\n";
     return 0;
 }

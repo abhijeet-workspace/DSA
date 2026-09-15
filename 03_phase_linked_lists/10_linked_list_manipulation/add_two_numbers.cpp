@@ -22,7 +22,7 @@ ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
             sum += l2->val;
             l2 = l2->next;
         }
-        carry = sum / 10; // next carry
+        carry = sum / 10;                    // next carry
         curr->next = new ListNode(sum % 10); // write digit
         curr = curr->next;
     }

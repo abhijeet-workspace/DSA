@@ -4,8 +4,10 @@
 #include <string>
 
 static int nCkSmall(int n, int k) {
-    if (k < 0 || k > n) return 0;
-    if (k > n - k) k = n - k;
+    if (k < 0 || k > n)
+        return 0;
+    if (k > n - k)
+        k = n - k;
     int res = 1;
     for (int i = 0; i < k; ++i) {
         res *= (n - i);
@@ -19,7 +21,8 @@ static int lucas(int n, int k, int p) {
     while (n > 0 || k > 0) {
         const int ni = n % p;
         const int ki = k % p;
-        if (ki > ni) return 0;
+        if (ki > ni)
+            return 0;
         res = (res * nCkSmall(ni, ki)) % p;
         n /= p;
         k /= p;
@@ -43,15 +46,15 @@ bool hasSameDigits(const std::string& s) {
     int total = 0;
     for (int i = 0; i + 1 < n; ++i) {
         const int c = nCkMod10(n - 2, i);
-        const int diff = ((s[static_cast<size_t>(i)] - s[static_cast<size_t>(i + 1)]) % 10 + 10) % 10;
+        const int diff =
+            ((s[static_cast<size_t>(i)] - s[static_cast<size_t>(i + 1)]) % 10 + 10) % 10;
         total = (total + c * diff) % 10;
     }
     return total == 0;
 }
 
 int main() {
-    std::cout << std::boolalpha
-              << hasSameDigits("3902") << " (expected true)\n"
+    std::cout << std::boolalpha << hasSameDigits("3902") << " (expected true)\n"
               << hasSameDigits("34789") << " (expected false)\n";
     return 0;
 }

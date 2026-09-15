@@ -6,7 +6,7 @@
 class MyCalendar {
     std::map<int, int> books_; // start -> end
 
-public:
+  public:
     bool book(int start, int end) {
         auto it = books_.lower_bound(start); // first start >= start
         if (it != books_.end() && it->first < end) {
@@ -25,8 +25,7 @@ public:
 
 int main() {
     MyCalendar cal;
-    std::cout << std::boolalpha
-              << cal.book(10, 20) << " (expected true)\n"
+    std::cout << std::boolalpha << cal.book(10, 20) << " (expected true)\n"
               << cal.book(15, 25) << " (expected false)\n"
               << cal.book(20, 30) << " (expected true)\n";
     return 0;

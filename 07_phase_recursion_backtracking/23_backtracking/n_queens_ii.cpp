@@ -3,7 +3,8 @@
 #include <iostream>
 #include <vector>
 
-void solve(int row, int n, std::vector<bool>& col, std::vector<bool>& d1, std::vector<bool>& d2, int& count) {
+void solve(int row, int n, std::vector<bool>& col, std::vector<bool>& d1, std::vector<bool>& d2,
+           int& count) {
     if (row == n) {
         ++count;
         return;

@@ -1,5 +1,6 @@
-// Remove Duplicates from Sorted List — https://leetcode.com/problems/remove-duplicates-from-sorted-list/
-// Delete all duplicates so each distinct value appears once in a sorted list.
+// Remove Duplicates from Sorted List —
+// https://leetcode.com/problems/remove-duplicates-from-sorted-list/ Delete all duplicates so each
+// distinct value appears once in a sorted list.
 #include <iostream>
 
 struct ListNode {

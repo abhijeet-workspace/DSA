@@ -20,8 +20,7 @@ int binarySearchIterative(const std::vector<int>& nums, int target) {
     return -1;
 }
 
-int binarySearchRecursiveHelper(const std::vector<int>& nums, int left, int right,
-                                int target) {
+int binarySearchRecursiveHelper(const std::vector<int>& nums, int left, int right, int target) {
     if (left > right) {
         return -1;
     }
@@ -36,16 +35,13 @@ int binarySearchRecursiveHelper(const std::vector<int>& nums, int left, int righ
 }
 
 int binarySearchRecursive(const std::vector<int>& nums, int target) {
-    return binarySearchRecursiveHelper(nums, 0, static_cast<int>(nums.size()) - 1,
-                                       target);
+    return binarySearchRecursiveHelper(nums, 0, static_cast<int>(nums.size()) - 1, target);
 }
 
 int main() {
     const std::vector<int> nums = {-1, 0, 3, 5, 9, 12};
     const int target = 9;
-    std::cout << "Iterative: " << binarySearchIterative(nums, target)
-              << " (expected 4)\n"
-              << "Recursive: " << binarySearchRecursive(nums, target)
-              << " (expected 4)\n";
+    std::cout << "Iterative: " << binarySearchIterative(nums, target) << " (expected 4)\n"
+              << "Recursive: " << binarySearchRecursive(nums, target) << " (expected 4)\n";
     return 0;
 }

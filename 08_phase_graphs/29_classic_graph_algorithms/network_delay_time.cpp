@@ -8,7 +8,8 @@
 
 int networkDelayTime(const std::vector<std::vector<int>>& times, int n, int k) {
     std::vector<std::vector<std::pair<int, int>>> g(static_cast<size_t>(n + 1));
-    for (const auto& t : times) g[static_cast<size_t>(t[0])].push_back({t[1], t[2]});
+    for (const auto& t : times)
+        g[static_cast<size_t>(t[0])].push_back({t[1], t[2]});
     const int INF = 1e9;
     std::vector<int> dist(static_cast<size_t>(n + 1), INF);
     using P = std::pair<int, int>; // dist, node
@@ -18,7 +19,8 @@ int networkDelayTime(const std::vector<std::vector<int>>& times, int n, int k) {
     while (!pq.empty()) {
         auto [d, u] = pq.top();
         pq.pop();
-        if (d != dist[static_cast<size_t>(u)]) continue;
+        if (d != dist[static_cast<size_t>(u)])
+            continue;
         for (auto [v, w] : g[static_cast<size_t>(u)]) {
             if (dist[static_cast<size_t>(v)] > d + w) {
                 dist[static_cast<size_t>(v)] = d + w;
@@ -28,7 +30,8 @@ int networkDelayTime(const std::vector<std::vector<int>>& times, int n, int k) {
     }
     int ans = 0;
     for (int i = 1; i <= n; ++i) {
-        if (dist[static_cast<size_t>(i)] == INF) return -1;
+        if (dist[static_cast<size_t>(i)] == INF)
+            return -1;
         ans = std::max(ans, dist[static_cast<size_t>(i)]);
     }
     return ans;

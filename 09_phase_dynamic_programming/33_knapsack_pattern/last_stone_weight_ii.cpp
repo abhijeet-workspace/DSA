@@ -10,11 +10,13 @@ int lastStoneWeightII(std::vector<int>& stones) {
     dp[0] = 1;
     for (int s : stones) {
         for (int w = target; w >= s; --w) {
-            if (dp[static_cast<size_t>(w - s)]) dp[static_cast<size_t>(w)] = 1;
+            if (dp[static_cast<size_t>(w - s)])
+                dp[static_cast<size_t>(w)] = 1;
         }
     }
     for (int w = target; w >= 0; --w) {
-        if (dp[static_cast<size_t>(w)]) return total - 2 * w;
+        if (dp[static_cast<size_t>(w)])
+            return total - 2 * w;
     }
     return total;
 }

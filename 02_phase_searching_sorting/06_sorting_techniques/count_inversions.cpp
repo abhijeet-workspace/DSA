@@ -3,8 +3,7 @@
 #include <iostream>
 #include <vector>
 
-long long mergeCount(std::vector<int>& arr, std::vector<int>& temp, int left, int mid,
-                     int right) {
+long long mergeCount(std::vector<int>& arr, std::vector<int>& temp, int left, int mid, int right) {
     int i = left, j = mid, k = left;
     long long inv = 0;
     while (i <= mid - 1 && j <= right) {

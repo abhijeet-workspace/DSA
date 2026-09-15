@@ -1,8 +1,8 @@
 // Subarray Sums Divisible by K — LC 974
 // Count pairs of prefixes with equal remainder mod k (handle negative mods).
 #include <iostream>
-#include <vector>
 #include <unordered_map>
+#include <vector>
 
 int subarraysDivByK(const std::vector<int>& nums, int k) {
     std::unordered_map<int, int> freq; // remainder → count
@@ -12,7 +12,8 @@ int subarraysDivByK(const std::vector<int>& nums, int k) {
     for (int x : nums) {
         sum += x;
         int rem = sum % k;
-        if (rem < 0) rem += k; // normalize negative remainders
+        if (rem < 0)
+            rem += k; // normalize negative remainders
         ans += freq[rem];
         ++freq[rem];
     }

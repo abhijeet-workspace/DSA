@@ -6,7 +6,8 @@
 class DifferenceArray {
     std::vector<int> diff; // diff[i] = arr[i]-arr[i-1]; prefix(diff) rebuilds arr
     int n;
-public:
+
+  public:
     explicit DifferenceArray(const std::vector<int>& arr)
         : diff(arr.size() + 1, 0), n(static_cast<int>(arr.size())) {
         if (n == 0) {

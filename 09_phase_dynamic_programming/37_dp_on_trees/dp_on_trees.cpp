@@ -20,8 +20,7 @@ std::pair<int, int> robHelper(TreeNode* root) {
     const auto L = robHelper(root->left);
     const auto R = robHelper(root->right);
     const int robThis = root->val + L.second + R.second;
-    const int skipThis =
-        std::max(L.first, L.second) + std::max(R.first, R.second);
+    const int skipThis = std::max(L.first, L.second) + std::max(R.first, R.second);
     return {robThis, skipThis};
 }
 

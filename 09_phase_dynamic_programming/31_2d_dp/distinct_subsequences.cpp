@@ -7,7 +7,7 @@
 int numDistinct(std::string s, std::string t) {
     const int n = static_cast<int>(t.size());
     std::vector<unsigned long long> dp(n + 1, 0); // ways to form t[0..j)
-    dp[0] = 1; // empty t always one way
+    dp[0] = 1;                                    // empty t always one way
     for (char c : s) {
         for (int j = n; j >= 1; --j) { // reverse avoids reuse of same s char
             if (c == t[static_cast<size_t>(j - 1)]) {

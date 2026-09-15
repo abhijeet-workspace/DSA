@@ -18,13 +18,23 @@ bool isCousins(TreeNode* root, int x, int y) {
     while (!q.empty()) {
         const int sz = static_cast<int>(q.size());
         for (int i = 0; i < sz; ++i) {
-            auto [u, p] = q.front(); q.pop();
-            if (u->val == x) { px = p; dx = depth; }
-            if (u->val == y) { py = p; dy = depth; }
-            if (u->left) q.push({u->left, u});
-            if (u->right) q.push({u->right, u});
+            auto [u, p] = q.front();
+            q.pop();
+            if (u->val == x) {
+                px = p;
+                dx = depth;
+            }
+            if (u->val == y) {
+                py = p;
+                dy = depth;
+            }
+            if (u->left)
+                q.push({u->left, u});
+            if (u->right)
+                q.push({u->right, u});
         }
-        if (dx != -1 && dy != -1) break;
+        if (dx != -1 && dy != -1)
+            break;
         ++depth;
     }
     return dx == dy && px != py;

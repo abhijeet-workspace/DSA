@@ -1,4 +1,5 @@
-// Count Square Submatrices with All Ones — https://leetcode.com/problems/count-square-submatrices-with-all-ones/
+// Count Square Submatrices with All Ones —
+// https://leetcode.com/problems/count-square-submatrices-with-all-ones/
 #include <algorithm>
 #include <iostream>
 #include <vector>

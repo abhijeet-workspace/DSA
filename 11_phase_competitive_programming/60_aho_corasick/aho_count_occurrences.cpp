@@ -22,8 +22,7 @@ struct AC {
         for (char ch : s) {
             const int c = ch - 'a';
             if (t[static_cast<size_t>(v)].next[static_cast<size_t>(c)] == -1) {
-                t[static_cast<size_t>(v)].next[static_cast<size_t>(c)] =
-                    static_cast<int>(t.size());
+                t[static_cast<size_t>(v)].next[static_cast<size_t>(c)] = static_cast<int>(t.size());
                 t.push_back(Node());
             }
             v = t[static_cast<size_t>(v)].next[static_cast<size_t>(c)];

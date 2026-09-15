@@ -13,11 +13,13 @@ struct Edge {
 long long longestPathDAG(int n, const std::vector<std::vector<Edge>>& g) {
     std::vector<int> indeg(static_cast<size_t>(n) + 1, 0);
     for (int u = 1; u <= n; ++u)
-        for (const Edge& e : g[static_cast<size_t>(u)]) ++indeg[static_cast<size_t>(e.to)];
+        for (const Edge& e : g[static_cast<size_t>(u)])
+            ++indeg[static_cast<size_t>(e.to)];
 
     std::queue<int> q;
     for (int i = 1; i <= n; ++i)
-        if (indeg[static_cast<size_t>(i)] == 0) q.push(i);
+        if (indeg[static_cast<size_t>(i)] == 0)
+            q.push(i);
 
     std::vector<long long> dp(static_cast<size_t>(n) + 1, 0);
     long long best = 0;
@@ -28,7 +30,8 @@ long long longestPathDAG(int n, const std::vector<std::vector<Edge>>& g) {
         for (const Edge& e : g[static_cast<size_t>(u)]) {
             dp[static_cast<size_t>(e.to)] =
                 std::max(dp[static_cast<size_t>(e.to)], dp[static_cast<size_t>(u)] + e.w);
-            if (--indeg[static_cast<size_t>(e.to)] == 0) q.push(e.to);
+            if (--indeg[static_cast<size_t>(e.to)] == 0)
+                q.push(e.to);
         }
     }
     return best;

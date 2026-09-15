@@ -1,12 +1,15 @@
 // Find Lucky Integer in an Array — LC 1394
+#include <algorithm>
 #include <iostream>
 #include <vector>
-#include <algorithm>
 
 int findLucky(const std::vector<int>& arr) {
     int freq[501] = {};
-    for (int x : arr) ++freq[x];
-    for (int v = 500; v >= 1; --v) if (freq[v] == v) return v;
+    for (int x : arr)
+        ++freq[x];
+    for (int v = 500; v >= 1; --v)
+        if (freq[v] == v)
+            return v;
     return -1;
 }
 

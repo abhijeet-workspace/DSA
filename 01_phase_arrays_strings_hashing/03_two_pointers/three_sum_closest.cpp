@@ -1,9 +1,9 @@
 // 3Sum Closest — LC 16
 // Sort, fix i, two-pointer search for pair minimizing |sum - target|.
-#include <iostream>
-#include <vector>
 #include <algorithm>
 #include <cstdlib>
+#include <iostream>
+#include <vector>
 
 int threeSumClosest(std::vector<int> nums, int target) {
     std::sort(nums.begin(), nums.end());
@@ -12,13 +12,16 @@ int threeSumClosest(std::vector<int> nums, int target) {
     for (int i = 0; i < n - 2; ++i) {
         int L = i + 1, R = n - 1;
         while (L < R) {
-            int sum = nums[static_cast<size_t>(i)]
-                    + nums[static_cast<size_t>(L)]
-                    + nums[static_cast<size_t>(R)];
-            if (std::abs(sum - target) < std::abs(best - target)) best = sum;
-            if (sum == target) return sum;
-            if (sum < target) ++L;
-            else --R;
+            int sum = nums[static_cast<size_t>(i)] + nums[static_cast<size_t>(L)] +
+                      nums[static_cast<size_t>(R)];
+            if (std::abs(sum - target) < std::abs(best - target))
+                best = sum;
+            if (sum == target)
+                return sum;
+            if (sum < target)
+                ++L;
+            else
+                --R;
         }
     }
     return best;

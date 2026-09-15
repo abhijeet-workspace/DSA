@@ -25,9 +25,11 @@ Matrix multiply(const Matrix& A, const Matrix& B) {
 Matrix power(Matrix A, ll exp) {
     const int n = static_cast<int>(A.size());
     Matrix res(n, std::vector<ll>(n, 0));
-    for (int i = 0; i < n; ++i) res[i][i] = 1; // identity
+    for (int i = 0; i < n; ++i)
+        res[i][i] = 1; // identity
     while (exp > 0) {
-        if (exp & 1) res = multiply(res, A);
+        if (exp & 1)
+            res = multiply(res, A);
         A = multiply(A, A);
         exp >>= 1;
     }
@@ -35,8 +37,10 @@ Matrix power(Matrix A, ll exp) {
 }
 
 ll fibonacci(ll n) {
-    if (n == 0) return 0;
-    if (n == 1) return 1;
+    if (n == 0)
+        return 0;
+    if (n == 1)
+        return 1;
     Matrix T = {{1, 1}, {1, 0}};
     T = power(T, n - 1);
     return T[0][0]; // F_n

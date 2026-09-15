@@ -1,4 +1,5 @@
-// Number of Ways to Wear Different Hats to Each Other — https://leetcode.com/problems/number-of-ways-to-wear-different-hats-to-each-other/
+// Number of Ways to Wear Different Hats to Each Other —
+// https://leetcode.com/problems/number-of-ways-to-wear-different-hats-to-each-other/
 #include <iostream>
 #include <vector>
 
@@ -15,9 +16,11 @@ int numberWays(std::vector<std::vector<int>>& hats) {
     for (int h = 1; h <= 40; ++h) {
         for (int mask = N - 1; mask >= 0; --mask) {
             for (int p : hatToPeople[static_cast<size_t>(h)]) {
-                if (mask & (1 << p)) continue;
+                if (mask & (1 << p))
+                    continue;
                 dp[static_cast<size_t>(mask | (1 << p))] =
-                    (dp[static_cast<size_t>(mask | (1 << p))] + dp[static_cast<size_t>(mask)]) % MOD;
+                    (dp[static_cast<size_t>(mask | (1 << p))] + dp[static_cast<size_t>(mask)]) %
+                    MOD;
             }
         }
     }

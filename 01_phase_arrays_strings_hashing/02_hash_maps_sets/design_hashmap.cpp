@@ -11,7 +11,7 @@ class MyHashMap {
 
     int hash(int key) const { return key % BUCKETS; }
 
-public:
+  public:
     MyHashMap() : buckets_(BUCKETS) {}
 
     void put(int key, int value) {
@@ -28,7 +28,8 @@ public:
     int get(int key) {
         const auto& bucket = buckets_[static_cast<size_t>(hash(key))];
         for (const auto& p : bucket) {
-            if (p.first == key) return p.second;
+            if (p.first == key)
+                return p.second;
         }
         return -1;
     }

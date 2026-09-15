@@ -11,7 +11,8 @@ std::vector<int> runningSum(std::vector<int> nums) {
 }
 
 int main() {
-    for (int x : runningSum({1, 2, 3, 4})) std::cout << x << " ";
+    for (int x : runningSum({1, 2, 3, 4}))
+        std::cout << x << " ";
     std::cout << "(expected 1 3 6 10)\n";
     return 0;
 }

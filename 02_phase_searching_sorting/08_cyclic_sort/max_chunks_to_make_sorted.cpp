@@ -1,15 +1,16 @@
 // Max Chunks To Make Sorted — https://leetcode.com/problems/max-chunks-to-make-sorted/
 // Permutation of 0..n-1: cut whenever running max equals index (prefix closed under homes).
+#include <algorithm>
 #include <iostream>
 #include <vector>
-#include <algorithm>
 
 int maxChunksToSorted(std::vector<int>& arr) {
     int mx = 0;
     int chunks = 0;
     for (int i = 0; i < static_cast<int>(arr.size()); ++i) {
         mx = std::max(mx, arr[static_cast<size_t>(i)]);
-        if (mx == i) ++chunks;
+        if (mx == i)
+            ++chunks;
     }
     return chunks;
 }

@@ -14,19 +14,22 @@ class Trie {
     TrieNode* root = new TrieNode();
 
     void clear(TrieNode* node) {
-        if (!node) return;
-        for (TrieNode* ch : node->children) clear(ch);
+        if (!node)
+            return;
+        for (TrieNode* ch : node->children)
+            clear(ch);
         delete node;
     }
 
-public:
+  public:
     ~Trie() { clear(root); }
 
     void insert(const std::string& word) {
         TrieNode* cur = root;
         for (char c : word) {
             const int i = c - 'a';
-            if (!cur->children[i]) cur->children[i] = new TrieNode();
+            if (!cur->children[i])
+                cur->children[i] = new TrieNode();
             cur = cur->children[i];
         }
         cur->isEnd = true;
@@ -38,10 +41,12 @@ public:
         std::string path;
         for (char c : word) {
             const int i = c - 'a';
-            if (!cur->children[i]) return {};
+            if (!cur->children[i])
+                return {};
             cur = cur->children[i];
             path.push_back(c);
-            if (cur->isEnd) return path; // first end = shortest
+            if (cur->isEnd)
+                return path; // first end = shortest
         }
         return {};
     }
@@ -49,13 +54,15 @@ public:
 
 std::string replaceWords(const std::vector<std::string>& dictionary, const std::string& sentence) {
     Trie trie;
-    for (const auto& root : dictionary) trie.insert(root);
+    for (const auto& root : dictionary)
+        trie.insert(root);
     std::istringstream in(sentence);
     std::ostringstream out;
     std::string word;
     bool first = true;
     while (in >> word) {
-        if (!first) out << ' ';
+        if (!first)
+            out << ' ';
         first = false;
         const std::string root = trie.shortestRoot(word);
         out << (root.empty() ? word : root);

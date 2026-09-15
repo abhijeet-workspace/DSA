@@ -31,10 +31,8 @@ std::vector<int> bellmanFord(int vertices, const std::vector<Edge>& edges, int s
 }
 
 int main() {
-    std::vector<Edge> edges1 = {
-        {0, 1, -1}, {0, 2, 4}, {1, 2, 3}, {1, 3, 2},
-        {1, 4, 2}, {3, 2, 5}, {3, 1, 1}, {4, 3, -3}
-    };
+    std::vector<Edge> edges1 = {{0, 1, -1}, {0, 2, 4}, {1, 2, 3}, {1, 3, 2},
+                                {1, 4, 2},  {3, 2, 5}, {3, 1, 1}, {4, 3, -3}};
     auto d1 = bellmanFord(5, edges1, 0);
     std::cout << "dist[4]=" << d1[4] << " (expected -2)\n";
 

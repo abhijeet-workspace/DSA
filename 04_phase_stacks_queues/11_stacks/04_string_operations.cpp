@@ -56,8 +56,7 @@ int main() {
         std::cout << "rev \"" << s << "\" -> \"" << reverseString(s) << "\"\n";
     }
     for (const std::string s : {"racecar", "hello", "level", "abcba", "noon", "world"}) {
-        std::cout << "pal \"" << s << "\" -> "
-                  << (isPalindrome(s) ? "yes" : "no") << '\n';
+        std::cout << "pal \"" << s << "\" -> " << (isPalindrome(s) ? "yes" : "no") << '\n';
     }
     for (int num : {5, 10, 15, 32, 100, 255}) {
         std::cout << "bin " << num << " -> " << decimalToBinary(num) << '\n';

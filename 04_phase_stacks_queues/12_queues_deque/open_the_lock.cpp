@@ -45,8 +45,7 @@ int openLock(const std::vector<std::string>& deadends, const std::string& target
 }
 
 int main() {
-    std::cout << openLock({"0201", "0101", "0102", "1212", "2002"}, "0202")
-              << " (expected 6)\n";
+    std::cout << openLock({"0201", "0101", "0102", "1212", "2002"}, "0202") << " (expected 6)\n";
     std::cout << openLock({"8888"}, "0009") << " (expected 1)\n";
     std::cout << openLock({"8887", "8889", "8878", "8898", "8788", "8988", "7888", "9888"}, "8888")
               << " (expected -1)\n";

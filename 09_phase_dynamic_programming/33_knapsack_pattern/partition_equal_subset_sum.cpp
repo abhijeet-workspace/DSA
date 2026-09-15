@@ -22,8 +22,7 @@ bool canPartition(const std::vector<int>& nums) {
 }
 
 int main() {
-    std::cout << std::boolalpha
-              << canPartition({1, 5, 11, 5}) << " (expected true)\n"
+    std::cout << std::boolalpha << canPartition({1, 5, 11, 5}) << " (expected true)\n"
               << canPartition({1, 2, 3, 5}) << " (expected false)\n";
     return 0;
 }

@@ -18,7 +18,7 @@ ListNode* detectCycle(ListNode* head) {
         slow = slow->next;
         fast = fast->next->next;
         if (slow == fast) { // meet inside cycle
-            slow = head; // reset one pointer to head
+            slow = head;    // reset one pointer to head
             while (slow != fast) {
                 slow = slow->next;
                 fast = fast->next; // same speed → meet at entry

@@ -5,7 +5,7 @@
 enum Color { RED, GREEN, BLUE }; // unscoped enumerators: 0,1,2
 
 int main() {
-    Color c = GREEN; // named constant instead of magic 1
+    Color c = GREEN;                  // named constant instead of magic 1
     std::cout << "Enum value: " << c; // prints underlying int (1)
     return 0;
 }

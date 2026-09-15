@@ -27,8 +27,8 @@ struct DSU {
     }
 };
 
-std::vector<std::vector<std::string>> accountsMerge(
-    const std::vector<std::vector<std::string>>& accounts) {
+std::vector<std::vector<std::string>>
+accountsMerge(const std::vector<std::vector<std::string>>& accounts) {
     const int n = static_cast<int>(accounts.size());
     DSU dsu(n);
     std::unordered_map<std::string, int> emailToAcc;

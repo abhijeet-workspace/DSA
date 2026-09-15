@@ -1,9 +1,9 @@
 // Minimum Size Subarray Sum — LC 209
 // Shrink-while-valid variable window: smallest length with sum >= target.
-#include <iostream>
-#include <vector>
 #include <algorithm>
 #include <climits>
+#include <iostream>
+#include <vector>
 
 int minSubArrayLen(int target, const std::vector<int>& nums) {
     int left = 0;
@@ -21,11 +21,8 @@ int minSubArrayLen(int target, const std::vector<int>& nums) {
 }
 
 int main() {
-    std::cout << minSubArrayLen(7, {2, 3, 1, 2, 4, 3})
-              << " (expected 2)\n"
-              << minSubArrayLen(4, {1, 4, 4})
-              << " (expected 1)\n"
-              << minSubArrayLen(11, {1, 1, 1, 1, 1, 1, 1, 1})
-              << " (expected 0)\n";
+    std::cout << minSubArrayLen(7, {2, 3, 1, 2, 4, 3}) << " (expected 2)\n"
+              << minSubArrayLen(4, {1, 4, 4}) << " (expected 1)\n"
+              << minSubArrayLen(11, {1, 1, 1, 1, 1, 1, 1, 1}) << " (expected 0)\n";
     return 0;
 }

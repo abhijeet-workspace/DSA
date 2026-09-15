@@ -1,4 +1,5 @@
-// Convert Sorted List to Binary Search Tree — https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/
+// Convert Sorted List to Binary Search Tree —
+// https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/
 #include <iostream>
 
 struct ListNode {
@@ -15,8 +16,10 @@ struct TreeNode {
 };
 
 TreeNode* sortedListToBST(ListNode* head) {
-    if (!head) return nullptr;
-    if (!head->next) return new TreeNode(head->val);
+    if (!head)
+        return nullptr;
+    if (!head->next)
+        return new TreeNode(head->val);
     ListNode* prev = nullptr;
     ListNode* slow = head;
     ListNode* fast = head;
@@ -25,7 +28,8 @@ TreeNode* sortedListToBST(ListNode* head) {
         slow = slow->next;
         fast = fast->next->next;
     }
-    if (prev) prev->next = nullptr; // cut left half
+    if (prev)
+        prev->next = nullptr; // cut left half
     TreeNode* root = new TreeNode(slow->val);
     root->left = sortedListToBST(head == slow ? nullptr : head);
     root->right = sortedListToBST(slow->next);

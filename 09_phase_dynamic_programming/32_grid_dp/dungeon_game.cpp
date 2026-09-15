@@ -10,7 +10,8 @@ int calculateMinimumHP(std::vector<std::vector<int>>& dungeon) {
     dp[m][n - 1] = dp[m - 1][n] = 1;
     for (int i = m - 1; i >= 0; --i) {
         for (int j = n - 1; j >= 0; --j) {
-            const int need = std::min(dp[i + 1][j], dp[i][j + 1]) - dungeon[static_cast<size_t>(i)][static_cast<size_t>(j)];
+            const int need = std::min(dp[i + 1][j], dp[i][j + 1]) -
+                             dungeon[static_cast<size_t>(i)][static_cast<size_t>(j)];
             dp[i][j] = need <= 0 ? 1 : need;
         }
     }

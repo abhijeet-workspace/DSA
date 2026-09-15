@@ -24,6 +24,8 @@ Prefix-doubling sorts suffixes by pairs of ranks `(rank[i], rank[i+k])` while do
 | Suffix automaton | Better for distinct-substring counts |
 | Rolling hash + sort | Extra collision care |
 
+**Pedagogy:** doubling SA + Kasai LCP is the default contest SA template in this folder.
+
 ## 5. Logic Walkthrough
 1. Init `rank[i]=s[i]`, `sa = 0..n-1`.
 2. For `k=1,2,4,...`: sort by `(rank[i], rank[i+k])`, recompute dense ranks; stop when ranks are unique.

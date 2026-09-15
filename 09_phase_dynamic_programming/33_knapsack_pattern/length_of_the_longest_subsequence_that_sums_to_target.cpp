@@ -1,4 +1,5 @@
-// Length of the Longest Subsequence That Sums to Target — https://leetcode.com/problems/length-of-the-longest-subsequence-that-sums-to-target/
+// Length of the Longest Subsequence That Sums to Target —
+// https://leetcode.com/problems/length-of-the-longest-subsequence-that-sums-to-target/
 #include <algorithm>
 #include <iostream>
 #include <vector>

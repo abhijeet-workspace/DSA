@@ -16,7 +16,8 @@ struct Node {
 };
 
 double fractionalBound(const Node& u, int n, int W, const std::vector<Item>& items) {
-    if (u.weight >= W) return 0;
+    if (u.weight >= W)
+        return 0;
     double profit = u.profit;
     int totWeight = u.weight;
     int j = u.level + 1;
@@ -26,9 +27,8 @@ double fractionalBound(const Node& u, int n, int W, const std::vector<Item>& ite
         ++j;
     }
     if (j < n) {
-        profit += (W - totWeight) *
-                  (static_cast<double>(items[static_cast<size_t>(j)].value) /
-                   items[static_cast<size_t>(j)].weight);
+        profit += (W - totWeight) * (static_cast<double>(items[static_cast<size_t>(j)].value) /
+                                     items[static_cast<size_t>(j)].weight);
     }
     return profit;
 }
@@ -48,21 +48,25 @@ int knapsackBranchAndBound(int W, std::vector<Item> items) {
     while (!stack.empty()) {
         u = stack.back();
         stack.pop_back();
-        if (u.level == n - 1 || u.bound <= maxProfit) continue;
+        if (u.level == n - 1 || u.bound <= maxProfit)
+            continue;
 
         // Include next item
         v.level = u.level + 1;
         v.weight = u.weight + items[static_cast<size_t>(v.level)].weight;
         v.profit = u.profit + items[static_cast<size_t>(v.level)].value;
-        if (v.weight <= W && v.profit > maxProfit) maxProfit = v.profit;
+        if (v.weight <= W && v.profit > maxProfit)
+            maxProfit = v.profit;
         v.bound = fractionalBound(v, n, W, items);
-        if (v.bound > maxProfit) stack.push_back(v);
+        if (v.bound > maxProfit)
+            stack.push_back(v);
 
         // Exclude next item
         v.weight = u.weight;
         v.profit = u.profit;
         v.bound = fractionalBound(v, n, W, items);
-        if (v.bound > maxProfit) stack.push_back(v);
+        if (v.bound > maxProfit)
+            stack.push_back(v);
     }
     return maxProfit;
 }

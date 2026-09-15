@@ -12,7 +12,7 @@ void bucketSort(std::vector<float>& arr) {
     std::vector<std::vector<float>> buckets(n); // n empty buckets
     for (int i = 0; i < n; ++i) {
         int bi = static_cast<int>(n * arr[i]); // bucket index
-        if (bi >= n) { // clamp if value==1.0 edge
+        if (bi >= n) {                         // clamp if value==1.0 edge
             bi = n - 1;
         }
         buckets[bi].push_back(arr[i]);

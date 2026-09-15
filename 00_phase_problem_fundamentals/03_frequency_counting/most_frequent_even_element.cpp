@@ -1,11 +1,13 @@
 // Most Frequent Even Element — LC 2404
 #include <iostream>
-#include <vector>
 #include <unordered_map>
+#include <vector>
 
 int mostFrequentEven(const std::vector<int>& nums) {
     std::unordered_map<int, int> freq;
-    for (int x : nums) if (x % 2 == 0) ++freq[x];
+    for (int x : nums)
+        if (x % 2 == 0)
+            ++freq[x];
     int ans = -1, best = 0;
     for (const auto& [v, c] : freq) {
         if (c > best || (c == best && v < ans)) {

@@ -29,8 +29,10 @@ int main() {
     root->right->left = new TreeNode(0);
     root->right->right = new TreeNode(1);
     root = pruneTree(root);
-    std::cout << (root && root->val == 1 && !root->left && root->right
-                  && root->right->right && root->right->right->val == 1
-                  ? "ok" : "bad") << "\n";
+    std::cout << (root && root->val == 1 && !root->left && root->right && root->right->right &&
+                          root->right->right->val == 1
+                      ? "ok"
+                      : "bad")
+              << "\n";
     return 0;
 }

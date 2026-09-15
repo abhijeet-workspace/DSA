@@ -1,10 +1,10 @@
 // Group Anagrams — LC 49
 // Canonical key = sorted string; map key → list of anagrams.
+#include <algorithm>
 #include <iostream>
-#include <vector>
 #include <string>
 #include <unordered_map>
-#include <algorithm>
+#include <vector>
 
 std::vector<std::vector<std::string>> groupAnagrams(std::vector<std::string> strs) {
     std::unordered_map<std::string, std::vector<std::string>> groups;
@@ -15,7 +15,8 @@ std::vector<std::vector<std::string>> groupAnagrams(std::vector<std::string> str
     }
     std::vector<std::vector<std::string>> result;
     result.reserve(groups.size());
-    for (auto& [_, list] : groups) result.push_back(std::move(list));
+    for (auto& [_, list] : groups)
+        result.push_back(std::move(list));
     return result;
 }
 

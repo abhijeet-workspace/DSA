@@ -4,8 +4,8 @@
 #include <vector>
 
 void dfs(std::vector<std::vector<int>>& image, int r, int c, int oldColor, int newColor) {
-    if (r < 0 || c < 0 || r >= static_cast<int>(image.size())
-        || c >= static_cast<int>(image[0].size()) || image[r][c] != oldColor) {
+    if (r < 0 || c < 0 || r >= static_cast<int>(image.size()) ||
+        c >= static_cast<int>(image[0].size()) || image[r][c] != oldColor) {
         return;
     }
     image[r][c] = newColor;

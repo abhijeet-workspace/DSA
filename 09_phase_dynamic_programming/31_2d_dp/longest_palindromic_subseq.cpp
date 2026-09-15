@@ -14,8 +14,8 @@ int longestCommonSubsequence(const std::string& text1, const std::string& text2)
             if (text1[static_cast<size_t>(i - 1)] == text2[static_cast<size_t>(j - 1)]) {
                 curr[static_cast<size_t>(j)] = 1 + prev[static_cast<size_t>(j - 1)];
             } else {
-                curr[static_cast<size_t>(j)] = std::max(prev[static_cast<size_t>(j)],
-                                                        curr[static_cast<size_t>(j - 1)]);
+                curr[static_cast<size_t>(j)] =
+                    std::max(prev[static_cast<size_t>(j)], curr[static_cast<size_t>(j - 1)]);
             }
         }
         prev = curr; // roll to next row

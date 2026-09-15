@@ -7,7 +7,8 @@ int arrayNesting(std::vector<int>& nums) {
     const int n = static_cast<int>(nums.size());
     int best = 0;
     for (int i = 0; i < n; ++i) {
-        if (nums[static_cast<size_t>(i)] < 0) continue; // visited
+        if (nums[static_cast<size_t>(i)] < 0)
+            continue; // visited
         int len = 0;
         int j = i;
         while (nums[static_cast<size_t>(j)] >= 0) {
@@ -16,7 +17,8 @@ int arrayNesting(std::vector<int>& nums) {
             j = next;
             ++len;
         }
-        if (len > best) best = len;
+        if (len > best)
+            best = len;
     }
     return best;
 }

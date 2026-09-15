@@ -1,4 +1,5 @@
-// Nearest Exit from Entrance in Maze — https://leetcode.com/problems/nearest-exit-from-entrance-in-maze/
+// Nearest Exit from Entrance in Maze —
+// https://leetcode.com/problems/nearest-exit-from-entrance-in-maze/
 #include <iostream>
 #include <queue>
 #include <vector>
@@ -20,9 +21,12 @@ int nearestExit(std::vector<std::vector<char>> maze, const std::vector<int>& ent
             q.pop();
             for (int k = 0; k < 4; ++k) {
                 int nr = r + dr[k], nc = c + dc[k];
-                if (nr < 0 || nc < 0 || nr >= R || nc >= C) continue;
-                if (maze[static_cast<size_t>(nr)][static_cast<size_t>(nc)] == '+') continue;
-                if (nr == 0 || nc == 0 || nr == R - 1 || nc == C - 1) return dist + 1;
+                if (nr < 0 || nc < 0 || nr >= R || nc >= C)
+                    continue;
+                if (maze[static_cast<size_t>(nr)][static_cast<size_t>(nc)] == '+')
+                    continue;
+                if (nr == 0 || nc == 0 || nr == R - 1 || nc == C - 1)
+                    return dist + 1;
                 maze[static_cast<size_t>(nr)][static_cast<size_t>(nc)] = '+';
                 q.push({nr, nc});
             }
@@ -33,7 +37,8 @@ int nearestExit(std::vector<std::vector<char>> maze, const std::vector<int>& ent
 }
 
 int main() {
-    std::cout << nearestExit({{'+', '+', '.', '+'}, {'.', '.', '.', '+'}, {'+', '+', '+', '.'}}, {1, 2})
+    std::cout << nearestExit({{'+', '+', '.', '+'}, {'.', '.', '.', '+'}, {'+', '+', '+', '.'}},
+                             {1, 2})
               << " (expected 1)\n";
     return 0;
 }

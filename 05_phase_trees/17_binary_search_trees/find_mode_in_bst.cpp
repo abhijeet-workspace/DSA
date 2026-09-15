@@ -42,7 +42,7 @@ class Solution {
         inorder(node->right);
     }
 
-public:
+  public:
     std::vector<int> findMode(TreeNode* root) {
         prev_ = nullptr;
         count_ = 0;
@@ -54,7 +54,7 @@ public:
 };
 
 int main() {
-    /*    
+    /*
           1
            \
             2

@@ -20,7 +20,7 @@ class BSTIterator {
         }
     }
 
-public:
+  public:
     explicit BSTIterator(TreeNode* root) { pushAllLeft(root); }
 
     int next() {

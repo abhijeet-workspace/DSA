@@ -4,7 +4,7 @@
 #include <vector>
 
 class Fenwick {
-public:
+  public:
     explicit Fenwick(int n) : bit(static_cast<size_t>(n) + 1, 0) {}
 
     void add(int i, long long delta) {
@@ -21,16 +21,14 @@ public:
         return s;
     }
 
-    long long sumRange(int l, int r) const {
-        return sumPrefix(r) - sumPrefix(l - 1);
-    }
+    long long sumRange(int l, int r) const { return sumPrefix(r) - sumPrefix(l - 1); }
 
-private:
+  private:
     std::vector<long long> bit;
 };
 
-void dfsEnter(int u, int p, const std::vector<std::vector<int>>& adj,
-              std::vector<int>& inT, std::vector<int>& outT, int& timer) {
+void dfsEnter(int u, int p, const std::vector<std::vector<int>>& adj, std::vector<int>& inT,
+              std::vector<int>& outT, int& timer) {
     inT[static_cast<size_t>(u)] = timer++;
     for (int v : adj[static_cast<size_t>(u)]) {
         if (v == p) {

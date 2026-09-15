@@ -17,10 +17,14 @@ int compareVersion(const std::string& version1, const std::string& version2) {
             b = b * 10 + (version2[static_cast<size_t>(j)] - '0');
             ++j;
         }
-        if (a < b) return -1;
-        if (a > b) return 1;
-        if (i < n && version1[static_cast<size_t>(i)] == '.') ++i;
-        if (j < m && version2[static_cast<size_t>(j)] == '.') ++j;
+        if (a < b)
+            return -1;
+        if (a > b)
+            return 1;
+        if (i < n && version1[static_cast<size_t>(i)] == '.')
+            ++i;
+        if (j < m && version2[static_cast<size_t>(j)] == '.')
+            ++j;
     }
     return 0;
 }

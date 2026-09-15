@@ -5,7 +5,7 @@
 int main() {
     std::cout << "Insert on Array" << std::endl;
 
-    int arr[10]; // fixed capacity of 10 ints
+    int arr[10];                                                    // fixed capacity of 10 ints
     int arrLength = static_cast<int>(sizeof(arr) / sizeof(arr[0])); // element count
     std::cout << "arrLength => " << arrLength << std::endl;
     std::cout << "sizeOf int : " << sizeof(arrLength) << std::endl; // bytes of an int
@@ -17,8 +17,8 @@ int main() {
     }
 
     for (int i = 0; i < arrLength; i++) { // dump values and addresses
-        std::cout << "value at index " << i << " " << arr[i]
-                  << " stored on address " << &arr[i] << std::endl;
+        std::cout << "value at index " << i << " " << arr[i] << " stored on address " << &arr[i]
+                  << std::endl;
     }
     return 0;
 }

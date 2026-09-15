@@ -1,4 +1,5 @@
-// Number of Ways to Form a Target String Given a Dictionary — https://leetcode.com/problems/number-of-ways-to-form-a-target-string-given-a-dictionary/
+// Number of Ways to Form a Target String Given a Dictionary —
+// https://leetcode.com/problems/number-of-ways-to-form-a-target-string-given-a-dictionary/
 #include <iostream>
 #include <string>
 #include <vector>
@@ -18,7 +19,9 @@ int numWays(std::vector<std::string>& words, std::string target) {
             const int ch = target[static_cast<size_t>(j)] - 'a';
             dp[static_cast<size_t>(j + 1)] =
                 (dp[static_cast<size_t>(j + 1)] +
-                 dp[static_cast<size_t>(j)] * freq[static_cast<size_t>(c)][static_cast<size_t>(ch)]) % MOD;
+                 dp[static_cast<size_t>(j)] *
+                     freq[static_cast<size_t>(c)][static_cast<size_t>(ch)]) %
+                MOD;
         }
     }
     return static_cast<int>(dp[static_cast<size_t>(T)]);

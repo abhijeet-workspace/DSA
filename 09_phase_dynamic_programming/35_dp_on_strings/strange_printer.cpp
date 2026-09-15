@@ -6,10 +6,13 @@
 
 int strangePrinter(std::string s) {
     std::string t;
-    for (char c : s) if (t.empty() || t.back() != c) t.push_back(c);
+    for (char c : s)
+        if (t.empty() || t.back() != c)
+            t.push_back(c);
     const int n = static_cast<int>(t.size());
     std::vector<std::vector<int>> dp(n, std::vector<int>(n, 0));
-    for (int i = 0; i < n; ++i) dp[static_cast<size_t>(i)][static_cast<size_t>(i)] = 1;
+    for (int i = 0; i < n; ++i)
+        dp[static_cast<size_t>(i)][static_cast<size_t>(i)] = 1;
     for (int len = 2; len <= n; ++len) {
         for (int i = 0; i + len - 1 < n; ++i) {
             const int j = i + len - 1;
@@ -17,7 +20,8 @@ int strangePrinter(std::string s) {
             for (int k = i; k < j; ++k) {
                 int val = dp[static_cast<size_t>(i)][static_cast<size_t>(k)] +
                           dp[static_cast<size_t>(k + 1)][static_cast<size_t>(j)];
-                if (t[static_cast<size_t>(i)] == t[static_cast<size_t>(j)]) --val; // subtle; use standard:
+                if (t[static_cast<size_t>(i)] == t[static_cast<size_t>(j)])
+                    --val; // subtle; use standard:
                 (void)val;
             }
             // standard recurrence
@@ -28,7 +32,8 @@ int strangePrinter(std::string s) {
                     dp[static_cast<size_t>(i)][static_cast<size_t>(j)] = std::min(
                         dp[static_cast<size_t>(i)][static_cast<size_t>(j)],
                         dp[static_cast<size_t>(i)][static_cast<size_t>(k - 1)] +
-                            (k + 1 <= j ? dp[static_cast<size_t>(k + 1)][static_cast<size_t>(j)] : 0));
+                            (k + 1 <= j ? dp[static_cast<size_t>(k + 1)][static_cast<size_t>(j)]
+                                        : 0));
                 }
             }
         }

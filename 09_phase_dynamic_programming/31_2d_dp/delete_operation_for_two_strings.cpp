@@ -1,5 +1,6 @@
-// Delete Operation for Two Strings — https://leetcode.com/problems/delete-operation-for-two-strings/
-// Min deletions = m + n - 2*LCS(word1, word2).
+// Delete Operation for Two Strings —
+// https://leetcode.com/problems/delete-operation-for-two-strings/ Min deletions = m + n -
+// 2*LCS(word1, word2).
 #include <algorithm>
 #include <iostream>
 #include <string>
@@ -7,7 +8,8 @@
 #include <vector>
 
 static int lcsLen(std::string a, std::string b) {
-    if (a.size() < b.size()) std::swap(a, b);
+    if (a.size() < b.size())
+        std::swap(a, b);
     const int m = static_cast<int>(a.size());
     const int n = static_cast<int>(b.size());
     std::vector<int> prev(static_cast<size_t>(n) + 1, 0);

@@ -19,7 +19,8 @@ struct Tree {
     void dfsSize(int v, int p) {
         sz[static_cast<size_t>(v)] = 1;
         for (int to : g[static_cast<size_t>(v)]) {
-            if (to == p) continue;
+            if (to == p)
+                continue;
             dfsSize(to, v);
             sz[static_cast<size_t>(v)] += sz[static_cast<size_t>(to)];
         }
@@ -47,7 +48,8 @@ struct Tree {
 
     bool isCentroid(int v) const {
         for (int to : g[static_cast<size_t>(v)]) {
-            if (componentSize(v, to) > n / 2) return false;
+            if (componentSize(v, to) > n / 2)
+                return false;
         }
         return true;
     }
@@ -59,20 +61,24 @@ struct Tree {
         while (true) { // walk toward any child with size > N/2
             int heavy = -1;
             for (int to : g[static_cast<size_t>(v)]) {
-                if (to == p) continue;
+                if (to == p)
+                    continue;
                 if (sz[static_cast<size_t>(to)] > n / 2) {
                     heavy = to;
                     break;
                 }
             }
-            if (heavy < 0) break;
+            if (heavy < 0)
+                break;
             p = v;
             v = heavy;
         }
         std::vector<int> cents;
-        if (isCentroid(v)) cents.push_back(v);
+        if (isCentroid(v))
+            cents.push_back(v);
         for (int to : g[static_cast<size_t>(v)]) {
-            if (isCentroid(to)) cents.push_back(to); // even N: second centroid
+            if (isCentroid(to))
+                cents.push_back(to); // even N: second centroid
         }
         std::sort(cents.begin(), cents.end());
         cents.erase(std::unique(cents.begin(), cents.end()), cents.end());
@@ -88,14 +94,16 @@ int main() {
     path.addEdge(4, 5);
     auto c1 = path.findCentroids();
     std::cout << "path centroids:";
-    for (int c : c1) std::cout << " " << c;
+    for (int c : c1)
+        std::cout << " " << c;
     std::cout << " (expected 3)\n";
 
     Tree edge(2);
     edge.addEdge(1, 2);
     auto c2 = edge.findCentroids();
     std::cout << "edge centroids:";
-    for (int c : c2) std::cout << " " << c;
+    for (int c : c2)
+        std::cout << " " << c;
     std::cout << " (expected 1 2)\n";
     return 0;
 }

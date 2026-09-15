@@ -13,8 +13,7 @@ bool isSameTree(TreeNode* a, TreeNode* b) {
     if (!a || !b) {
         return a == b; // both null or mismatch
     }
-    return a->val == b->val && isSameTree(a->left, b->left) &&
-           isSameTree(a->right, b->right);
+    return a->val == b->val && isSameTree(a->left, b->left) && isSameTree(a->right, b->right);
 }
 
 bool isSubtree(TreeNode* root, TreeNode* subRoot) {

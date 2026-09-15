@@ -1,5 +1,6 @@
-// Minimize Max Distance to Gas Station — https://leetcode.com/problems/minimize-max-distance-to-gas-station/
-// Add k stations on the line; minimize the maximum gap between adjacent stations.
+// Minimize Max Distance to Gas Station —
+// https://leetcode.com/problems/minimize-max-distance-to-gas-station/ Add k stations on the line;
+// minimize the maximum gap between adjacent stations.
 #include <algorithm>
 #include <cmath>
 #include <iomanip>
@@ -35,7 +36,6 @@ double minmaxGasDist(std::vector<int> stations, int k) {
 
 int main() {
     std::cout << std::fixed << std::setprecision(5)
-              << minmaxGasDist({1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 9)
-              << " (expected 0.50000)\n";
+              << minmaxGasDist({1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 9) << " (expected 0.50000)\n";
     return 0;
 }

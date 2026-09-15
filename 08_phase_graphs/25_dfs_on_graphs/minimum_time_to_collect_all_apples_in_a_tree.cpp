@@ -3,11 +3,12 @@
 #include <iostream>
 #include <vector>
 
-int dfs(int u, int parent, const std::vector<std::vector<int>>& g, const std::vector<bool>& hasApple,
-        int& time) {
+int dfs(int u, int parent, const std::vector<std::vector<int>>& g,
+        const std::vector<bool>& hasApple, int& time) {
     int apples = hasApple[static_cast<size_t>(u)] ? 1 : 0;
     for (int v : g[static_cast<size_t>(u)]) {
-        if (v == parent) continue;
+        if (v == parent)
+            continue;
         int sub = dfs(v, u, g, hasApple, time);
         if (sub > 0) {
             time += 2; // go to child and back

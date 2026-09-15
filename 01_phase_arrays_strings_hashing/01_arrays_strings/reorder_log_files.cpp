@@ -24,16 +24,15 @@ std::vector<std::string> reorderLogFiles(std::vector<std::string> logs) {
         const auto sp = log.find(' ');
         return std::make_pair(log.substr(sp + 1), log.substr(0, sp));
     };
-    std::sort(letter.begin(), letter.end(), [&](const std::string& a, const std::string& b) {
-        return key(a) < key(b);
-    });
+    std::sort(letter.begin(), letter.end(),
+              [&](const std::string& a, const std::string& b) { return key(a) < key(b); });
     letter.insert(letter.end(), digit.begin(), digit.end());
     return letter;
 }
 
 int main() {
-    std::vector<std::string> logs = {
-        "dig1 8 1 5 1", "let1 art can", "dig2 3 6", "let2 own kit dig", "let3 art zero"};
+    std::vector<std::string> logs = {"dig1 8 1 5 1", "let1 art can", "dig2 3 6", "let2 own kit dig",
+                                     "let3 art zero"};
     const auto out = reorderLogFiles(logs);
     for (const auto& s : out) {
         std::cout << s << '\n';

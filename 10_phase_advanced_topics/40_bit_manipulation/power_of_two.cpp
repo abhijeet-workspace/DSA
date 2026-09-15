@@ -7,8 +7,7 @@ bool isPowerOfTwo(int n) {
 }
 
 int main() {
-    std::cout << std::boolalpha
-              << isPowerOfTwo(1) << " (expected true)\n"
+    std::cout << std::boolalpha << isPowerOfTwo(1) << " (expected true)\n"
               << isPowerOfTwo(16) << " (expected true)\n"
               << isPowerOfTwo(3) << " (expected false)\n";
     return 0;

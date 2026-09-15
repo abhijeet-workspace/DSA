@@ -3,9 +3,9 @@
 #include <iostream>
 
 union Data {
-    int intVal; // shares storage
+    int intVal;     // shares storage
     float floatVal; // shares storage
-    char charVal; // shares storage
+    char charVal;   // shares storage
 };
 
 int main() {

@@ -13,7 +13,8 @@ struct Node {
 
 bool isPal(const std::string& s, int l, int r) {
     while (l < r)
-        if (s[static_cast<size_t>(l++)] != s[static_cast<size_t>(r--)]) return false;
+        if (s[static_cast<size_t>(l++)] != s[static_cast<size_t>(r--)])
+            return false;
     return true;
 }
 
@@ -23,9 +24,11 @@ std::vector<std::vector<int>> palindromePairs(const std::vector<std::string>& wo
         const std::string& w = words[static_cast<size_t>(id)];
         Node* cur = root;
         for (int i = static_cast<int>(w.size()) - 1; i >= 0; --i) {
-            if (isPal(w, 0, i)) cur->palBelow.push_back(id);
+            if (isPal(w, 0, i))
+                cur->palBelow.push_back(id);
             int c = w[static_cast<size_t>(i)] - 'a';
-            if (!cur->ch[c]) cur->ch[c] = new Node();
+            if (!cur->ch[c])
+                cur->ch[c] = new Node();
             cur = cur->ch[c];
         }
         cur->palBelow.push_back(id);
@@ -49,7 +52,8 @@ std::vector<std::vector<int>> palindromePairs(const std::vector<std::string>& wo
         }
         if (ok) {
             for (int id : cur->palBelow)
-                if (id != i) ans.push_back({i, id});
+                if (id != i)
+                    ans.push_back({i, id});
         }
     }
     std::sort(ans.begin(), ans.end());

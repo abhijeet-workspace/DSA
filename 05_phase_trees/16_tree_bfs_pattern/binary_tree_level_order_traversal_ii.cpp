@@ -1,8 +1,9 @@
-// Binary Tree Level Order Traversal II — https://leetcode.com/problems/binary-tree-level-order-traversal-ii/
-#include <iostream>
-#include <vector>
-#include <queue>
+// Binary Tree Level Order Traversal II —
+// https://leetcode.com/problems/binary-tree-level-order-traversal-ii/
 #include <algorithm>
+#include <iostream>
+#include <queue>
+#include <vector>
 
 struct TreeNode {
     int val;
@@ -13,17 +14,21 @@ struct TreeNode {
 
 std::vector<std::vector<int>> levelOrderBottom(TreeNode* root) {
     std::vector<std::vector<int>> ans;
-    if (!root) return ans;
+    if (!root)
+        return ans;
     std::queue<TreeNode*> q;
     q.push(root);
     while (!q.empty()) {
         const int sz = static_cast<int>(q.size());
         std::vector<int> level;
         for (int i = 0; i < sz; ++i) {
-            TreeNode* u = q.front(); q.pop();
+            TreeNode* u = q.front();
+            q.pop();
             level.push_back(u->val);
-            if (u->left) q.push(u->left);
-            if (u->right) q.push(u->right);
+            if (u->left)
+                q.push(u->left);
+            if (u->right)
+                q.push(u->right);
         }
         ans.push_back(std::move(level));
     }

@@ -3,12 +3,12 @@
 #include <iostream>
 #include <string>
 
-#include "config.h"
 #include "basics.h"
-#include "utils.h"
+#include "config.h"
 #include "math_ops.hpp"
-#include "widget.h"
 #include "pimpl_widget.h"
+#include "utils.h"
+#include "widget.h"
 
 int main() {
     std::cout << "== Header files: basics -> advanced demo ==\n";
@@ -37,7 +37,8 @@ int main() {
               << " - Avoid putting 'using namespace std;' in headers.\n"
               << " - Prefer forward declarations in headers when possible.\n"
               << " - Keep headers idempotent (include guards or #pragma once).\n"
-              << " - Put templates and inline functions in headers; large implementations in .cpp files.\n";
+              << " - Put templates and inline functions in headers; large implementations in .cpp "
+                 "files.\n";
 
     return 0;
 }

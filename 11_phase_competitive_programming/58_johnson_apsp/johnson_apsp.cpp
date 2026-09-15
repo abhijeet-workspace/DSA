@@ -27,19 +27,21 @@ struct Johnson {
         const long long INF = std::numeric_limits<long long>::max() / 4;
 
         std::vector<Edge> bf = edges;
-        for (int v = 0; v < n; ++v) bf.push_back({n, v, 0}); // super = n
+        for (int v = 0; v < n; ++v)
+            bf.push_back({n, v, 0}); // super = n
         std::vector<long long> h(static_cast<size_t>(n) + 1, INF);
         h[static_cast<size_t>(n)] = 0;
         for (int i = 0; i < n; ++i) {
             for (const Edge& e : bf) {
-                if (h[static_cast<size_t>(e.u)] == INF) continue;
+                if (h[static_cast<size_t>(e.u)] == INF)
+                    continue;
                 if (h[static_cast<size_t>(e.u)] + e.w < h[static_cast<size_t>(e.v)])
                     h[static_cast<size_t>(e.v)] = h[static_cast<size_t>(e.u)] + e.w;
             }
         }
         for (const Edge& e : bf) {
-            if (h[static_cast<size_t>(e.u)] != INF
-                && h[static_cast<size_t>(e.u)] + e.w < h[static_cast<size_t>(e.v)]) {
+            if (h[static_cast<size_t>(e.u)] != INF &&
+                h[static_cast<size_t>(e.u)] + e.w < h[static_cast<size_t>(e.v)]) {
                 return false;
             }
         }
@@ -60,7 +62,8 @@ struct Johnson {
             while (!pq.empty()) {
                 auto [du, u] = pq.top();
                 pq.pop();
-                if (du != d[static_cast<size_t>(u)]) continue;
+                if (du != d[static_cast<size_t>(u)])
+                    continue;
                 for (auto [v, w] : radj[static_cast<size_t>(u)]) {
                     if (d[static_cast<size_t>(u)] + w < d[static_cast<size_t>(v)]) {
                         d[static_cast<size_t>(v)] = d[static_cast<size_t>(u)] + w;
@@ -69,9 +72,12 @@ struct Johnson {
                 }
             }
             for (int v = 0; v < n; ++v) {
-                if (d[static_cast<size_t>(v)] == INF) dist[static_cast<size_t>(s)][static_cast<size_t>(v)] = INF;
-                else dist[static_cast<size_t>(s)][static_cast<size_t>(v)] =
-                    d[static_cast<size_t>(v)] - h[static_cast<size_t>(s)] + h[static_cast<size_t>(v)];
+                if (d[static_cast<size_t>(v)] == INF)
+                    dist[static_cast<size_t>(s)][static_cast<size_t>(v)] = INF;
+                else
+                    dist[static_cast<size_t>(s)][static_cast<size_t>(v)] =
+                        d[static_cast<size_t>(v)] - h[static_cast<size_t>(s)] +
+                        h[static_cast<size_t>(v)];
             }
         }
         return true;

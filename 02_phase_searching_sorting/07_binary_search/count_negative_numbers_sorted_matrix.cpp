@@ -1,5 +1,6 @@
-// Count Negative Numbers in a Sorted Matrix — https://leetcode.com/problems/count-negative-numbers-in-a-sorted-matrix/
-// Each row (and column) is non-increasing; count negatives via per-row lower bound.
+// Count Negative Numbers in a Sorted Matrix —
+// https://leetcode.com/problems/count-negative-numbers-in-a-sorted-matrix/ Each row (and column) is
+// non-increasing; count negatives via per-row lower bound.
 #include <iostream>
 #include <vector>
 

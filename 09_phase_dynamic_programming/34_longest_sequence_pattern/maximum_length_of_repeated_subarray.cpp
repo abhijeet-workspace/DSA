@@ -1,4 +1,5 @@
-// Maximum Length of Repeated Subarray — https://leetcode.com/problems/maximum-length-of-repeated-subarray/
+// Maximum Length of Repeated Subarray —
+// https://leetcode.com/problems/maximum-length-of-repeated-subarray/
 #include <algorithm>
 #include <iostream>
 #include <vector>

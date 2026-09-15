@@ -16,9 +16,9 @@ ListNode* swapPairs(ListNode* head) {
         ListNode* a = prev->next;
         ListNode* b = a->next;
         a->next = b->next; // a → rest
-        b->next = a; // b → a
-        prev->next = b; // prev → b
-        prev = a; // next pair after a
+        b->next = a;       // b → a
+        prev->next = b;    // prev → b
+        prev = a;          // next pair after a
     }
     return dummy.next;
 }

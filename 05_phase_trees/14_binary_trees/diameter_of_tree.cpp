@@ -1,7 +1,7 @@
 // Diameter of Binary Tree — https://leetcode.com/problems/diameter-of-binary-tree/
 // Longest path length in edges between any two nodes.
-#include <iostream>
 #include <algorithm>
+#include <iostream>
 
 struct TreeNode {
     int val;
@@ -36,8 +36,7 @@ int main() {
     root->left->left = new TreeNode(4);
     root->left->right = new TreeNode(5);
 
-    std::cout << "Diameter: " << diameterOfBinaryTree(root)
-              << " (expected 3)\n";
+    std::cout << "Diameter: " << diameterOfBinaryTree(root) << " (expected 3)\n";
 
     delete root->left->left;
     delete root->left->right;

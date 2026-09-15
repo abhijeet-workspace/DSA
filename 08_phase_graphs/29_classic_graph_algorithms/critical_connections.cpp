@@ -1,5 +1,6 @@
-// Critical Connections in a Network — https://leetcode.com/problems/critical-connections-in-a-network/
-// Find bridges in an undirected connected graph (Tarjan DFS low-link).
+// Critical Connections in a Network —
+// https://leetcode.com/problems/critical-connections-in-a-network/ Find bridges in an undirected
+// connected graph (Tarjan DFS low-link).
 #include <algorithm>
 #include <iostream>
 #include <vector>
@@ -30,9 +31,9 @@ class Solution {
         }
     }
 
-public:
-    std::vector<std::vector<int>> criticalConnections(int n,
-                                                      const std::vector<std::vector<int>>& connections) {
+  public:
+    std::vector<std::vector<int>>
+    criticalConnections(int n, const std::vector<std::vector<int>>& connections) {
         adj_.assign(static_cast<size_t>(n), {});
         for (const auto& e : connections) {
             adj_[static_cast<size_t>(e[0])].push_back(e[1]);

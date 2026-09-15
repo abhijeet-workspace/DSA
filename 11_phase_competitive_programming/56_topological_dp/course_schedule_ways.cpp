@@ -7,7 +7,8 @@
 long long waysToSink(int n, const std::vector<std::vector<int>>& g, int sink) {
     std::vector<int> indeg(n, 0);
     for (int u = 0; u < n; ++u) {
-        for (int v : g[static_cast<size_t>(u)]) ++indeg[static_cast<size_t>(v)];
+        for (int v : g[static_cast<size_t>(u)])
+            ++indeg[static_cast<size_t>(v)];
     }
     std::vector<long long> ways(n, 0);
     std::queue<int> q;
@@ -22,7 +23,8 @@ long long waysToSink(int n, const std::vector<std::vector<int>>& g, int sink) {
         q.pop();
         for (int v : g[static_cast<size_t>(u)]) {
             ways[static_cast<size_t>(v)] += ways[static_cast<size_t>(u)];
-            if (--indeg[static_cast<size_t>(v)] == 0) q.push(v);
+            if (--indeg[static_cast<size_t>(v)] == 0)
+                q.push(v);
         }
     }
     return ways[static_cast<size_t>(sink)];

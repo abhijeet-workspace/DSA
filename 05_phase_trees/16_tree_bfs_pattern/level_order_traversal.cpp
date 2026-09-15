@@ -1,5 +1,6 @@
-// Binary Tree Level Order Traversal — https://leetcode.com/problems/binary-tree-level-order-traversal/
-// Return node values level by level, left to right.
+// Binary Tree Level Order Traversal —
+// https://leetcode.com/problems/binary-tree-level-order-traversal/ Return node values level by
+// level, left to right.
 #include <iostream>
 #include <queue>
 #include <vector>

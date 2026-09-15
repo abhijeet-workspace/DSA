@@ -9,9 +9,11 @@ void dfs(int start, int k, int remain, std::vector<int>& path,
         result.push_back(path);
         return;
     }
-    if (k == 0 || remain <= 0) return;
+    if (k == 0 || remain <= 0)
+        return;
     for (int x = start; x <= 9; ++x) {
-        if (x > remain) break;
+        if (x > remain)
+            break;
         path.push_back(x);
         dfs(x + 1, k - 1, remain - x, path, result);
         path.pop_back();
@@ -29,7 +31,8 @@ int main() {
     const auto r = combinationSum3(3, 7);
     std::cout << "count=" << r.size() << " (expected 1)\n";
     for (const auto& c : r) {
-        for (size_t i = 0; i < c.size(); ++i) std::cout << c[i] << (i + 1 < c.size() ? " " : "");
+        for (size_t i = 0; i < c.size(); ++i)
+            std::cout << c[i] << (i + 1 < c.size() ? " " : "");
         std::cout << "\n";
     }
     return 0;

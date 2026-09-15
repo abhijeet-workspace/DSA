@@ -6,10 +6,11 @@
 
 int fibonacciSearch(const std::vector<int>& arr, int target) {
     const int n = static_cast<int>(arr.size());
-    if (n == 0) return -1;
+    if (n == 0)
+        return -1;
 
-    int fibMMm2 = 0; // F(k-2)
-    int fibMMm1 = 1; // F(k-1)
+    int fibMMm2 = 0;              // F(k-2)
+    int fibMMm1 = 1;              // F(k-1)
     int fibM = fibMMm1 + fibMMm2; // F(k)
 
     while (fibM < n) {

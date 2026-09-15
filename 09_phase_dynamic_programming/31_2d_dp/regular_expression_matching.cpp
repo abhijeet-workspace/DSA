@@ -32,7 +32,6 @@ bool isMatch(std::string s, std::string p) {
 }
 
 int main() {
-    std::cout << std::boolalpha
-              << isMatch("aa", "a*") << " (expected true)\n";
+    std::cout << std::boolalpha << isMatch("aa", "a*") << " (expected true)\n";
     return 0;
 }

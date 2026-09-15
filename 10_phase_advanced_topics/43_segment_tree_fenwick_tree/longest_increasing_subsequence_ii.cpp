@@ -1,5 +1,6 @@
-// Longest Increasing Subsequence II — https://leetcode.com/problems/longest-increasing-subsequence-ii/
-// Segtree range-max on value domain; dp[x] = 1 + max on [x-k, x).
+// Longest Increasing Subsequence II —
+// https://leetcode.com/problems/longest-increasing-subsequence-ii/ Segtree range-max on value
+// domain; dp[x] = 1 + max on [x-k, x).
 #include <algorithm>
 #include <iostream>
 #include <vector>
@@ -14,13 +15,17 @@ struct SegMax {
             return;
         }
         int m = (s + e) / 2;
-        if (idx <= m) update(2 * node, s, m, idx, val);
-        else update(2 * node + 1, m + 1, e, idx, val);
+        if (idx <= m)
+            update(2 * node, s, m, idx, val);
+        else
+            update(2 * node + 1, m + 1, e, idx, val);
         t[node] = std::max(t[2 * node], t[2 * node + 1]);
     }
     int query(int node, int s, int e, int l, int r) {
-        if (r < s || e < l || l > r) return 0;
-        if (l <= s && e <= r) return t[node];
+        if (r < s || e < l || l > r)
+            return 0;
+        if (l <= s && e <= r)
+            return t[node];
         int m = (s + e) / 2;
         return std::max(query(2 * node, s, m, l, r), query(2 * node + 1, m + 1, e, l, r));
     }
@@ -30,7 +35,8 @@ struct SegMax {
 
 int lengthOfLIS(const std::vector<int>& nums, int k) {
     int mx = 0;
-    for (int x : nums) mx = std::max(mx, x);
+    for (int x : nums)
+        mx = std::max(mx, x);
     SegMax seg(mx);
     int ans = 0;
     for (int x : nums) {

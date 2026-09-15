@@ -4,8 +4,7 @@
 #include <utility>
 #include <vector>
 
-void backtrack(std::vector<int>& nums, int start,
-               std::vector<std::vector<int>>& result) {
+void backtrack(std::vector<int>& nums, int start, std::vector<std::vector<int>>& result) {
     if (start == static_cast<int>(nums.size())) { // fixed a full perm
         result.push_back(nums);
         return;
@@ -29,7 +28,8 @@ int main() {
     std::cout << "Permutations (" << result.size() << " expected 6):\n";
     for (const auto& perm : result) {
         std::cout << "[ ";
-        for (int x : perm) std::cout << x << " ";
+        for (int x : perm)
+            std::cout << x << " ";
         std::cout << "]\n";
     }
     return 0;

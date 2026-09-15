@@ -1,12 +1,13 @@
 // Bit Manipulation demos — XOR singles, power-of-two, popcount, add without +
 // LC 136 / 137 / 260 patterns and related bit tricks.
 #include <iostream>
-#include <vector>
 #include <utility>
+#include <vector>
 
 int singleNumberI(const std::vector<int>& nums) {
     int x = 0;
-    for (int num : nums) x ^= num; // pairs cancel
+    for (int num : nums)
+        x ^= num; // pairs cancel
     return x;
 }
 
@@ -15,22 +16,27 @@ int singleNumberII(const std::vector<int>& nums) {
     for (int i = 0; i < 32; ++i) {
         int sum = 0;
         for (int num : nums) {
-            if ((num >> i) & 1) ++sum;
+            if ((num >> i) & 1)
+                ++sum;
         }
-        if (sum % 3 != 0) result |= (1 << i); // leftover bit of the unique
+        if (sum % 3 != 0)
+            result |= (1 << i); // leftover bit of the unique
     }
     return result;
 }
 
 std::pair<int, int> singleNumberIII(const std::vector<int>& nums) {
     int xor_sum = 0;
-    for (int num : nums) xor_sum ^= num;
-    const unsigned diff = static_cast<unsigned>(xor_sum)
-                        & -static_cast<unsigned>(xor_sum); // lowbit
+    for (int num : nums)
+        xor_sum ^= num;
+    const unsigned diff =
+        static_cast<unsigned>(xor_sum) & -static_cast<unsigned>(xor_sum); // lowbit
     int num1 = 0, num2 = 0;
     for (int num : nums) {
-        if (static_cast<unsigned>(num) & diff) num1 ^= num;
-        else num2 ^= num;
+        if (static_cast<unsigned>(num) & diff)
+            num1 ^= num;
+        else
+            num2 ^= num;
     }
     return {num1, num2};
 }

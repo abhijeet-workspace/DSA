@@ -20,8 +20,8 @@ int minDistance(std::string word1, std::string word2) {
             if (word1[static_cast<size_t>(i - 1)] == word2[static_cast<size_t>(j - 1)]) {
                 dp[i][j] = dp[i - 1][j - 1]; // match, no op
             } else {
-                dp[i][j] = 1 + std::min({dp[i - 1][j],     // delete
-                                         dp[i][j - 1],     // insert
+                dp[i][j] = 1 + std::min({dp[i - 1][j],       // delete
+                                         dp[i][j - 1],       // insert
                                          dp[i - 1][j - 1]}); // replace
             }
         }

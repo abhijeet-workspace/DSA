@@ -1,8 +1,8 @@
 // Sparse table RMQ — static range minimum; build O(N log N), query O(1)
 // st[k][i] = min on [i, i+2^k); query = min of two overlapping 2^floor(log) blocks
+#include <algorithm>
 #include <iostream>
 #include <vector>
-#include <algorithm>
 
 struct SparseTable {
     int n;
@@ -12,7 +12,8 @@ struct SparseTable {
     SparseTable(const std::vector<int>& a) {
         n = static_cast<int>(a.size());
         lg.assign(n + 1, 0);
-        for (int i = 2; i <= n; ++i) lg[i] = lg[i / 2] + 1;
+        for (int i = 2; i <= n; ++i)
+            lg[i] = lg[i / 2] + 1;
         int K = lg[n] + 1;
         st.assign(K, std::vector<int>(n));
         st[0] = a;

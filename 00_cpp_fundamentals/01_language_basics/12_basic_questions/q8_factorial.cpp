@@ -16,11 +16,9 @@ int main() {
         return 0;
     }
 
-    std::cout << "Factorial of " << num << " is: " << factorialRecursive(num)
-              << std::endl;
+    std::cout << "Factorial of " << num << " is: " << factorialRecursive(num) << std::endl;
     std::cout << "Factorial of a Number using Loop" << std::endl;
-    std::cout << "Factorial of " << num << " is: " << factorialLoop(num)
-              << std::endl;
+    std::cout << "Factorial of " << num << " is: " << factorialLoop(num) << std::endl;
     return 0;
 }
 

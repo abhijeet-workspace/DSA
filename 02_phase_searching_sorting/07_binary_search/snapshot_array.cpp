@@ -1,14 +1,14 @@
 // Snapshot Array — https://leetcode.com/problems/snapshot-array/
 // set/snap/get; get binary-searches the latest value with snap_id <= query.
 #include <iostream>
-#include <vector>
 #include <utility>
+#include <vector>
 
 class SnapshotArray {
     std::vector<std::vector<std::pair<int, int>>> hist; // per index: (snap_id, value)
     int snap_id = 0;
 
-public:
+  public:
     explicit SnapshotArray(int length) : hist(static_cast<size_t>(length)) {
         for (auto& h : hist) {
             h.push_back({0, 0});
@@ -24,9 +24,7 @@ public:
         }
     }
 
-    int snap() {
-        return snap_id++;
-    }
+    int snap() { return snap_id++; }
 
     int get(int index, int snap_id_q) {
         const auto& h = hist[static_cast<size_t>(index)];

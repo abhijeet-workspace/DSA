@@ -6,28 +6,26 @@
 class Customer;
 
 class BankInspector {
-public:
+  public:
     void auditAccount(const Customer& c); // friend member (declared later)
 };
 
 class Customer {
-private:
+  private:
     std::string name;
     double creditScore;
     double debt;
 
-public:
-    Customer(std::string n, double score, double d)
-        : name(n), creditScore(score), debt(d) {}
+  public:
+    Customer(std::string n, double score, double d) : name(n), creditScore(score), debt(d) {}
 
-    friend void checkLoanEligibility(const Customer& c); // friend free function
+    friend void checkLoanEligibility(const Customer& c);        // friend free function
     friend void BankInspector::auditAccount(const Customer& c); // friend member
-    friend class CreditBureau; // entire friend class
+    friend class CreditBureau;                                  // entire friend class
 };
 
 void checkLoanEligibility(const Customer& c) {
-    std::cout << "[Friend Function] Evaluating eligibility for " << c.name << ":"
-              << std::endl;
+    std::cout << "[Friend Function] Evaluating eligibility for " << c.name << ":" << std::endl;
     if (c.creditScore > 700 && c.debt < 50000) {
         std::cout << "  Status: ELIGIBLE for a credit line." << std::endl;
     } else {
@@ -36,14 +34,12 @@ void checkLoanEligibility(const Customer& c) {
 }
 
 void BankInspector::auditAccount(const Customer& c) {
-    std::cout << "[Friend Class Method] Audit report for " << c.name << ":"
-              << std::endl;
-    std::cout << "  Inspect score: " << c.creditScore << " | Unpaid debt: $"
-              << c.debt << std::endl;
+    std::cout << "[Friend Class Method] Audit report for " << c.name << ":" << std::endl;
+    std::cout << "  Inspect score: " << c.creditScore << " | Unpaid debt: $" << c.debt << std::endl;
 }
 
 class CreditBureau {
-public:
+  public:
     void printCustomerProfile(const Customer& c) {
         std::cout << "[Friend Class Bureau] Profile Summary:" << std::endl;
         std::cout << "  Name: " << c.name << std::endl;

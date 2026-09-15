@@ -11,7 +11,7 @@ struct SuffixNode {
 };
 
 class SuffixTree {
-public:
+  public:
     SuffixTree() : root_(new SuffixNode()) {}
 
     ~SuffixTree() { destroy(root_); }
@@ -30,28 +30,32 @@ public:
         SuffixNode* cur = root_;
         for (char ch : pat) {
             auto it = cur->next.find(ch);
-            if (it == cur->next.end()) return false;
+            if (it == cur->next.end())
+                return false;
             cur = it->second;
         }
         return true;
     }
 
-private:
+  private:
     SuffixNode* root_;
     std::string text_;
 
     void insertSuffix(const std::string& s) {
         SuffixNode* cur = root_;
         for (char ch : s) {
-            if (!cur->next.count(ch)) cur->next[ch] = new SuffixNode();
+            if (!cur->next.count(ch))
+                cur->next[ch] = new SuffixNode();
             cur = cur->next[ch];
         }
         cur->end = true;
     }
 
     void destroy(SuffixNode* node) {
-        if (!node) return;
-        for (auto& [_, child] : node->next) destroy(child);
+        if (!node)
+            return;
+        for (auto& [_, child] : node->next)
+            destroy(child);
         delete node;
     }
 };

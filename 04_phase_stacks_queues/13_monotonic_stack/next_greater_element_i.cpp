@@ -5,8 +5,7 @@
 #include <unordered_map>
 #include <vector>
 
-std::vector<int> nextGreaterElement(const std::vector<int>& nums1,
-                                    const std::vector<int>& nums2) {
+std::vector<int> nextGreaterElement(const std::vector<int>& nums1, const std::vector<int>& nums2) {
     std::unordered_map<int, int> next_greater;
     std::stack<int> st; // decreasing values
     for (int x : nums2) {

@@ -4,8 +4,8 @@
 #include <iostream>
 #include <vector>
 
-void backtrack(const std::vector<int>& candidates, int target, int start,
-               std::vector<int>& current, std::vector<std::vector<int>>& result) {
+void backtrack(const std::vector<int>& candidates, int target, int start, std::vector<int>& current,
+               std::vector<std::vector<int>>& result) {
     if (target == 0) {
         result.push_back(current); // valid combo
         return;
@@ -14,13 +14,13 @@ void backtrack(const std::vector<int>& candidates, int target, int start,
         if (candidates[static_cast<size_t>(i)] > target) {
             break; // sorted: rest too large
         }
-        if (i > start && candidates[static_cast<size_t>(i)] ==
-                             candidates[static_cast<size_t>(i - 1)]) {
+        if (i > start &&
+            candidates[static_cast<size_t>(i)] == candidates[static_cast<size_t>(i - 1)]) {
             continue; // skip duplicate at same depth
         }
         current.push_back(candidates[static_cast<size_t>(i)]);
-        backtrack(candidates, target - candidates[static_cast<size_t>(i)], i + 1,
-                  current, result); // each index once
+        backtrack(candidates, target - candidates[static_cast<size_t>(i)], i + 1, current,
+                  result); // each index once
         current.pop_back();
     }
 }

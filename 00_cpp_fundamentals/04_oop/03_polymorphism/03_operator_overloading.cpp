@@ -3,11 +3,11 @@
 #include <iostream>
 
 class Complex {
-private:
+  private:
     double real;
     double imag;
 
-public:
+  public:
     Complex(double r = 0, double i = 0) : real(r), imag(i) {}
 
     Complex operator+(const Complex& obj) {

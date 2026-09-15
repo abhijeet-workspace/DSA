@@ -21,7 +21,7 @@ int largestNDigitPrime(int n) {
     for (int i = 0; i < n; ++i) {
         upper *= 10;
     }
-    --upper; // 10^n - 1
+    --upper;                                     // 10^n - 1
     int lower = (n == 1) ? 1 : (upper + 1) / 10; // 10^(n-1)
     for (int num = upper; num >= lower; --num) {
         if (isPrime(num)) {

@@ -1,8 +1,8 @@
 // KMP — pattern search via LPS (longest proper prefix that is also suffix)
 // On mismatch, jump j = lps[j-1] instead of restarting from pattern[0]
 #include <iostream>
-#include <vector>
 #include <string>
+#include <vector>
 
 std::vector<int> computeLPSArray(const std::string& pat) {
     int m = static_cast<int>(pat.size());
@@ -24,7 +24,8 @@ std::vector<int> KMPSearch(const std::string& txt, const std::string& pat) {
     std::vector<int> matches;
     int n = static_cast<int>(txt.size());
     int m = static_cast<int>(pat.size());
-    if (m == 0 || n < m) return matches;
+    if (m == 0 || n < m)
+        return matches;
 
     std::vector<int> lps = computeLPSArray(pat);
     int i = 0, j = 0;
@@ -37,8 +38,10 @@ std::vector<int> KMPSearch(const std::string& txt, const std::string& pat) {
             matches.push_back(i - j);
             j = lps[j - 1];
         } else if (i < n && pat[j] != txt[i]) {
-            if (j != 0) j = lps[j - 1];
-            else ++i;
+            if (j != 0)
+                j = lps[j - 1];
+            else
+                ++i;
         }
     }
     return matches;
@@ -48,9 +51,11 @@ int main() {
     auto printHits = [](const std::string& txt, const std::string& pat) {
         auto hits = KMPSearch(txt, pat);
         std::cout << "\"" << pat << "\" in \"" << txt << "\": ";
-        if (hits.empty()) std::cout << "none";
+        if (hits.empty())
+            std::cout << "none";
         else
-            for (int p : hits) std::cout << p << " ";
+            for (int p : hits)
+                std::cout << p << " ";
         std::cout << "\n";
     };
     printHits("ABABDABACDABABCABAB", "ABABCABAB");

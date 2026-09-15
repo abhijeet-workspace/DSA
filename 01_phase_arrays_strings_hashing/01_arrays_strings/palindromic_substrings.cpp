@@ -14,7 +14,7 @@ int countSubstrings(const std::string& s) {
         }
     };
     for (int i = 0; i < n; ++i) {
-        expand(i, i); // odd centers
+        expand(i, i);     // odd centers
         expand(i, i + 1); // even centers
     }
     return ans;

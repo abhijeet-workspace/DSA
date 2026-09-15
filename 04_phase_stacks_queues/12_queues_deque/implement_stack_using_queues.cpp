@@ -6,7 +6,7 @@
 class MyStack {
     std::queue<int> q_;
 
-public:
+  public:
     void push(int x) {
         q_.push(x);
         const int n = static_cast<int>(q_.size());

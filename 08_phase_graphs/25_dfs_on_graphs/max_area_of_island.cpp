@@ -5,13 +5,12 @@
 #include <vector>
 
 int area(std::vector<std::vector<int>>& g, int i, int j) {
-    if (i < 0 || j < 0 || i >= static_cast<int>(g.size())
-        || j >= static_cast<int>(g[0].size()) || g[i][j] == 0) {
+    if (i < 0 || j < 0 || i >= static_cast<int>(g.size()) || j >= static_cast<int>(g[0].size()) ||
+        g[i][j] == 0) {
         return 0;
     }
     g[i][j] = 0; // sink visited land
-    return 1 + area(g, i + 1, j) + area(g, i - 1, j)
-             + area(g, i, j + 1) + area(g, i, j - 1);
+    return 1 + area(g, i + 1, j) + area(g, i - 1, j) + area(g, i, j + 1) + area(g, i, j - 1);
 }
 
 int maxAreaOfIsland(std::vector<std::vector<int>> grid) {

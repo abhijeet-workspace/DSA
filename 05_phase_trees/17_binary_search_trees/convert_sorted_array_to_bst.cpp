@@ -1,4 +1,5 @@
-// Convert Sorted Array to Binary Search Tree — https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/
+// Convert Sorted Array to Binary Search Tree —
+// https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/
 #include <iostream>
 #include <vector>
 
@@ -10,7 +11,8 @@ struct TreeNode {
 };
 
 TreeNode* build(const std::vector<int>& a, int lo, int hi) {
-    if (lo > hi) return nullptr;
+    if (lo > hi)
+        return nullptr;
     const int mid = lo + (hi - lo) / 2;
     TreeNode* n = new TreeNode(a[mid]);
     n->left = build(a, lo, mid - 1);

@@ -21,7 +21,7 @@ void reorderList(ListNode* head) {
     ListNode* prev = nullptr;
     ListNode* curr = slow->next;
     slow->next = nullptr; // cut halves
-    while (curr) { // reverse second half
+    while (curr) {        // reverse second half
         ListNode* nxt = curr->next;
         curr->next = prev;
         prev = curr;

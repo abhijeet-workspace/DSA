@@ -20,13 +20,15 @@ std::vector<int> findBuildings(const std::vector<int>& heights) {
 int main() {
     const auto a = findBuildings({4, 2, 3, 1});
     for (size_t i = 0; i < a.size(); ++i) {
-        if (i) std::cout << ' ';
+        if (i)
+            std::cout << ' ';
         std::cout << a[i];
     }
     std::cout << " (expected 0 2 3)\n";
     const auto b = findBuildings({4, 3, 2, 1});
     for (size_t i = 0; i < b.size(); ++i) {
-        if (i) std::cout << ' ';
+        if (i)
+            std::cout << ' ';
         std::cout << b[i];
     }
     std::cout << " (expected 0 1 2 3)\n";

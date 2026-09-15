@@ -1,9 +1,9 @@
 // Max Chunks To Make Sorted II — https://leetcode.com/problems/max-chunks-to-make-sorted-ii/
 // Duplicates allowed: stack of chunk maxima; merge left while new value is smaller.
-#include <iostream>
-#include <vector>
-#include <stack>
 #include <algorithm>
+#include <iostream>
+#include <stack>
+#include <vector>
 
 int maxChunksToSorted(std::vector<int>& arr) {
     std::stack<int> st;
@@ -13,7 +13,8 @@ int maxChunksToSorted(std::vector<int>& arr) {
         } else {
             const int mx = st.top();
             st.pop();
-            while (!st.empty() && st.top() > x) st.pop();
+            while (!st.empty() && st.top() > x)
+                st.pop();
             st.push(mx);
         }
     }

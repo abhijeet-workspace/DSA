@@ -20,8 +20,7 @@ int leastInterval(const std::vector<char>& tasks, int n) {
     const int part_count = max_freq - 1;
     const int part_length = n - (max_freq_count - 1);
     const int empty_slots = part_count * part_length;
-    const int available_tasks =
-        static_cast<int>(tasks.size()) - max_freq * max_freq_count;
+    const int available_tasks = static_cast<int>(tasks.size()) - max_freq * max_freq_count;
     const int idles = std::max(0, empty_slots - available_tasks);
     return static_cast<int>(tasks.size()) + idles;
 }

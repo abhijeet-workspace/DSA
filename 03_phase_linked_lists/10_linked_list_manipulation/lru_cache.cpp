@@ -4,7 +4,7 @@
 #include <unordered_map>
 
 class LRUCache {
-private:
+  private:
     struct Node {
         int key;
         int value;
@@ -30,7 +30,7 @@ private:
         node->prev = head_;
     }
 
-public:
+  public:
     explicit LRUCache(int capacity) : capacity_(capacity) {
         head_ = new Node(-1, -1);
         tail_ = new Node(-1, -1);
@@ -53,7 +53,7 @@ public:
             return -1;
         }
         Node* node = it->second;
-        remove(node); // detach
+        remove(node);       // detach
         insertAtHead(node); // mark most recent
         return node->value;
     }

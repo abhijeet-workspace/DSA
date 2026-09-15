@@ -5,8 +5,8 @@
 int getValue(); // forward declaration
 
 int main() {
-    auto result = (10 <= 20) > 0; // auto deduces bool from comparison chain
-    std::cout << result << std::endl; // prints 1 (true)
+    auto result = (10 <= 20) > 0;         // auto deduces bool from comparison chain
+    std::cout << result << std::endl;     // prints 1 (true)
     std::cout << getValue() << std::endl; // prints 36
     return 0;
 }

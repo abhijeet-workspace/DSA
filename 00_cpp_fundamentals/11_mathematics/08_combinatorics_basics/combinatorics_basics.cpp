@@ -1,8 +1,8 @@
 // Combinatorics Basics — C++ fundamentals
 // nPr, multiplicative nCr, Pascal triangle row.
+#include <algorithm>
 #include <iostream>
 #include <vector>
-#include <algorithm>
 
 long long gcdLL(long long a, long long b) {
     return b == 0 ? a : gcdLL(b, a % b);

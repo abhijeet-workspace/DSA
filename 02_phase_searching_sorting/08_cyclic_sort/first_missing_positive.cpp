@@ -1,8 +1,8 @@
 // First Missing Positive — https://leetcode.com/problems/first-missing-positive/
 // Smallest missing positive integer; cyclic-sort values in [1,n] in-place.
 #include <iostream>
-#include <vector>
 #include <utility>
+#include <vector>
 
 int firstMissingPositive(std::vector<int>& nums) {
     const int n = static_cast<int>(nums.size());
@@ -25,7 +25,6 @@ int firstMissingPositive(std::vector<int>& nums) {
 
 int main() {
     std::vector<int> nums = {3, 4, -1, 1};
-    std::cout << "First Missing Positive: " << firstMissingPositive(nums)
-              << " (expected 2)\n";
+    std::cout << "First Missing Positive: " << firstMissingPositive(nums) << " (expected 2)\n";
     return 0;
 }

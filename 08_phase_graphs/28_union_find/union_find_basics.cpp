@@ -8,7 +8,7 @@ class UnionFind {
     std::vector<int> rank;
     int count;
 
-public:
+  public:
     explicit UnionFind(int n)
         : parent(static_cast<size_t>(n)), rank(static_cast<size_t>(n), 0), count(n) {
         for (int i = 0; i < n; ++i) {

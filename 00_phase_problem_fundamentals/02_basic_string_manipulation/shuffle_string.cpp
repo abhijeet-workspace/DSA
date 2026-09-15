@@ -13,7 +13,6 @@ std::string restoreString(const std::string& s, const std::vector<int>& indices)
 }
 
 int main() {
-    std::cout << restoreString("codeleet", {4, 5, 6, 7, 0, 2, 1, 3})
-              << " (expected leetcode)\n";
+    std::cout << restoreString("codeleet", {4, 5, 6, 7, 0, 2, 1, 3}) << " (expected leetcode)\n";
     return 0;
 }

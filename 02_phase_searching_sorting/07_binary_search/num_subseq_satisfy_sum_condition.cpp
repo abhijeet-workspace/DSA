@@ -11,7 +11,8 @@ int numSubseq(std::vector<int> nums, int target) {
     const int n = static_cast<int>(nums.size());
     std::vector<int> pow2(static_cast<size_t>(n), 1);
     for (int i = 1; i < n; ++i) {
-        pow2[static_cast<size_t>(i)] = static_cast<int>((2LL * pow2[static_cast<size_t>(i - 1)]) % MOD);
+        pow2[static_cast<size_t>(i)] =
+            static_cast<int>((2LL * pow2[static_cast<size_t>(i - 1)]) % MOD);
     }
     int ans = 0;
     for (int i = 0; i < n; ++i) {

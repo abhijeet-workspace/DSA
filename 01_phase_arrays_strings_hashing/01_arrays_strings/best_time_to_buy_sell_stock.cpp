@@ -1,15 +1,15 @@
 // Best Time to Buy and Sell Stock — https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
 // One buy and one sell; maximize profit (sell after buy). Return 0 if none.
-#include <iostream>
-#include <vector>
 #include <algorithm>
 #include <climits>
+#include <iostream>
+#include <vector>
 
 int maxProfit(const std::vector<int>& prices) {
-    int minPrice = INT_MAX; // cheapest so far
-    int best = 0; // max profit so far
-    for (int p : prices) { // one day at a time
-        minPrice = std::min(minPrice, p); // update buy candidate
+    int minPrice = INT_MAX;                  // cheapest so far
+    int best = 0;                            // max profit so far
+    for (int p : prices) {                   // one day at a time
+        minPrice = std::min(minPrice, p);    // update buy candidate
         best = std::max(best, p - minPrice); // sell today vs best
     }
     return best;

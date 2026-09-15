@@ -9,8 +9,7 @@ struct TreeNode {
     explicit TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
 };
 
-int dfs(TreeNode* n, long long cur, int target,
-        std::unordered_map<long long, int>& freq) {
+int dfs(TreeNode* n, long long cur, int target, std::unordered_map<long long, int>& freq) {
     if (!n) {
         return 0;
     }

@@ -7,19 +7,21 @@ bool checkIfPangram(const std::string& sentence) {
     bool seen[26] = {};
     int got = 0;
     for (char c : sentence) {
-        if (c < 'a' || c > 'z') continue;
+        if (c < 'a' || c > 'z')
+            continue;
         const int i = c - 'a';
         if (!seen[i]) {
             seen[i] = true;
-            if (++got == 26) return true;
+            if (++got == 26)
+                return true;
         }
     }
     return got == 26;
 }
 
 int main() {
-    std::cout << std::boolalpha
-              << checkIfPangram("thequickbrownfoxjumpsoverthelazydog") << " (expected true)\n"
+    std::cout << std::boolalpha << checkIfPangram("thequickbrownfoxjumpsoverthelazydog")
+              << " (expected true)\n"
               << checkIfPangram("leetcode") << " (expected false)\n";
     return 0;
 }

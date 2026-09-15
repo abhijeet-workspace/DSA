@@ -1,9 +1,9 @@
 // Fruit Into Baskets — LC 904
 // Longest subarray with at most 2 distinct values (sliding window + freq map).
-#include <iostream>
-#include <vector>
-#include <unordered_map>
 #include <algorithm>
+#include <iostream>
+#include <unordered_map>
+#include <vector>
 
 int totalFruit(const std::vector<int>& fruits) {
     std::unordered_map<int, int> count;
@@ -13,7 +13,8 @@ int totalFruit(const std::vector<int>& fruits) {
         ++count[fruits[static_cast<size_t>(right)]];
         while (static_cast<int>(count.size()) > 2) {
             int leftFruit = fruits[static_cast<size_t>(left)];
-            if (--count[leftFruit] == 0) count.erase(leftFruit);
+            if (--count[leftFruit] == 0)
+                count.erase(leftFruit);
             ++left;
         }
         best = std::max(best, right - left + 1);

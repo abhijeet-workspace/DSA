@@ -4,11 +4,13 @@
 #include <string>
 
 std::string longestPalindrome(const std::string& s) {
-    if (s.empty()) return "";
+    if (s.empty())
+        return "";
     int start = 0;
     int best = 1; // length of best palindrome
     auto expand = [&](int l, int r) {
-        while (l >= 0 && r < static_cast<int>(s.size()) && s[static_cast<size_t>(l)] == s[static_cast<size_t>(r)]) {
+        while (l >= 0 && r < static_cast<int>(s.size()) &&
+               s[static_cast<size_t>(l)] == s[static_cast<size_t>(r)]) {
             --l; // grow left
             ++r; // grow right
         }
@@ -19,7 +21,7 @@ std::string longestPalindrome(const std::string& s) {
         }
     };
     for (int i = 0; i < static_cast<int>(s.size()); ++i) {
-        expand(i, i); // odd center
+        expand(i, i);     // odd center
         expand(i, i + 1); // even center
     }
     return s.substr(static_cast<size_t>(start), static_cast<size_t>(best));

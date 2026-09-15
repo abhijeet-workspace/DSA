@@ -10,9 +10,8 @@ int carFleet(int target, std::vector<int>& position, std::vector<int>& speed) {
     std::vector<std::pair<int, double>> cars;
     cars.reserve(static_cast<size_t>(n));
     for (int i = 0; i < n; ++i) {
-        const double time =
-            static_cast<double>(target - position[static_cast<size_t>(i)]) /
-            static_cast<double>(speed[static_cast<size_t>(i)]);
+        const double time = static_cast<double>(target - position[static_cast<size_t>(i)]) /
+                            static_cast<double>(speed[static_cast<size_t>(i)]);
         cars.push_back({position[static_cast<size_t>(i)], time});
     }
     std::sort(cars.begin(), cars.end()); // by position ascending

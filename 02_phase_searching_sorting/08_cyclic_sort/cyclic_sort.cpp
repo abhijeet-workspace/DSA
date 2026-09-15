@@ -1,8 +1,8 @@
 // Cyclic Sort — place each value v at index v-1 (range 1..N).
 // In-place O(N) sort when numbers are a permutation of 1..N.
 #include <iostream>
-#include <vector>
 #include <utility>
+#include <vector>
 
 void cyclicSort(std::vector<int>& arr) {
     const int n = static_cast<int>(arr.size());

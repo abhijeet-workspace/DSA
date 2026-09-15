@@ -1,5 +1,6 @@
-// Kth Largest Element in an Array (Max Heap) — https://leetcode.com/problems/kth-largest-element-in-an-array/
-// Return the kth largest element (sorted order, not distinct).
+// Kth Largest Element in an Array (Max Heap) —
+// https://leetcode.com/problems/kth-largest-element-in-an-array/ Return the kth largest element
+// (sorted order, not distinct).
 #include <iostream>
 #include <queue>
 #include <vector>

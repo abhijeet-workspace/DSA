@@ -1,4 +1,5 @@
-// Longest Arithmetic Subsequence of Given Difference — https://leetcode.com/problems/longest-arithmetic-subsequence-of-given-difference/
+// Longest Arithmetic Subsequence of Given Difference —
+// https://leetcode.com/problems/longest-arithmetic-subsequence-of-given-difference/
 #include <algorithm>
 #include <iostream>
 #include <unordered_map>

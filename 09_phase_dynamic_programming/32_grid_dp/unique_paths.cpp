@@ -14,7 +14,6 @@ int uniquePaths(int m, int n) {
 }
 
 int main() {
-    std::cout << uniquePaths(3, 7) << " (expected 28)\n"
-              << uniquePaths(3, 2) << " (expected 3)\n";
+    std::cout << uniquePaths(3, 7) << " (expected 28)\n" << uniquePaths(3, 2) << " (expected 3)\n";
     return 0;
 }

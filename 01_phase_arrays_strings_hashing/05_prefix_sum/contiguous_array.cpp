@@ -1,13 +1,13 @@
 // Contiguous Array — LC 525
 // Map 0→-1; first index of each prefix sum; longest span with sum 0.
-#include <iostream>
-#include <vector>
-#include <unordered_map>
 #include <algorithm>
+#include <iostream>
+#include <unordered_map>
+#include <vector>
 
 int findMaxLength(const std::vector<int>& nums) {
     std::unordered_map<int, int> firstIndex; // prefix sum → earliest index
-    firstIndex[0] = -1; // empty prefix before index 0
+    firstIndex[0] = -1;                      // empty prefix before index 0
     int sum = 0;
     int best = 0;
     for (int i = 0; i < static_cast<int>(nums.size()); ++i) {

@@ -9,9 +9,12 @@ struct TreeNode {
 };
 
 TreeNode* trimBST(TreeNode* root, int low, int high) {
-    if (!root) return nullptr;
-    if (root->val < low) return trimBST(root->right, low, high);
-    if (root->val > high) return trimBST(root->left, low, high);
+    if (!root)
+        return nullptr;
+    if (root->val < low)
+        return trimBST(root->right, low, high);
+    if (root->val > high)
+        return trimBST(root->left, low, high);
     root->left = trimBST(root->left, low, high);
     root->right = trimBST(root->right, low, high);
     return root;
@@ -23,6 +26,7 @@ int main() {
     root->right = new TreeNode(2);
     root = trimBST(root, 1, 2);
     std::cout << root->val << " (expected 1)\n";
-    std::cout << (root->left == nullptr && root->right && root->right->val == 2 ? "ok" : "bad") << "\n";
+    std::cout << (root->left == nullptr && root->right && root->right->val == 2 ? "ok" : "bad")
+              << "\n";
     return 0;
 }

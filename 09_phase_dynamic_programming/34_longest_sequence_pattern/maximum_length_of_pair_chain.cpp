@@ -5,8 +5,7 @@
 #include <vector>
 
 int findLongestChain(std::vector<std::vector<int>>& pairs) {
-    std::sort(pairs.begin(), pairs.end(),
-              [](const auto& a, const auto& b) { return a[1] < b[1]; });
+    std::sort(pairs.begin(), pairs.end(), [](const auto& a, const auto& b) { return a[1] < b[1]; });
     int ans = 0, end = INT_MIN;
     for (auto& p : pairs) {
         if (p[0] > end) {

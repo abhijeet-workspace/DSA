@@ -1,8 +1,8 @@
 // Coin Change — https://leetcode.com/problems/coin-change/
 // Fewest coins to make amount; unlimited supply; -1 if impossible.
+#include <algorithm>
 #include <iostream>
 #include <vector>
-#include <algorithm>
 
 int coinChange(const std::vector<int>& coins, int amount) {
     std::vector<int> dp(static_cast<size_t>(amount) + 1, amount + 1); // sentinel
@@ -10,15 +10,12 @@ int coinChange(const std::vector<int>& coins, int amount) {
     for (int x = 1; x <= amount; ++x) {
         for (int c : coins) {
             if (x - c >= 0) {
-                dp[static_cast<size_t>(x)] = std::min(
-                    dp[static_cast<size_t>(x)],
-                    dp[static_cast<size_t>(x - c)] + 1);
+                dp[static_cast<size_t>(x)] =
+                    std::min(dp[static_cast<size_t>(x)], dp[static_cast<size_t>(x - c)] + 1);
             }
         }
     }
-    return dp[static_cast<size_t>(amount)] > amount
-               ? -1
-               : dp[static_cast<size_t>(amount)];
+    return dp[static_cast<size_t>(amount)] > amount ? -1 : dp[static_cast<size_t>(amount)];
 }
 
 int main() {

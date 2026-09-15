@@ -75,7 +75,6 @@ int main() {
     for (int x : lcp) {
         std::cout << " " << x;
     }
-    std::cout << "\nfirst_suffix=" << s.substr(static_cast<size_t>(sa[0]))
-              << " (expected a)\n";
+    std::cout << "\nfirst_suffix=" << s.substr(static_cast<size_t>(sa[0])) << " (expected a)\n";
     return 0;
 }

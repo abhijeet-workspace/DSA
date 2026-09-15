@@ -4,9 +4,8 @@
 #include <string>
 #include <vector>
 
-template <typename T>
-class Stack {
-public:
+template <typename T> class Stack {
+  public:
     std::vector<T> elements; // public for teaching visibility
     void push(const T& v) { elements.push_back(v); }
     void pop() {
@@ -19,8 +18,7 @@ public:
     bool empty() const { return elements.empty(); }
 };
 
-template <typename T>
-static void print_vec(const std::vector<T>& v, const std::string& name) {
+template <typename T> static void print_vec(const std::vector<T>& v, const std::string& name) {
     std::cout << name << " (size=" << v.size() << ", cap=" << v.capacity() << "): ";
     for (const auto& x : v) {
         std::cout << x << ' ';

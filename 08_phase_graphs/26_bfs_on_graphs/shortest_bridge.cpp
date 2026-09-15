@@ -6,7 +6,8 @@
 
 void dfs(std::vector<std::vector<int>>& grid, int r, int c, std::queue<std::pair<int, int>>& q) {
     const int n = static_cast<int>(grid.size());
-    if (r < 0 || c < 0 || r >= n || c >= n || grid[static_cast<size_t>(r)][static_cast<size_t>(c)] != 1)
+    if (r < 0 || c < 0 || r >= n || c >= n ||
+        grid[static_cast<size_t>(r)][static_cast<size_t>(c)] != 1)
         return;
     grid[static_cast<size_t>(r)][static_cast<size_t>(c)] = 2;
     q.push({r, c});
@@ -36,8 +37,10 @@ int shortestBridge(std::vector<std::vector<int>> grid) {
             q.pop();
             for (int k = 0; k < 4; ++k) {
                 int nr = r + dr[k], nc = c + dc[k];
-                if (nr < 0 || nc < 0 || nr >= n || nc >= n) continue;
-                if (grid[static_cast<size_t>(nr)][static_cast<size_t>(nc)] == 1) return dist;
+                if (nr < 0 || nc < 0 || nr >= n || nc >= n)
+                    continue;
+                if (grid[static_cast<size_t>(nr)][static_cast<size_t>(nc)] == 1)
+                    return dist;
                 if (grid[static_cast<size_t>(nr)][static_cast<size_t>(nc)] == 0) {
                     grid[static_cast<size_t>(nr)][static_cast<size_t>(nc)] = 2;
                     q.push({nr, nc});

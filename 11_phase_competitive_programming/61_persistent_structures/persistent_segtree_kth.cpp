@@ -38,11 +38,9 @@ struct PST {
         if (l != r) {
             const int m = (l + r) / 2;
             if (idx <= m) {
-                t[static_cast<size_t>(v)].L =
-                    upd(t[static_cast<size_t>(prev)].L, l, m, idx);
+                t[static_cast<size_t>(v)].L = upd(t[static_cast<size_t>(prev)].L, l, m, idx);
             } else {
-                t[static_cast<size_t>(v)].R =
-                    upd(t[static_cast<size_t>(prev)].R, m + 1, r, idx);
+                t[static_cast<size_t>(v)].R = upd(t[static_cast<size_t>(prev)].R, m + 1, r, idx);
             }
         }
         return v;
@@ -56,8 +54,7 @@ struct PST {
         const int leftCnt = t[static_cast<size_t>(t[static_cast<size_t>(vr)].L)].cnt -
                             t[static_cast<size_t>(t[static_cast<size_t>(vl)].L)].cnt;
         if (k <= leftCnt) {
-            return kth(t[static_cast<size_t>(vl)].L, t[static_cast<size_t>(vr)].L, l, m,
-                       k);
+            return kth(t[static_cast<size_t>(vl)].L, t[static_cast<size_t>(vr)].L, l, m, k);
         }
         return kth(t[static_cast<size_t>(vl)].R, t[static_cast<size_t>(vr)].R, m + 1, r,
                    k - leftCnt);
@@ -68,9 +65,7 @@ int main() {
     const std::vector<int> a = {0, 3, 1, 4, 2}; // 1-based
     const std::vector<int> vals = {1, 2, 3, 4};
     auto rank = [&](int x) {
-        return static_cast<int>(std::lower_bound(vals.begin(), vals.end(), x) -
-                                vals.begin()) +
-               1;
+        return static_cast<int>(std::lower_bound(vals.begin(), vals.end(), x) - vals.begin()) + 1;
     };
     PST pst(4);
     std::vector<int> root(5);

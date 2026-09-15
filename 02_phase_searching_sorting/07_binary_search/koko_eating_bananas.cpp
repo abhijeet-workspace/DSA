@@ -1,8 +1,8 @@
 // Koko Eating Bananas — https://leetcode.com/problems/koko-eating-bananas/
 // Binary search minimum speed k such that all piles finish within h hours.
+#include <algorithm>
 #include <iostream>
 #include <vector>
-#include <algorithm>
 
 bool canEatAll(const std::vector<int>& piles, int h, int k) {
     long long hours = 0;

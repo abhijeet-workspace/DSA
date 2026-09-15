@@ -13,7 +13,8 @@ std::vector<std::vector<int>> candyCrush(std::vector<std::vector<int>> board) {
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
                 const int v = std::abs(board[static_cast<size_t>(i)][static_cast<size_t>(j)]);
-                if (v == 0) continue;
+                if (v == 0)
+                    continue;
                 if (j + 2 < n &&
                     std::abs(board[static_cast<size_t>(i)][static_cast<size_t>(j + 1)]) == v &&
                     std::abs(board[static_cast<size_t>(i)][static_cast<size_t>(j + 2)]) == v) {
@@ -50,14 +51,12 @@ std::vector<std::vector<int>> candyCrush(std::vector<std::vector<int>> board) {
 
 int main() {
     // Simple board: bottom row 2,2,2 crushes; gravity drops.
-    std::vector<std::vector<int>> board = {
-        {1, 3, 5, 7},
-        {2, 2, 2, 4},
-        {1, 1, 1, 8}};
+    std::vector<std::vector<int>> board = {{1, 3, 5, 7}, {2, 2, 2, 4}, {1, 1, 1, 8}};
     const auto out = candyCrush(board);
     for (const auto& row : out) {
         for (size_t j = 0; j < row.size(); ++j) {
-            if (j) std::cout << ' ';
+            if (j)
+                std::cout << ' ';
             std::cout << row[j];
         }
         std::cout << '\n';

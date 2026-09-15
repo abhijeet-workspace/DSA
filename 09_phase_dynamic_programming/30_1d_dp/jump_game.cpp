@@ -1,8 +1,8 @@
 // Jump Game — https://leetcode.com/problems/jump-game/
 // From 0, nums[i] = max jump; true if last index reachable.
+#include <algorithm>
 #include <iostream>
 #include <vector>
-#include <algorithm>
 
 bool canJump(const std::vector<int>& nums) {
     int maxReach = 0;
@@ -20,8 +20,7 @@ bool canJump(const std::vector<int>& nums) {
 }
 
 int main() {
-    std::cout << std::boolalpha
-              << canJump({2, 3, 1, 1, 4}) << " (expected true)\n"
+    std::cout << std::boolalpha << canJump({2, 3, 1, 1, 4}) << " (expected true)\n"
               << canJump({3, 2, 1, 0, 4}) << " (expected false)\n";
     return 0;
 }

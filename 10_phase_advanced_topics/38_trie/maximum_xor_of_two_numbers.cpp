@@ -1,5 +1,6 @@
-// Maximum XOR of Two Numbers — https://leetcode.com/problems/maximum-xor-of-two-numbers-in-an-array/
-// Binary trie (MSB→LSB); greedily take opposite bit when present.
+// Maximum XOR of Two Numbers —
+// https://leetcode.com/problems/maximum-xor-of-two-numbers-in-an-array/ Binary trie (MSB→LSB);
+// greedily take opposite bit when present.
 #include <algorithm>
 #include <iostream>
 #include <vector>
@@ -14,7 +15,8 @@ int findMaximumXOR(const std::vector<int>& nums) {
         BitNode* cur = root;
         for (int b = 31; b >= 0; --b) {
             int bit = (x >> b) & 1;
-            if (!cur->ch[bit]) cur->ch[bit] = new BitNode();
+            if (!cur->ch[bit])
+                cur->ch[bit] = new BitNode();
             cur = cur->ch[bit];
         }
     };

@@ -5,8 +5,7 @@
 #include <iostream>
 #include <vector>
 
-int findCheapestPrice(int n, std::vector<std::vector<int>>& flights, int src, int dst,
-                      int k) {
+int findCheapestPrice(int n, std::vector<std::vector<int>>& flights, int src, int dst, int k) {
     std::vector<int> dist(n, INT_MAX);
     dist[src] = 0;
     for (int i = 0; i <= k; ++i) {

@@ -10,11 +10,11 @@ void multiplyOfNumber(int number) {
     }
 
     std::vector<long long> values(static_cast<std::size_t>(number)); // store inputs
-    long long total = 1; // running product
+    long long total = 1;                                             // running product
     for (int i = 0; i < number; ++i) {
         std::cout << "Enter number " << i + 1 << " :- ";
         std::cin >> values[static_cast<std::size_t>(i)]; // read next factor
-        total *= values[static_cast<std::size_t>(i)]; // accumulate product
+        total *= values[static_cast<std::size_t>(i)];    // accumulate product
     }
     std::cout << "Total :- " << total << '\n';
 }

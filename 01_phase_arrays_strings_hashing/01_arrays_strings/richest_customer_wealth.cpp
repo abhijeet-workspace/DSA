@@ -1,9 +1,9 @@
 // Richest Customer Wealth — LC 1672
 // Max over customers of sum(accounts[i]).
-#include <iostream>
-#include <vector>
-#include <numeric>
 #include <algorithm>
+#include <iostream>
+#include <numeric>
+#include <vector>
 
 int maximumWealth(const std::vector<std::vector<int>>& accounts) {
     int best = 0;

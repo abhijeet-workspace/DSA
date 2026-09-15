@@ -4,14 +4,14 @@
 #include <string>
 
 class SmartDevice {
-protected:
+  protected:
     std::string deviceName; // shared identity
-    bool isOn; // power state
+    bool isOn;              // power state
 
-public:
+  public:
     SmartDevice(std::string name) : deviceName(name), isOn(false) {}
 
-    virtual void performDuty() = 0; // must implement
+    virtual void performDuty() = 0;     // must implement
     virtual void getDeviceStatus() = 0; // must implement
 
     void turnOn() { // shared concrete API
@@ -28,16 +28,16 @@ public:
 };
 
 class SmartLight : public SmartDevice {
-private:
+  private:
     int brightness; // 0..100
 
-public:
+  public:
     SmartLight(std::string name) : SmartDevice(name), brightness(50) {}
 
     void performDuty() override {
         if (isOn) {
-            std::cout << "[Light Duty]: Illuminating room at " << brightness
-                      << "% brightness." << std::endl;
+            std::cout << "[Light Duty]: Illuminating room at " << brightness << "% brightness."
+                      << std::endl;
         } else {
             std::cout << "[Light Duty]: Cannot illuminate. Device is OFF." << std::endl;
         }
@@ -55,16 +55,16 @@ public:
 };
 
 class SmartThermostat : public SmartDevice {
-private:
+  private:
     double targetTemperature;
 
-public:
+  public:
     SmartThermostat(std::string name) : SmartDevice(name), targetTemperature(22.0) {}
 
     void performDuty() override {
         if (isOn) {
-            std::cout << "[Thermostat Duty]: Regulating room temperature to "
-                      << targetTemperature << " C." << std::endl;
+            std::cout << "[Thermostat Duty]: Regulating room temperature to " << targetTemperature
+                      << " C." << std::endl;
         } else {
             std::cout << "[Thermostat Duty]: Idle. Device is OFF." << std::endl;
         }
@@ -77,8 +77,7 @@ public:
 
     void setTemperature(double temp) {
         targetTemperature = temp;
-        std::cout << "Target Temperature adjusted to " << targetTemperature
-                  << " C." << std::endl;
+        std::cout << "Target Temperature adjusted to " << targetTemperature << " C." << std::endl;
     }
 };
 

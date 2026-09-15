@@ -1,8 +1,8 @@
 // Missing Number — https://leetcode.com/problems/missing-number/
 // nums holds n distinct values in [0,n]; return the missing one.
 #include <iostream>
-#include <vector>
 #include <utility>
+#include <vector>
 
 int missingNumber(std::vector<int>& nums) {
     const int n = static_cast<int>(nums.size());

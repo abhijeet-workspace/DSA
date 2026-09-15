@@ -13,7 +13,8 @@ std::vector<int> shuffle(const std::vector<int>& nums, int n) {
 }
 
 int main() {
-    for (int x : shuffle({2, 5, 1, 3, 4, 7}, 3)) std::cout << x << " ";
+    for (int x : shuffle({2, 5, 1, 3, 4, 7}, 3))
+        std::cout << x << " ";
     std::cout << "(expected 2 3 5 4 1 7)\n";
     return 0;
 }

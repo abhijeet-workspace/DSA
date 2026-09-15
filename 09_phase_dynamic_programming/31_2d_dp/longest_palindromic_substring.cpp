@@ -4,7 +4,8 @@
 
 std::string longestPalindrome(std::string s) {
     const int n = static_cast<int>(s.size());
-    if (n == 0) return "";
+    if (n == 0)
+        return "";
     int bestL = 0, bestLen = 1;
     auto expand = [&](int l, int r) {
         while (l >= 0 && r < n && s[static_cast<size_t>(l)] == s[static_cast<size_t>(r)]) {

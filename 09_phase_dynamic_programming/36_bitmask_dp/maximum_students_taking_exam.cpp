@@ -17,12 +17,16 @@ int maxStudents(std::vector<std::vector<char>>& seats) {
     for (int r = 0; r < R; ++r) {
         std::vector<int> ndp(N, -1e9);
         for (int mask = 0; mask < N; ++mask) {
-            if ((mask & rowMask[static_cast<size_t>(r)]) != mask) continue;
-            if (mask & (mask << 1)) continue; // adjacent
+            if ((mask & rowMask[static_cast<size_t>(r)]) != mask)
+                continue;
+            if (mask & (mask << 1))
+                continue; // adjacent
             const int bits = __builtin_popcount(static_cast<unsigned>(mask));
             for (int prev = 0; prev < N; ++prev) {
-                if (dp[static_cast<size_t>(prev)] < -1e8) continue;
-                if ((mask & (prev << 1)) || (mask & (prev >> 1))) continue; // diagonals
+                if (dp[static_cast<size_t>(prev)] < -1e8)
+                    continue;
+                if ((mask & (prev << 1)) || (mask & (prev >> 1)))
+                    continue; // diagonals
                 ndp[static_cast<size_t>(mask)] =
                     std::max(ndp[static_cast<size_t>(mask)], dp[static_cast<size_t>(prev)] + bits);
             }
@@ -33,10 +37,9 @@ int maxStudents(std::vector<std::vector<char>>& seats) {
 }
 
 int main() {
-    std::vector<std::vector<char>> seats{
-        {'#', '.', '#', '#', '.', '#'},
-        {'.', '#', '#', '#', '#', '.'},
-        {'#', '.', '#', '#', '.', '#'}};
+    std::vector<std::vector<char>> seats{{'#', '.', '#', '#', '.', '#'},
+                                         {'.', '#', '#', '#', '#', '.'},
+                                         {'#', '.', '#', '#', '.', '#'}};
     std::cout << maxStudents(seats) << " (expected 4)\n";
     return 0;
 }

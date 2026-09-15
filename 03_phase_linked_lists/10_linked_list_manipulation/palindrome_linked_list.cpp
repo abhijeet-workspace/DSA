@@ -28,7 +28,7 @@ bool isPalindrome(ListNode* head) {
     }
     ListNode* p1 = head;
     ListNode* p2 = prev; // head of reversed half
-    while (p2) { // compare halves
+    while (p2) {         // compare halves
         if (p1->val != p2->val) {
             return false;
         }
@@ -43,8 +43,7 @@ int main() {
     head->next = new ListNode(2);
     head->next->next = new ListNode(2);
     head->next->next->next = new ListNode(1);
-    std::cout << std::boolalpha << isPalindrome(head)
-              << " (expected true)\n";
+    std::cout << std::boolalpha << isPalindrome(head) << " (expected true)\n";
     while (head) {
         ListNode* t = head;
         head = head->next;

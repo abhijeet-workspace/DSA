@@ -14,7 +14,8 @@ std::vector<int> getConcatenation(const std::vector<int>& nums) {
 }
 
 int main() {
-    for (int x : getConcatenation({1, 2, 1})) std::cout << x << " ";
+    for (int x : getConcatenation({1, 2, 1}))
+        std::cout << x << " ";
     std::cout << "(expected 1 2 1 1 2 1)\n";
     return 0;
 }

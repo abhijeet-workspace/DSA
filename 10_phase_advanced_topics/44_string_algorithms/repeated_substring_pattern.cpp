@@ -5,7 +5,8 @@
 
 bool repeatedSubstringPattern(const std::string& s) {
     const int n = static_cast<int>(s.size());
-    if (n < 2) return false;
+    if (n < 2)
+        return false;
     std::string ss = s + s;
     return ss.find(s, 1) < static_cast<size_t>(n);
 }

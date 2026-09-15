@@ -7,8 +7,7 @@
 #include <utility>
 #include <vector>
 
-std::vector<int> minInterval(std::vector<std::vector<int>> intervals,
-                             std::vector<int> queries) {
+std::vector<int> minInterval(std::vector<std::vector<int>> intervals, std::vector<int> queries) {
     std::sort(intervals.begin(), intervals.end()); // by left
     std::vector<std::pair<int, int>> q;            // {value, index}
     for (int i = 0; i < static_cast<int>(queries.size()); ++i) {
@@ -16,9 +15,7 @@ std::vector<int> minInterval(std::vector<std::vector<int>> intervals,
     }
     std::sort(q.begin(), q.end());
     // min-heap of {length, right}
-    std::priority_queue<std::pair<int, int>, std::vector<std::pair<int, int>>,
-                        std::greater<>>
-        pq;
+    std::priority_queue<std::pair<int, int>, std::vector<std::pair<int, int>>, std::greater<>> pq;
     std::vector<int> ans(queries.size(), -1);
     int i = 0;
     for (const auto& [x, idx] : q) {

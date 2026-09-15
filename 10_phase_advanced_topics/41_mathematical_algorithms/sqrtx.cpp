@@ -3,9 +3,11 @@
 #include <iostream>
 
 int mySqrt(int x) {
-    if (x < 2) return x;
+    if (x < 2)
+        return x;
     long r = x;
-    while (r > x / r) r = (r + x / r) / 2;
+    while (r > x / r)
+        r = (r + x / r) / 2;
     return static_cast<int>(r);
 }
 

@@ -15,7 +15,7 @@ double mincostToHireWorkers(const std::vector<int>& quality, const std::vector<i
                            quality[static_cast<size_t>(i)]});
     }
     std::sort(workers.begin(), workers.end()); // ascending ratio
-    std::priority_queue<int> maxQual; // drop highest quality when > k
+    std::priority_queue<int> maxQual;          // drop highest quality when > k
     long long sumQual = 0;
     double best = 1e18;
     for (const auto& [ratio, q] : workers) {
@@ -36,6 +36,7 @@ int main() {
     std::cout.setf(std::ios::fixed);
     std::cout.precision(5);
     std::cout << mincostToHireWorkers({10, 20, 5}, {70, 50, 30}, 2) << " (expected 105.00000)\n"
-              << mincostToHireWorkers({3, 1, 10, 10, 1}, {4, 8, 2, 2, 7}, 3) << " (expected 30.66667)\n";
+              << mincostToHireWorkers({3, 1, 10, 10, 1}, {4, 8, 2, 2, 7}, 3)
+              << " (expected 30.66667)\n";
     return 0;
 }

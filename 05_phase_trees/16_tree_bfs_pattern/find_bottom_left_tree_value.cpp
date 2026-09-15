@@ -16,10 +16,14 @@ int findBottomLeftValue(TreeNode* root) {
     while (!q.empty()) {
         const int sz = static_cast<int>(q.size());
         for (int i = 0; i < sz; ++i) {
-            TreeNode* u = q.front(); q.pop();
-            if (i == 0) ans = u->val; // leftmost of this level
-            if (u->left) q.push(u->left);
-            if (u->right) q.push(u->right);
+            TreeNode* u = q.front();
+            q.pop();
+            if (i == 0)
+                ans = u->val; // leftmost of this level
+            if (u->left)
+                q.push(u->left);
+            if (u->right)
+                q.push(u->right);
         }
     }
     return ans;

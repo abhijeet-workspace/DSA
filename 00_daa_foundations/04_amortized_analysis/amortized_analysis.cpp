@@ -6,14 +6,14 @@
 #include <string>
 
 class SimulatedDynamicArray {
-private:
+  private:
     int* data;
     int capacity;
     int size;
     long long total_actual_cost;
     long long total_tokens_bank;
 
-public:
+  public:
     struct PushMetrics {
         int actual_cost;
         int amortized_cost_accounting;
@@ -21,8 +21,7 @@ public:
     };
 
     SimulatedDynamicArray()
-        : data(new int[1]), capacity(1), size(0), total_actual_cost(0),
-          total_tokens_bank(0) {}
+        : data(new int[1]), capacity(1), size(0), total_actual_cost(0), total_tokens_bank(0) {}
 
     ~SimulatedDynamicArray() { delete[] data; }
 
@@ -60,27 +59,23 @@ int main() {
     SimulatedDynamicArray arr;
     const int num_elements = 16;
 
-    std::cout << std::setw(5) << "Push" << std::setw(10) << "Size"
-              << std::setw(12) << "Capacity" << std::setw(15) << "Actual Cost"
-              << std::setw(20) << "Bank (Tokens)" << std::setw(15)
+    std::cout << std::setw(5) << "Push" << std::setw(10) << "Size" << std::setw(12) << "Capacity"
+              << std::setw(15) << "Actual Cost" << std::setw(20) << "Bank (Tokens)" << std::setw(15)
               << "Potential" << "\n";
     std::cout << std::string(77, '-') << "\n";
 
     for (int i = 1; i <= num_elements; ++i) {
         auto metrics = arr.push(std::rand() % 100);
-        std::cout << std::setw(5) << i << std::setw(10) << arr.getSize()
-                  << std::setw(12) << arr.getCapacity() << std::setw(15)
-                  << metrics.actual_cost << std::setw(20) << arr.getTokens()
-                  << std::setw(15) << metrics.potential << "\n";
+        std::cout << std::setw(5) << i << std::setw(10) << arr.getSize() << std::setw(12)
+                  << arr.getCapacity() << std::setw(15) << metrics.actual_cost << std::setw(20)
+                  << arr.getTokens() << std::setw(15) << metrics.potential << "\n";
     }
 
     std::cout << std::string(77, '-') << "\n";
-    std::cout << "Total actual cost for " << num_elements
-              << " pushes: " << arr.getTotalActualCost() << "\n";
-    std::cout << "Amortized (aggregate): "
-              << static_cast<double>(arr.getTotalActualCost()) / num_elements
+    std::cout << "Total actual cost for " << num_elements << " pushes: " << arr.getTotalActualCost()
               << "\n";
-    std::cout << "Remaining tokens (accounting): " << arr.getTokens()
-              << " (should be >= 0)\n";
+    std::cout << "Amortized (aggregate): "
+              << static_cast<double>(arr.getTotalActualCost()) / num_elements << "\n";
+    std::cout << "Remaining tokens (accounting): " << arr.getTokens() << " (should be >= 0)\n";
     return 0;
 }

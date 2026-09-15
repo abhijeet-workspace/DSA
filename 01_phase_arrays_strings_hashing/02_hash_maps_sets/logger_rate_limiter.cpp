@@ -7,7 +7,7 @@
 class Logger {
     std::unordered_map<std::string, int> last_; // message -> last print timestamp
 
-public:
+  public:
     bool shouldPrintMessage(int timestamp, const std::string& message) {
         auto it = last_.find(message);
         if (it != last_.end() && timestamp - it->second < 10) {

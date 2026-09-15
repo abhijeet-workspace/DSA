@@ -4,19 +4,25 @@
 #include <vector>
 
 int mergeCount(std::vector<int>& a, std::vector<int>& tmp, int l, int r) {
-    if (l >= r) return 0;
+    if (l >= r)
+        return 0;
     int m = l + (r - l) / 2;
     int cnt = mergeCount(a, tmp, l, m) + mergeCount(a, tmp, m + 1, r);
     int j = m + 1;
     for (int i = l; i <= m; ++i) {
-        while (j <= r && a[i] > 2LL * a[j]) ++j;
+        while (j <= r && a[i] > 2LL * a[j])
+            ++j;
         cnt += j - (m + 1);
     }
     int i = l, p = m + 1, k = l;
-    while (i <= m && p <= r) tmp[k++] = (a[i] <= a[p]) ? a[i++] : a[p++];
-    while (i <= m) tmp[k++] = a[i++];
-    while (p <= r) tmp[k++] = a[p++];
-    for (int t = l; t <= r; ++t) a[t] = tmp[t];
+    while (i <= m && p <= r)
+        tmp[k++] = (a[i] <= a[p]) ? a[i++] : a[p++];
+    while (i <= m)
+        tmp[k++] = a[i++];
+    while (p <= r)
+        tmp[k++] = a[p++];
+    for (int t = l; t <= r; ++t)
+        a[t] = tmp[t];
     return cnt;
 }
 

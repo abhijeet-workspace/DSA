@@ -6,8 +6,10 @@
 int minPathSum(std::vector<std::vector<int>>& grid) {
     const int m = static_cast<int>(grid.size());
     const int n = static_cast<int>(grid[0].size());
-    for (int j = 1; j < n; ++j) grid[0][static_cast<size_t>(j)] += grid[0][static_cast<size_t>(j - 1)];
-    for (int i = 1; i < m; ++i) grid[static_cast<size_t>(i)][0] += grid[static_cast<size_t>(i - 1)][0];
+    for (int j = 1; j < n; ++j)
+        grid[0][static_cast<size_t>(j)] += grid[0][static_cast<size_t>(j - 1)];
+    for (int i = 1; i < m; ++i)
+        grid[static_cast<size_t>(i)][0] += grid[static_cast<size_t>(i - 1)][0];
     for (int i = 1; i < m; ++i) {
         for (int j = 1; j < n; ++j) {
             grid[static_cast<size_t>(i)][static_cast<size_t>(j)] +=

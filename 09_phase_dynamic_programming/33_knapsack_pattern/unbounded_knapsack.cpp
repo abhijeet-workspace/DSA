@@ -8,9 +8,10 @@ int unboundedKnapsack(int W, const std::vector<int>& wt, const std::vector<int>&
     const int n = static_cast<int>(wt.size());
     for (int i = 0; i < n; ++i) {
         for (int w = wt[static_cast<size_t>(i)]; w <= W; ++w) {
-            dp[static_cast<size_t>(w)] = std::max(
-                dp[static_cast<size_t>(w)],
-                dp[static_cast<size_t>(w - wt[static_cast<size_t>(i)])] + val[static_cast<size_t>(i)]);
+            dp[static_cast<size_t>(w)] =
+                std::max(dp[static_cast<size_t>(w)],
+                         dp[static_cast<size_t>(w - wt[static_cast<size_t>(i)])] +
+                             val[static_cast<size_t>(i)]);
         }
     }
     return dp[static_cast<size_t>(W)];

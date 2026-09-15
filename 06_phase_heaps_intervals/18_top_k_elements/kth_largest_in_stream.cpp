@@ -15,7 +15,7 @@ class KthLargest {
         }
     }
 
-public:
+  public:
     KthLargest(int k, const std::vector<int>& nums) : k_(k) {
         for (int x : nums) {
             push(x);

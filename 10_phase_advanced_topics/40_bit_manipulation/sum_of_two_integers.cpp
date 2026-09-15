@@ -12,7 +12,6 @@ int getSum(int a, int b) {
 }
 
 int main() {
-    std::cout << getSum(3, 5) << " (expected 8)\n"
-              << getSum(-2, 3) << " (expected 1)\n";
+    std::cout << getSum(3, 5) << " (expected 8)\n" << getSum(-2, 3) << " (expected 1)\n";
     return 0;
 }

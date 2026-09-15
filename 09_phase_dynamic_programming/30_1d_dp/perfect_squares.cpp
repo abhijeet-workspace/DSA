@@ -17,7 +17,6 @@ int numSquares(int n) {
 }
 
 int main() {
-    std::cout << numSquares(12) << " (expected 3)\n"
-              << numSquares(13) << " (expected 2)\n";
+    std::cout << numSquares(12) << " (expected 3)\n" << numSquares(13) << " (expected 2)\n";
     return 0;
 }

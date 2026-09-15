@@ -1,8 +1,8 @@
 // Find All Duplicates in an Array — https://leetcode.com/problems/find-all-duplicates-in-an-array/
 // Cyclic place v at index v-1; values sitting off-home after placement are duplicates.
 #include <iostream>
-#include <vector>
 #include <utility>
+#include <vector>
 
 std::vector<int> findDuplicates(std::vector<int>& nums) {
     const int n = static_cast<int>(nums.size());
@@ -26,7 +26,8 @@ std::vector<int> findDuplicates(std::vector<int>& nums) {
 
 int main() {
     std::vector<int> nums = {4, 3, 2, 7, 8, 2, 3, 1};
-    for (int x : findDuplicates(nums)) std::cout << x << ' ';
+    for (int x : findDuplicates(nums))
+        std::cout << x << ' ';
     std::cout << "(expected 2 3)\n";
     return 0;
 }

@@ -34,9 +34,9 @@ void mergeSort(std::vector<int>& arr, int l, int r) {
         return; // T(1)
     }
     int m = l + (r - l) / 2;
-    mergeSort(arr, l, m); // T(n/2)
+    mergeSort(arr, l, m);     // T(n/2)
     mergeSort(arr, m + 1, r); // T(n/2)
-    merge(arr, l, m, r); // O(n) combine
+    merge(arr, l, m, r);      // O(n) combine
 }
 
 int binarySearch(const std::vector<int>& arr, int l, int r, int target) {

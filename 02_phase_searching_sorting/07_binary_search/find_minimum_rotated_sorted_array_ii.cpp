@@ -1,5 +1,6 @@
-// Find Minimum in Rotated Sorted Array II — https://leetcode.com/problems/find-minimum-in-rotated-sorted-array-ii/
-// Rotated with duplicates; shrink linearly when nums[mid] == nums[hi].
+// Find Minimum in Rotated Sorted Array II —
+// https://leetcode.com/problems/find-minimum-in-rotated-sorted-array-ii/ Rotated with duplicates;
+// shrink linearly when nums[mid] == nums[hi].
 #include <iostream>
 #include <vector>
 

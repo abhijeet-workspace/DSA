@@ -14,7 +14,8 @@ int maxResult(const std::vector<int>& nums, int k) {
         while (!dq.empty() && dq.front() < i - k) {
             dq.pop_front();
         }
-        dp[static_cast<size_t>(i)] = nums[static_cast<size_t>(i)] + dp[static_cast<size_t>(dq.front())];
+        dp[static_cast<size_t>(i)] =
+            nums[static_cast<size_t>(i)] + dp[static_cast<size_t>(dq.front())];
         while (!dq.empty() && dp[static_cast<size_t>(dq.back())] <= dp[static_cast<size_t>(i)]) {
             dq.pop_back();
         }

@@ -1,5 +1,6 @@
-// Find the Kth Smallest Sum of a Matrix With Sorted Rows — https://leetcode.com/problems/find-the-kth-smallest-sum-of-a-matrix-with-sorted-rows/
-// Iteratively k-way merge row selections with a min-heap of partial sums.
+// Find the Kth Smallest Sum of a Matrix With Sorted Rows —
+// https://leetcode.com/problems/find-the-kth-smallest-sum-of-a-matrix-with-sorted-rows/ Iteratively
+// k-way merge row selections with a min-heap of partial sums.
 #include <iostream>
 #include <queue>
 #include <set>
@@ -10,7 +11,8 @@ int kthSmallest(std::vector<std::vector<int>>& mat, int k) {
     for (const auto& row : mat) {
         std::priority_queue<int, std::vector<int>, std::greater<int>> pq;
         for (int s : prev) {
-            for (int x : row) pq.push(s + x);
+            for (int x : row)
+                pq.push(s + x);
         }
         prev.clear();
         while (!pq.empty() && static_cast<int>(prev.size()) < k) {

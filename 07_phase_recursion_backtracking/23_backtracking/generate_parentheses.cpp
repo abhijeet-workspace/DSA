@@ -31,6 +31,7 @@ std::vector<std::string> generateParenthesis(int n) {
 int main() {
     const auto r = generateParenthesis(3);
     std::cout << "count=" << r.size() << " (expected 5)\n";
-    for (const auto& s : r) std::cout << s << "\n";
+    for (const auto& s : r)
+        std::cout << s << "\n";
     return 0;
 }

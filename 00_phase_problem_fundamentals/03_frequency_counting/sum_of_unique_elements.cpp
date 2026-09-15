@@ -4,9 +4,12 @@
 
 int sumOfUnique(const std::vector<int>& nums) {
     int freq[101] = {};
-    for (int x : nums) ++freq[x];
+    for (int x : nums)
+        ++freq[x];
     int sum = 0;
-    for (int v = 1; v <= 100; ++v) if (freq[v] == 1) sum += v;
+    for (int v = 1; v <= 100; ++v)
+        if (freq[v] == 1)
+            sum += v;
     return sum;
 }
 

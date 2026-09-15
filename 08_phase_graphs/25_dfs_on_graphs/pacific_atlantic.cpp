@@ -5,9 +5,8 @@
 
 void dfs(const std::vector<std::vector<int>>& heights, int r, int c, int prev,
          std::vector<std::vector<bool>>& visited) {
-    if (r < 0 || c < 0 || r >= static_cast<int>(heights.size())
-        || c >= static_cast<int>(heights[0].size()) || visited[r][c]
-        || heights[r][c] < prev) {
+    if (r < 0 || c < 0 || r >= static_cast<int>(heights.size()) ||
+        c >= static_cast<int>(heights[0].size()) || visited[r][c] || heights[r][c] < prev) {
         return;
     }
     visited[r][c] = true;
@@ -28,12 +27,12 @@ std::vector<std::vector<int>> pacificAtlantic(const std::vector<std::vector<int>
     std::vector<std::vector<bool>> atlantic(m, std::vector<bool>(n));
 
     for (int i = 0; i < m; ++i) {
-        dfs(heights, i, 0, heights[i][0], pacific);           // left = Pacific
-        dfs(heights, i, n - 1, heights[i][n - 1], atlantic);  // right = Atlantic
+        dfs(heights, i, 0, heights[i][0], pacific);          // left = Pacific
+        dfs(heights, i, n - 1, heights[i][n - 1], atlantic); // right = Atlantic
     }
     for (int j = 0; j < n; ++j) {
-        dfs(heights, 0, j, heights[0][j], pacific);           // top = Pacific
-        dfs(heights, m - 1, j, heights[m - 1][j], atlantic);  // bottom = Atlantic
+        dfs(heights, 0, j, heights[0][j], pacific);          // top = Pacific
+        dfs(heights, m - 1, j, heights[m - 1][j], atlantic); // bottom = Atlantic
     }
 
     std::vector<std::vector<int>> result;
@@ -49,11 +48,7 @@ std::vector<std::vector<int>> pacificAtlantic(const std::vector<std::vector<int>
 
 int main() {
     const std::vector<std::vector<int>> heights = {
-        {1, 2, 2, 3, 5},
-        {3, 2, 3, 4, 4},
-        {2, 4, 5, 3, 1},
-        {6, 7, 1, 4, 5},
-        {5, 1, 1, 2, 4},
+        {1, 2, 2, 3, 5}, {3, 2, 3, 4, 4}, {2, 4, 5, 3, 1}, {6, 7, 1, 4, 5}, {5, 1, 1, 2, 4},
     };
     auto res = pacificAtlantic(heights);
     std::cout << "cells=" << res.size() << " (expected 7)\n";

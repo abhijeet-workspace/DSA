@@ -16,7 +16,7 @@ class MyQueue {
         }
     }
 
-public:
+  public:
     void push(int x) { in_.push(x); }
 
     int pop() {

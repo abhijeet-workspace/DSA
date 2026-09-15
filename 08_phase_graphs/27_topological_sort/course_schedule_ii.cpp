@@ -4,8 +4,7 @@
 #include <queue>
 #include <vector>
 
-std::vector<int> findOrder(int numCourses,
-                           const std::vector<std::vector<int>>& prerequisites) {
+std::vector<int> findOrder(int numCourses, const std::vector<std::vector<int>>& prerequisites) {
     std::vector<std::vector<int>> g(static_cast<size_t>(numCourses));
     std::vector<int> indeg(static_cast<size_t>(numCourses), 0);
     for (const auto& e : prerequisites) {

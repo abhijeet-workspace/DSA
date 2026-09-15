@@ -5,10 +5,10 @@
 #include <vector>
 
 class MedianFinder {
-    std::priority_queue<int> low; // max-heap: lower half
+    std::priority_queue<int> low;                                       // max-heap: lower half
     std::priority_queue<int, std::vector<int>, std::greater<int>> high; // min-heap: upper
 
-public:
+  public:
     void addNum(int num) {
         low.push(num);
         high.push(low.top()); // move largest of low into high

@@ -1,5 +1,6 @@
-// Final Prices With a Special Discount — https://leetcode.com/problems/final-prices-with-a-special-discount-in-a-shop/
-// Discount = next smaller-or-equal price to the right (0 if none).
+// Final Prices With a Special Discount —
+// https://leetcode.com/problems/final-prices-with-a-special-discount-in-a-shop/ Discount = next
+// smaller-or-equal price to the right (0 if none).
 #include <iostream>
 #include <stack>
 #include <vector>

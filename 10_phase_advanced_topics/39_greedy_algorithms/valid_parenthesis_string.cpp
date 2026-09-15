@@ -1,8 +1,8 @@
 // Valid Parenthesis String — https://leetcode.com/problems/valid-parenthesis-string/
 // Track possible open-count range; '*' widens lo/hi.
+#include <algorithm>
 #include <iostream>
 #include <string>
-#include <algorithm>
 
 bool checkValidString(const std::string& s) {
     int lo = 0, hi = 0; // min/max possible open count
@@ -17,7 +17,8 @@ bool checkValidString(const std::string& s) {
             lo = std::max(lo - 1, 0);
             ++hi;
         }
-        if (hi < 0) return false; // too many ')'
+        if (hi < 0)
+            return false; // too many ')'
     }
     return lo == 0;
 }

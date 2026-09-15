@@ -1,20 +1,21 @@
 // C++17 Features — structured bindings, optional, variant, string_view, init-if
 // Type-safe absence/unions and zero-copy string views for cleaner DSA code.
+#include <algorithm>
 #include <iostream>
-#include <vector>
+#include <optional>
 #include <string>
 #include <string_view>
-#include <optional>
-#include <variant>
-#include <algorithm>
 #include <utility>
+#include <variant>
+#include <vector>
 
 std::pair<int, std::string> getStudentInfo() {
     return {101, "Alice"};
 }
 
 std::optional<std::string> fetchUserFromDatabase(bool exists) {
-    if (exists) return "Abhijeet";
+    if (exists)
+        return "Abhijeet";
     return std::nullopt; // no value
 }
 
@@ -38,8 +39,7 @@ int main() {
         std::cout << "User found: " << userOpt.value() << "\n";
     }
     auto missingOpt = fetchUserFromDatabase(false);
-    std::cout << "Missing user optional fallback: "
-              << missingOpt.value_or("Guest_User") << "\n\n";
+    std::cout << "Missing user optional fallback: " << missingOpt.value_or("Guest_User") << "\n\n";
 
     std::variant<int, double, std::string> myVar;
     myVar = 10;
@@ -48,9 +48,9 @@ int main() {
     std::cout << "Variant holds double: " << std::get<double>(myVar) << "\n";
     myVar = "Modern C++";
 
-    std::visit([](auto&& arg) {
-        std::cout << "Variant visitor active. Type/value: " << arg << "\n";
-    }, myVar);
+    std::visit(
+        [](auto&& arg) { std::cout << "Variant visitor active. Type/value: " << arg << "\n"; },
+        myVar);
     std::cout << "\n";
 
     std::string longString = "This is a very long string stored on the heap.";

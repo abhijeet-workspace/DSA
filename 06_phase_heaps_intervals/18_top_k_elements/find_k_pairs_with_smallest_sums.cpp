@@ -6,8 +6,7 @@
 #include <vector>
 
 std::vector<std::vector<int>> kSmallestPairs(const std::vector<int>& nums1,
-                                             const std::vector<int>& nums2,
-                                             int k) {
+                                             const std::vector<int>& nums2, int k) {
     std::vector<std::vector<int>> result;
     if (nums1.empty() || nums2.empty() || k <= 0) {
         return result;
@@ -25,8 +24,8 @@ std::vector<std::vector<int>> kSmallestPairs(const std::vector<int>& nums1,
         (void)sum;
         result.push_back({nums1[static_cast<size_t>(i)], nums2[static_cast<size_t>(j)]});
         if (i + 1 < m) {
-            min_heap.push({nums1[static_cast<size_t>(i + 1)] + nums2[static_cast<size_t>(j)],
-                           i + 1, j});
+            min_heap.push(
+                {nums1[static_cast<size_t>(i + 1)] + nums2[static_cast<size_t>(j)], i + 1, j});
         }
     }
     return result;

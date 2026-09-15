@@ -30,8 +30,8 @@ ListNode* reverseKGroup(ListNode* head, int k) {
             curr = nxt;
         }
         ListNode* groupTail = prevGroup->next; // old head becomes tail
-        prevGroup->next = prev; // new group head
-        groupTail->next = curr; // link to remainder
+        prevGroup->next = prev;                // new group head
+        groupTail->next = curr;                // link to remainder
         prevGroup = groupTail;
         currGroup = curr;
         count -= k;

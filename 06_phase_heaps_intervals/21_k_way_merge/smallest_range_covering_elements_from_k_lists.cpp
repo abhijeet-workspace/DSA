@@ -1,5 +1,6 @@
-// Smallest Range Covering Elements from K Lists — https://leetcode.com/problems/smallest-range-covering-elements-from-k-lists/
-// Min-heap of current heads + track max; advance the list of the min.
+// Smallest Range Covering Elements from K Lists —
+// https://leetcode.com/problems/smallest-range-covering-elements-from-k-lists/ Min-heap of current
+// heads + track max; advance the list of the min.
 #include <iostream>
 #include <limits>
 #include <queue>
@@ -22,7 +23,8 @@ std::vector<int> smallestRange(std::vector<std::vector<int>>& nums) {
             bestL = val;
             bestR = curMax;
         }
-        if (ei + 1 == static_cast<int>(nums[static_cast<size_t>(li)].size())) break;
+        if (ei + 1 == static_cast<int>(nums[static_cast<size_t>(li)].size()))
+            break;
         int nxt = nums[static_cast<size_t>(li)][static_cast<size_t>(ei + 1)];
         pq.push({nxt, li, ei + 1});
         curMax = std::max(curMax, nxt);

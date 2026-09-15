@@ -4,7 +4,8 @@
 #include <iostream>
 
 int reinitializePermutation(int n) {
-    if (n == 2) return 1;
+    if (n == 2)
+        return 1;
     int ans = 0;
     int i = 1;
     do {

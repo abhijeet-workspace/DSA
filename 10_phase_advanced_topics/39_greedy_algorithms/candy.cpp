@@ -23,7 +23,6 @@ int candy(const std::vector<int>& ratings) {
 }
 
 int main() {
-    std::cout << candy({1, 0, 2}) << " (expected 5)\n"
-              << candy({1, 2, 2}) << " (expected 4)\n";
+    std::cout << candy({1, 0, 2}) << " (expected 5)\n" << candy({1, 2, 2}) << " (expected 4)\n";
     return 0;
 }

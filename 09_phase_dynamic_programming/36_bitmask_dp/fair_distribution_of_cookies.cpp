@@ -14,11 +14,13 @@ int distributeCookies(std::vector<int>& cookies, int k) {
             return;
         }
         for (int c = 0; c < k; ++c) {
-            if (load[static_cast<size_t>(c)] + cookies[static_cast<size_t>(i)] >= ans) continue;
+            if (load[static_cast<size_t>(c)] + cookies[static_cast<size_t>(i)] >= ans)
+                continue;
             load[static_cast<size_t>(c)] += cookies[static_cast<size_t>(i)];
             dfs(i + 1);
             load[static_cast<size_t>(c)] -= cookies[static_cast<size_t>(i)];
-            if (load[static_cast<size_t>(c)] == 0) break;
+            if (load[static_cast<size_t>(c)] == 0)
+                break;
         }
     };
     dfs(0);

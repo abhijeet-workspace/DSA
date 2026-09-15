@@ -14,7 +14,7 @@ int minSubarrayLen(int target, const std::vector<int>& nums) {
         windowSum += nums[right]; // expand
         while (windowSum >= target) {
             minLen = std::min(minLen, right - left + 1); // candidate length
-            windowSum -= nums[left++]; // shrink from left
+            windowSum -= nums[left++];                   // shrink from left
         }
     }
     return minLen == INT_MAX ? 0 : minLen;

@@ -1,5 +1,6 @@
-// Intersection of Two Linked Lists — https://leetcode.com/problems/intersection-of-two-linked-lists/
-// Return the shared node by reference, or nullptr.
+// Intersection of Two Linked Lists —
+// https://leetcode.com/problems/intersection-of-two-linked-lists/ Return the shared node by
+// reference, or nullptr.
 #include <iostream>
 
 struct ListNode {

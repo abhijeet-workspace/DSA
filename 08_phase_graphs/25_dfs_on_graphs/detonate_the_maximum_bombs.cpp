@@ -2,13 +2,16 @@
 #include <iostream>
 #include <vector>
 
-long long sq(long long x) { return x * x; }
+long long sq(long long x) {
+    return x * x;
+}
 
 int dfs(int u, const std::vector<std::vector<int>>& g, std::vector<char>& vis) {
     vis[static_cast<size_t>(u)] = 1;
     int cnt = 1;
     for (int v : g[static_cast<size_t>(u)]) {
-        if (!vis[static_cast<size_t>(v)]) cnt += dfs(v, g, vis);
+        if (!vis[static_cast<size_t>(v)])
+            cnt += dfs(v, g, vis);
     }
     return cnt;
 }
@@ -18,11 +21,13 @@ int maximumDetonation(const std::vector<std::vector<int>>& bombs) {
     std::vector<std::vector<int>> g(static_cast<size_t>(n));
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
-            if (i == j) continue;
+            if (i == j)
+                continue;
             long long dx = bombs[static_cast<size_t>(i)][0] - bombs[static_cast<size_t>(j)][0];
             long long dy = bombs[static_cast<size_t>(i)][1] - bombs[static_cast<size_t>(j)][1];
             long long r = bombs[static_cast<size_t>(i)][2];
-            if (sq(dx) + sq(dy) <= sq(r)) g[static_cast<size_t>(i)].push_back(j);
+            if (sq(dx) + sq(dy) <= sq(r))
+                g[static_cast<size_t>(i)].push_back(j);
         }
     }
     int best = 0;

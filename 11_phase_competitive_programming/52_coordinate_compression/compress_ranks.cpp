@@ -11,7 +11,8 @@ std::vector<int> compressRanks(const std::vector<int>& a) {
 
     std::vector<int> ranks(a.size());
     for (size_t i = 0; i < a.size(); ++i) {
-        ranks[i] = static_cast<int>(std::lower_bound(vals.begin(), vals.end(), a[i]) - vals.begin()) + 1;
+        ranks[i] =
+            static_cast<int>(std::lower_bound(vals.begin(), vals.end(), a[i]) - vals.begin()) + 1;
     }
     return ranks;
 }

@@ -16,7 +16,8 @@ std::vector<int> plusOne(std::vector<int> digits) {
 }
 
 int main() {
-    for (int x : plusOne({1, 2, 9})) std::cout << x;
+    for (int x : plusOne({1, 2, 9}))
+        std::cout << x;
     std::cout << " (expected 130)\n";
     return 0;
 }

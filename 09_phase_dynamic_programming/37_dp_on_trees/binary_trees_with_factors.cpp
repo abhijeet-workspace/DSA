@@ -12,10 +12,12 @@ int numFactoredBinaryTrees(std::vector<int>& arr) {
     for (int x : arr) {
         dp[x] = 1;
         for (int y : arr) {
-            if (y >= x) break;
+            if (y >= x)
+                break;
             if (x % y == 0) {
                 int z = x / y;
-                if (dp.count(z)) dp[x] = (dp[x] + dp[y] * dp[z]) % MOD;
+                if (dp.count(z))
+                    dp[x] = (dp[x] + dp[y] * dp[z]) % MOD;
             }
         }
         ans = (ans + dp[x]) % MOD;

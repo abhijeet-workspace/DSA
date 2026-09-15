@@ -1,12 +1,12 @@
 // Maximum Subarray — https://leetcode.com/problems/maximum-subarray/
 // Contiguous subarray with the largest sum; return that sum.
+#include <algorithm>
 #include <iostream>
 #include <vector>
-#include <algorithm>
 
 int maxSubArray(const std::vector<int>& nums) {
     int best = nums[0]; // global max sum
-    int cur = nums[0]; // best ending here
+    int cur = nums[0];  // best ending here
     for (size_t i = 1; i < nums.size(); ++i) {
         cur = std::max(nums[i], cur + nums[i]); // restart or extend
         best = std::max(best, cur);

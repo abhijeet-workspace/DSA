@@ -1,5 +1,6 @@
-// Design Search Autocomplete System — https://leetcode.com/problems/design-search-autocomplete-system/
-// Trie of sentences with hot degrees; input(c) returns top-3 hot prefix matches ('#' commits).
+// Design Search Autocomplete System —
+// https://leetcode.com/problems/design-search-autocomplete-system/ Trie of sentences with hot
+// degrees; input(c) returns top-3 hot prefix matches ('#' commits).
 #include <algorithm>
 #include <iostream>
 #include <string>
@@ -50,7 +51,7 @@ class AutocompleteSystem {
         return res;
     }
 
-public:
+  public:
     AutocompleteSystem(const std::vector<std::string>& sentences, const std::vector<int>& times)
         : root_(new Node()), curr_(root_) {
         for (size_t i = 0; i < sentences.size(); ++i) {
@@ -81,7 +82,8 @@ int main() {
     AutocompleteSystem ac({"i love you", "island", "iroman", "i love leetcode"}, {5, 3, 2, 2});
     auto print = [](const std::vector<std::string>& v) {
         for (size_t i = 0; i < v.size(); ++i) {
-            if (i) std::cout << " | ";
+            if (i)
+                std::cout << " | ";
             std::cout << v[i];
         }
         std::cout << '\n';

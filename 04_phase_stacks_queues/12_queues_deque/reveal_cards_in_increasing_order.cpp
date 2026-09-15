@@ -1,5 +1,6 @@
-// Reveal Cards In Increasing Order — https://leetcode.com/problems/reveal-cards-in-increasing-order/
-// Reverse the reveal process with a deque of indices.
+// Reveal Cards In Increasing Order —
+// https://leetcode.com/problems/reveal-cards-in-increasing-order/ Reverse the reveal process with a
+// deque of indices.
 #include <algorithm>
 #include <deque>
 #include <iostream>

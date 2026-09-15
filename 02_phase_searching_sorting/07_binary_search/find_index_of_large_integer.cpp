@@ -1,12 +1,13 @@
-// Find the Index of the Large Integer — https://leetcode.com/problems/find-the-index-of-the-large-integer/
-// All elements equal except one larger; compareSub on halves to binary-search its index.
+// Find the Index of the Large Integer —
+// https://leetcode.com/problems/find-the-index-of-the-large-integer/ All elements equal except one
+// larger; compareSub on halves to binary-search its index.
 #include <iostream>
 #include <vector>
 
 class ArrayReader {
     std::vector<int> data;
 
-public:
+  public:
     explicit ArrayReader(std::vector<int> d) : data(std::move(d)) {}
 
     int length() const { return static_cast<int>(data.size()); }

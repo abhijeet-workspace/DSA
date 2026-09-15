@@ -9,7 +9,7 @@ class MyCircularQueue {
     int count_ = 0;
     int cap_;
 
-public:
+  public:
     explicit MyCircularQueue(int k) : buf_(static_cast<size_t>(k)), cap_(k) {}
 
     bool enQueue(int value) {

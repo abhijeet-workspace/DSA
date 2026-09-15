@@ -1,8 +1,8 @@
 // Decode String — LC 394 (recursive descent)
-#include <iostream>
-#include <string>
 #include <cctype>
 #include <functional>
+#include <iostream>
+#include <string>
 
 std::string decodeString(const std::string& s) {
     size_t i = 0;
@@ -18,7 +18,8 @@ std::string decodeString(const std::string& s) {
                 ++i; // skip '['
                 std::string inner = parse();
                 ++i; // skip ']'
-                while (k--) cur += inner;
+                while (k--)
+                    cur += inner;
             } else {
                 cur += s[i++];
             }

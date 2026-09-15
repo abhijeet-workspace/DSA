@@ -1,7 +1,7 @@
 // Even Odd Tree — https://leetcode.com/problems/even-odd-tree/
+#include <climits>
 #include <iostream>
 #include <queue>
-#include <climits>
 
 struct TreeNode {
     int val;
@@ -18,15 +18,20 @@ bool isEvenOddTree(TreeNode* root) {
         const int sz = static_cast<int>(q.size());
         int prev = (level % 2 == 0) ? INT_MIN : INT_MAX;
         for (int i = 0; i < sz; ++i) {
-            TreeNode* u = q.front(); q.pop();
+            TreeNode* u = q.front();
+            q.pop();
             if (level % 2 == 0) {
-                if (u->val % 2 == 0 || u->val <= prev) return false;
+                if (u->val % 2 == 0 || u->val <= prev)
+                    return false;
             } else {
-                if (u->val % 2 != 0 || u->val >= prev) return false;
+                if (u->val % 2 != 0 || u->val >= prev)
+                    return false;
             }
             prev = u->val;
-            if (u->left) q.push(u->left);
-            if (u->right) q.push(u->right);
+            if (u->left)
+                q.push(u->left);
+            if (u->right)
+                q.push(u->right);
         }
         ++level;
     }

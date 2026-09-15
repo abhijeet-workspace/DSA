@@ -1,8 +1,8 @@
 // Max Consecutive Ones — LC 485
 // Longest run of 1s in a binary array.
+#include <algorithm>
 #include <iostream>
 #include <vector>
-#include <algorithm>
 
 int findMaxConsecutiveOnes(const std::vector<int>& nums) {
     int best = 0;

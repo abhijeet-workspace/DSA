@@ -9,8 +9,7 @@ std::vector<int> nextGreaterElement(const std::vector<int>& nums) {
     std::vector<int> res(static_cast<size_t>(n), -1);
     std::stack<int> st; // indices waiting for a greater value
     for (int i = 0; i < n; ++i) {
-        while (!st.empty() &&
-               nums[static_cast<size_t>(st.top())] < nums[static_cast<size_t>(i)]) {
+        while (!st.empty() && nums[static_cast<size_t>(st.top())] < nums[static_cast<size_t>(i)]) {
             res[static_cast<size_t>(st.top())] = nums[static_cast<size_t>(i)];
             st.pop();
         }

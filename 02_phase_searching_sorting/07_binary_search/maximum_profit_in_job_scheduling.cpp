@@ -1,9 +1,10 @@
-// Maximum Profit in Job Scheduling — https://leetcode.com/problems/maximum-profit-in-job-scheduling/
-// Weighted interval scheduling: sort by end; DP + binary search previous compatible job.
+// Maximum Profit in Job Scheduling —
+// https://leetcode.com/problems/maximum-profit-in-job-scheduling/ Weighted interval scheduling:
+// sort by end; DP + binary search previous compatible job.
 #include <algorithm>
 #include <iostream>
-#include <vector>
 #include <tuple>
+#include <vector>
 
 int jobScheduling(std::vector<int> startTime, std::vector<int> endTime, std::vector<int> profit) {
     const int n = static_cast<int>(startTime.size());

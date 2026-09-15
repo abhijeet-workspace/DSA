@@ -1,13 +1,13 @@
 // Jump Game II — https://leetcode.com/problems/jump-game-ii/
 // Min jumps to last index; greedy BFS layers on the array.
+#include <algorithm>
 #include <iostream>
 #include <vector>
-#include <algorithm>
 
 int jump(const std::vector<int>& nums) {
     int jumps = 0;
-    int end = 0;  // end of current jump window
-    int far = 0;  // farthest reachable in window
+    int end = 0; // end of current jump window
+    int far = 0; // farthest reachable in window
     for (int i = 0; i < static_cast<int>(nums.size()) - 1; ++i) {
         far = std::max(far, i + nums[static_cast<size_t>(i)]);
         if (i == end) { // must take another jump

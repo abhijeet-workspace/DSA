@@ -14,7 +14,8 @@ ll power(ll base, ll exp) {
     ll res = 1;
     base %= MOD;
     while (exp > 0) {
-        if (exp & 1) res = res * base % MOD;
+        if (exp & 1)
+            res = res * base % MOD;
         base = base * base % MOD;
         exp >>= 1;
     }
@@ -23,19 +24,23 @@ ll power(ll base, ll exp) {
 
 void precompute() {
     fact[0] = inv_fact[0] = 1;
-    for (int i = 1; i < MAX; ++i) fact[i] = fact[i - 1] * i % MOD;
+    for (int i = 1; i < MAX; ++i)
+        fact[i] = fact[i - 1] * i % MOD;
     inv_fact[MAX - 1] = power(fact[MAX - 1], MOD - 2);
-    for (int i = MAX - 2; i >= 1; --i) inv_fact[i] = inv_fact[i + 1] * (i + 1) % MOD;
+    for (int i = MAX - 2; i >= 1; --i)
+        inv_fact[i] = inv_fact[i + 1] * (i + 1) % MOD;
 }
 
 ll nCr(int n, int r) {
-    if (r < 0 || r > n) return 0;
+    if (r < 0 || r > n)
+        return 0;
     return fact[n] * inv_fact[r] % MOD * inv_fact[n - r] % MOD;
 }
 
 // C(n) = (2n)! / ((n+1)! n!)
 ll catalan(int n) {
-    if (n <= 1) return 1;
+    if (n <= 1)
+        return 1;
     return fact[2 * n] * inv_fact[n + 1] % MOD * inv_fact[n] % MOD;
 }
 
@@ -51,8 +56,12 @@ ll stirling_second(int n, int k) {
     return S[n][k];
 }
 
-ll gcd_ll(ll x, ll y) { return y == 0 ? x : gcd_ll(y, x % y); }
-ll lcm_ll(ll x, ll y) { return x / gcd_ll(x, y) * y; }
+ll gcd_ll(ll x, ll y) {
+    return y == 0 ? x : gcd_ll(y, x % y);
+}
+ll lcm_ll(ll x, ll y) {
+    return x / gcd_ll(x, y) * y;
+}
 
 // |A∪B∪C| for multiples of a,b,c in [1, limit]
 ll count_divisible(ll limit, ll a, ll b, ll c) {

@@ -1,8 +1,8 @@
 // Daily Temperatures — https://leetcode.com/problems/daily-temperatures/
 // For each day, days until a warmer temperature (0 if none).
 #include <iostream>
-#include <vector>
 #include <stack>
+#include <vector>
 
 std::vector<int> dailyTemperatures(const std::vector<int>& temperatures) {
     const int n = static_cast<int>(temperatures.size());

@@ -13,7 +13,8 @@ struct TreeNode {
 #include <climits>
 int best = INT_MIN;
 int gain(TreeNode* node) {
-    if (!node) return 0;
+    if (!node)
+        return 0;
     int L = std::max(0, gain(node->left));
     int R = std::max(0, gain(node->right));
     best = std::max(best, node->val + L + R);
@@ -28,7 +29,10 @@ int maxPathSum(TreeNode* root) {
 
 int main() {
     TreeNode a(-10), b(9), c(20), d(15), e(7);
-    a.left = &b; a.right = &c; c.left = &d; c.right = &e;
+    a.left = &b;
+    a.right = &c;
+    c.left = &d;
+    c.right = &e;
     std::cout << maxPathSum(&a) << " (expected 42)\n";
     return 0;
 }

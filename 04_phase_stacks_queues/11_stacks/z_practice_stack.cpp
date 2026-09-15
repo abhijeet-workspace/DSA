@@ -3,9 +3,8 @@
 #include <iostream>
 #include <vector>
 
-template <typename T>
-class Stack {
-public:
+template <typename T> class Stack {
+  public:
     std::vector<T> elements;
     void push(const T& v) { elements.push_back(v); }
     void pop() {

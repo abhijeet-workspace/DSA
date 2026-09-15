@@ -1,4 +1,5 @@
-// Number of Ways to Paint N x 3 Grid — https://leetcode.com/problems/number-of-ways-to-paint-n-x-3-grid/
+// Number of Ways to Paint N x 3 Grid —
+// https://leetcode.com/problems/number-of-ways-to-paint-n-x-3-grid/
 #include <iostream>
 
 int numOfWays(int n) {
@@ -8,7 +9,8 @@ int numOfWays(int n) {
     for (int i = 2; i <= n; ++i) {
         const long long na = (3 * a + 2 * b) % MOD;
         const long long nb = (2 * a + 2 * b) % MOD;
-        a = na; b = nb;
+        a = na;
+        b = nb;
     }
     return static_cast<int>((a + b) % MOD);
 }

@@ -1,5 +1,6 @@
-// Satisfiability of Equality Equations — https://leetcode.com/problems/satisfiability-of-equality-equations/
-// Union equals first; reject if an inequality joins the same component.
+// Satisfiability of Equality Equations —
+// https://leetcode.com/problems/satisfiability-of-equality-equations/ Union equals first; reject if
+// an inequality joins the same component.
 #include <iostream>
 #include <numeric>
 #include <string>
@@ -48,8 +49,7 @@ bool equationsPossible(const std::vector<std::string>& equations) {
 }
 
 int main() {
-    std::cout << std::boolalpha
-              << equationsPossible({"a==b", "b!=a"}) << " (expected false)\n"
+    std::cout << std::boolalpha << equationsPossible({"a==b", "b!=a"}) << " (expected false)\n"
               << equationsPossible({"a==b", "b==c", "a==c"}) << " (expected true)\n";
     return 0;
 }

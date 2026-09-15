@@ -18,7 +18,8 @@ std::vector<std::vector<int>> multiply(const std::vector<std::vector<int>>& A,
             }
         }
     }
-    std::vector<std::vector<int>> C(static_cast<size_t>(m), std::vector<int>(static_cast<size_t>(n), 0));
+    std::vector<std::vector<int>> C(static_cast<size_t>(m),
+                                    std::vector<int>(static_cast<size_t>(n), 0));
     for (int i = 0; i < m; ++i) {
         for (int t = 0; t < k; ++t) {
             if (A[static_cast<size_t>(i)][static_cast<size_t>(t)] == 0) {
@@ -40,7 +41,8 @@ int main() {
     // expected [[7,0,0],[-7,0,3]]
     for (const auto& row : C) {
         for (size_t j = 0; j < row.size(); ++j) {
-            if (j) std::cout << ' ';
+            if (j)
+                std::cout << ' ';
             std::cout << row[j];
         }
         std::cout << '\n';

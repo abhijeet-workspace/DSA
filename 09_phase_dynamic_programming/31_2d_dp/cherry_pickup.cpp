@@ -15,11 +15,14 @@ int cherryPickup(std::vector<std::vector<int>>& grid) {
             grid[static_cast<size_t>(r2)][static_cast<size_t>(c2)] < 0) {
             return -1e9;
         }
-        if (r1 == n - 1 && c1 == n - 1) return grid[static_cast<size_t>(r1)][static_cast<size_t>(c1)];
+        if (r1 == n - 1 && c1 == n - 1)
+            return grid[static_cast<size_t>(r1)][static_cast<size_t>(c1)];
         int& res = memo[static_cast<size_t>(r1)][static_cast<size_t>(c1)][static_cast<size_t>(r2)];
-        if (res != -2) return res;
+        if (res != -2)
+            return res;
         int cherries = grid[static_cast<size_t>(r1)][static_cast<size_t>(c1)];
-        if (r1 != r2) cherries += grid[static_cast<size_t>(r2)][static_cast<size_t>(c2)];
+        if (r1 != r2)
+            cherries += grid[static_cast<size_t>(r2)][static_cast<size_t>(c2)];
         const int best = std::max({dfs(r1 + 1, c1, r2 + 1), dfs(r1, c1 + 1, r2),
                                    dfs(r1 + 1, c1, r2), dfs(r1, c1 + 1, r2 + 1)});
         res = cherries + best;

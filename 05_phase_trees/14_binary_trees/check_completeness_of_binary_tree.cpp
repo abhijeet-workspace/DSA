@@ -1,5 +1,6 @@
-// Check Completeness of a Binary Tree — https://leetcode.com/problems/check-completeness-of-a-binary-tree/
-// True iff tree is complete (levels filled left-to-right).
+// Check Completeness of a Binary Tree —
+// https://leetcode.com/problems/check-completeness-of-a-binary-tree/ True iff tree is complete
+// (levels filled left-to-right).
 #include <iostream>
 #include <queue>
 

@@ -1,11 +1,11 @@
 // Move Semantics — C++11 rvalue references
 // Deep copy vs steal ownership via move ctor / move assignment.
-#include <iostream>
 #include <algorithm>
+#include <iostream>
 #include <utility>
 
 class ResourceWrapper {
-public:
+  public:
     int* data;
     size_t size;
 
@@ -20,8 +20,7 @@ public:
         std::cout << "Copy Constructor: Deep Copied resource of size " << size << "\n";
     }
 
-    ResourceWrapper(ResourceWrapper&& other) noexcept
-        : data(other.data), size(other.size) {
+    ResourceWrapper(ResourceWrapper&& other) noexcept : data(other.data), size(other.size) {
         other.data = nullptr; // leave source empty
         other.size = 0;
         std::cout << "Move Constructor: Stole resource of size " << size << "\n";

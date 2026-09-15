@@ -1,22 +1,25 @@
 // Reduce Array Size to The Half — LC 1338
-#include <iostream>
-#include <vector>
-#include <unordered_map>
 #include <algorithm>
+#include <iostream>
+#include <unordered_map>
+#include <vector>
 
 int minSetSize(const std::vector<int>& arr) {
     std::unordered_map<int, int> freq;
-    for (int x : arr) ++freq[x];
+    for (int x : arr)
+        ++freq[x];
     std::vector<int> counts;
     counts.reserve(freq.size());
-    for (const auto& [_, c] : freq) counts.push_back(c);
+    for (const auto& [_, c] : freq)
+        counts.push_back(c);
     std::sort(counts.begin(), counts.end(), std::greater<int>());
     const int need = static_cast<int>(arr.size()) / 2;
     int removed = 0, sets = 0;
     for (int c : counts) {
         removed += c;
         ++sets;
-        if (removed >= need) return sets;
+        if (removed >= need)
+            return sets;
     }
     return sets;
 }

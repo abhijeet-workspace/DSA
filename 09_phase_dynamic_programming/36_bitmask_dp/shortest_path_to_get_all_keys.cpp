@@ -12,8 +12,12 @@ int shortestPathAllKeys(std::vector<std::string>& grid) {
     for (int i = 0; i < R; ++i)
         for (int j = 0; j < C; ++j) {
             const char ch = grid[static_cast<size_t>(i)][static_cast<size_t>(j)];
-            if (ch == '@') { sr = i; sc = j; }
-            if (ch >= 'a' && ch <= 'f') keys = std::max(keys, ch - 'a' + 1);
+            if (ch == '@') {
+                sr = i;
+                sc = j;
+            }
+            if (ch >= 'a' && ch <= 'f')
+                keys = std::max(keys, ch - 'a' + 1);
         }
     const int full = (1 << keys) - 1;
     std::vector<std::vector<std::vector<char>>> seen(
@@ -25,17 +29,24 @@ int shortestPathAllKeys(std::vector<std::string>& grid) {
     while (!q.empty()) {
         auto [r, c, mask, d] = q.front();
         q.pop();
-        if (mask == full) return d;
+        if (mask == full)
+            return d;
         for (auto& dir : dirs) {
             int nr = r + dir[0], nc = c + dir[1];
-            if (nr < 0 || nc < 0 || nr >= R || nc >= C) continue;
+            if (nr < 0 || nc < 0 || nr >= R || nc >= C)
+                continue;
             char ch = grid[static_cast<size_t>(nr)][static_cast<size_t>(nc)];
-            if (ch == '#') continue;
+            if (ch == '#')
+                continue;
             int nmask = mask;
-            if (ch >= 'A' && ch <= 'F' && !(mask & (1 << (ch - 'A')))) continue;
-            if (ch >= 'a' && ch <= 'f') nmask |= 1 << (ch - 'a');
-            if (!seen[static_cast<size_t>(nr)][static_cast<size_t>(nc)][static_cast<size_t>(nmask)]) {
-                seen[static_cast<size_t>(nr)][static_cast<size_t>(nc)][static_cast<size_t>(nmask)] = 1;
+            if (ch >= 'A' && ch <= 'F' && !(mask & (1 << (ch - 'A'))))
+                continue;
+            if (ch >= 'a' && ch <= 'f')
+                nmask |= 1 << (ch - 'a');
+            if (!seen[static_cast<size_t>(nr)][static_cast<size_t>(nc)]
+                     [static_cast<size_t>(nmask)]) {
+                seen[static_cast<size_t>(nr)][static_cast<size_t>(nc)][static_cast<size_t>(nmask)] =
+                    1;
                 q.emplace(nr, nc, nmask, d + 1);
             }
         }

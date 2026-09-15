@@ -1,5 +1,6 @@
-// Number of Connected Components — https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/
-// Count components in an undirected graph via Union-Find.
+// Number of Connected Components —
+// https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/ Count
+// components in an undirected graph via Union-Find.
 #include <iostream>
 #include <vector>
 
