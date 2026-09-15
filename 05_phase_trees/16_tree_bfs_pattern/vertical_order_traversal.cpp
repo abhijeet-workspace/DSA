@@ -46,9 +46,9 @@ std::vector<std::vector<int>> verticalTraversal(TreeNode* root) {
 
 int main() {
     //     3
-    //    / \
+    //    / |
     //   9  20
-    //     /  \
+    //     /  |
     //    15   7
     TreeNode* root = new TreeNode(3);
     root->left = new TreeNode(9);

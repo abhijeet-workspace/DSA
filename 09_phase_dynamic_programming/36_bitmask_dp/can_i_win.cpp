@@ -17,9 +17,9 @@ bool canIWin(int maxChoosableInteger, int desiredTotal) {
             if (mask & (1 << i))
                 continue;
             if (i + 1 >= remain || !dfs(mask | (1 << i), remain - (i + 1)))
-                return memo[static_cast<size_t>(mask)] = 1;
+                return (memo[static_cast<size_t>(mask)] = 1);
         }
-        return memo[static_cast<size_t>(mask)] = 0;
+        return (memo[static_cast<size_t>(mask)] = 0);
     };
     return dfs(0, desiredTotal);
 }

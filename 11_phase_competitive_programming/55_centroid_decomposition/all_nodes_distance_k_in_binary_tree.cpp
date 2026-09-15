@@ -55,11 +55,11 @@ std::vector<int> distanceK(TreeNode* root, TreeNode* target, int k) {
 
 int main() {
     //      3
-    //     / \
+    //     / |
     //    5   1
-    //   / \ / \
+    //   / | / |
     //  6  2 0  8
-    //    / \
+    //    / |
     //   7   4
     TreeNode n3(3), n5(5), n1(1), n6(6), n2(2), n0(0), n8(8), n7(7), n4(4);
     n3.left = &n5;

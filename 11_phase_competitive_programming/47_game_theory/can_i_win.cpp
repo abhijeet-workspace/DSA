@@ -16,9 +16,9 @@ bool canIWin(int m, int desired) {
             if (!(mask & (1 << i))) {
                 int x = i + 1;
                 if (x >= rem || !dfs(mask | (1 << i), rem - x))
-                    return memo[mask] = 1;
+                    return (memo[mask] = 1);
             }
-        return memo[mask] = 0;
+        return (memo[mask] = 0);
     };
     return dfs(0, desired);
 }

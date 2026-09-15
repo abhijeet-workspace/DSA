@@ -35,7 +35,7 @@ int main() {
             remove(curR--);
         answers[qr.idx] = x;
     }
-    const std::vector<int> expected = {1 ^ 2 ^ 3 ^ 4 ^ 5, 2 ^ 3 ^ 4, 3, 1 ^ 2};
+    const std::vector<int> expected = {0x1 ^ 0x2 ^ 0x3 ^ 0x4 ^ 0x5, 0x2 ^ 0x3 ^ 0x4, 3, 0x1 ^ 0x2};
     bool ok = answers == expected;
     std::cout << "answers:";
     for (int v : answers)

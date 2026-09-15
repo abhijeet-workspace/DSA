@@ -6,7 +6,6 @@
 #include <vector>
 
 int nthSuperUglyNumber(int n, std::vector<int>& primes) {
-    using P = std::pair<long long, int>; // value, primeIndex (optional)
     std::priority_queue<long long, std::vector<long long>, std::greater<long long>> pq;
     std::unordered_set<long long> seen;
     pq.push(1);

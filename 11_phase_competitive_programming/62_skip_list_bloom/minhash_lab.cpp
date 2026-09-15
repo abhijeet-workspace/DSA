@@ -1,4 +1,5 @@
 // MinHash lab — simplified Jaccard estimate
+#include <cstdint>
 #include <iostream>
 #include <string>
 #include <unordered_set>

@@ -1,4 +1,5 @@
 // Las Vegas vs Monte Carlo lab
+#include <cstdint>
 #include <cstdlib>
 #include <iostream>
 #include <vector>

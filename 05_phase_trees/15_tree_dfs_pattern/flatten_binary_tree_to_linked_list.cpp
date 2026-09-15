@@ -38,9 +38,9 @@ std::vector<int> rightSpine(TreeNode* root) {
 
 int main() {
     // 1
-    // / \
+    // / |
     // 2   5
-    // / \   \
+    // / |   |
     // 3   4   6
     TreeNode* root = new TreeNode(1);
     root->left = new TreeNode(2);
