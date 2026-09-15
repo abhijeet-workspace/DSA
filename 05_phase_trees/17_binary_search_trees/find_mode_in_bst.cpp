@@ -54,11 +54,13 @@ public:
 };
 
 int main() {
-    //       1
-    //        \
-    //         2
-    //        /
-    //       2
+    /*    
+          1
+           \
+            2
+           /
+          2
+    */
     TreeNode* root = new TreeNode(1);
     root->right = new TreeNode(2);
     root->right->left = new TreeNode(2);
