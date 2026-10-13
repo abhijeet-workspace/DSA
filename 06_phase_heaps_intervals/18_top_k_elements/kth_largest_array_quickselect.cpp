@@ -7,34 +7,43 @@
 #include <utility>
 #include <vector>
 
-// Lomuto partition around a random pivot; returns final pivot index.
-int partition(std::vector<int>& a, int lo, int hi) {
+// Three-way (Dutch-flag) partition around a random pivot.
+// Returns inclusive [eqLo, eqHi]: values < pivot | == pivot | > pivot.
+// Equals must be a band, not one side of a 2-way split — a run of duplicates
+// otherwise shrinks the window by one index per pass (O(N²), TLE).
+std::pair<int, int> partition(std::vector<int>& a, int lo, int hi) {
     const int pidx = lo + std::rand() % (hi - lo + 1);
-    std::swap(a[static_cast<size_t>(pidx)], a[static_cast<size_t>(hi)]);
-    const int pivot = a[static_cast<size_t>(hi)];
+    const int pivot = a[static_cast<size_t>(pidx)];
+    int lt = lo;
     int i = lo;
-    for (int j = lo; j < hi; ++j) {
-        if (a[static_cast<size_t>(j)] <= pivot) {
-            std::swap(a[static_cast<size_t>(i++)], a[static_cast<size_t>(j)]);
+    int gt = hi;
+    while (i <= gt) {
+        const int v = a[static_cast<size_t>(i)];
+        if (v < pivot) {
+            std::swap(a[static_cast<size_t>(lt++)], a[static_cast<size_t>(i++)]);
+        } else if (v > pivot) {
+            std::swap(a[static_cast<size_t>(i)], a[static_cast<size_t>(gt--)]);
+        } else {
+            ++i;
         }
     }
-    std::swap(a[static_cast<size_t>(i)], a[static_cast<size_t>(hi)]);
-    return i;
+    return {lt, gt};
 }
 
 // Place the element that belongs at index `target` (0-based ascending order).
 int quickselect(std::vector<int>& a, int lo, int hi, int target) {
-    while (true) {
-        const int p = partition(a, lo, hi);
-        if (p == target) {
-            return a[static_cast<size_t>(p)];
+    while (lo <= hi) {
+        const auto [eqLo, eqHi] = partition(a, lo, hi);
+        if (target >= eqLo && target <= eqHi) {
+            return a[static_cast<size_t>(target)];
         }
-        if (target < p) {
-            hi = p - 1;
+        if (target < eqLo) {
+            hi = eqLo - 1;
         } else {
-            lo = p + 1;
+            lo = eqHi + 1;
         }
     }
+    return a[static_cast<size_t>(target)];
 }
 
 int findKthLargest(std::vector<int> nums, int k) {
@@ -46,7 +55,21 @@ int findKthLargest(std::vector<int> nums, int k) {
 int main() {
     std::srand(42);
     std::vector<int> nums = {3, 2, 1, 5, 6, 4};
-    const int k = 2;
-    std::cout << findKthLargest(nums, k) << " (expected 5)\n";
+    std::cout << findKthLargest(nums, 2) << " (expected 5)\n";
+
+    // Same shape as the TLE case: a few outliers, then a long run of duplicates.
+    std::vector<int> dups(100000, 1);
+    dups[1] = 2;
+    dups[2] = 3;
+    dups[3] = 4;
+    dups[4] = 5;
+    dups[dups.size() - 5] = -5;
+    dups[dups.size() - 4] = -4;
+    dups[dups.size() - 3] = -3;
+    dups[dups.size() - 2] = -2;
+    dups[dups.size() - 1] = -1;
+    std::cout << findKthLargest(dups, 1) << " (expected 5)\n";
+    std::cout << findKthLargest(dups, 5) << " (expected 1)\n";
+    std::cout << findKthLargest(dups, static_cast<int>(dups.size())) << " (expected -5)\n";
     return 0;
 }
